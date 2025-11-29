@@ -15,29 +15,23 @@
         }
         #tasty-mogilev { max-width: 900px; margin: 0 auto; background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
         
-        /* Стили для блока с орнаментом (ВРЕМЕННО С ПЛОШНЫМ ЦВЕТОМ) */
-        .header-with-ornament {
-            /* background-image: url('images/belorusskiy_ornament.jpg'); */ 
-            background-color: #8c0000; /* Временный плоский красный фон */
-            background-size: cover; 
-            background-position: center; 
-            padding: 30px 20px; 
-            margin-bottom: 30px; 
-            border-radius: 8px; 
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); 
+        /* Стили для заголовка с белорусским орнаментом */
+        h2 { 
             text-align: center; 
+            color: #fff; /* Изменен цвет текста на белый для контраста с орнаментом */
+            background-image: url('images/belarus_pattern.png'); /* ИЗМЕНЕНИЕ: Путь к изображению орнамента */
+            background-size: cover; /* ИЗМЕНЕНИЕ: Растягиваем узор на всю ширину */
+            background-repeat: no-repeat; /* ИЗМЕНЕНИЕ: Не повторять узор */
+            background-position: center; /* ИЗМЕНЕНИЕ: Центрируем узор */
+            padding: 20px 15px; /* Увеличены отступы для лучшего отображения узора */
+            margin-bottom: 30px; 
+            border-radius: 4px; /* Немного скругляем углы */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Легкая тень */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3); /* Тень для текста */
+            font-size: 2.2em; /* Увеличен размер шрифта */
+            letter-spacing: 1px; /* Расстояние между буквами */
         }
 
-        h2 { 
-            color: #fff; 
-            text-align: center; 
-            border-bottom: none; 
-            padding-bottom: 0; 
-            margin: 0; 
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8); 
-            font-size: 2.5em; 
-            line-height: 1.2;
-        }
         h3 { color: #5a5a5a; font-size: 1.5em; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 35px; }
         .category { margin-bottom: 20px; }
         
@@ -55,7 +49,7 @@
             overflow: hidden; 
         }
         
-        /* Блок с текстом */
+        /* Блок с текстом: Чистый вид, но с большим отступом от изображения */
         .item-info {
             flex: 1; 
             padding: 15px; 
@@ -109,21 +103,13 @@
                 border-radius: 4px; 
                 background-color: transparent; 
             }
-            .header-with-ornament {
-                padding: 15px;
-            }
-            h2 {
-                font-size: 2em;
-            }
         }
     </style>
 </head>
 <body>
 
 <section id="tasty-mogilev">
-    <div class="header-with-ornament">
-        <h2>ВКУСНЫЙ МОГИЛЁВ</h2> 
-    </div>
+    <h2>ВКУСНЫЙ МОГИЛЁВ</h2> 
     
     <div class="category">
         <h3>🍽️ Блюда</h3>
