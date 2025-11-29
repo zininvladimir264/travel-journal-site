@@ -55,8 +55,7 @@
         .category { 
             margin-bottom: 20px; 
             display: grid; 
-            /* Увеличиваем minmax для более широких карточек */
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
             gap: 15px; 
         }
         
@@ -65,40 +64,39 @@
             border: 1px solid #ddd; 
             border-radius: 8px; 
             background-color: #fff;
-            /* Увеличиваем внутренние отступы для большей высоты карточки */
-            padding: 20px; 
+            padding: 18px; 
             text-align: center; 
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            overflow: hidden; /* Добавляем, чтобы увеличенное изображение не выходило за границы карточки по умолчанию */
-            position: relative; /* Для правильной работы z-index при наведении на изображение */
+            overflow: hidden; 
+            position: relative; 
         }
         
-        /* --- СТИЛИ ДЛЯ ИЗОБРАЖЕНИЯ (ПРЯМОУГОЛЬНИК) --- */
+        /* --- Стили для ИЗОБРАЖЕНИЯ (ПРЯМОУГОЛЬНИК) --- */
         .item img { 
-            width: 100%; /* Фото занимает всю ширину карточки */
-            height: 220px; /* Увеличена высота фотографий */
-            object-fit: cover; /* Фото заполняет область, обрезая лишнее, но без полей */
-            border-radius: 4px; /* Немного скругленные углы */
-            margin: 0 auto 15px auto; /* Отступ от фото до текста */
+            width: 100%; 
+            height: 220px; 
+            object-fit: cover; 
+            border-radius: 4px; 
+            margin: 0 auto 10px auto; 
             display: block; 
             border: 1px solid #ddd; 
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border 0.3s ease-in-out; 
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
+            z-index: 1; 
+            position: relative;
         }
 
         /* --- ЭФФЕКТ УВЕЛИЧЕНИЯ (ПРИ НАВЕДЕНИИ) --- */
         .item img:hover {
-            transform: scale(1.1); /* Увеличение на 10% */
-            position: relative; 
-            z-index: 10; /* Отображает поверх соседних элементов */
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3); 
-            border: 1px solid #783e49; 
+            transform: scale(1.1); 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3); 
+            z-index: 2; 
         }
         
         /* Общий контейнер текста */
         .item-info {
             padding: 0; 
             margin: 0; 
-            min-height: 40px; /* Для названий в две строки */
+            min-height: 40px; 
         }
         
         /* Название блюда */
@@ -115,7 +113,7 @@
             color: #666; 
             text-align: left; 
             line-height: 1.4;
-            min-height: 90px; /* Немного увеличено для большей высоты карточки */
+            min-height: 80px; 
         }
         
         /* Жирный текст в описании */
