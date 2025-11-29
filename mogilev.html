@@ -2,112 +2,280 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Могилёв: Кулинарный гид</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ВКУСНЫЙ МОГИЛЁВ</title>
     <style>
-        /* -------------------------------------- */
-        /* Стили, которые вы предоставили ранее */
-        /* -------------------------------------- */
-
-        /* Общие стили для читаемости */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f8f8f8; /* Легкий фон */
-        }
-
-        /* Оформление основного заголовка */
-        h2 {
-            color: #b0571d;
-            border-bottom: 2px solid #b0571d;
-            padding-bottom: 5px;
-            margin-top: 20px;
-        }
-
-        /* Оформление заголовков разделов (Блюда, Водка, Пиво) */
-        h3 {
-            color: #333;
-            margin-top: 30px;
-            margin-bottom: 10px;
-            font-size: 1.2em;
-        }
-
-        /* Стиль для списка */
-        ol {
-            padding-left: 0;
-            list-style: none; /* Убираем стандартные нумераторы */
-        }
-
-        /* Стиль для каждого пункта (как отдельная карточка) */
-        li {
-            margin-bottom: 25px;
-            padding: 15px;
-            border: 1px solid #ccc; /* Добавленная рамка для визуального разделения */
-            border-radius: 8px;
-            overflow: hidden; /* Для управления плавающими элементами, если они будут */
-        }
-        
-        /* Дополнительный стиль для изображений (для наглядности) */
-        li img {
-            width: 100%;
-            max-width: 400px; /* Ограничиваем ширину фото */
-            height: auto;
-            display: block; /* Располагаем фото на отдельной строке */
-            margin-top: 15px;
-            border-radius: 4px;
-        }
-        
-        /* Стиль для названия блюда */
-        li b {
-            font-size: 1.1em;
-            display: block;
-            margin-bottom: 5px;
-        }
-        
+        /* Базовые стили для демонстрации */
+        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; background-color: #f4f4f4; }
+        #tasty-mogilev { max-width: 900px; margin: 0 auto; background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+        h2 { text-align: center; color: #333; border-bottom: 2px solid #ccc; padding-bottom: 10px; margin-bottom: 30px; }
+        h3 { color: #5a5a5a; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 25px; }
+        .category { margin-bottom: 20px; }
+        /* Измененный стиль для элементов без img */
+        .item { display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 20px; padding: 10px; border: 1px solid #f0f0f0; border-radius: 4px; }
+        .item-placeholder { font-style: italic; color: #999; margin-bottom: 10px; padding: 5px; border: 1px dashed #ccc; background-color: #fafafa; }
+        .item-info h4 { margin: 0 0 5px 0; color: #007bff; }
+        .item-info p { margin: 0; font-size: 0.9em; color: #666; }
     </style>
 </head>
 <body>
 
-    <h2> | ВКУСНЫЙ МОГИЛЁВ </h2>
-
-    <h3> БЛЮДА </h3>
-    <ol>
-        <li>
-            <b>Драники</b>
-            <p>Классические оладьи из тертого картофеля. Обязательно попробуйте!</p>
-            <p>Подаются со сметаной, или же с мачанкой (густой мясной соус).</p>
-            <img src="images/draniki.jpg" alt="Фотография драников"> 
-        </li>
-        
-        <li>
-            <b>Мачанка и Верещака</b>
-            <p>Густой, наваристый мясной соус из свинины, копченостей и колбас.</p>
-            <p>Едят, макая в него пышные блины (гречневые или пшеничные).</p>
-            <img src="images/machanka.jpg" alt="Мачанка и Верещака">
-        </li>
-        
-        <li>
-            <b>Холодник (Свекольник)</b>
-            <p>Охлажденный летний суп на основе свекольного отвара.</p>
-            <p>Подается со сметаной, свежей зеленью и половиной вареного яйца.</p>
-            <img src="images/holodnik.jpg" alt="Холодник (Свекольник)">
-        </li>
-    </ol>
-
-    <h3> ВОДКА </h3>
-    <ol>
-        <li>
-            <b>Вечерний Могилев</b>
-            <p>Классическая мягкая водка на спирте "Люкс". Подходит к традиционным белорусским холодным закускам и соленьям.</p>
-            <img src="images/vodka/vecherniy.jpg" alt="Водка Вечерний Могилев">
-        </li>
-        <li>
-            <b>Климовичская</b>
-            <p>Еще один местный сорт, отличается особой чистотой.</p>
-            <img src="images/vodka/klimovichskaya.jpg" alt="Водка Климовичская">
-        </li>
-    </ol>
+<section id="tasty-mogilev">
+    <h2>ВКУСНЫЙ МОГИЛЁВ: Блюда и Напитки</h2>
     
+    <div class="category">
+        <h3>🍽️ Блюда</h3>
+        
+        <div class="item">
+            <div class="item-placeholder">[Image of Draniki with sour cream]</div>
+            <div class="item-info">
+                <h4>Драники</h4>
+                <p>Классические оладьи из тёртого картофеля. Подаются со сметаной или с мачанкой.</p>
+            </div>
+        </div>
+        
+        <div class="item">
+            <div class="item-placeholder">[Image of Machanka and Vereshchaka served with thick pancakes]</div>
+            <div class="item-info">
+                <h4>Мачанка и Верещака</h4>
+                <p>Густой, наваристый мясной соус из свинины, который едят, макая в него пышные блины.</p>
+            </div>
+        </div>
+        
+        <div class="item">
+            <div class="item-placeholder">[Image of Holodnik (cold beetroot soup)]</div>
+            <div class="item-info">
+                <h4>Холодник (Свекольник)</h4>
+                <p>Охлажденный летний суп на основе свекольного отвара. Идеально освежает в жару.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="category">
+        <h3>🥃 Водка</h3>
+        
+        <div class="item">
+            <div class="item-placeholder"></div>
+            <div class="item-info">
+                <h4>Вечерний Могилев</h4>
+                <p>Классическая мягкая водка на спирте "Люкс", местное производство.</p>
+            </div>
+        </div>
+        
+        <div class="item">
+            <div class="item-placeholder"></div>
+            <div class="item-info">
+                <h4>Климовичская</h4>
+                <p>Местный сорт, отличающийся особой чистотой и мягкостью.</p>
+            </div>
+        </div>
+        
+        <div class="item">
+            <div class="item-placeholder">[Image of Kryshtal vodka bottle]</div>
+            <div class="item-info">
+                <h4>Крышталь</h4>
+                <p>Продукт крупного белорусского производителя. Водка на натуральной основе.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="category">
+        <h3>🍺 Пиво</h3>
+        
+        <div class="item">
+            <div class="item-placeholder"></div>
+            <div class="item-info">
+                <h4>Криница Классическое</h4>
+                <p>Светлый лагер с гармоничным вкусом и легкой хмелевой горчинкой.</p>
+            </div>
+        </div>
+        
+        <div class="item">
+            <div class="item-placeholder"></div>
+            <div class="item-info">
+                <h4>Лидское Классическое</h4>
+                <p>Сбалансированный светлый лагер, приготовленный по традиционной рецептуре.</p>
+            </div>
+        </div>
+        
+        <div class="item">
+            <div class="item-placeholder"></div>
+            <div class="item-info">
+                <h4>Аливария Золотое</h4>
+                <p>Светлый лагер с чистым солодовым вкусом, один из самых популярных сортов в Беларуси.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h3>🧉 Напитки (Другие)</h3>
+        
+        <div class="item">
+            <div class="item-placeholder">[Image of Mogilevsky Kvas bottle]</div>
+            <div class="item-info">
+                <h4>Могилевский Квас</h4>
+                <p>Традиционный хлебный квас натурального брожения с кисло-сладким вкусом.</p>
+            </div>
+        </div>
+        
+        <div class="item">
+            <div class="item-placeholder"></div>
+            <div class="item-info">
+                <h4>Сидр Могилевский Золотистый</h4>
+                <p>Освежающий полусладкий газированный сидр с тонким яблочным вкусом.</p>
+            </div>
+        </div>
+        
+        <div class="item">
+            <div class="item-placeholder"></div>
+            <div class="item-info">
+                <h4>Крамбамбуля</h4>
+                <p>Белорусская алкогольная настойка на водке, меде и пряностях. Может подаваться горячей.</p>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ВКУСНЫЙ МОГИЛЁВ</title>
+    <style>
+        /* Базовые стили для демонстрации */
+        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; background-color: #f4f4f4; }
+        #tasty-mogilev { max-width: 900px; margin: 0 auto; background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+        h2 { text-align: center; color: #333; border-bottom: 2px solid #ccc; padding-bottom: 10px; margin-bottom: 30px; }
+        h3 { color: #5a5a5a; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 25px; }
+        .category { margin-bottom: 20px; }
+        /* Измененный стиль для элементов без img */
+        .item { display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 20px; padding: 10px; border: 1px solid #f0f0f0; border-radius: 4px; }
+        .item-placeholder { font-style: italic; color: #999; margin-bottom: 10px; padding: 5px; border: 1px dashed #ccc; background-color: #fafafa; }
+        .item-info h4 { margin: 0 0 5px 0; color: #007bff; }
+        .item-info p { margin: 0; font-size: 0.9em; color: #666; }
+    </style>
+</head>
+<body>
+
+<section id="tasty-mogilev">
+    <h2>ВКУСНЫЙ МОГИЛЁВ: Блюда и Напитки</h2>
+    
+    <div class="category">
+        <h3>🍽️ Блюда</h3>
+        
+        <div class="item">
+            <div class="item-placeholder">[Image of Draniki with sour cream]</div>
+            <div class="item-info">
+                <h4>Драники</h4>
+                <p>Классические оладьи из тёртого картофеля. Подаются со сметаной или с мачанкой.</p>
+            </div>
+        </div>
+        
+        <div class="item">
+            <div class="item-placeholder">[Image of Machanka and Vereshchaka served with thick pancakes]</div>
+            <div class="item-info">
+                <h4>Мачанка и Верещака</h4>
+                <p>Густой, наваристый мясной соус из свинины, который едят, макая в него пышные блины.</p>
+            </div>
+        </div>
+        
+        <div class="item">
+            <div class="item-placeholder">[Image of Holodnik (cold beetroot soup)]</div>
+            <div class="item-info">
+                <h4>Холодник (Свекольник)</h4>
+                <p>Охлажденный летний суп на основе свекольного отвара. Идеально освежает в жару.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="category">
+        <h3>🥃 Водка</h3>
+        
+        <div class="item">
+            <div class="item-placeholder"></div>
+            <div class="item-info">
+                <h4>Вечерний Могилев</h4>
+                <p>Классическая мягкая водка на спирте "Люкс", местное производство.</p>
+            </div>
+        </div>
+        
+        <div class="item">
+            <div class="item-placeholder"></div>
+            <div class="item-info">
+                <h4>Климовичская</h4>
+                <p>Местный сорт, отличающийся особой чистотой и мягкостью.</p>
+            </div>
+        </div>
+        
+        <div class="item">
+            <div class="item-placeholder">[Image of Kryshtal vodka bottle]</div>
+            <div class="item-info">
+                <h4>Крышталь</h4>
+                <p>Продукт крупного белорусского производителя. Водка на натуральной основе.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="category">
+        <h3>🍺 Пиво</h3>
+        
+        <div class="item">
+            <div class="item-placeholder"></div>
+            <div class="item-info">
+                <h4>Криница Классическое</h4>
+                <p>Светлый лагер с гармоничным вкусом и легкой хмелевой горчинкой.</p>
+            </div>
+        </div>
+        
+        <div class="item">
+            <div class="item-placeholder"></div>
+            <div class="item-info">
+                <h4>Лидское Классическое</h4>
+                <p>Сбалансированный светлый лагер, приготовленный по традиционной рецептуре.</p>
+            </div>
+        </div>
+        
+        <div class="item">
+            <div class="item-placeholder"></div>
+            <div class="item-info">
+                <h4>Аливария Золотое</h4>
+                <p>Светлый лагер с чистым солодовым вкусом, один из самых популярных сортов в Беларуси.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h3>🧉 Напитки (Другие)</h3>
+        
+        <div class="item">
+            <div class="item-placeholder">[Image of Mogilevsky Kvas bottle]</div>
+            <div class="item-info">
+                <h4>Могилевский Квас</h4>
+                <p>Традиционный хлебный квас натурального брожения с кисло-сладким вкусом.</p>
+            </div>
+        </div>
+        
+        <div class="item">
+            <div class="item-placeholder"></div>
+            <div class="item-info">
+                <h4>Сидр Могилевский Золотистый</h4>
+                <p>Освежающий полусладкий газированный сидр с тонким яблочным вкусом.</p>
+            </div>
+        </div>
+        
+        <div class="item">
+            <div class="item-placeholder"></div>
+            <div class="item-info">
+                <h4>Крамбамбуля</h4>
+                <p>Белорусская алкогольная настойка на водке, меде и пряностях. Может подаваться горячей.</p>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
 </body>
 </html>
