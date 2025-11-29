@@ -20,15 +20,15 @@
         
         /* Стиль карточки: ТЕКСТ СЛЕВА, ФОТО СПРАВА */
         .item { 
-            display: flex;
-            align-items: flex-start; 
+            display: flex; 
+            align-items: flex-start; /* Текст прижат к верху */
             justify-content: space-between;
             margin-bottom: 15px; 
             padding: 10px; 
             border: 1px solid #ddd; 
             border-radius: 4px; 
             background-color: #fff;
-            min-height: 370px; /* ИЗМЕНЕНИЕ: Возвращено к 370px */
+            min-height: 220px; /* Компактная высота */
         }
         
         /* Блок с текстом */
@@ -50,9 +50,9 @@
         
         /* Блок с изображением: КРУГЛЫЙ КОНТЕЙНЕР */
         .item img { 
-            width: 350px; /* ИЗМЕНЕНИЕ: Возвращено к 350px */
-            height: 350px; /* ИЗМЕНЕНИЕ: Возвращено к 350px */
-            max-width: 350px; /* ИЗМЕНЕНИЕ: Возвращено к 350px */
+            width: 200px; /* Компактный размер изображения */
+            height: 200px; /* Компактный размер изображения */
+            max-width: 200px; 
             object-fit: contain; 
             border-radius: 50%; 
         }
@@ -73,7 +73,7 @@
                 width: 100%;
                 height: auto;
                 max-width: none;
-                margin-top: 10px;
+                margin: 10px 0;
                 border-radius: 4px; 
                 background-color: transparent; 
             }
