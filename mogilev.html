@@ -21,14 +21,15 @@
         /* Стиль карточки: ТЕКСТ СЛЕВА, ФОТО СПРАВА */
         .item { 
             display: flex; 
-            align-items: flex-start; /* Текст прижат к верху */
+            align-items: flex-start; 
             justify-content: space-between;
             margin-bottom: 15px; 
             padding: 10px; 
             border: 1px solid #ddd; 
             border-radius: 4px; 
             background-color: #fff;
-            min-height: 220px; /* Компактная высота */
+            min-height: 220px; 
+            overflow: hidden; /* Добавлено: Чтобы увеличенное изображение не выходило за границы карточки */
         }
         
         /* Блок с текстом */
@@ -50,11 +51,17 @@
         
         /* Блок с изображением: КРУГЛЫЙ КОНТЕЙНЕР */
         .item img { 
-            width: 200px; /* Компактный размер изображения */
-            height: 200px; /* Компактный размер изображения */
+            width: 200px; 
+            height: 200px; 
             max-width: 200px; 
             object-fit: contain; 
             border-radius: 50%; 
+            transition: transform 0.3s ease-in-out; /* Добавлено: Плавная анимация */
+        }
+
+        /* Эффект при наведении: Увеличение изображения */
+        .item img:hover {
+            transform: scale(1.5); /* ИЗМЕНЕНИЕ: Увеличение в 1.5 раза */
         }
 
         /* Адаптивность */
