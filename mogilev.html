@@ -12,7 +12,7 @@
         h3 { color: #5a5a5a; font-size: 1.5em; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 35px; }
         .category { margin-bottom: 20px; }
         
-        /* Стиль карточки: ТЕКСТ СЛЕВА, ФОТО СПРАВА. ЕДИНООБРАЗНАЯ ВЫСОТА! */
+        /* Стиль карточки: ТЕКСТ СЛЕВА, ФОТО СПРАВА */
         .item { 
             display: flex;
             align-items: center; 
@@ -22,7 +22,7 @@
             border: 1px solid #ddd; 
             border-radius: 4px; 
             background-color: #fff;
-            min-height: 200px;
+            min-height: 270px; /* Увеличена минимальная высота блока для квадратного изображения */
         }
         
         /* Блок с текстом */
@@ -34,20 +34,33 @@
         .item-info h4 { margin: 0 0 5px 0; color: #444; font-size: 1.1em; }
         .item-info p { margin: 0; font-size: 0.9em; color: #666; }
         
-        /* Блок с изображением */
+        /* Блок с изображением - СДЕЛАНО КВАДРАТНЫМ И ЗАПОЛНЯЮЩИМ ПРОСТРАНСТВО */
         .item img { 
-            width: 100%; 
-            max-width: 250px; 
-            height: 250px; /* Размер увеличен на 2 см */
-            object-fit: cover; 
+            width: 250px; /* Фиксированная ширина */
+            height: 250px; /* Фиксированная высота для квадратного изображения */
+            max-width: 250px; /* Ограничиваем максимальную ширину */
+            object-fit: cover; /* Изображение будет заполнять весь квадрат, обрезая лишнее */
             border-radius: 4px; 
         }
 
-        /* Адаптивность */
+        /* Адаптивность: На маленьких экранах изображение под текстом */
         @media (max-width: 650px) {
-            .item { flex-direction: column; align-items: flex-start; min-height: auto; }
-            .item-info { width: 100%; padding-right: 0; margin-bottom: 10px; }
-            .item img { width: 100%; height: auto; max-width: none; margin-top: 10px; }
+            .item {
+                flex-direction: column;
+                align-items: flex-start;
+                min-height: auto;
+            }
+            .item-info {
+                width: 100%;
+                padding-right: 0;
+                margin-bottom: 10px;
+            }
+            .item img {
+                width: 100%; /* Изображение на всю ширину */
+                height: auto; /* Высота подстраивается */
+                max-width: none;
+                margin-top: 10px;
+            }
         }
     </style>
 </head>
