@@ -11,7 +11,7 @@
             line-height: 1.6; 
             padding: 20px; 
             background-color: #f4f4f4; 
-            font-size: 18px; /* ИЗМЕНЕНИЕ: Увеличение базового размера шрифта */
+            font-size: 18px; 
         }
         #tasty-mogilev { max-width: 900px; margin: 0 auto; background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
         h2 { text-align: center; color: #783e49; border-bottom: 2px solid #a0a0a0; padding-bottom: 15px; margin-bottom: 30px; }
@@ -21,7 +21,7 @@
         /* Стиль карточки: ТЕКСТ СЛЕВА, ФОТО СПРАВА */
         .item { 
             display: flex;
-            align-items: flex-start;
+            align-items: flex-start; 
             justify-content: space-between;
             margin-bottom: 15px; 
             padding: 10px; 
@@ -30,7 +30,7 @@
             background-color: #fff;
             min-height: 370px; 
         }
-
+        
         /* Блок с текстом */
         .item-info {
             flex: 1; 
@@ -40,22 +40,22 @@
         .item-info h4 { 
             margin: 0 0 5px 0; 
             color: #444; 
-            font-size: 1.25em; /* ИЗМЕНЕНИЕ: Увеличение названий */
+            font-size: 1.25em; 
         }
         .item-info p { 
             margin: 0; 
-            font-size: 1em; /* ИЗМЕНЕНИЕ: Увеличение описаний (теперь равно 18px) */
+            font-size: 1em; 
             color: #666; 
         }
         
-        /* Блок с изображением: КРУГЛЫЙ КОНТЕЙНЕР с ФОНОМ */
+        /* Блок с изображением: КРУГЛЫЙ КОНТЕЙНЕР */
         .item img { 
             width: 350px; 
             height: 350px; 
             max-width: 350px; 
             object-fit: contain; 
             border-radius: 50%; 
-            background-color: #f0f0f0; 
+            /* УДАЛЕНО: background-color: #f0f0f0; */
         }
 
         /* Адаптивность */
