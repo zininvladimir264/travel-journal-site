@@ -67,19 +67,18 @@
             padding: 18px; 
             text-align: center; 
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            overflow: hidden; 
+            overflow: hidden; /* Важно для эффекта увеличения фото */
             position: relative; 
         }
         
         /* --- Стили для ИЗОБРАЖЕНИЯ (ПРЯМОУГОЛЬНИК) --- */
         .item img { 
-            width: 100%; 
-            height: 220px; 
-            object-fit: cover; 
+            width: 100%; /* Фото занимает всю ширину карточки */
+            height: 220px; /* Высота фотографии */
+            object-fit: cover; /* Фото заполняет пространство */
             border-radius: 4px; 
             margin: 0 auto 10px auto; 
             display: block; 
-            border: 1px solid #ddd; 
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
             z-index: 1; 
             position: relative;
@@ -87,7 +86,7 @@
 
         /* --- ЭФФЕКТ УВЕЛИЧЕНИЯ (ПРИ НАВЕДЕНИИ) --- */
         .item img:hover {
-            transform: scale(1.1); 
+            transform: scale(1.1); /* Увеличение */
             box-shadow: 0 8px 20px rgba(0,0,0,0.3); 
             z-index: 2; 
         }
