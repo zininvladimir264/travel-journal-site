@@ -55,9 +55,9 @@
         .category { 
             margin-bottom: 20px; 
             display: grid; 
-            /* Увеличен минимальный размер колонки для визуального расширения карточек */
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 15px; /* Немного уменьшен зазор между карточками */
+            /* Увеличиваем minmax для более широких карточек */
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); 
+            gap: 15px; 
         }
         
         /* Стили для КАРТОЧКИ (ITEM) */
@@ -65,53 +65,40 @@
             border: 1px solid #ddd; 
             border-radius: 8px; 
             background-color: #fff;
-            /* Увеличены внутренние отступы для увеличения высоты */
-            padding: 18px; 
+            /* Увеличиваем внутренние отступы для большей высоты карточки */
+            padding: 20px; 
             text-align: center; 
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            overflow: hidden; /* Добавляем, чтобы увеличенное изображение не выходило за границы карточки по умолчанию */
+            position: relative; /* Для правильной работы z-index при наведении на изображение */
         }
         
-        /* --- КОНТЕЙНЕР ДЛЯ ФОТОГРАФИИ (КРУГ) --- */
-        .img-container {
-            /* Увеличен размер круга с 150px до 180px */
-            width: 180px; 
-            height: 180px;
-            border-radius: 50%; 
-            overflow: hidden; 
-            margin: 0 auto 10px auto;
-            border: 3px solid #ddd;
-            transition: all 0.3s ease-in-out; 
-        }
-
-        /* Изображение внутри круга */
-        .img-container img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: contain; /* Показываем фото целиком (необрезанным) */
-            display: block;
-            transition: all 0.3s ease-in-out;
-            background-color: #fff; 
+        /* --- СТИЛИ ДЛЯ ИЗОБРАЖЕНИЯ (ПРЯМОУГОЛЬНИК) --- */
+        .item img { 
+            width: 100%; /* Фото занимает всю ширину карточки */
+            height: 220px; /* Увеличена высота фотографий */
+            object-fit: cover; /* Фото заполняет область, обрезая лишнее, но без полей */
+            border-radius: 4px; /* Немного скругленные углы */
+            margin: 0 auto 15px auto; /* Отступ от фото до текста */
+            display: block; 
+            border: 1px solid #ddd; 
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border 0.3s ease-in-out; 
         }
 
         /* --- ЭФФЕКТ УВЕЛИЧЕНИЯ (ПРИ НАВЕДЕНИИ) --- */
-        .img-container:hover {
-            width: 100%; /* Увеличиваем до ширины карточки */
-            /* Увеличена высота прямоугольника с 180px до 210px */
-            height: 210px; 
-            border-radius: 4px; 
-            z-index: 10;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        .item img:hover {
+            transform: scale(1.1); /* Увеличение на 10% */
+            position: relative; 
+            z-index: 10; /* Отображает поверх соседних элементов */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); 
             border: 1px solid #783e49; 
-        }
-        .img-container:hover img {
-            object-fit: cover; 
         }
         
         /* Общий контейнер текста */
         .item-info {
             padding: 0; 
             margin: 0; 
-            min-height: 40px; 
+            min-height: 40px; /* Для названий в две строки */
         }
         
         /* Название блюда */
@@ -128,7 +115,7 @@
             color: #666; 
             text-align: left; 
             line-height: 1.4;
-            min-height: 80px; 
+            min-height: 90px; /* Немного увеличено для большей высоты карточки */
         }
         
         /* Жирный текст в описании */
@@ -163,9 +150,7 @@
             <div class="item-info">
                 <h4>Драники</h4>
             </div>
-            <div class="img-container">
-                <img src="images/draniki.jpg" alt="Драники со сметаной">
-            </div>
+            <img src="images/draniki.jpg" alt="Драники со сметаной">
             <div class="item-info">
                 <p>Классические оладьи из тёртого картофеля. Подаются со сметаной, или же с мачанкой (густой мясной соус). <strong>В идеальном исполнении: хрустящие снаружи, нежные внутри.</strong></p>
             </div>
@@ -175,9 +160,7 @@
             <div class="item-info">
                 <h4>Мачанка</h4> 
             </div>
-            <div class="img-container">
-                <img src="images/machanka.jpg" alt="Мачанка с блинами">
-            </div>
+            <img src="images/machanka.jpg" alt="Мачанка с блинами">
             <div class="item-info">
                 <p>Густой, наваристый мясной соус из свинины, копченостей и колбас. Едят, макая в него пышные блины (гречневые или пшеничные). <strong>Густой мясной соус, который подарит вам вкус настоящей деревни.</strong></p>
             </div>
@@ -187,9 +170,7 @@
             <div class="item-info">
                 <h4>Холодник</h4>
             </div>
-            <div class="img-container">
-                <img src="images/holodnik.jpg" alt="Холодник">
-            </div>
+            <img src="images/holodnik.jpg" alt="Холодник">
             <div class="item-info">
                 <p>Охлажденный летний суп на основе свекольного отвара. Идеально освежает в жару. <strong>Легендарный суп, который моментально освежает в жару.</strong></p>
             </div>
@@ -204,9 +185,7 @@
             <div class="item-info">
                 <h4>Вечерний Могилев</h4>
             </div>
-            <div class="img-container">
-                <img src="images/vecherny mogilev.jpg" alt="Водка Вечерний Могилев">
-            </div>
+            <img src="images/vecherny mogilev.jpg" alt="Водка Вечерний Могилев">
             <div class="item-info">
                 <p>Классическая мягкая водка на спирте "Люкс", местное производство. <strong>Визитная карточка Могилёва. Классика в чистом виде.</strong></p>
             </div>
@@ -216,9 +195,7 @@
             <div class="item-info">
                 <h4>Alpha line</h4>
             </div>
-            <div class="img-container">
-                <img src="images/alpha line.jpg" alt="Водка Alpha line">
-            </div>
+            <img src="images/alpha line.jpg" alt="Водка Alpha line">
             <div class="item-info">
                 <p>Местный сорт, отличающийся особой чистотой и мягкостью. <strong>Эталон чистоты. Для тех, кто выбирает безупречное качество.</strong></p>
             </div>
@@ -228,9 +205,7 @@
             <div class="item-info">
                 <h4>Крышталь</h4>
             </div>
-            <div class="img-container">
-                <img src="images/kryshtal.jpg" alt="Водка Крышталь">
-            </div>
+            <img src="images/kryshtal.jpg" alt="Водка Крышталь">
             <div class="item-info">
                 <p>Продукт крупного белорусского производителя. Водка на натуральной основе. <strong>Один из самых узнаваемых белорусских брендов.</strong></p>
             </div>
@@ -245,9 +220,7 @@
             <div class="item-info">
                 <h4>Криница Классическое</h4>
             </div>
-            <div class="img-container">
-                <img src="images/krinica klassicheskoe.jpg" alt="Пиво Криница Классическое">
-            </div>
+            <img src="images/krinica klassicheskoe.jpg" alt="Пиво Криница Классическое">
             <div class="item-info">
                 <p>Светлый лагер с гармоничным вкусом и легкой хмелевой горчинкой. <strong>Народный любимец. Легкий лагер с приятной горчинкой.</strong></p>
             </div>
@@ -257,9 +230,7 @@
             <div class="item-info">
                 <h4>Лидское Классическое</h4>
             </div>
-            <div class="img-container">
-                <img src="images/lidskoe klassicheskoe.jpg" alt="Пиво Лидское Классическое">
-            </div>
+            <img src="images/lidskoe klassicheskoe.jpg" alt="Пиво Лидское Классическое">
             <div class="item-info">
                 <p>Сбалансированный светлый лагер, приготовленный по традиционной рецептуре. <strong>Пиво с богатой историей, сваренное по старинным рецептам.</strong></p>
             </div>
@@ -269,9 +240,7 @@
             <div class="item-info">
                 <h4>Аливария<br>Золотое</h4> 
             </div>
-            <div class="img-container">
-                <img src="images/alivaria_zolotoe.jpg" alt="Пиво Аливария Золотое">
-            </div>
+            <img src="images/alivaria_zolotoe.jpg" alt="Пиво Аливария Золотое">
             <div class="item-info">
                 <p>Светлый лагер с чистым солодовым вкусом, один из самых популярных сортов в Беларуси. <strong>Премиальный золотистый лагер. Мягкий и сбалансированный.</strong></p>
             </div>
@@ -286,9 +255,7 @@
             <div class="item-info">
                 <h4>Могилевский Квас</h4>
             </div>
-            <div class="img-container">
-                <img src="images/mogilevsky kvas.jpg" alt="Могилевский Квас">
-            </div>
+            <img src="images/mogilevsky kvas.jpg" alt="Могилевский Квас">
             <div class="item-info">
                 <p>Традиционный хлебный квас натурального брожения с кисло-сладким вкусом. <strong>Традиционный квас натурального брожения. Бодрит и утоляет жажду.</strong></p>
             </div>
@@ -298,9 +265,7 @@
             <div class="item-info">
                 <h4>Сидр Могилевский</h4>
             </div>
-            <div class="img-container">
-                <img src="images/sidr mogilevsky solotisty.jpg" alt="Сидр Могилевский Золотистый">
-            </div>
+            <img src="images/sidr mogilevsky solotisty.jpg" alt="Сидр Могилевский Золотистый">
             <div class="item-info">
                 <p>Освежающий полусладкий газированный сидр с тонким яблочным вкусом. <strong>Легкий яблочный сидр. Идеален для расслабления.</strong></p>
             </div>
@@ -310,9 +275,7 @@
             <div class="item-info">
                 <h4>Крамбамбуля</h4>
             </div>
-            <div class="img-container">
-                <img src="images/krambamulia.jpg" alt="Крамбамбуля">
-            </div>
+            <img src="images/krambamulia.jpg" alt="Крамбамбуля">
             <div class="item-info">
                 <p>Белорусская алкогольная настойка на водке, меде и пряностях. Может подаваться горячей. <strong>Настойка на меду и пряностях. Согревающий вкус белорусского застолья.</strong></p>
             </div>
