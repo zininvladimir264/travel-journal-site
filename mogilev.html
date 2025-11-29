@@ -15,27 +15,35 @@
         }
         #tasty-mogilev { max-width: 900px; margin: 0 auto; background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
         
-        /* Стили для заголовка с белорусским орнаментом */
+        /* Стили для заголовка: Текст НАД узором во всю ширину */
         h2 { 
             text-align: center; 
-            color: #fff; /* Изменен цвет текста на белый для контраста с орнаментом */
-            background-image: url('images/belarus_pattern.png'); /* ИЗМЕНЕНИЕ: Путь к изображению орнамента */
-            background-size: cover; /* ИЗМЕНЕНИЕ: Растягиваем узор на всю ширину */
-            background-repeat: no-repeat; /* ИЗМЕНЕНИЕ: Не повторять узор */
-            background-position: center; /* ИЗМЕНЕНИЕ: Центрируем узор */
-            padding: 20px 15px; /* Увеличены отступы для лучшего отображения узора */
+            color: #3C6A3C; /* Темно-зеленый текст */
+            
+            /* Фон для всего заголовка: Ваш светло-зеленый узор */
+            background-image: url('images/belarus_pattern.jpg'); 
+            background-color: #e0f2e0; /* Светло-зеленый запасной фон */
+            background-repeat: repeat-x; /* ИЗМЕНЕНИЕ: Повторение узора по всей ширине */
+            background-size: auto 100%; /* Узор полностью заполняет высоту заголовка */
+            background-position: center center; 
+            
+            padding: 25px 15px; /* Увеличенные отступы, чтобы узор был виден */
             margin-bottom: 30px; 
-            border-radius: 4px; /* Немного скругляем углы */
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Легкая тень */
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3); /* Тень для текста */
-            font-size: 2.2em; /* Увеличен размер шрифта */
-            letter-spacing: 1px; /* Расстояние между буквами */
+            border-radius: 4px; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2); 
+            
+            text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff; /* Легкая белая тень, чтобы текст был четче на фоне узора */
+            font-size: 2.2em; 
+            letter-spacing: 2px; 
+            line-height: 1.2;
         }
 
-        h3 { color: #5a5a5a; font-size: 1.5em; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 35px; }
+        /* Удалили .pattern-divider, так как он больше не нужен */
+
+        h3 { color: #783e49; font-size: 1.5em; border-bottom: 2px solid #ddd; padding-bottom: 5px; margin-top: 35px; } 
         .category { margin-bottom: 20px; }
         
-        /* Стиль карточки: ТЕКСТ СЛЕВА, ФОТО СПРАВА */
+        /* Стиль карточки: (оставляем без изменений) */
         .item { 
             display: flex; 
             align-items: flex-start; 
@@ -48,61 +56,18 @@
             min-height: 220px; 
             overflow: hidden; 
         }
-        
-        /* Блок с текстом: Чистый вид, но с большим отступом от изображения */
-        .item-info {
-            flex: 1; 
-            padding: 15px; 
-            margin-right: 50px; 
-            min-width: 300px;
-        }
-        .item-info h4 { 
-            margin: 0 0 5px 0; 
-            color: #444; 
-            font-size: 1.25em; 
-        }
-        .item-info p { 
-            margin: 0; 
-            font-size: 1em; 
-            color: #666; 
-        }
-        
-        /* Блок с изображением: КРУГЛЫЙ КОНТЕЙНЕР */
+        .item-info { flex: 1; padding: 15px; margin-right: 50px; min-width: 300px; }
+        .item-info h4 { margin: 0 0 5px 0; color: #444; font-size: 1.25em; }
+        .item-info p { margin: 0; font-size: 1em; color: #666; }
         .item img { 
-            width: 200px; 
-            height: 200px; 
-            max-width: 200px; 
-            object-fit: contain; 
-            border-radius: 50%; 
-            transition: transform 0.3s ease-in-out; 
+            width: 200px; height: 200px; max-width: 200px; object-fit: contain; 
+            border-radius: 50%; transition: transform 0.3s ease-in-out; 
         }
-
-        /* Эффект при наведении: Увеличение изображения */
-        .item img:hover {
-            transform: scale(1.5); 
-        }
-
-        /* Адаптивность */
+        .item img:hover { transform: scale(1.5); }
         @media (max-width: 650px) {
-            .item {
-                flex-direction: column;
-                align-items: flex-start;
-                min-height: auto;
-            }
-            .item-info {
-                width: 100%;
-                padding: 10px 0; 
-                margin-right: 0; 
-                margin-bottom: 10px;
-            }
-            .item img {
-                width: 100%;
-                height: auto;
-                max-width: none;
-                margin: 10px 0;
-                border-radius: 4px; 
-                background-color: transparent; 
-            }
+            .item { flex-direction: column; align-items: flex-start; min-height: auto; }
+            .item-info { width: 100%; padding: 10px 0; margin-right: 0; margin-bottom: 10px; }
+            .item img { width: 100%; height: auto; max-width: none; margin: 10px 0; border-radius: 4px; background-color: transparent; }
         }
     </style>
 </head>
