@@ -18,29 +18,35 @@
         /* Стили для заголовка: Текст НАД узором во всю ширину */
         h2 { 
             text-align: center; 
-            color: #3C6A3C; /* Темно-зеленый текст */
-            
-            /* Фон для всего заголовка: Ваш светло-зеленый узор */
+            color: #3C6A3C; 
             background-image: url('images/belarus_pattern.jpg'); 
-            background-color: #e0f2e0; /* Светло-зеленый запасной фон */
-            background-repeat: repeat-x; /* ИЗМЕНЕНИЕ: Повторение узора по всей ширине */
-            background-size: auto 100%; /* Узор полностью заполняет высоту заголовка */
+            background-color: #e0f2e0; 
+            background-repeat: repeat-x; 
+            background-size: auto 100%; 
             background-position: center center; 
-            
-            padding: 25px 15px; /* Увеличенные отступы, чтобы узор был виден */
+            padding: 25px 15px; 
             margin-bottom: 30px; 
             border-radius: 4px; 
             box-shadow: 0 2px 4px rgba(0,0,0,0.2); 
-            
-            text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff; /* Легкая белая тень, чтобы текст был четче на фоне узора */
+            text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff; 
             font-size: 2.2em; 
             letter-spacing: 2px; 
             line-height: 1.2;
         }
 
-        /* Удалили .pattern-divider, так как он больше не нужен */
-
-        h3 { color: #783e49; font-size: 1.5em; border-bottom: 2px solid #ddd; padding-bottom: 5px; margin-top: 35px; } 
+        /* ИЗМЕНЕНИЕ: Стиль подзаголовков категорий (h3) */
+        h3 { 
+            color: #3C6A3C; /* Темно-зеленый текст */
+            font-size: 1.5em; 
+            margin-top: 35px; 
+            padding: 10px 0 5px 15px; /* Отступы для создания полосы слева */
+            
+            /* Декоративные полосы */
+            border-bottom: 1px solid #ddd; 
+            border-left: 8px solid #90EE90; /* Жирная светло-зеленая вертикальная полоса */
+            border-radius: 4px; 
+        } 
+        
         .category { margin-bottom: 20px; }
         
         /* Стиль карточки: (оставляем без изменений) */
