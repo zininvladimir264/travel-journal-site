@@ -100,13 +100,14 @@
             border: 1px solid #783e49; /* Акцентная рамка */
         }
         .img-container:hover img {
-            object-fit: cover; /* Заполняем прямоугольник (может обрезать, но выглядит лучше) */
+            object-fit: cover; /* Заполняем прямоугольник */
         }
         
         /* Общий контейнер текста */
         .item-info {
             padding: 0; 
             margin: 0; 
+            min-height: 40px; /* Чтобы названия в две строки не ломали высоту */
         }
         
         /* Название блюда */
@@ -262,7 +263,7 @@
         
         <div class="item">
             <div class="item-info">
-                <h4>Аливария Золотое</h4>
+                <h4>Аливария<br>Золотое</h4> 
             </div>
             <div class="img-container">
                 <img src="images/alivaria_zolotoe.jpg" alt="Пиво Аливария Золотое">
