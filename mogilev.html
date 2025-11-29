@@ -22,7 +22,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
         }
         
-        /* Стили для заголовка (без изменений) */
+        /* Стили для заголовка сайта */
         h2 { 
             text-align: center; 
             color: #3C6A3C; 
@@ -34,81 +34,81 @@
             padding: 25px 15px; 
             margin-bottom: 30px; 
             border-radius: 4px; 
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2); 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
             text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff; 
             font-size: 2.2em; 
             letter-spacing: 2px; 
             line-height: 1.2;
         }
 
+        /* Стили для заголовков категорий (БЛЮДА, ВОДКА и т.д.) */
         h3 { 
             color: #783e49; 
             font-size: 1.5em; 
             border-bottom: 2px solid #ddd; 
             padding-bottom: 5px; 
             margin-top: 35px; 
+            margin-bottom: 15px; /* Добавим отступ от заголовка до карточек */
         } 
         
-        /* Стили для контейнера категорий (для 3 колонок) */
+        /* Стили для контейнера карточек (3 колонки) */
         .category { 
             margin-bottom: 20px; 
-            display: grid; /* Используем Grid для расположения элементов в 3 колонки */
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 3 колонки */
-            gap: 20px; /* Расстояние между карточками */
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 20px; 
         }
         
         /* Стили для КАРТОЧКИ (ITEM) */
         .item { 
-            /* Удаляем flex-стили */
             border: 1px solid #ddd; 
             border-radius: 8px; 
             background-color: #fff;
-            padding: 15px; /* Увеличим внутренний отступ */
-            text-align: center; /* Центрируем весь контент (текст и фото) */
+            padding: 15px; 
+            text-align: center; 
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
         }
         
-        /* Блок с текстом (теперь он содержит только описание) */
+        /* Общий контейнер текста */
         .item-info {
-            padding: 0; /* Убираем лишние отступы */
+            padding: 0; 
             margin: 0; 
-            min-width: auto; /* Снимаем ограничения ширины */
         }
         
         /* Название блюда */
         .item-info h4 { 
-            margin: 0 0 10px 0; /* Отступ снизу для фото */
+            margin: 0 0 10px 0; 
             color: #444; 
             font-size: 1.3em; 
         }
         
         /* Описание */
         .item-info p { 
-            margin: 10px 0 0 0; /* Отступ сверху для описания */
+            margin: 10px 0 0 0; 
             font-size: 0.95em; 
             color: #666; 
-            text-align: left; /* Возвращаем выравнивание текста по левому краю */
+            text-align: left; 
             line-height: 1.4;
-            min-height: 80px; /* Зададим минимальную высоту для одинаковых карточек */
+            min-height: 80px; /* Для одинаковой высоты карточек */
         }
         
         /* Жирный текст в описании */
         .item-info p strong {
-             display: block; /* С новой строки */
+             display: block; 
              margin-top: 5px;
-             color: #783e49; /* Можно использовать цвет подзаголовков для акцента */
+             color: #783e49; 
         }
 
         /* Изображение */
         .item img { 
-            width: 150px; /* Уменьшим размер фото */
+            width: 150px; 
             height: 150px; 
             max-width: 100%;
-            object-fit: cover; /* Изображение должно полностью заполнить контейнер */
-            border-radius: 50%; /* Круглое фото */
-            margin: 0 auto 10px auto; /* Центрируем фото */
+            object-fit: cover; 
+            border-radius: 50%; 
+            margin: 0 auto 10px auto; 
             display: block; 
-            border: 3px solid #ddd; /* Рамка для выделения */
+            border: 3px solid #ddd; 
             transition: transform 0.3s ease-in-out; 
         }
 
@@ -117,15 +117,15 @@
             transform: scale(1.05); 
         }
 
-        /* Адаптивность: для маленьких экранов 1 колонка */
+        /* Адаптивность */
         @media (max-width: 800px) {
             .category {
-                grid-template-columns: 1fr 1fr; /* 2 колонки на планшетах */
+                grid-template-columns: 1fr 1fr; 
             }
         }
         @media (max-width: 550px) {
             .category {
-                grid-template-columns: 1fr; /* 1 колонка на мобильных */
+                grid-template-columns: 1fr; 
             }
         }
     </style>
@@ -135,6 +135,7 @@
 <section id="tasty-mogilev">
     <h2>ВКУСНЫЙ МОГИЛЁВ</h2> 
     
+    <h3>🍽️ Блюда</h3>
     <div class="category">
         
         <div class="item">
@@ -168,8 +169,9 @@
         </div>
     </div>
     
+    
+    <h3>🥃 Водка</h3>
     <div class="category">
-        <h3>🥃 Водка</h3>
         
         <div class="item">
             <div class="item-info">
@@ -202,8 +204,9 @@
         </div>
     </div>
     
+    
+    <h3>🍺 Пиво</h3>
     <div class="category">
-        <h3>🍺 Пиво</h3>
         
         <div class="item">
             <div class="item-info">
@@ -236,8 +239,9 @@
         </div>
     </div>
 
+    
+    <h3>🧉 Напитки (Другие)</h3>
     <div class="category">
-        <h3>🧉 Напитки (Другие)</h3>
         
         <div class="item">
             <div class="item-info">
