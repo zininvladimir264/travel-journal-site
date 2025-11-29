@@ -21,7 +21,7 @@
         /* Стиль карточки: ТЕКСТ СЛЕВА, ФОТО СПРАВА */
         .item { 
             display: flex; 
-            align-items: flex-start; 
+            align-items: flex-start; /* Возвращаем прижатие к верху */
             justify-content: space-between;
             margin-bottom: 15px; 
             padding: 10px; 
@@ -29,13 +29,14 @@
             border-radius: 4px; 
             background-color: #fff;
             min-height: 220px; 
-            overflow: hidden; /* Добавлено: Чтобы увеличенное изображение не выходило за границы карточки */
+            overflow: hidden; 
         }
         
-        /* Блок с текстом */
+        /* Блок с текстом: Чистый вид, но с большим отступом от изображения */
         .item-info {
             flex: 1; 
-            padding-right: 20px;
+            padding: 15px; /* Минимальные отступы */
+            margin-right: 50px; /* ИЗМЕНЕНИЕ: Большой горизонтальный отступ, визуально заполняет пустое место */
             min-width: 300px;
         }
         .item-info h4 { 
@@ -56,12 +57,12 @@
             max-width: 200px; 
             object-fit: contain; 
             border-radius: 50%; 
-            transition: transform 0.3s ease-in-out; /* Добавлено: Плавная анимация */
+            transition: transform 0.3s ease-in-out; 
         }
 
         /* Эффект при наведении: Увеличение изображения */
         .item img:hover {
-            transform: scale(1.5); /* ИЗМЕНЕНИЕ: Увеличение в 1.5 раза */
+            transform: scale(1.5); 
         }
 
         /* Адаптивность */
@@ -73,7 +74,8 @@
             }
             .item-info {
                 width: 100%;
-                padding-right: 0;
+                padding: 10px 0; 
+                margin-right: 0; 
                 margin-bottom: 10px;
             }
             .item img {
