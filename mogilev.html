@@ -11,10 +11,17 @@
         h2 { text-align: center; color: #333; border-bottom: 2px solid #ccc; padding-bottom: 10px; margin-bottom: 30px; }
         h3 { color: #5a5a5a; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 25px; }
         .category { margin-bottom: 20px; }
-        .item { margin-bottom: 20px; padding: 10px; border: 1px solid #f0f0f0; border-radius: 4px; }
-        .item-info h4 { margin: 0 0 5px 0; color: #007bff; }
-        .item-info p { margin: 0 0 10px 0; font-size: 0.9em; color: #666; }
-        .item-placeholder { font-style: italic; color: #999; padding: 10px; border: 1px dashed #ccc; background-color: #fafafa; display: block; text-align: center; }
+        .item { margin-bottom: 30px; padding: 15px; border: 1px solid #f0f0f0; border-radius: 4px; background-color: #fff; }
+        .item-info h4 { margin: 0 0 5px 0; color: #007bff; font-size: 1.2em; }
+        .item-info p { margin: 0 0 10px 0; font-size: 0.95em; color: #444; }
+        .item img { 
+            width: 100%; 
+            max-height: 300px; /* Ограничиваем высоту для лучшего вида */
+            object-fit: cover; 
+            margin-top: 10px; 
+            border-radius: 4px; 
+            border: 1px solid #ddd; 
+        }
     </style>
 </head>
 <body>
@@ -28,17 +35,17 @@
         <div class="item">
             <div class="item-info">
                 <h4>Драники</h4>
-                <p>Классические оладьи из тёртого картофеля. Подаются со сметаной или с мачанкой.</p>
+                <p>Классические оладьи из тёртого картофеля. Обязательно попробуйте! Подаются со сметаной, или же с мачанкой (густой мясной соус).</p>
             </div>
-            <div class="item-placeholder"></div>
+            <img src="images/draniki.jpg" alt="Драники со сметаной">
         </div>
         
         <div class="item">
             <div class="item-info">
-                <h4>Мачанка</h4>
-                <p>Густой, наваристый мясной соус из свинины, который едят, макая в него пышные блины.</p>
+                <h4>Мачанка и Верещака</h4>
+                <p>Густой, наваристый мясной соус из свинины, копченостей и колбас. Едят, макая в него пышные блины (гречневые или пшеничные).</p>
             </div>
-            <div class="item-placeholder"></div>
+            <img src="images/machanka.jpg" alt="Мачанка и Верещака с блинами">
         </div>
         
         <div class="item">
@@ -46,7 +53,7 @@
                 <h4>Холодник (Свекольник)</h4>
                 <p>Охлажденный летний суп на основе свекольного отвара. Идеально освежает в жару.</p>
             </div>
-            <div class="item-placeholder"></div>
+            <img src="images/holodnik.jpg" alt="Холодник">
         </div>
     </div>
     
@@ -58,7 +65,7 @@
                 <h4>Вечерний Могилев</h4>
                 <p>Классическая мягкая водка на спирте "Люкс", местное производство.</p>
             </div>
-            <div class="item-placeholder"></div>
+            <img src="images/vecherny mogilev.jpg" alt="Водка Вечерний Могилев">
         </div>
         
         <div class="item">
@@ -66,7 +73,7 @@
                 <h4>Климовичская</h4>
                 <p>Местный сорт, отличающийся особой чистотой и мягкостью.</p>
             </div>
-            <div class="item-placeholder"></div>
+            <img src="images/klimovichskaya.jpg" alt="Водка Климовичская">
         </div>
         
         <div class="item">
@@ -74,7 +81,7 @@
                 <h4>Крышталь</h4>
                 <p>Продукт крупного белорусского производителя. Водка на натуральной основе.</p>
             </div>
-            <div class="item-placeholder"></div>
+            <img src="images/kryshtal.jpg" alt="Водка Крышталь">
         </div>
     </div>
     
@@ -86,7 +93,7 @@
                 <h4>Криница Классическое</h4>
                 <p>Светлый лагер с гармоничным вкусом и легкой хмелевой горчинкой.</p>
             </div>
-            <div class="item-placeholder"></div>
+            <img src="images/krinica klassicheskoe.jpg" alt="Пиво Криница Классическое">
         </div>
         
         <div class="item">
@@ -94,7 +101,7 @@
                 <h4>Лидское Классическое</h4>
                 <p>Сбалансированный светлый лагер, приготовленный по традиционной рецептуре.</p>
             </div>
-            <div class="item-placeholder"></div>
+            <img src="images/lidskoe klassicheskoe.jpg" alt="Пиво Лидское Классическое">
         </div>
         
         <div class="item">
@@ -102,7 +109,7 @@
                 <h4>Аливария Золотое</h4>
                 <p>Светлый лагер с чистым солодовым вкусом, один из самых популярных сортов в Беларуси.</p>
             </div>
-            <div class="item-placeholder"></div>
+            <img src="images/alivaria_zolotoe.jpg" alt="Пиво Аливария Золотое">
         </div>
     </div>
 
@@ -114,7 +121,7 @@
                 <h4>Могилевский Квас</h4>
                 <p>Традиционный хлебный квас натурального брожения с кисло-сладким вкусом.</p>
             </div>
-            <div class="item-placeholder"></div>
+            <img src="images/mogilevsky kvas.jpg" alt="Могилевский Квас">
         </div>
         
         <div class="item">
@@ -122,7 +129,7 @@
                 <h4>Сидр Могилевский Золотистый</h4>
                 <p>Освежающий полусладкий газированный сидр с тонким яблочным вкусом.</p>
             </div>
-            <div class="item-placeholder"></div>
+            <img src="images/sidr mogilevsky solotisty.jpg" alt="Сидр Могилевский Золотистый">
         </div>
         
         <div class="item">
@@ -130,7 +137,7 @@
                 <h4>Крамбамбуля</h4>
                 <p>Белорусская алкогольная настойка на водке, меде и пряностях. Может подаваться горячей.</p>
             </div>
-            <div class="item-placeholder"></div>
+            <img src="images/krambamulia.jpg" alt="Крамбамбуля">
         </div>
     </div>
     
