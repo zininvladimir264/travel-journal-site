@@ -8,7 +8,6 @@
         /* Базовые стили */
         body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; background-color: #f4f4f4; }
         #tasty-mogilev { max-width: 900px; margin: 0 auto; background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
-        /* ИЗМЕНЕНИЕ: Заголовок остается только "ВКУСНЫЙ МОГИЛЁВ" */
         h2 { text-align: center; color: #783e49; border-bottom: 2px solid #a0a0a0; padding-bottom: 15px; margin-bottom: 30px; }
         h3 { color: #5a5a5a; font-size: 1.5em; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 35px; }
         .category { margin-bottom: 20px; }
@@ -23,7 +22,7 @@
             border: 1px solid #ddd; 
             border-radius: 4px; 
             background-color: #fff;
-            min-height: 370px; /* Увеличена минимальная высота блока */
+            min-height: 370px; /* Сохраняем увеличенную минимальную высоту блока */
         }
         
         /* Блок с текстом */
@@ -35,12 +34,12 @@
         .item-info h4 { margin: 0 0 5px 0; color: #444; font-size: 1.1em; }
         .item-info p { margin: 0; font-size: 0.9em; color: #666; }
         
-        /* Блок с изображением - КВАДРАТНОЕ И ЗАПОЛНЯЕТ ПРОСТРАНСТВО */
+        /* Блок с изображением - теперь не будет обрезаться */
         .item img { 
-            width: 350px; /* Ширина для квадрата */
-            height: 350px; /* Высота для квадрата */
+            width: 350px; /* Ширина для квадратного пространства */
+            height: 350px; /* Высота для квадратного пространства */
             max-width: 350px; /* Ограничиваем максимальную ширину */
-            object-fit: cover; /* Изображение будет заполнять весь квадрат, обрезая лишнее */
+            object-fit: contain; /* <-- ИЗМЕНЕНИЕ: Изображение будет помещаться целиком */
             border-radius: 4px; 
         }
 
