@@ -15,7 +15,10 @@
         /* Стиль карточки: ТЕКСТ СЛЕВА, ФОТО СПРАВА */
         .item { 
             display: flex;
-            align-items: center; 
+            
+            /* ИЗМЕНЕНИЕ: Выравниваем контент по верхнему краю */
+            align-items: flex-start; 
+            
             justify-content: space-between;
             margin-bottom: 15px; 
             padding: 10px; 
@@ -23,16 +26,13 @@
             border-radius: 4px; 
             background-color: #fff;
             min-height: 370px; 
-            
-            /* ИЗМЕНЕНИЕ 2: Тень и плавный переход */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Легкая тень */
-            transition: transform 0.2s, box-shadow 0.2s; /* Плавность для анимации */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); 
+            transition: transform 0.2s, box-shadow 0.2s; 
         }
         
-        /* ИЗМЕНЕНИЕ 2: Эффект при наведении */
         .item:hover {
-            transform: translateY(-5px); /* Карточка немного приподнимается */
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Тень становится сильнее */
+            transform: translateY(-5px); 
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); 
         }
 
         /* Блок с текстом */
@@ -44,18 +44,17 @@
         .item-info h4 { margin: 0 0 5px 0; color: #444; font-size: 1.1em; }
         .item-info p { margin: 0; font-size: 0.9em; color: #666; }
         
-        /* Блок с изображением */
+        /* Блок с изображением: КРУГЛЫЙ КОНТЕЙНЕР с ФОНОМ */
         .item img { 
             width: 350px; 
             height: 350px; 
             max-width: 350px; 
             object-fit: contain; 
-            
-            /* ИЗМЕНЕНИЕ 1: Делаем изображения круглыми */
             border-radius: 50%; 
+            background-color: #f0f0f0; 
         }
 
-        /* Адаптивность: На маленьких экранах изображение под текстом */
+        /* Адаптивность */
         @media (max-width: 650px) {
             .item {
                 flex-direction: column;
@@ -72,7 +71,8 @@
                 height: auto;
                 max-width: none;
                 margin-top: 10px;
-                border-radius: 4px; /* На мобильном лучше вернуть обычные углы */
+                border-radius: 4px; 
+                background-color: transparent; 
             }
         }
     </style>
