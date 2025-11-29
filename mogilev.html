@@ -41,14 +41,14 @@
             line-height: 1.2;
         }
 
-        /* Стили для заголовков категорий (БЛЮДА, ВОДКА и т.д.) */
+        /* Стили для заголовков категорий */
         h3 { 
             color: #783e49; 
             font-size: 1.5em; 
             border-bottom: 2px solid #ddd; 
             padding-bottom: 5px; 
             margin-top: 35px; 
-            margin-bottom: 15px; /* Добавим отступ от заголовка до карточек */
+            margin-bottom: 15px; 
         } 
         
         /* Стили для контейнера карточек (3 колонки) */
@@ -67,6 +67,40 @@
             padding: 15px; 
             text-align: center; 
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* --- КОНТЕЙНЕР ДЛЯ ФОТОГРАФИИ (КРУГ) --- */
+        .img-container {
+            width: 150px; /* Размер круга */
+            height: 150px;
+            border-radius: 50%; /* Делаем круг */
+            overflow: hidden; /* Обрезаем все, что выходит за круг */
+            margin: 0 auto 10px auto;
+            border: 3px solid #ddd;
+            transition: all 0.3s ease-in-out; /* Плавный переход */
+        }
+
+        /* Изображение внутри круга */
+        .img-container img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: contain; /* Показываем фото целиком (необрезанным) */
+            display: block;
+            transition: all 0.3s ease-in-out;
+            background-color: #fff; /* Фон для пустых полей внутри круга */
+        }
+
+        /* --- ЭФФЕКТ УВЕЛИЧЕНИЯ (ПРИ НАВЕДЕНИИ) --- */
+        .img-container:hover {
+            width: 100%; /* Увеличиваем до ширины карточки */
+            height: 180px; /* Новая высота для прямоугольника */
+            border-radius: 4px; /* Убираем круг (становится прямоугольником) */
+            z-index: 10;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border: 1px solid #783e49; /* Акцентная рамка */
+        }
+        .img-container:hover img {
+            object-fit: cover; /* Заполняем прямоугольник (может обрезать, но выглядит лучше) */
         }
         
         /* Общий контейнер текста */
@@ -89,7 +123,7 @@
             color: #666; 
             text-align: left; 
             line-height: 1.4;
-            min-height: 80px; /* Для одинаковой высоты карточек */
+            min-height: 80px; 
         }
         
         /* Жирный текст в описании */
@@ -97,24 +131,6 @@
              display: block; 
              margin-top: 5px;
              color: #783e49; 
-        }
-
-        /* Изображение */
-        .item img { 
-            width: 150px; 
-            height: 150px; 
-            max-width: 100%;
-            object-fit: cover; 
-            border-radius: 50%; 
-            margin: 0 auto 10px auto; 
-            display: block; 
-            border: 3px solid #ddd; 
-            transition: transform 0.3s ease-in-out; 
-        }
-
-        /* Эффект при наведении */
-        .item img:hover {
-            transform: scale(1.05); 
         }
 
         /* Адаптивность */
@@ -142,7 +158,9 @@
             <div class="item-info">
                 <h4>Драники</h4>
             </div>
-            <img src="images/draniki.jpg" alt="Драники со сметаной">
+            <div class="img-container">
+                <img src="images/draniki.jpg" alt="Драники со сметаной">
+            </div>
             <div class="item-info">
                 <p>Классические оладьи из тёртого картофеля. Подаются со сметаной, или же с мачанкой (густой мясной соус). <strong>В идеальном исполнении: хрустящие снаружи, нежные внутри.</strong></p>
             </div>
@@ -152,7 +170,9 @@
             <div class="item-info">
                 <h4>Мачанка</h4> 
             </div>
-            <img src="images/machanka.jpg" alt="Мачанка с блинами">
+            <div class="img-container">
+                <img src="images/machanka.jpg" alt="Мачанка с блинами">
+            </div>
             <div class="item-info">
                 <p>Густой, наваристый мясной соус из свинины, копченостей и колбас. Едят, макая в него пышные блины (гречневые или пшеничные). <strong>Густой мясной соус, который подарит вам вкус настоящей деревни.</strong></p>
             </div>
@@ -162,7 +182,9 @@
             <div class="item-info">
                 <h4>Холодник (Свекольник)</h4>
             </div>
-            <img src="images/holodnik.jpg" alt="Холодник">
+            <div class="img-container">
+                <img src="images/holodnik.jpg" alt="Холодник">
+            </div>
             <div class="item-info">
                 <p>Охлажденный летний суп на основе свекольного отвара. Идеально освежает в жару. <strong>Легендарный суп, который моментально освежает в жару.</strong></p>
             </div>
@@ -177,7 +199,9 @@
             <div class="item-info">
                 <h4>Вечерний Могилев</h4>
             </div>
-            <img src="images/vecherny mogilev.jpg" alt="Водка Вечерний Могилев">
+            <div class="img-container">
+                <img src="images/vecherny mogilev.jpg" alt="Водка Вечерний Могилев">
+            </div>
             <div class="item-info">
                 <p>Классическая мягкая водка на спирте "Люкс", местное производство. <strong>Визитная карточка Могилёва. Классика в чистом виде.</strong></p>
             </div>
@@ -187,7 +211,9 @@
             <div class="item-info">
                 <h4>Alpha line</h4>
             </div>
-            <img src="images/alpha line.jpg" alt="Водка Alpha line">
+            <div class="img-container">
+                <img src="images/alpha line.jpg" alt="Водка Alpha line">
+            </div>
             <div class="item-info">
                 <p>Местный сорт, отличающийся особой чистотой и мягкостью. <strong>Эталон чистоты. Для тех, кто выбирает безупречное качество.</strong></p>
             </div>
@@ -197,7 +223,9 @@
             <div class="item-info">
                 <h4>Крышталь</h4>
             </div>
-            <img src="images/kryshtal.jpg" alt="Водка Крышталь">
+            <div class="img-container">
+                <img src="images/kryshtal.jpg" alt="Водка Крышталь">
+            </div>
             <div class="item-info">
                 <p>Продукт крупного белорусского производителя. Водка на натуральной основе. <strong>Один из самых узнаваемых белорусских брендов.</strong></p>
             </div>
@@ -212,7 +240,9 @@
             <div class="item-info">
                 <h4>Криница Классическое</h4>
             </div>
-            <img src="images/krinica klassicheskoe.jpg" alt="Пиво Криница Классическое">
+            <div class="img-container">
+                <img src="images/krinica klassicheskoe.jpg" alt="Пиво Криница Классическое">
+            </div>
             <div class="item-info">
                 <p>Светлый лагер с гармоничным вкусом и легкой хмелевой горчинкой. <strong>Народный любимец. Легкий лагер с приятной горчинкой.</strong></p>
             </div>
@@ -222,7 +252,9 @@
             <div class="item-info">
                 <h4>Лидское Классическое</h4>
             </div>
-            <img src="images/lidskoe klassicheskoe.jpg" alt="Пиво Лидское Классическое">
+            <div class="img-container">
+                <img src="images/lidskoe klassicheskoe.jpg" alt="Пиво Лидское Классическое">
+            </div>
             <div class="item-info">
                 <p>Сбалансированный светлый лагер, приготовленный по традиционной рецептуре. <strong>Пиво с богатой историей, сваренное по старинным рецептам.</strong></p>
             </div>
@@ -232,7 +264,9 @@
             <div class="item-info">
                 <h4>Аливария Золотое</h4>
             </div>
-            <img src="images/alivaria_zolotoe.jpg" alt="Пиво Аливария Золотое">
+            <div class="img-container">
+                <img src="images/alivaria_zolotoe.jpg" alt="Пиво Аливария Золотое">
+            </div>
             <div class="item-info">
                 <p>Светлый лагер с чистым солодовым вкусом, один из самых популярных сортов в Беларуси. <strong>Премиальный золотистый лагер. Мягкий и сбалансированный.</strong></p>
             </div>
@@ -247,7 +281,9 @@
             <div class="item-info">
                 <h4>Могилевский Квас</h4>
             </div>
-            <img src="images/mogilevsky kvas.jpg" alt="Могилевский Квас">
+            <div class="img-container">
+                <img src="images/mogilevsky kvas.jpg" alt="Могилевский Квас">
+            </div>
             <div class="item-info">
                 <p>Традиционный хлебный квас натурального брожения с кисло-сладким вкусом. <strong>Традиционный квас натурального брожения. Бодрит и утоляет жажду.</strong></p>
             </div>
@@ -257,7 +293,9 @@
             <div class="item-info">
                 <h4>Сидр Могилевский Золотистый</h4>
             </div>
-            <img src="images/sidr mogilevsky solotisty.jpg" alt="Сидр Могилевский Золотистый">
+            <div class="img-container">
+                <img src="images/sidr mogilevsky solotisty.jpg" alt="Сидр Могилевский Золотистый">
+            </div>
             <div class="item-info">
                 <p>Освежающий полусладкий газированный сидр с тонким яблочным вкусом. <strong>Легкий яблочный сидр. Идеален для расслабления.</strong></p>
             </div>
@@ -267,7 +305,9 @@
             <div class="item-info">
                 <h4>Крамбамбуля</h4>
             </div>
-            <img src="images/krambamulia.jpg" alt="Крамбамбуля">
+            <div class="img-container">
+                <img src="images/krambamulia.jpg" alt="Крамбамбуля">
+            </div>
             <div class="item-info">
                 <p>Белорусская алкогольная настойка на водке, меде и пряностях. Может подаваться горячей. <strong>Настойка на меду и пряностях. Согревающий вкус белорусского застолья.</strong></p>
             </div>
