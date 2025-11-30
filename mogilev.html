@@ -13,9 +13,8 @@
             background-color: #f4f4f4; 
             font-size: 18px; 
         }
-        /* Светло-кремовый фон для основного контейнера */
         #tasty-mogilev { 
-            max-width: 900px; /* Фиксируем максимальную ширину контента */
+            max-width: 900px; 
             margin: 0 auto; 
             background-color: #fdf7e3; 
             padding: 30px; 
@@ -23,7 +22,6 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
         }
         
-        /* Стили для заголовка сайта */
         h2 { 
             text-align: center; 
             color: #FFD700; 
@@ -42,7 +40,6 @@
             line-height: 1.2;
         }
 
-        /* Стили для заголовков категорий */
         h3 { 
             color: #783e49; 
             font-size: 1.5em; 
@@ -52,13 +49,13 @@
             margin-bottom: 15px; 
         } 
         
-        /* --- FLEXBOX-КОНТЕЙНЕР ДЛЯ ВЫРАВНИВАНИЯ (СЕЙЧАС ОНО ПОДТВЕРЖДАЕТСЯ JS) --- */
+        /* --- КРИТИЧЕСКОЕ ВЫРАВНИВАНИЕ (Flexbox на уровне категории) --- */
         .category { 
             margin-bottom: 20px; 
             display: flex; 
             flex-wrap: wrap; 
             gap: 12px; 
-            /* align-items: stretch удалено, так как JS будет устанавливать высоту */
+            align-items: stretch; /* ГАРАНТИРУЕТ ОДИНАКОВУЮ ВЫСОТУ */
         }
         
         /* Стили для КАРТОЧКИ (ITEM) */
@@ -66,20 +63,21 @@
             border: 1px solid #ddd; 
             border-radius: 8px; 
             background-color: #fdf7e3; 
-            padding: 0px; 
+            padding: 0; 
             text-align: center; 
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
             overflow: hidden; 
             position: relative;
             
-            /* --- ТРИ КОЛОНКИ ПО УМОЛЧАНИЮ --- */
+            /* --- ВНУТРЕННИЙ FLEXBOX ДЛЯ ПРИЖАТИЯ --- */
             display: flex; 
             flex-direction: column; 
             flex: 1 1 calc(33.33% - 8px); 
             min-width: 150px; 
+            height: 100%; /* Занимает всю растянутую высоту */
         }
 
-        /* --- Стили для ИЗОБРАЖЕНИЯ (ОДИНАКОВАЯ ВЫСОТА) --- */
+        /* --- Стили для ИЗОБРАЖЕНИЯ --- */
         .item img { 
             width: 100%; 
             height: 220px; 
@@ -109,11 +107,12 @@
         .item-info {
             padding: 0 15px 15px 15px; 
             margin: 0; 
-            display: flex; 
+            /* Критически важно для прижатия к низу */
+            margin-top: auto; 
+            flex-grow: 1; /* Гарантирует, что этот блок займет все оставшееся место */
+            display: flex;
             flex-direction: column;
-            margin-top: auto; /* Прижимает этот блок к нижнему краю родителя (.item) */
-            flex-grow: 1; /* Позволяет блоку растянуться */
-            justify-content: flex-end; /* Прижимает текст к низу блока */
+            justify-content: flex-end; /* Прижимает содержимое `.item-info` к нижнему краю */
         }
         
         /* Название блюда */
@@ -139,7 +138,7 @@
              color: #783e49; 
         }
 
-        /* --- Адаптивность для узких экранов --- */
+        /* --- Адаптивность --- */
         @media (max-width: 800px) {
             .item {
                 flex: 1 1 calc(50% - 6px); /* 2 колонки */
@@ -336,81 +335,6 @@
     </div>
     
 </section>
-
-<script>
-    /**
-     * Гарантирует, что все карточки в каждой строке имеют одинаковую высоту.
-     * Это принудительно выравнивает нижний край фотографий, даже если CSS терпит неудачу.
-     */
-    function equalizeCardHeight() {
-        const categories = document.querySelectorAll('.category');
-        
-        categories.forEach(category => {
-            const items = category.querySelectorAll('.item');
-            
-            // Сбросить высоту перед измерением, чтобы избежать проблем при ресайзе
-            items.forEach(item => item.style.height = 'auto');
-
-            // Используем Flexbox-контейнер для определения рядов
-            const itemsArray = Array.from(items);
-            if (itemsArray.length === 0) return;
-
-            let rowElements = [];
-            let rowBottom = 0;
-
-            itemsArray.forEach((item, index) => {
-                const itemRect = item.getBoundingClientRect();
-                
-                // Проверяем, находится ли элемент в том же ряду (проверяя позицию по вертикали)
-                // Даем небольшой допуск в 5px для браузерного округления
-                if (itemRect.top >= rowBottom - 5) {
-                    // Новый ряд
-                    if (rowElements.length > 0) {
-                        // Устанавливаем максимальную высоту предыдущему ряду
-                        applyMaxHeight(rowElements);
-                    }
-                    // Начинаем новый ряд
-                    rowElements = [item];
-                    rowBottom = itemRect.bottom;
-                } else {
-                    // Элемент в текущем ряду
-                    rowElements.push(item);
-                    rowBottom = Math.max(rowBottom, itemRect.bottom);
-                }
-            });
-
-            // Устанавливаем максимальную высоту последнему ряду
-            if (rowElements.length > 0) {
-                applyMaxHeight(rowElements);
-            }
-        });
-    }
-
-    /**
-     * Вспомогательная функция для установки максимальной высоты элементам ряда.
-     */
-    function applyMaxHeight(elements) {
-        let maxHeight = 0;
-        elements.forEach(item => {
-            maxHeight = Math.max(maxHeight, item.offsetHeight);
-        });
-        
-        elements.forEach(item => {
-            item.style.height = `${maxHeight}px`;
-        });
-    }
-
-
-    // 1. Запустить после загрузки страницы
-    window.addEventListener('load', equalizeCardHeight);
-    
-    // 2. Запустить при изменении размера окна (для адаптивности)
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(equalizeCardHeight, 150);
-    });
-</script>
 
 </body>
 </html>
