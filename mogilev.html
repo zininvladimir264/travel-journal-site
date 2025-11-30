@@ -52,11 +52,11 @@
             margin-bottom: 15px; 
         } 
         
-        /* --- КРИТИЧЕСКОЕ ИЗМЕНЕНИЕ: GRID-КОНТЕЙНЕР ДЛЯ ВЫРАВНИВАНИЯ --- */
+        /* --- КРИТИЧЕСКОЕ ИЗМЕНЕНИЕ: FLEXBOX-КОНТЕЙНЕР ДЛЯ ВЫРАВНИВАНИЯ --- */
         .category { 
             margin-bottom: 20px; 
-            display: grid; 
-            grid-template-columns: repeat(4, 1fr); 
+            display: flex; /* Используем Flexbox */
+            flex-wrap: wrap; /* Разрешаем перенос на новую строку */
             gap: 12px; 
             align-items: stretch; /* ГАРАНТИРУЕТ, что все карточки в ряду будут одинаковой высоты */
         }
@@ -72,10 +72,12 @@
             overflow: hidden; 
             position: relative;
             
-            /* --- FLEXBOX ВНУТРИ GRID-ЭЛЕМЕНТА ДЛЯ ПОРЯДКА --- */
+            /* --- FLEXBOX ВНУТРИ КАРТОЧКИ --- */
             display: flex; 
             flex-direction: column; 
-            height: 100%; /* Занимает всю высоту, растянутую Grid */
+            flex: 1 1 calc(25% - 9px); /* Занимает 25% ширины (для 4-х колонок) с учетом gap */
+            min-width: 150px; /* Минимальная ширина для адаптивности */
+            height: 100%; /* Занимает всю высоту, растянутую родителем */
         }
 
         /* --- Стили для ИЗОБРАЖЕНИЯ (ОДИНАКОВАЯ ВЫСОТА) --- */
@@ -138,23 +140,20 @@
              color: #783e49; 
         }
 
-        /* --- Адаптивность --- */
+        /* --- Адаптивность (ИЗМЕНЕНА ДЛЯ FLEXBOX) --- */
         @media (max-width: 1200px) {
-            .category {
-                grid-template-columns: 1fr 1fr 1fr; 
-                gap: 12px;
+            .item {
+                flex: 1 1 calc(33.33% - 8px); /* 3 колонки */
             }
         }
         @media (max-width: 800px) {
-            .category {
-                grid-template-columns: 1fr 1fr; 
-                gap: 12px;
+            .item {
+                flex: 1 1 calc(50% - 6px); /* 2 колонки */
             }
         }
         @media (max-width: 550px) {
-            .category {
-                grid-template-columns: 1fr; 
-                gap: 12px;
+            .item {
+                flex: 1 1 100%; /* 1 колонка */
             }
         }
     </style>
