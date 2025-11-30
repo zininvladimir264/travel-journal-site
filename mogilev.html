@@ -16,7 +16,7 @@
         #tasty-mogilev { 
             max-width: 900px; 
             margin: 0 auto; 
-            background-color: #fdf7e3; /* ИЗМЕНЕНО: Светло-кремовый фон */
+            background-color: #fff; 
             padding: 30px; 
             border-radius: 8px; 
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
@@ -56,14 +56,14 @@
             margin-bottom: 20px; 
             display: grid; 
             grid-template-columns: repeat(4, 1fr); 
-            gap: 15px; 
+            gap: 12px; /* ИЗМЕНЕНО: Уменьшено расстояние между карточками */
         }
         
         /* Стили для КАРТОЧКИ (ITEM) */
         .item { 
             border: 1px solid #ddd; 
             border-radius: 8px; 
-            background-color: #fdf7e3; /* ИЗМЕНЕНО: Светло-кремовый фон */
+            background-color: #fff; 
             padding: 0px; 
             text-align: center; 
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
@@ -131,16 +131,19 @@
         @media (max-width: 1200px) {
             .category {
                 grid-template-columns: 1fr 1fr 1fr; 
+                gap: 12px;
             }
         }
         @media (max-width: 800px) {
             .category {
                 grid-template-columns: 1fr 1fr; 
+                gap: 12px;
             }
         }
         @media (max-width: 550px) {
             .category {
                 grid-template-columns: 1fr; 
+                gap: 12px;
             }
         }
     </style>
@@ -321,7 +324,7 @@
         
         <div class="item">
             <div class="item-info">
-                <h4>сок</h4>
+                <h4>Берёзовый сок</h4>
             </div>
             <img src="images/placeholder_juice.jpg" alt="Березовый сок">
             <div class="item-info">
