@@ -69,14 +69,14 @@
             text-align: center; 
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
             overflow: hidden; 
-            position: relative; /* ВАЖНО для позиционирования overlay */
+            position: relative; 
         }
         
         /* --- Стили для ИЗОБРАЖЕНИЯ (Горизонтальные) --- */
         .item img { 
             width: 100%; 
-            height: 160px; /* ***Уменьшенная высота для горизонтальности*** */
-            object-fit: cover; /* Заполняет всю область, обрезая лишнее */
+            height: 160px; /* Уменьшенная высота */
+            object-fit: cover; /* Обрезает изображение, чтобы оно заполнило рамку */
             border-radius: 4px; 
             margin: 0 auto; 
             display: block; 
@@ -90,21 +90,21 @@
         /* --- СТИЛИ ДЛЯ НАЗВАНИЯ НА КАРТИНКЕ (Золотой, без фона) --- */
         .item-title-overlay {
             position: absolute;
-            top: 50%; /* Центрируем по вертикали */
+            top: 50%; 
             left: 0;
-            transform: translateY(-50%); /* Точная центровка */
+            transform: translateY(-50%); 
             width: 100%;
             padding: 5px; 
             margin: 0;
             background-color: transparent; 
-            color: #FFD700; /* ***ЗОЛОТОЙ ЦВЕТ*** */
+            color: #FFD700; /* ЗОЛОТОЙ ЦВЕТ */
             font-size: 1.4em; 
             font-weight: bold; 
             text-align: center;
-            z-index: 5; /* На передний план */
+            z-index: 5; 
             box-shadow: none; 
             line-height: 1.2;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9); /* Тень для лучшей видимости */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9); 
         }
         
         /* Общий контейнер текста (описание) */
