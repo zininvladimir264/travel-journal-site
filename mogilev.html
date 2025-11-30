@@ -15,9 +15,9 @@
         }
         /* Светло-кремовый фон для основного контейнера */
         #tasty-mogilev { 
-            max-width: 900px; /* Фиксируем максимальную ширину контента */
+            max-width: 900px; 
             margin: 0 auto; 
-            background-color: #fdf7e3; 
+            background-color: #fdf7e3; /* Кремовый фон */
             padding: 30px; 
             border-radius: 8px; 
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
@@ -52,13 +52,13 @@
             margin-bottom: 15px; 
         } 
         
-        /* --- КРИТИЧЕСКОЕ ВЫРАВНИВАНИЕ: FLEXBOX-КОНТЕЙНЕР --- */
+        /* --- FLEXBOX-КОНТЕЙНЕР ДЛЯ ВЫРАВНИВАНИЯ --- */
         .category { 
             margin-bottom: 20px; 
             display: flex; 
             flex-wrap: wrap; 
             gap: 12px; 
-            align-items: stretch; /* ГАРАНТИРУЕТ ОДИНАКОВУЮ ВЫСОТУ */
+            align-items: stretch; /* Гарантирует одинаковую высоту */
         }
         
         /* Стили для КАРТОЧКИ (ITEM) */
@@ -72,12 +72,12 @@
             overflow: hidden; 
             position: relative;
             
-            /* --- ТРИ КОЛОНКИ ПО УМОЛЧАНИЮ --- */
+            /* --- ТРИ КОЛОНКИ В РЯД --- */
             display: flex; 
             flex-direction: column; 
             flex: 1 1 calc(33.33% - 8px); /* Занимает 1/3 ширины */
             min-width: 150px; 
-            height: 100%; /* Занимает всю растянутую высоту */
+            height: 100%; 
         }
 
         /* --- Стили для ИЗОБРАЖЕНИЯ --- */
@@ -110,10 +110,10 @@
         .item-info {
             padding: 0 15px 15px 15px; 
             margin: 0; 
-            margin-top: auto; 
-            flex-grow: 1; 
-            display: flex;
+            display: flex; 
             flex-direction: column;
+            margin-top: auto; 
+            flex-grow: 1;
             justify-content: flex-end; 
         }
         
@@ -140,7 +140,7 @@
              color: #783e49; 
         }
 
-        /* --- Адаптивность для узких экранов --- */
+        /* --- Адаптивность --- */
         @media (max-width: 800px) {
             .item {
                 flex: 1 1 calc(50% - 6px); /* 2 колонки */
@@ -192,7 +192,8 @@
                 <p>Охлажденный летний суп на основе свекольного отвара. Идеально освежает в жару. <strong>Легендарный суп, который моментально освежает в жару.</strong></p>
             </div>
         </div>
-    </div>
+        
+        </div>
     
     <hr>
     
@@ -228,7 +229,8 @@
                 <p>Продукт крупного белорусского производителя. Водка на натуральной основе. <strong>Один из самых узнаваемых белорусских брендов.</strong></p>
             </div>
         </div>
-    </div>
+        
+        </div>
     
     <hr>
     
@@ -264,7 +266,8 @@
                 <p>Светлый лагер с чистым солодовым вкусом, один из самых популярных сортов в Беларуси. <strong>Премиальный золотистый лагер. Мягкий и сбалансированный.</strong></p>
             </div>
         </div>
-    </div>
+        
+        </div>
 
     <hr>
     
@@ -301,7 +304,8 @@
                 <strong>Настойка на меду и пряностях. Согревающий вкус белорусского застолья.</strong></p>
             </div>
         </div>
-    </div>
+        
+        </div>
 
     <hr>
     
@@ -334,7 +338,8 @@
                 <p>Мемориальный комплекс, посвященный героизму защитников Могилёва. <strong>Важное историческое место.</strong></p>
             </div>
         </div>
-    </div>
+        
+        </div>
     
 </section>
 
