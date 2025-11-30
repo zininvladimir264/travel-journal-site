@@ -72,12 +72,13 @@
             position: relative; 
         }
         
-        /* --- Стили для ИЗОБРАЖЕНИЙ (по умолчанию: горизонтальные - для "Мест") --- */
-        .item img { 
+        /* --- СТИЛЬ ДЛЯ НАПИТКОВ И БЛЮД (КВАДРАТНАЯ РАМКА 180px, ВСЕ ЦЕЛОЕ) --- */
+        /* Применяем к первым четырем категориям (Блюда, Водка, Пиво, Напитки) */
+        .category:nth-child(-n+8) .item img { 
             width: 100%; 
-            height: 140px; 
-            object-fit: cover; 
-            background-color: transparent; 
+            height: 180px; /* Квадратная высота, как и ширина карточки */
+            object-fit: contain; /* ***ОБЯЗАТЕЛЬНО: ВСЕ ИЗОБРАЖЕНИЯ ЦЕЛЫЕ/НЕОБРЕЗАННЫЕ*** */
+            background-color: transparent; /* Убираем фон */
             border-radius: 4px; 
             margin: 0 auto; 
             display: block; 
@@ -88,21 +89,12 @@
             border-bottom-right-radius: 0;
         }
 
-        /* КВАДРАТНЫЕ БЛЮДА (height: 180px, object-fit: cover) */
-        .category:nth-child(2) .item img {
-            height: 180px;
-            object-fit: cover; 
+        /* --- СТИЛЬ ДЛЯ МЕСТ (ГОРИЗОНТАЛЬНЫЕ) --- */
+        /* Применяем к последней категории */
+        .category:last-child .item img {
+            height: 140px; 
+            object-fit: cover; /* Для пейзажей лучше заполнять пространство */
         }
-
-        /* КВАДРАТНЫЕ НАПИТКИ (height: 180px, object-fit: contain для ЦЕЛОЙ БУТЫЛКИ) */
-        .category:nth-child(4) .item img, /* Водка */
-        .category:nth-child(6) .item img, /* Пиво */
-        .category:nth-child(8) .item img { /* Напитки */
-            height: 180px;
-            object-fit: contain; /* ***Целая бутылка, высота 180px*** */
-            background-color: transparent; 
-        }
-
         
         /* Общий контейнер текста (описание) */
         .item-info {
@@ -116,7 +108,7 @@
             margin: 18px 0 10px 0; 
             color: #FFD700; 
             font-size: 1.3em; 
-            text-shadow: 1px 1px 4px #000; 
+            text-shadow: 1px 1px 4px #000; /* Усиленная тень для лучшей читаемости */
         }
         
         /* Описание */
