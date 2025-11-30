@@ -52,13 +52,13 @@
             margin-bottom: 15px; 
         } 
         
-        /* --- КРИТИЧЕСКОЕ ИЗМЕНЕНИЕ ДЛЯ ВЫРАВНИВАНИЯ КАРТОЧЕК --- */
+        /* --- КРИТИЧЕСКОЕ ИЗМЕНЕНИЕ: GRID-КОНТЕЙНЕР ДЛЯ ВЫРАВНИВАНИЯ --- */
         .category { 
             margin-bottom: 20px; 
             display: grid; 
             grid-template-columns: repeat(4, 1fr); 
             gap: 12px; 
-            align-items: stretch; /* ГАРАНТИРУЕТ, что все карточки растянутся на одну высоту */
+            align-items: stretch; /* ГАРАНТИРУЕТ, что все карточки в ряду будут одинаковой высоты */
         }
         
         /* Стили для КАРТОЧКИ (ITEM) */
@@ -71,9 +71,11 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
             overflow: hidden; 
             position: relative;
+            
+            /* --- FLEXBOX ВНУТРИ GRID-ЭЛЕМЕНТА ДЛЯ ПОРЯДКА --- */
             display: flex; 
             flex-direction: column; 
-            height: 100%; /* Добавлено для полной совместимости с grid stretch */
+            height: 100%; /* Занимает всю высоту, растянутую Grid */
         }
 
         /* --- Стили для ИЗОБРАЖЕНИЯ (ОДИНАКОВАЯ ВЫСОТА) --- */
@@ -96,37 +98,37 @@
             z-index: 2; 
         }
         
-        /* Общий контейнер текста (Название + Описание) */
-        .item-info {
-            padding: 0 15px 15px 15px; 
-            margin: 0; 
-            display: flex; 
-            flex-direction: column;
-            flex-grow: 1; /* Позволяет блоку занимать всё оставшееся место */
-            justify-content: space-between;
-        }
-        
         /* Контейнер для названия (сверху) */
         .item-header {
             padding: 15px 15px 0 15px; 
             margin: 0; 
         }
 
-        /* Название блюда (УМЕНЬШЕНО) */
+        /* Общий контейнер текста (Описание) */
+        .item-info {
+            padding: 0 15px 15px 15px; 
+            margin: 0; 
+            display: flex; 
+            flex-direction: column;
+            
+            /* --- КРИТИЧЕСКОЕ ИЗМЕНЕНИЕ: ПРИЖИМАЕМ К НИЖНЕМУ КРАЮ --- */
+            margin-top: auto; /* Прижимает этот блок к нижнему краю родителя (.item) */
+        }
+        
+        /* Название блюда */
         .item-header h4 { 
             margin: 0 0 10px 0; 
             color: #444; 
             font-size: 1.15em; 
         }
         
-        /* Описание (УМЕНЬШЕНО) */
+        /* Описание */
         .item-info p { 
             margin: 8px 0 0 0; 
             font-size: 0.85em; 
             color: #666; 
             text-align: left; 
             line-height: 1.4;
-            /* Убрали min-height, чтобы Flexbox мог растянуть блок. */
         }
         
         /* Жирный текст в описании */
