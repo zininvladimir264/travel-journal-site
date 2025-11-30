@@ -52,13 +52,13 @@
             margin-bottom: 15px; 
         } 
         
-        /* Стили для контейнера карточек (4 колонки на широком экране) */
+        /* --- КРИТИЧЕСКОЕ ИЗМЕНЕНИЕ ДЛЯ ВЫРАВНИВАНИЯ КАРТОЧЕК --- */
         .category { 
             margin-bottom: 20px; 
             display: grid; 
             grid-template-columns: repeat(4, 1fr); 
             gap: 12px; 
-            align-items: stretch;
+            align-items: stretch; /* ГАРАНТИРУЕТ, что все карточки растянутся на одну высоту */
         }
         
         /* Стили для КАРТОЧКИ (ITEM) */
@@ -72,8 +72,8 @@
             overflow: hidden; 
             position: relative;
             display: flex; 
-            flex-direction: column; /* Элементы идут сверху вниз */
-            justify-content: flex-start;
+            flex-direction: column; 
+            height: 100%; /* Добавлено для полной совместимости с grid stretch */
         }
 
         /* --- Стили для ИЗОБРАЖЕНИЯ (ОДИНАКОВАЯ ВЫСОТА) --- */
@@ -86,7 +86,6 @@
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
             z-index: 1; 
             position: relative;
-            /* Убираем рамки, которые были при предыдущем расположении */
             border-radius: 0; 
         }
 
@@ -101,22 +100,21 @@
         .item-info {
             padding: 0 15px 15px 15px; 
             margin: 0; 
-            min-height: 120px; 
             display: flex; 
             flex-direction: column;
-            flex-grow: 1; 
+            flex-grow: 1; /* Позволяет блоку занимать всё оставшееся место */
             justify-content: space-between;
         }
         
         /* Контейнер для названия (сверху) */
         .item-header {
-            padding: 15px 15px 0 15px; /* Отступ сверху для названия */
+            padding: 15px 15px 0 15px; 
             margin: 0; 
         }
 
         /* Название блюда (УМЕНЬШЕНО) */
         .item-header h4 { 
-            margin: 0 0 10px 0; /* Уменьшил вертикальные отступы */
+            margin: 0 0 10px 0; 
             color: #444; 
             font-size: 1.15em; 
         }
@@ -128,7 +126,7 @@
             color: #666; 
             text-align: left; 
             line-height: 1.4;
-            min-height: 75px; 
+            /* Убрали min-height, чтобы Flexbox мог растянуть блок. */
         }
         
         /* Жирный текст в описании */
