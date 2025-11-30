@@ -56,8 +56,8 @@
         .category { 
             margin-bottom: 20px; 
             display: grid; 
-            grid-template-columns: repeat(3, 1fr); /* ***ИЗМЕНЕНО: 3 колонки*** */
-            gap: 12px; /* Уменьшенное расстояние */
+            grid-template-columns: repeat(3, 1fr); /* ***ИЗМЕНЕНО: теперь 3 колонки*** */
+            gap: 12px; 
         }
         
         /* Стили для КАРТОЧКИ (ITEM) */
@@ -69,7 +69,7 @@
             text-align: center; 
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
             overflow: hidden; 
-            position: relative; /* ВАЖНО для позиционирования названия */
+            position: relative; 
         }
         
         /* --- Стили для ИЗОБРАЖЕНИЯ (ОДИНАКОВЫЙ РАЗМЕР - 220px в высоту) --- */
@@ -90,22 +90,22 @@
             border-bottom-right-radius: 0;
         }
 
-        /* --- СТИЛИ ДЛЯ НАЗВАНИЯ НА КАРТИНКЕ --- */
+        /* --- СТИЛИ ДЛЯ НАЗВАНИЯ НА КАРТИНКЕ (без черного фона) --- */
         .item-title-overlay {
             position: absolute;
-            top: 0;
+            top: 5px; /* Сдвинуто вниз */
             left: 0;
             width: 100%;
-            padding: 10px 5px;
+            padding: 5px; 
             margin: 0;
-            background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+            background-color: transparent; /* ***УДАЛЕН ЧЕРНЫЙ ФОН*** */
             color: #fff;
             font-size: 1.1em;
             text-align: center;
             z-index: 5;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            box-shadow: none; /* ***УДАЛЕНА ТЕНЬ*** */
             line-height: 1.2;
-            text-shadow: 1px 1px 2px #000;
+            text-shadow: 1px 1px 2px #000; /* Оставлена тень текста */
         }
         
         /* Общий контейнер текста (описание) */
@@ -140,21 +140,18 @@
         }
         
         /* --- Адаптивность --- */
-        /* На широких и средних экранах будет 3 колонки */
         @media (max-width: 1200px) {
             .category {
                 grid-template-columns: 1fr 1fr 1fr; 
                 gap: 12px;
             }
         }
-        /* На маленьких экранах будет 2 колонки */
         @media (max-width: 800px) {
             .category {
                 grid-template-columns: 1fr 1fr; 
                 gap: 12px;
             }
         }
-        /* На мобильных будет 1 колонка */
         @media (max-width: 550px) {
             .category {
                 grid-template-columns: 1fr; 
@@ -195,13 +192,6 @@
             </div>
         </div>
         
-        <div class="item">
-            <h4 class="item-title-overlay">Картофельная бабка</h4>
-            <img src="images/Babka.jpg" alt="Картофельная бабка">
-            <div class="item-info">
-                <p>Традиционная запеканка из тертого картофеля, мяса и лука. Запекается в печи до золотистой корочки. <strong>Сытное и ароматное блюдо, идеальное для холодного вечера.</strong></p>
-            </div>
-        </div>
     </div>
     
     
@@ -232,13 +222,6 @@
             </div>
         </div>
         
-        <div class="item">
-            <h4 class="item-title-overlay">Бульбаш</h4>
-            <img src="images/vodka_bulbash.jpg" alt="Водка Бульбаш">
-            <div class="item-info">
-                <p>Название происходит от неофициального прозвища белорусов. Известна своим классическим, мягким вкусом. <strong>Популярный национальный бренд.</strong></p>
-            </div>
-        </div>
     </div>
     
     
@@ -269,13 +252,6 @@
             </div>
         </div>
         
-        <div class="item">
-            <h4 class="item-title-overlay">Жигулёвское</h4>
-            <img src="images/zhigulevskoe.jpg" alt="Пиво Жигулёвское">
-            <div class="item-info">
-                <p>Классический светлый лагер, один из самых узнаваемых сортов в СНГ. Легкое, освежающее, с минимальной горчинкой. <strong>Легенда светлого пива.</strong></p> 
-            </div>
-        </div>
     </div>
 
     
@@ -307,13 +283,6 @@
             </div>
         </div>
         
-        <div class="item">
-            <h4 class="item-title-overlay">Берёзовый сок</h4>
-            <img src="images/placeholder_juice.jpg" alt="Березовый сок">
-            <div class="item-info">
-                <p>Натуральный сок, собранный весной. Обладает мягким, слегка сладковатым вкусом и полезными свойствами. <strong>Натуральный весенний напиток, богатый витаминами.</strong></p>
-            </div>
-        </div>
     </div>
     
 </section>
