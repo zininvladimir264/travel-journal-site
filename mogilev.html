@@ -15,9 +15,9 @@
         }
         /* Светло-кремовый фон для основного контейнера */
         #tasty-mogilev { 
-            max-width: 900px; 
+            max-width: 900px; /* Фиксируем максимальную ширину контента */
             margin: 0 auto; 
-            background-color: #fdf7e3; /* Кремовый фон */
+            background-color: #fdf7e3; 
             padding: 30px; 
             border-radius: 8px; 
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
@@ -66,18 +66,18 @@
             border: 1px solid #ddd; 
             border-radius: 8px; 
             background-color: #fdf7e3; 
-            padding: 0px; 
+            padding: 0; 
             text-align: center; 
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
             overflow: hidden; 
             position: relative;
             
-            /* --- 4 КОЛОНКИ ПО УМОЛЧАНИЮ --- */
+            /* --- ТРИ КОЛОНКИ ПО УМОЛЧАНИЮ --- */
             display: flex; 
             flex-direction: column; 
-            flex: 1 1 calc(25% - 9px); /* Занимает 25% ширины (для 4-х колонок) */
+            flex: 1 1 calc(33.33% - 8px); /* Занимает 1/3 ширины */
             min-width: 150px; 
-            height: 100%; 
+            height: 100%; /* Занимает всю растянутую высоту */
         }
 
         /* --- Стили для ИЗОБРАЖЕНИЯ --- */
@@ -110,11 +110,11 @@
         .item-info {
             padding: 0 15px 15px 15px; 
             margin: 0; 
-            display: flex; 
+            margin-top: auto; 
+            flex-grow: 1; 
+            display: flex;
             flex-direction: column;
-            margin-top: auto; /* Прижимает этот блок к нижнему краю родителя (.item) */
-            flex-grow: 1;
-            justify-content: flex-end;
+            justify-content: flex-end; 
         }
         
         /* Название блюда */
@@ -140,12 +140,7 @@
              color: #783e49; 
         }
 
-        /* --- Адаптивность --- */
-        @media (max-width: 1200px) {
-            .item {
-                flex: 1 1 calc(33.33% - 8px); /* 3 колонки */
-            }
-        }
+        /* --- Адаптивность для узких экранов --- */
         @media (max-width: 800px) {
             .item {
                 flex: 1 1 calc(50% - 6px); /* 2 колонки */
@@ -197,16 +192,6 @@
                 <p>Охлажденный летний суп на основе свекольного отвара. Идеально освежает в жару. <strong>Легендарный суп, который моментально освежает в жару.</strong></p>
             </div>
         </div>
-        
-        <div class="item">
-            <div class="item-header">
-                <h4>Картофельная бабка</h4>
-            </div>
-            <img src="images/Babka.jpg" alt="Картофельная бабка">
-            <div class="item-info">
-                <p>Традиционная запеканка из тертого картофеля, мяса и лука. Запекается в печи до золотистой корочки. <strong>Сытное и ароматное блюдо, идеальное для холодного вечера.</strong></p>
-            </div>
-        </div>
     </div>
     
     <hr>
@@ -243,16 +228,6 @@
                 <p>Продукт крупного белорусского производителя. Водка на натуральной основе. <strong>Один из самых узнаваемых белорусских брендов.</strong></p>
             </div>
         </div>
-        
-        <div class="item">
-            <div class="item-header">
-                <h4>Бульбаш</h4>
-            </div>
-            <img src="images/vodka_bulbash.jpg" alt="Водка Бульбаш">
-            <div class="item-info">
-                <p>Название происходит от неофициального прозвища белорусов. Известна своим классическим, мягким вкусом. <strong>Популярный национальный бренд.</strong></p>
-            </div>
-        </div>
     </div>
     
     <hr>
@@ -287,16 +262,6 @@
             <img src="images/alivaria_zolotoe.jpg" alt="Пиво Аливария Золотое">
             <div class="item-info">
                 <p>Светлый лагер с чистым солодовым вкусом, один из самых популярных сортов в Беларуси. <strong>Премиальный золотистый лагер. Мягкий и сбалансированный.</strong></p>
-            </div>
-        </div>
-        
-        <div class="item">
-            <div class="item-header">
-                <h4>Жигулёвское</h4>
-            </div>
-            <img src="images/zhigulevskoe.jpg" alt="Пиво Жигулёвское">
-            <div class="item-info">
-                <p>Классический светлый лагер, один из самых узнаваемых сортов в СНГ. Легкое, освежающее, с минимальной горчинкой. <strong>Легенда светлого пива.</strong></p> 
             </div>
         </div>
     </div>
@@ -336,16 +301,6 @@
                 <strong>Настойка на меду и пряностях. Согревающий вкус белорусского застолья.</strong></p>
             </div>
         </div>
-        
-        <div class="item">
-            <div class="item-header">
-                <h4>Берёзовый сок</h4>
-            </div>
-            <img src="images/placeholder_juice.jpg" alt="Березовый сок">
-            <div class="item-info">
-                <p>Натуральный сок, собранный весной. Обладает мягким, слегка сладковатым вкусом и полезными свойствами. <strong>Натуральный весенний напиток, богатый витаминами.</strong></p>
-            </div>
-        </div>
     </div>
 
     <hr>
@@ -377,15 +332,6 @@
             <img src="images/buynichskoe_pole.jpg" alt="Буйничское поле">
             <div class="item-info">
                 <p>Мемориальный комплекс, посвященный героизму защитников Могилёва. <strong>Важное историческое место.</strong></p>
-            </div>
-        </div>
-        <div class="item">
-            <div class="item-header">
-                <h4>Зоосад</h4>
-            </div>
-            <img src="images/mogilev_zoosad.jpg" alt="Могилевский Зоосад">
-            <div class="item-info">
-                <p>Место обитания различных животных, расположенное у Буйничского поля. <strong>Отличное место для семейного отдыха.</strong></p>
             </div>
         </div>
     </div>
