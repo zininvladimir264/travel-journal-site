@@ -76,7 +76,7 @@
         .item img { 
             width: 100%; 
             height: 140px; 
-            object-fit: cover; /* Для мест лучше cover */
+            object-fit: cover; 
             background-color: transparent; 
             border-radius: 4px; 
             margin: 0 auto; 
@@ -88,25 +88,18 @@
             border-bottom-right-radius: 0;
         }
 
-        /* --- ЕДИНЫЙ СТИЛЬ: КВАДРАТНЫЕ КАРТОЧКИ (Для БЛЮД, ВОДКИ, ПИВА, НАПИТКОВ) --- */
-        /* Выбираем все категории, кроме последней (Места), и делаем изображения квадратными (180x180) */
-        .category:nth-child(-n+4) .item img {
-            height: 180px; 
-            object-fit: cover; /* Обрезает, чтобы заполнить квадрат */
-            /* Для напитков object-fit: contain лучше, чтобы показать целую бутылку. Разделяем: */
-        }
-        
-        /* КВАДРАТНЫЕ БЛЮДА (object-fit: cover) */
+        /* КВАДРАТНЫЕ БЛЮДА (height: 180px, object-fit: cover) */
         .category:nth-child(2) .item img {
+            height: 180px;
             object-fit: cover; 
         }
 
-        /* КВАДРАТНЫЕ НАПИТКИ (object-fit: contain для целой бутылки) */
+        /* КВАДРАТНЫЕ НАПИТКИ (height: 180px, object-fit: contain для ЦЕЛОЙ БУТЫЛКИ) */
         .category:nth-child(4) .item img, /* Водка */
         .category:nth-child(6) .item img, /* Пиво */
         .category:nth-child(8) .item img { /* Напитки */
             height: 180px;
-            object-fit: contain; /* ***ИЗМЕНЕНО: Для единообразия размера и целой бутылки*** */
+            object-fit: contain; /* ***Целая бутылка, высота 180px*** */
             background-color: transparent; 
         }
 
@@ -123,7 +116,7 @@
             margin: 18px 0 10px 0; 
             color: #FFD700; 
             font-size: 1.3em; 
-            text-shadow: 1px 1px 4px #000; /* Усиленная тень для лучшей читаемости */
+            text-shadow: 1px 1px 4px #000; 
         }
         
         /* Описание */
