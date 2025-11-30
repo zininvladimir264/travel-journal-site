@@ -13,10 +13,11 @@
             background-color: #f4f4f4; 
             font-size: 18px; 
         }
+        /* Светло-кремовый фон для основного контейнера */
         #tasty-mogilev { 
             max-width: 900px; 
             margin: 0 auto; 
-            background-color: #fff; 
+            background-color: #fdf7e3; /* Светло-кремовый фон */
             padding: 30px; 
             border-radius: 8px; 
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
@@ -56,14 +57,14 @@
             margin-bottom: 20px; 
             display: grid; 
             grid-template-columns: repeat(4, 1fr); 
-            gap: 12px; /* ИЗМЕНЕНО: Уменьшено расстояние между карточками */
+            gap: 12px; /* Уменьшенное расстояние */
         }
         
         /* Стили для КАРТОЧКИ (ITEM) */
         .item { 
             border: 1px solid #ddd; 
             border-radius: 8px; 
-            background-color: #fff; 
+            background-color: #fdf7e3; /* Светло-кремовый фон */
             padding: 0px; 
             text-align: center; 
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
@@ -71,11 +72,11 @@
             position: relative; 
         }
         
-        /* --- Стили для ИЗОБРАЖЕНИЯ (ПРЯМОУГОЛЬНИК, НЕОБРЕЗАННЫЙ) --- */
+        /* --- Стили для ИЗОБРАЖЕНИЯ (ОДИНАКОВЫЙ РАЗМЕР - 220px в высоту) --- */
         .item img { 
             width: 100%; 
-            height: 220px; 
-            object-fit: contain; 
+            height: 220px; /* Фиксированная высота для всех изображений */
+            object-fit: contain; /* Картинка помещается полностью */
             border-radius: 4px; 
             margin: 0 auto; 
             display: block; 
