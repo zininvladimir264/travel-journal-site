@@ -17,7 +17,7 @@
         #tasty-mogilev { 
             max-width: 900px; 
             margin: 0 auto; 
-            background-color: #fdf7e3; /* Светло-кремовый фон */
+            background-color: #fdf7e3; 
             padding: 30px; 
             border-radius: 8px; 
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
@@ -64,50 +64,47 @@
         .item { 
             border: 1px solid #ddd; 
             border-radius: 8px; 
-            background-color: #fdf7e3; /* Светло-кремовый фон */
+            background-color: #fdf7e3; 
             padding: 0; 
             text-align: center; 
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
             overflow: hidden; 
-            position: relative; 
+            position: relative; /* ВАЖНО для позиционирования overlay */
         }
         
-        /* --- Стили для ИЗОБРАЖЕНИЯ (более горизонтальные - 150px в высоту) --- */
+        /* --- Стили для ИЗОБРАЖЕНИЯ (Горизонтальные) --- */
         .item img { 
             width: 100%; 
-            height: 150px; /* ***ИЗМЕНЕНО: уменьшена высота для горизонтальности*** */
-            object-fit: cover; /* ***ИЗМЕНЕНО: теперь картинки будут покрывать всю область*** */
+            height: 160px; /* ***Уменьшенная высота для горизонтальности*** */
+            object-fit: cover; /* Заполняет всю область, обрезая лишнее */
             border-radius: 4px; 
             margin: 0 auto; 
             display: block; 
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
             z-index: 1; 
             position: relative;
-        }
-        /* Убираем радиус на изображении, чтобы оно прилегало плотно к верхним краям */
-        .item img {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
         }
 
-        /* --- СТИЛИ ДЛЯ НАЗВАНИЯ НА КАРТИНКЕ (золотой цвет, без фона) --- */
+        /* --- СТИЛИ ДЛЯ НАЗВАНИЯ НА КАРТИНКЕ (Золотой, без фона) --- */
         .item-title-overlay {
             position: absolute;
             top: 50%; /* Центрируем по вертикали */
-            transform: translateY(-50%); /* Точная центровка */
             left: 0;
+            transform: translateY(-50%); /* Точная центровка */
             width: 100%;
             padding: 5px; 
             margin: 0;
-            background-color: transparent; /* Без фона */
-            color: #FFD700; /* ***ИЗМЕНЕНО: ЗОЛОТОЙ ЦВЕТ*** */
-            font-size: 1.4em; /* Увеличен размер для лучшей видимости */
-            font-weight: bold; /* Сделаем жирным */
+            background-color: transparent; 
+            color: #FFD700; /* ***ЗОЛОТОЙ ЦВЕТ*** */
+            font-size: 1.4em; 
+            font-weight: bold; 
             text-align: center;
-            z-index: 5;
+            z-index: 5; /* На передний план */
             box-shadow: none; 
             line-height: 1.2;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9); /* Усилена тень текста для контраста */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9); /* Тень для лучшей видимости */
         }
         
         /* Общий контейнер текста (описание) */
