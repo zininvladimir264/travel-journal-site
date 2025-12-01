@@ -52,7 +52,7 @@
             margin-bottom: 15px; 
         } 
         
-        /* Стили для контейнера карточек (3 колонки) */
+        /* Стили для контейнера карточек (3 колонки - ИСПРАВЛЕНО) */
         .category { 
             margin-bottom: 20px; 
             display: grid; 
@@ -72,12 +72,17 @@
             position: relative; 
         }
         
-        /* --- Стили для ИЗОБРАЖЕНИЯ (КЛЮЧЕВАЯ ПРАВКА object-fit: cover) --- */
+        /* --- Стили для ИЗОБРАЖЕНИЯ (КЛЮЧЕВАЯ ПРАВКА: height: auto и min-height) --- */
         .item img { 
             width: 100%; 
-            height: 220px; 
-            /* object-fit: cover обрезает края, но центрирует контент и заполняет область */
-            object-fit: cover; 
+            /* Высота подстраивается под изображение, чтобы бутылки не обрезались */
+            height: auto; 
+            /* Минимальная высота, чтобы все картинки не слипались */
+            min-height: 180px; 
+            
+            /* object-fit: contain гарантирует, что изображение не будет обрезано */
+            object-fit: contain; 
+            
             border-radius: 4px; 
             margin: 0 auto; 
             display: block; 
