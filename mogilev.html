@@ -12,42 +12,7 @@
             padding: 20px; 
             background-color: #f4f4f4; 
             font-size: 18px; 
-            /* КЛЮЧЕВАЯ ПРАВКА: Отступ для фиксированной навигационной панели */
-            padding-top: 60px;
         }
-        
-        /* --- Стили для навигации (НОВЫЙ БЛОК) --- */
-        .navbar {
-            overflow: hidden;
-            background-color: #783e49; /* Тёмно-бордовый фон */
-            position: fixed; /* Фиксирует панель наверху */
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            display: flex;
-            justify-content: center;
-            padding: 0 20px;
-        }
-        .navbar a {
-            float: left;
-            display: block;
-            color: #fdf7e3; 
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-            font-size: 17px;
-            transition: background-color 0.3s;
-        }
-        .navbar a:hover {
-            background-color: #6a343e; 
-            color: white;
-        }
-        .navbar a.active {
-            background-color: #e8a4b6; /* Розовый цвет для активной страницы */
-            color: #783e49;
-        }
-        
         /* Светло-кремовый фон для основного контейнера */
         #tasty-mogilev { 
             max-width: 900px; 
@@ -77,22 +42,17 @@
             line-height: 1.2;
         }
 
-        /* --- Стили для заголовков категорий (КЛЮЧЕВАЯ ПРАВКА: РОЗОВЫЙ ФОН) --- */
+        /* Стили для заголовков категорий (БЕЗ РОЗОВОГО ФОНА) */
         h3 { 
-            color: #783e49; /* Бордовый текст */
+            color: #783e49; 
             font-size: 1.5em; 
-            border-bottom: none; /* Удаляем старую границу */
-            padding: 10px 15px; 
+            border-bottom: 2px solid #ddd; 
+            padding-bottom: 5px; 
             margin-top: 35px; 
             margin-bottom: 15px; 
-            background-color: #e8a4b6; /* Розовый фон */
-            border-radius: 4px; 
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            display: inline-block; /* чтобы фон был только под текстом */
-            text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.7);
         } 
         
-        /* Стили для контейнера карточек (3 колонки - ПРАВИЛЬНО!) */
+        /* Стили для контейнера карточек (3 колонки) */
         .category { 
             margin-bottom: 20px; 
             display: grid; 
@@ -112,11 +72,11 @@
             position: relative; 
         }
         
-        /* --- Стили для ИЗОБРАЖЕНИЯ (для полных бутылок) --- */
+        /* --- Стили для ИЗОБРАЖЕНИЯ (Бутылки видны полностью) --- */
         .item img { 
             width: 100%; 
             height: 220px; 
-            object-fit: contain; 
+            object-fit: contain; /* Картинка вписывается полностью */
             
             border-radius: 4px; 
             margin: 0 auto; 
@@ -199,12 +159,6 @@
     </style>
 </head>
 <body>
-
-<div class="navbar">
-    <a href="mogilev.html" class="active">Могилёв</a>
-    <a href="bobruisk.html">Бобруйск</a>
-    <a href="shklov.html">Шклов</a>
-</div>
 
 <section id="tasty-mogilev">
     <h2>ВКУСНЫЙ МОГИЛЁВ</h2> 
