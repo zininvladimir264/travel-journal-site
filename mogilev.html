@@ -42,8 +42,8 @@
             text-decoration: none;
             
             /* *** СТИЛЬ НАВИГАЦИИ (РОЗОВАТЫЙ ФОН, ТЕМНЫЙ ТЕКСТ) *** */
-            color: #783e49; 
-            background-color: #e8d8d3; 
+            color: #783e49; /* Темный текст */
+            background-color: #e8d8d3; /* Светлый розоватый фон */
             
             font-weight: bold;
             font-size: 1em; 
@@ -62,7 +62,7 @@
         
         /* Стили для АКТИВНОЙ (текущей) страницы */
         .nav-menu li a.active {
-            /* *** СТИЛЬ АКТИВНОЙ ССЫЛКИ (ИНВЕРТИРОВАННЫЙ) *** */
+            /* СТИЛЬ АКТИВНОЙ ССЫЛКИ (ИНВЕРТИРОВАННЫЙ) */
             color: #fdf7e3; 
             background-color: #783e49; 
             text-shadow: 1px 1px 1px #000;
@@ -129,17 +129,22 @@
             font-weight: bold; 
         }
         
-        /* --- Стили для ИЗОБРАЖЕНИЯ (ОДИНАКОВЫЙ РАЗМЕР) --- */
+        /* --- Стили для ИЗОБРАЖЕНИЯ (ОДИНАКОВАЯ ВЫСОТА) --- */
         .item img { 
             width: 100%; 
             height: 220px; 
-            object-fit: contain; /* *** ВОССТАНОВЛЕНО НА CONTAIN для полного отображения бутылок *** */
+            object-fit: contain; /* По умолчанию: сохраняем бутылки в полный рост */
             border-radius: 0; 
             margin: 0 auto; 
             display: block; 
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
             z-index: 1; 
             position: relative;
+        }
+        
+        /* *** ОТДЕЛЬНЫЙ СТИЛЬ ДЛЯ МАЧАНКИ (для вертикального заполнения) *** */
+        .machanka-img {
+            object-fit: cover; /* Принудительно заполняет область, как драники (с возможной обрезкой по краям) */
         }
 
         /* Общий контейнер текста (описание) */
@@ -222,8 +227,7 @@
         
         <div class="item">
             <h4 class="item-title">Мачанка</h4> 
-            <img src="images/machanka.jpg" alt="Мачанка с блинами">
-            <div class="item-info">
+            <img src="images/machanka.jpg" alt="Мачанка с блинами" class="machanka-img"> <div class="item-info">
                 <p>Густой, наваристый мясной соус из свинины, копченостей и колбас. Едят, макая в него пышные блины (гречневые или пшеничные). <strong>Густой мясной соус, который подарит вам вкус настоящей деревни.</strong></p>
             </div>
         </div>
