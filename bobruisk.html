@@ -42,16 +42,17 @@
             line-height: 1.2;
         }
 
-        /* Стили для заголовков категорий (h3) - Фон УБРАН */
+        /* Стили для заголовков категорий (РОЗОВЫЙ ФОН) */
         h3 { 
             color: #783e49; 
             font-size: 1.5em; 
-            background-color: transparent; 
-            padding: 10px 0; 
-            border-bottom: 2px solid #ddd; 
+            background-color: #F8BBD0; /* Светло-розовый цвет */
+            padding: 10px 15px; 
+            border-radius: 6px; 
+            border-bottom: none; 
             margin-top: 35px; 
             margin-bottom: 15px; 
-            text-shadow: none; 
+            text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5); 
         } 
         
         /* Стили для контейнера карточек (3 колонки) */
@@ -66,7 +67,7 @@
         .item { 
             border: 1px solid #ddd; 
             border-radius: 8px; 
-            background-color: #fff; 
+            background-color: #fdf7e3; 
             padding: 0; 
             text-align: center; 
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
@@ -78,7 +79,7 @@
         .item img { 
             width: 100%; 
             height: 220px; 
-            object-fit: contain; 
+            object-fit: contain; /* Картинка вписывается полностью, не обрезается */
             
             border-radius: 4px; 
             margin: 0 auto; 
@@ -90,7 +91,7 @@
             border-bottom-right-radius: 0;
         }
 
-        /* --- СТИЛИ ДЛЯ НАЗВАНИЯ НА КАРТИНКЕ (h4) - Фон УБРАН --- */
+        /* --- СТИЛИ ДЛЯ НАЗВАНИЯ НА КАРТИНКЕ (h4 с РОЗОВЫМ ФОНОМ) --- */
         .item-title-overlay {
             position: absolute;
             top: 0; 
@@ -98,8 +99,8 @@
             width: 100%;
             padding: 8px 5px; 
             margin: 0;
-            background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый фон */
-            color: #333; 
+            background-color: rgba(248, 187, 208, 0.7); /* Полупрозрачный светло-розовый */
+            color: #783e49; /* Темно-коричневый текст */
             font-weight: bold;
             font-size: 1.1em;
             text-align: center;
@@ -133,22 +134,6 @@
              color: #783e49; 
         }
 
-        /* --- АГРЕССИВНОЕ СКРЫТИЕ ДУБЛИКАТА H4 ИЛИ ЛЮБОГО ЛИШНЕГО ТЕКСТА --- */
-        /* Если внутри блока .item-info есть заголовок h4, мы его принудительно скрываем */
-        .item-info h4 {
-            display: none !important; 
-            visibility: hidden !important;
-            height: 0 !important;
-            margin: 0 !important;
-            padding: 0 !important;
-        }
-        
-        /* Если внутри блока .item-info есть любой текст, не заключенный в параграф <p> */
-        .item-info > :not(p):not(strong) {
-             display: none !important; 
-        }
-        /* ------------------------------------------------------------------- */
-
         /* --- ЭФФЕКТ УВЕЛИЧЕНИЯ (ПРИ НАВЕДЕНИИ) --- */
         .item img:hover {
             transform: scale(1.1); 
@@ -159,7 +144,7 @@
         /* --- Адаптивность --- */
         @media (max-width: 1200px) {
             .category {
-                grid-template-columns: repeat(3, 1fr); 
+                grid-template-columns: 1fr 1fr 1fr; 
                 gap: 12px;
             }
         }
@@ -219,7 +204,7 @@
             <h4 class="item-title-overlay">Водка "Бобруйская Люкс"</h4>
             <img src="images/bobruiskaya_lux.jpg" alt="Водка Бобруйская Люкс">
             <div class="item-info">
-                <p>Местный сорт водки, производимый на Бобруйском заводе. Традиционный рецепт, символ местной алкогольной продукции. <strong>Символ местной алкогольной продукции.</strong></p>
+                <p>Местный сорт водки, производимый на Бобруйском заводе "Красный пищевик" или его партнерами. Традиционный рецепт, символ местной алкогольной продукции. <strong>Символ местной алкогольной продукции.</strong></p>
             </div>
         </div>
         
@@ -235,7 +220,7 @@
             <h4 class="item-title-overlay">Водка "Радзивилл" (Региональный бренд)</h4>
             <img src="images/radzivill.jpg" alt="Водка Радзивилл">
             <div class="item-info">
-                <p>Бренд, ассоциирующийся с историей Могилевской области. Премиальный продукт с высокой степенью очистки, популярный среди местного населения. <strong>Бренд с высокой степенью очистки.</strong></p>
+                <p>Бренд, ассоциирующийся с историей Могилевской области и ее дворянскими традициями. Премиальный продукт с высокой степенью очистки, популярный среди местного населения. <strong>Бренд с высокой степенью очистки.</strong></p>
             </div>
         </div>
         
