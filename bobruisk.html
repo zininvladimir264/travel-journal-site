@@ -27,7 +27,6 @@
         h2 { 
             text-align: center; 
             color: #FFD700; 
-            /* Используем существующий паттерн */
             background-image: url('images/belarus_pattern.jpg'); 
             background-color: #e0f2e0; 
             background-repeat: repeat-x; 
@@ -43,24 +42,23 @@
             line-height: 1.2;
         }
 
-        /* Стили для заголовков категорий (РОЗОВЫЙ ФОН) */
+        /* Стили для заголовков категорий (БЕЗ РОЗОВОГО ФОНА) */
         h3 { 
-            color: #783e49; 
+            color: #783e49; /* Оставляем темно-коричневый цвет текста */
             font-size: 1.5em; 
-            background-color: #F8BBD0; /* Светло-розовый цвет */
+            /* УДАЛЕН ФОН */
             padding: 10px 15px; 
             border-radius: 6px; 
-            border-bottom: none; 
+            border-bottom: 2px solid #ddd; /* Добавляем небольшую линию */
             margin-top: 35px; 
             margin-bottom: 15px; 
-            text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5); 
+            text-shadow: none; 
         } 
         
         /* Стили для контейнера карточек (3 колонки) */
         .category { 
             margin-bottom: 20px; 
             display: grid; 
-            /* 3 колонки */
             grid-template-columns: repeat(3, 1fr); 
             gap: 12px; 
         }
@@ -74,14 +72,14 @@
             text-align: center; 
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
             overflow: hidden; 
-            position: relative; /* Обязательно для позиционирования h4.item-title-overlay */
+            position: relative; 
         }
         
         /* --- Стили для ИЗОБРАЖЕНИЯ (Бутылки не обрезаются) --- */
         .item img { 
             width: 100%; 
             height: 220px; 
-            object-fit: contain; /* Картинка вписывается полностью */
+            object-fit: contain; 
             
             border-radius: 4px; 
             margin: 0 auto; 
@@ -101,20 +99,18 @@
             width: 100%;
             padding: 8px 5px; 
             margin: 0;
-            background-color: #F8BBD0; /* Полностью непрозрачный розовый */
-            color: #783e49; /* Темно-коричневый текст */
+            background-color: #F8BBD0; 
+            color: #783e49; 
             font-weight: bold;
             font-size: 1.1em;
             text-align: center;
-            z-index: 10; /* Выводим поверх всего, чтобы закрыть дубликат */
+            z-index: 10; 
             box-shadow: none; 
             line-height: 1.2;
             text-shadow: none; 
         }
 
         /* --- ГАРАНТИРОВАННО СКРЫВАЕМ ЛЮБЫЕ ДРУГИЕ ЗАГОЛОВКИ H4 --- */
-        /* Это правило не позволит любому другому h4 внутри item отображаться, 
-           кроме нашего h4.item-title-overlay */
         .item h4:not(.item-title-overlay) {
             display: none !important; 
             visibility: hidden !important;
@@ -148,7 +144,7 @@
         .item img:hover {
             transform: scale(1.1); 
             box-shadow: 0 8px 20px rgba(0,0,0,0.3); 
-            z-index: 15; /* Делаем его выше чем h4 при наведении */
+            z-index: 15; 
         }
         
         /* --- Адаптивность --- */
@@ -183,10 +179,10 @@
         </div>
         
         <div class="item">
-            <h4 class="item-title-overlay">Драники с мачанкой</h4> 
-            <img src="images/draniki_s_machankoy.jpg" alt="Драники с мачанкой">
+            <h4 class="item-title-overlay">Колдуны</h4> 
+            <img src="images/kolduny.jpg" alt="Колдуны">
             <div class="item-info">
-                <p>Классические драники (картофельные оладьи), подаваемые с густым мясным соусом (мачанкой). Один из самых сытных и вкусных вариантов подачи картофеля в Бобруйске. <strong>Классика Бобруйска — попробуйте.</strong></p>
+                <p>Картофельные зразы с мясной начинкой (фаршем), обжаренные до золотистой корочки. Одно из самых сытных и популярных блюд региона. <strong>Подаются со сметаной.</strong></p>
             </div>
         </div>
         
