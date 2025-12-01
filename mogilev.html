@@ -42,22 +42,22 @@
             line-height: 1.2;
         }
 
-        /* Стили для заголовков категорий (ФОН УБРАН) */
+        /* Стили для заголовков категорий */
         h3 { 
             color: #783e49; 
             font-size: 1.5em; 
-            border-bottom: 2px solid #ddd; /* Вернули нижнюю линию */
+            border-bottom: 2px solid #ddd; 
             padding-bottom: 5px; 
             margin-top: 35px; 
             margin-bottom: 15px; 
         } 
         
-        /* Стили для контейнера карточек (3 колонки) */
+        /* Стили для контейнера карточек (3 колонки - ИЗМЕНЕНЫ ОТСТУПЫ) */
         .category { 
-            margin-bottom: 20px; 
+            margin-bottom: 8px; /* Уменьшили нижний отступ */
             display: grid; 
             grid-template-columns: repeat(3, 1fr); 
-            gap: 12px; 
+            gap: 8px; /* Уменьшили расстояние между карточками */
         }
         
         /* Стили для КАРТОЧКИ (ITEM) */
@@ -142,19 +142,19 @@
         @media (max-width: 1200px) {
             .category {
                 grid-template-columns: 1fr 1fr 1fr; 
-                gap: 12px;
+                gap: 8px;
             }
         }
         @media (max-width: 800px) {
             .category {
                 grid-template-columns: 1fr 1fr; 
-                gap: 12px;
+                gap: 8px;
             }
         }
         @media (max-width: 550px) {
             .category {
                 grid-template-columns: 1fr; 
-                gap: 12px;
+                gap: 8px;
             }
         }
     </style>
