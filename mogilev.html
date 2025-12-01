@@ -17,7 +17,7 @@
         #tasty-mogilev { 
             max-width: 900px; 
             margin: 0 auto; 
-            background-color: #fdf7e3; /* Светло-кремовый фон */
+            background-color: #fdf7e3; 
             padding: 30px; 
             border-radius: 8px; 
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
@@ -49,12 +49,14 @@
             border-bottom: 2px solid #ddd; 
             padding-bottom: 5px; 
             margin-top: 35px; 
-            margin-bottom: 15px; 
+            /* ***ПРАВКА 1: Уменьшаем отступ над категориями*** */
+            margin-bottom: 5px; 
         } 
         
         /* Стили для контейнера карточек (3 колонки) */
         .category { 
-            margin-bottom: 20px; 
+            /* ***ПРАВКА 2: Уменьшаем вертикальное расстояние между рядами карточек*** */
+            margin-bottom: 10px; 
             display: grid; 
             grid-template-columns: repeat(3, 1fr); 
             gap: 12px; 
@@ -68,7 +70,6 @@
             padding: 0; 
             text-align: center; 
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            /* min-height для единой высоты (опционально, но помогает) */
             min-height: 380px; 
             overflow: hidden; 
             position: relative; 
@@ -77,14 +78,11 @@
             justify-content: space-between;
         }
         
-        /* --- Стили для ИЗОБРАЖЕНИЯ (КЛЮЧЕВАЯ ПРАВКА ДЛЯ БУТЫЛОК) --- */
+        /* --- Стили для ИЗОБРАЖЕНИЯ --- */
         .item img { 
             width: 100%; 
-            height: 220px; /* Фиксированная высота для всех изображений */
-            
-            /* object-fit: contain гарантирует, что изображение не будет обрезано (полный вид) */
+            height: 220px; 
             object-fit: contain; 
-            
             border-radius: 4px; 
             margin: 0 auto; 
             display: block; 
@@ -93,34 +91,31 @@
             position: relative;
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
-            /* Дополнительный padding для небольшого отступа сверху и снизу изображения внутри контейнера */
             padding: 10px 0;
         }
 
-        /* --- СТИЛИ ДЛЯ НАЗВАНИЯ НА КАРТИНКЕ --- */
+        /* --- ПРАВКА 3: СТИЛИ ДЛЯ НАЗВАНИЯ НА РОЗОВОМ ФОНЕ (СВЕРХУ) --- */
         .item-title-overlay {
-            position: absolute;
-            top: 5px; 
+            position: relative; /* Делаем элемент обычным в потоке (над картинкой) */
+            top: 0; 
             left: 0;
             width: 100%;
-            padding: 5px; 
+            padding: 8px 5px; /* Увеличили padding для лучшего вида */
             margin: 0;
-            background-color: transparent; 
+            background-color: #783e49; /* Розовый/бордовый фон */
             color: #fff;
             font-size: 1.1em;
             text-align: center;
             z-index: 5;
-            box-shadow: none; 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
             line-height: 1.2;
-            text-shadow: 1px 1px 2px #000; 
+            text-shadow: none; 
         }
         
         /* Общий контейнер текста (описание) */
         .item-info {
             padding: 10px 18px 18px 18px; 
             margin: 0; 
-            min-height: 40px; 
-            /* ***КЛЮЧЕВАЯ ПРАВКА: Фиксированная минимальная высота для текстового блока*** */
             min-height: 80px; 
         }
         
@@ -131,7 +126,6 @@
             color: #666; 
             text-align: left; 
             line-height: 1.4;
-            /* Убрали min-height отсюда, перенесли на .item-info */
         }
         
         /* Жирный текст в описании */
@@ -143,7 +137,7 @@
 
         /* --- ЭФФЕКТ УВЕЛИЧЕНИЯ (ПРИ НАВЕДЕНИИ) --- */
         .item img:hover {
-            transform: scale(1.05); /* Уменьшили зум, чтобы бутылки не вылезали */
+            transform: scale(1.05); 
             box-shadow: 0 8px 20px rgba(0,0,0,0.3); 
             z-index: 2; 
         }
