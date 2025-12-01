@@ -22,6 +22,41 @@
             border-radius: 8px; 
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
         }
+
+        /* --- СТИЛИ ДЛЯ НАВИГАЦИИ (UL/LI) --- */
+        .nav-menu {
+            list-style: none; 
+            padding: 0;
+            margin: 0 0 20px 0; 
+            text-align: center;
+            background-color: #783e49; /* Темно-красный фон */
+            border-radius: 4px;
+        }
+
+        .nav-menu li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        .nav-menu li a {
+            text-decoration: none;
+            color: #fdf7e3; /* Светлый текст */
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 10px 0;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .nav-menu li a:hover {
+            color: #FFD700; /* Золотистый при наведении */
+        }
+        
+        /* Стили для АКТИВНОЙ (текущей) страницы */
+        .nav-menu li a.active {
+            color: #FFD700; 
+            border-bottom: 2px solid #FFD700;
+        }
         
         /* Стили для заголовка сайта (Шапка) */
         h2 { 
@@ -74,12 +109,12 @@
         
         /* --- Стили для НАЗВАНИЯ БЛЮДА (СВЕТЛЫЙ ФОН) --- */
         .item-title {
-            color: #783e49; /* Сделаем текст темно-красным для лучшего контраста на светлом фоне */
-            background-color: #e8d8d3; /* ***СВЕТЛО-БЕЖЕВЫЙ ФОН*** */
+            color: #783e49; /* Темно-красный текст */
+            background-color: #e8d8d3; /* Светлый фон */
             font-size: 1.25em; 
             padding: 8px 10px;
             margin: 0;
-            text-shadow: 1px 1px 1px #fff; /* Добавим светлую тень для четкости */
+            text-shadow: 1px 1px 1px #fff; 
             text-align: center; 
             font-weight: bold; 
         }
@@ -152,6 +187,15 @@
 <body>
 
 <section id="tasty-mogilev">
+    
+    <nav>
+        <ul class="nav-menu">
+            <li><a href="mogilev.html" class="active">МОГИЛЁВ</a></li>
+            <li><a href="bobruisk.html">БОБРУЙСК</a></li>
+            <li><a href="shklov.html">ШКЛОВ</a></li>
+        </ul>
+    </nav>
+
     <h2>ВКУСНЫЙ МОГИЛЁВ</h2> 
     
     
