@@ -52,12 +52,12 @@
             margin-bottom: 15px; 
         } 
         
-        /* Стили для контейнера карточек (3 колонки - ИЗМЕНЕНЫ ОТСТУПЫ) */
+        /* Стили для контейнера карточек (3 колонки - ОТСТУПЫ УМЕНЬШЕНЫ) */
         .category { 
-            margin-bottom: 8px; /* Уменьшили нижний отступ */
+            margin-bottom: 8px; 
             display: grid; 
             grid-template-columns: repeat(3, 1fr); 
-            gap: 8px; /* Уменьшили расстояние между карточками */
+            gap: 8px; 
         }
         
         /* Стили для КАРТОЧКИ (ITEM) */
@@ -69,42 +69,40 @@
             text-align: center; 
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
             overflow: hidden; 
-            position: relative; 
+            position: relative; /* Оставили relative для сохранения контекста */
         }
         
         /* --- Стили для ИЗОБРАЖЕНИЯ (Бутылки не обрезаются) --- */
         .item img { 
             width: 100%; 
             height: 220px; 
-            object-fit: contain; /* Картинка вписывается полностью, не обрезается */
+            object-fit: contain; 
             
-            border-radius: 4px; 
             margin: 0 auto; 
             display: block; 
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
             z-index: 1; 
             position: relative;
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
+            border-top-left-radius: 0; /* Убрали округление, так как там теперь h4 */
+            border-top-right-radius: 0;
+            border-bottom-left-radius: 4px; /* Округляем нижние углы картинки */
+            border-bottom-right-radius: 4px;
         }
 
-        /* --- СТИЛИ ДЛЯ НАЗВАНИЯ НА КАРТИНКЕ (h4 с РОЗОВЫМ ФОНОМ ОСТАЛСЯ) --- */
+        /* --- СТИЛИ ДЛЯ НАЗВАНИЯ НАД КАРТИНКОЙ (h4 с РОЗОВЫМ ФОНОМ) --- */
         .item-title-overlay {
-            position: absolute;
-            top: 0; 
-            left: 0;
+            /* Убрали абсолютное позиционирование */
             width: 100%;
             padding: 8px 5px; 
             margin: 0;
-            background-color: rgba(248, 187, 208, 0.7); /* Полупрозрачный светло-розовый */
+            background-color: #F8BBD0; /* Светло-розовый, без прозрачности */
             color: #783e49; 
             font-weight: bold;
             font-size: 1.1em;
             text-align: center;
-            z-index: 5;
-            box-shadow: none; 
             line-height: 1.2;
-            text-shadow: none; 
+            border-top-left-radius: 8px; /* Округляем углы карточки */
+            border-top-right-radius: 8px;
         }
         
         /* Общий контейнер текста (описание) */
