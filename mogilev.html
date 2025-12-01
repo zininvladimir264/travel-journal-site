@@ -48,8 +48,8 @@
             font-size: 1.5em; 
             border-bottom: 2px solid #ddd; 
             padding-bottom: 5px; 
-            margin-top: 25px; /* УМЕНЬШЕНО ВЕРТИКАЛЬНОЕ РАССТОЯНИЕ */
-            margin-bottom: 10px; /* УМЕНЬШЕНО ВЕРТИКАЛЬНОЕ РАССТОЯНИЕ */
+            margin-top: 25px; 
+            margin-bottom: 10px; 
         } 
         
         /* Стили для контейнера карточек (3 колонки) */
@@ -57,7 +57,7 @@
             margin-bottom: 20px; 
             display: grid; 
             grid-template-columns: repeat(3, 1fr); 
-            gap: 8px; /* СОКРАЩЕНО ГОРИЗОНТАЛЬНОЕ РАССТОЯНИЕ МЕЖДУ КАРТОЧКАМИ */
+            gap: 8px; 
         }
         
         /* Стили для КАРТОЧКИ (ITEM) */
@@ -72,15 +72,15 @@
             position: relative; 
         }
         
-        /* --- Стили для НАЗВАНИЯ БЛЮДА (Золотистый текст, Фон цвета орнамента, По центру) --- */
+        /* --- Стили для НАЗВАНИЯ БЛЮДА (СВЕТЛЫЙ ФОН) --- */
         .item-title {
-            color: #FFD700; /* Золотистый цвет */
-            background-color: #783e49; /* ***ФОН ЦВЕТА ОРНАМЕНТА*** */
+            color: #783e49; /* Сделаем текст темно-красным для лучшего контраста на светлом фоне */
+            background-color: #e8d8d3; /* ***СВЕТЛО-БЕЖЕВЫЙ ФОН*** */
             font-size: 1.25em; 
             padding: 8px 10px;
             margin: 0;
-            text-shadow: 1px 1px 1px #000;
-            text-align: center; /* ***ВЫРОВНЕН ПО ЦЕНТРУ*** */
+            text-shadow: 1px 1px 1px #fff; /* Добавим светлую тень для четкости */
+            text-align: center; 
             font-weight: bold; 
         }
         
