@@ -42,17 +42,19 @@
             line-height: 1.2;
         }
 
-        /* Стили для заголовков категорий (РОЗОВЫЙ ФОН) */
+        /* Стили для заголовков категорий (БЕЗ РОЗОВОГО ФОНА) */
         h3 { 
             color: #783e49; 
             font-size: 1.5em; 
-            background-color: #F8BBD0; /* Светло-розовый цвет */
-            padding: 10px 15px; 
-            border-radius: 6px; 
-            border-bottom: none; 
+            background-color: transparent; /* УБРАЛИ ФОН */
+            
+            border-bottom: 2px solid #ddd; /* ВЕРНУЛИ ЛИНИЮ */
+            padding: 0 0 5px 0; 
+            border-radius: 0; 
+            
             margin-top: 35px; 
             margin-bottom: 15px; 
-            text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5); 
+            text-shadow: none; 
         } 
         
         /* Стили для контейнера карточек (3 колонки) */
@@ -91,7 +93,7 @@
             border-bottom-right-radius: 0;
         }
 
-        /* --- СТИЛИ ДЛЯ НАЗВАНИЯ НА КАРТИНКЕ (h4 с РОЗОВЫМ ФОНОМ) --- */
+        /* --- СТИЛИ ДЛЯ НАЗВАНИЯ НА КАРТИНКЕ (h4 - РОЗОВЫЙ ФОН ОСТАЁТСЯ) --- */
         .item-title-overlay {
             position: absolute;
             top: 0; 
