@@ -42,17 +42,16 @@
             line-height: 1.2;
         }
 
-        /* Стили для заголовков категорий (РОЗОВЫЙ ФОН) */
+        /* Стили для заголовков категорий (h3) - УБРАН РОЗОВЫЙ ФОН */
         h3 { 
             color: #783e49; 
             font-size: 1.5em; 
-            background-color: #F8BBD0; /* Светло-розовый цвет */
-            padding: 10px 15px; 
-            border-radius: 6px; 
-            border-bottom: none; 
+            background-color: transparent; /* Сделали фон прозрачным */
+            padding: 10px 0; /* Уменьшили вертикальный паддинг */
+            border-bottom: 2px solid #ddd; /* Оставили только подчеркивание */
             margin-top: 35px; 
             margin-bottom: 15px; 
-            text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5); 
+            text-shadow: none; 
         } 
         
         /* Стили для контейнера карточек (3 колонки) */
@@ -67,7 +66,7 @@
         .item { 
             border: 1px solid #ddd; 
             border-radius: 8px; 
-            background-color: #fdf7e3; 
+            background-color: #fff; /* Фон карточки белый */
             padding: 0; 
             text-align: center; 
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
@@ -91,7 +90,7 @@
             border-bottom-right-radius: 0;
         }
 
-        /* --- СТИЛИ ДЛЯ НАЗВАНИЯ НА КАРТИНКЕ (h4 с РОЗОВЫМ ФОНОМ) --- */
+        /* --- СТИЛИ ДЛЯ НАЗВАНИЯ НА КАРТИНКЕ (h4) - УБРАН РОЗОВЫЙ ФОН --- */
         .item-title-overlay {
             position: absolute;
             top: 0; 
@@ -99,8 +98,8 @@
             width: 100%;
             padding: 8px 5px; 
             margin: 0;
-            background-color: rgba(248, 187, 208, 0.7); /* Полупрозрачный светло-розовый */
-            color: #783e49; /* Темно-коричневый текст */
+            background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый фон */
+            color: #333; /* Темный текст */
             font-weight: bold;
             font-size: 1.1em;
             text-align: center;
@@ -209,7 +208,7 @@
         </div>
         
         <div class="item">
-            <h4 class="item-title-overlay">"Бобруйский Бальзам"</h4>
+            <h4 class="item-title-overlay">Настойка "Бобруйский Бальзам"</h4>
             <img src="images/bobruisk_balzam.jpg" alt="Настойка Бобруйский Бальзам">
             <div class="item-info">
                 <p>Крепкий травяной бальзам, настоянный на травах и ягодах, производимый в регионе. Отлично подходит в качестве добавки к кофе или чаю. <strong>Отличный травяной бальзам.</strong></p>
@@ -217,7 +216,7 @@
         </div>
         
         <div class="item">
-            <h4 class="item-title-overlay">Водка "Радзивилл" </h4>
+            <h4 class="item-title-overlay">Водка "Радзивилл" (Региональный бренд)</h4>
             <img src="images/radzivill.jpg" alt="Водка Радзивилл">
             <div class="item-info">
                 <p>Бренд, ассоциирующийся с историей Могилевской области и ее дворянскими традициями. Премиальный продукт с высокой степенью очистки, популярный среди местного населения. <strong>Бренд с высокой степенью очистки.</strong></p>
