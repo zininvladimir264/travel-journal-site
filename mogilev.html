@@ -29,39 +29,44 @@
             padding: 0;
             margin: 0 0 20px 0; 
             text-align: center;
-            background-color: transparent; /* Убрал темный фон с контейнера */
+            background-color: transparent; 
             border-radius: 4px;
         }
 
         .nav-menu li {
             display: inline-block;
-            margin: 0 5px; /* Уменьшил горизонтальный отступ */
+            margin: 0 5px; 
         }
 
         .nav-menu li a {
             text-decoration: none;
             
-            /* *** НОВЫЕ СТИЛИ НАВИГАЦИИ (как у названий блюд) *** */
-            color: #783e49; /* Темно-красный текст */
-            background-color: #e8d8d3; /* Светлый фон */
+            /* *** НОВЫЕ СТИЛИ НАВИГАЦИИ (как у шапки) *** */
+            color: #FFD700; /* Золотистый цвет текста */
+            background-image: url('images/belarus_pattern.jpg'); /* *** ФОН С ОРНАМЕНТОМ *** */
+            background-color: #e0f2e0; /* Фоновый цвет на случай, если орнамент не загрузится */
+            background-repeat: repeat-x; 
+            background-size: auto 100%; 
+            background-position: center center; 
+            
             font-weight: bold;
-            font-size: 1em; /* *** УМЕНЬШЕН ШРИФТ (был 1.1em) *** */
+            font-size: 1em; /* УМЕНЬШЕН ШРИФТ */
             padding: 8px 12px;
-            display: inline-block; /* Изменил на inline-block для применения фона */
-            transition: background-color 0.3s, color 0.3s;
+            display: inline-block; 
+            transition: background-color 0.3s, color 0.3s, border-bottom 0.3s;
             border-radius: 4px;
-            text-shadow: 1px 1px 1px #fff; 
+            text-shadow: 1px 1px 1px #000; /* Тень для лучшей читаемости на фоне */
         }
 
         .nav-menu li a:hover {
             color: #fdf7e3; /* Светлый текст при наведении */
-            background-color: #783e49; /* Темный фон при наведении */
+            background-color: #783e49; /* Темный фон при наведении (для эффекта) */
             text-shadow: 1px 1px 1px #000;
         }
         
         /* Стили для АКТИВНОЙ (текущей) страницы */
         .nav-menu li a.active {
-            color: #fdf7e3; /* Золотистый цвет для активной ссылки */
+            color: #fdf7e3; /* Светлый цвет для активной ссылки */
             background-color: #783e49; /* Темный фон для активной ссылки */
             text-shadow: 1px 1px 1px #000;
         }
@@ -131,7 +136,7 @@
         .item img { 
             width: 100%; 
             height: 220px; 
-            object-fit: contain; /* Оставил CONTAIN для предотвращения обрезки */
+            object-fit: cover; /* *** ИЗМЕНЕНО НА COVER для заполнения всей области *** */
             border-radius: 0; 
             margin: 0 auto; 
             display: block; 
