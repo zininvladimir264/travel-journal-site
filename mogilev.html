@@ -42,17 +42,14 @@
             line-height: 1.2;
         }
 
-        /* Стили для заголовков категорий (РОЗОВЫЙ ФОН) */
+        /* Стили для заголовков категорий (ФОН УБРАН) */
         h3 { 
             color: #783e49; 
             font-size: 1.5em; 
-            background-color: #F8BBD0; /* Светло-розовый цвет */
-            padding: 10px 15px; 
-            border-radius: 6px; 
-            border-bottom: none; 
+            border-bottom: 2px solid #ddd; /* Вернули нижнюю линию */
+            padding-bottom: 5px; 
             margin-top: 35px; 
             margin-bottom: 15px; 
-            text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5); 
         } 
         
         /* Стили для контейнера карточек (3 колонки) */
@@ -75,7 +72,7 @@
             position: relative; 
         }
         
-        /* --- Стили для ИЗОБРАЖЕНИЯ --- */
+        /* --- Стили для ИЗОБРАЖЕНИЯ (Бутылки не обрезаются) --- */
         .item img { 
             width: 100%; 
             height: 220px; 
@@ -91,7 +88,7 @@
             border-bottom-right-radius: 0;
         }
 
-        /* --- СТИЛИ ДЛЯ НАЗВАНИЯ НА КАРТИНКЕ (h4 с РОЗОВЫМ ФОНОМ) --- */
+        /* --- СТИЛИ ДЛЯ НАЗВАНИЯ НА КАРТИНКЕ (h4 с РОЗОВЫМ ФОНОМ ОСТАЛСЯ) --- */
         .item-title-overlay {
             position: absolute;
             top: 0; 
@@ -100,7 +97,7 @@
             padding: 8px 5px; 
             margin: 0;
             background-color: rgba(248, 187, 208, 0.7); /* Полупрозрачный светло-розовый */
-            color: #783e49; /* Темно-коричневый текст */
+            color: #783e49; 
             font-weight: bold;
             font-size: 1.1em;
             text-align: center;
