@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -23,6 +24,36 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
         }
         
+        /* --- НОВЫЕ СТИЛИ ДЛЯ НАВИГАЦИИ --- */
+        nav {
+            background-color: #783e49; /* Цвет фона навигации */
+            padding: 10px 0;
+            margin-bottom: 20px; /* Отступ от заголовка страницы */
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        nav a {
+            color: #fdf7e3; /* Светлый цвет текста */
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 10px 15px;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #5c3039; /* Цвет при наведении */
+        }
+
+        /* Выделение активной (текущей) страницы */
+        nav a.active {
+            background-color: #783e49; /* Цвет фона текущей страницы */
+            color: #FFD700; /* Желтый цвет текста */
+            border-bottom: 3px solid #FFD700;
+        }
+
         /* Стили для заголовка сайта */
         h2 { 
             text-align: center; 
@@ -48,13 +79,13 @@
             font-size: 1.5em; 
             border-bottom: 2px solid #ddd; 
             padding-bottom: 5px; 
-            margin-top: 35px; 
-            margin-bottom: 15px; 
+            margin-top: 15px; /* УМЕНЬШЕН ВЕРТИКАЛЬНЫЙ ОТСТУП */
+            margin-bottom: 10px; /* УМЕНЬШЕН ВЕРТИКАЛЬНЫЙ ОТСТУП */
         } 
         
         /* Стили для контейнера карточек (3 колонки) */
         .category { 
-            margin-bottom: 20px; 
+            margin-bottom: 15px; /* УМЕНЬШЕН ВЕРТИКАЛЬНЫЙ ОТСТУП ПОСЛЕ КАРТОЧЕК */
             display: grid; 
             grid-template-columns: repeat(3, 1fr); 
             gap: 12px; 
@@ -64,18 +95,17 @@
         .item { 
             border: 1px solid #ddd; 
             border-radius: 8px; 
-            background-color: #fdf7e3; /* Светло-кремовый фон */
+            background-color: #fdf7e3; 
             padding: 0; 
             text-align: center; 
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
             overflow: hidden; 
-            position: relative; /* Удаляем, так как названия не будут абсолютно позиционированы */
         }
         
-        /* --- Стили для ИЗОБРАЖЕНИЯ (ОДИНАКОВЫЙ РАЗМЕР - 220px в высоту) --- */
+        /* --- Стили для ИЗОБРАЖЕНИЯ --- */
         .item img { 
             width: 100%; 
-            height: 220px; /* Фиксированная высота для всех изображений */
+            height: 220px; 
             object-fit: contain; 
             border-radius: 4px; 
             margin: 0 auto; 
@@ -86,9 +116,6 @@
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
         }
-
-        /* --- УДАЛЕНЫ СТИЛИ ДЛЯ НАЗВАНИЯ НА КАРТИНКЕ (.item-title-overlay) --- */
-        /* Теперь название будет обычным текстом внутри .item-info */
         
         /* Общий контейнер текста (описание) */
         .item-info {
@@ -97,10 +124,10 @@
             min-height: 40px; 
         }
 
-        /* --- НОВЫЕ СТИЛИ ДЛЯ H4 (НАЗВАНИЯ) --- */
+        /* Стили для H4 (НАЗВАНИЯ) */
         .item-info h4 { 
-            margin: 10px 0; /* Отступы вокруг названия */
-            color: #444; /* Темный цвет для названия */
+            margin: 10px 0; 
+            color: #444; 
             font-size: 1.3em; 
         }
         
@@ -152,13 +179,20 @@
 <body>
 
 <section id="tasty-mogilev">
+
+    <nav>
+        <a href="mogilev.html" class="active">МОГИЛЁВ</a>
+        <a href="bobruisk.html">БОБРУЙСК</a>
+        <a href="shklov.html">ШКЛОВ</a>
+    </nav>
     <h2>ВКУСНЫЙ МОГИЛЁВ</h2> 
     
     <h3>🍽️ Блюда</h3>
     <div class="category">
         
         <div class="item">
-            <div class="item-info"> <h4>Драники</h4>
+            <div class="item-info"> 
+                <h4>Драники</h4>
             </div>
             <img src="images/draniki.jpg" alt="Драники со сметаной">
             <div class="item-info">
