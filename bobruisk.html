@@ -42,19 +42,17 @@
             line-height: 1.2;
         }
 
-        /* Стили для заголовков категорий (БЕЗ ФОНА) */
+        /* Стили для заголовков категорий (РОЗОВЫЙ ФОН) */
         h3 { 
             color: #783e49; 
             font-size: 1.5em; 
-            background-color: transparent; 
-            
-            border-bottom: 2px solid #ddd; 
-            padding: 0 0 5px 0; 
-            border-radius: 0; 
-            
+            background-color: #F8BBD0; /* Светло-розовый цвет */
+            padding: 10px 15px; 
+            border-radius: 6px; 
+            border-bottom: none; 
             margin-top: 35px; 
             margin-bottom: 15px; 
-            text-shadow: none; 
+            text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5); 
         } 
         
         /* Стили для контейнера карточек (3 колонки) */
@@ -93,7 +91,7 @@
             border-bottom-right-radius: 0;
         }
 
-        /* --- СТИЛИ ДЛЯ НАЗВАНИЯ НА КАРТИНКЕ (h4 - ПОЛУПРОЗРАЧНЫЙ ФОН) --- */
+        /* --- СТИЛИ ДЛЯ НАЗВАНИЯ НА КАРТИНКЕ (h4 с РОЗОВЫМ ФОНОМ) --- */
         .item-title-overlay {
             position: absolute;
             top: 0; 
@@ -101,17 +99,15 @@
             width: 100%;
             padding: 8px 5px; 
             margin: 0;
-            /* ВОЗВРАЩЕН ПОЛУПРОЗРАЧНЫЙ ФОН */
-            background-color: rgba(248, 187, 208, 0.7); 
-            /* ВОЗВРАЩЕН ТЕМНО-КОРИЧНЕВЫЙ ТЕКСТ */
-            color: #783e49; 
+            background-color: rgba(248, 187, 208, 0.7); /* Полупрозрачный светло-розовый */
+            color: #783e49; /* Темно-коричневый текст */
             font-weight: bold;
             font-size: 1.1em;
             text-align: center;
             z-index: 5;
             box-shadow: none; 
             line-height: 1.2;
-            text-shadow: none; /* Убран shadow для белого текста */
+            text-shadow: none; 
         }
         
         /* Общий контейнер текста (описание) */
@@ -213,7 +209,7 @@
         </div>
         
         <div class="item">
-            <h4 class="item-title-overlay">Настойка "Бобруйский Бальзам"</h4>
+            <h4 class="item-title-overlay">"Бобруйский Бальзам"</h4>
             <img src="images/bobruisk_balzam.jpg" alt="Настойка Бобруйский Бальзам">
             <div class="item-info">
                 <p>Крепкий травяной бальзам, настоянный на травах и ягодах, производимый в регионе. Отлично подходит в качестве добавки к кофе или чаю. <strong>Отличный травяной бальзам.</strong></p>
@@ -221,7 +217,7 @@
         </div>
         
         <div class="item">
-            <h4 class="item-title-overlay">Водка "Радзивилл" (Региональный бренд)</h4>
+            <h4 class="item-title-overlay">Водка "Радзивилл" </h4>
             <img src="images/radzivill.jpg" alt="Водка Радзивилл">
             <div class="item-info">
                 <p>Бренд, ассоциирующийся с историей Могилевской области и ее дворянскими традициями. Премиальный продукт с высокой степенью очистки, популярный среди местного населения. <strong>Бренд с высокой степенью очистки.</strong></p>
@@ -251,7 +247,7 @@
         </div>
         
         <div class="item">
-            <h4 class="item-title-overlay">Пиво "Криница-9" </h4> 
+            <h4 class="item-title-overlay">Пиво "Криница-9" (Крепкое)</h4> 
             <img src="images/krinica_9.jpg" alt="Пиво Криница-9">
             <div class="item-info">
                 <p>Крепкое светлое пиво с насыщенным солодовым вкусом. Популярно как сытный вариант пива для холодной погоды. <strong>Крепкое пиво с насыщенным вкусом.</strong></p>
