@@ -79,32 +79,19 @@
             position: relative; 
         }
         
-        /* --- КОНТЕЙНЕР ДЛЯ КВАДРАТНОГО ИЗОБРАЖЕНИЯ (ОБЕСПЕЧИВАЕТ ФОРМУ 1:1) --- */
-        .image-square-container {
-            width: 100%;
-            /* ИСПОЛЬЗУЕТСЯ ДЛЯ СОЗДАНИЯ КВАДРАТА (1:1) */
-            padding-top: 100%; 
-            position: relative;
-            overflow: hidden;
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
-        }
-        
-        /* --- Стили для ИЗОБРАЖЕНИЯ ВНУТРИ КВАДРАТНОГО КОНТЕЙНЕРА --- */
+        /* --- Стили для ИЗОБРАЖЕНИЯ (Теперь квадратные) --- */
         .item img { 
-            position: absolute; 
-            top: 0;
-            left: 0;
             width: 100%; 
-            height: 100%;
-            /* object-fit: contain - ГАРАНТИРУЕТ, что тарелки/бутылки видны полностью */
-            object-fit: contain; 
+            height: auto; 
+            aspect-ratio: 1 / 1; /* ГЛАВНОЕ ИСПРАВЛЕНИЕ: Делает элемент квадратным */
+            object-fit: contain; /* Сохраняет пропорции, чтобы объекты были видны полностью */
             
             border-radius: 4px; 
             margin: 0 auto; 
             display: block; 
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
             z-index: 5; 
+            position: relative;
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
         }
@@ -190,9 +177,7 @@
         
         <div class="item">
             <h4 class="item-title-overlay">Драники со шкловскими огурцами</h4>
-            <div class="image-square-container">
-                <img src="images/draniki_shklov_ogurci.jpg" alt="Драники со шкловскими огурцами">
-            </div>
+            <img src="images/draniki_shklov_ogurci.jpg" alt="Драники со шкловскими огурцами">
             <div class="item-info">
                 <p>Классические драники, которые подаются с местным специалитетом — хрустящими шкловскими огурцами. Идеальное сочетание мягкого картофеля и хрустящей закуски. <strong>Идеальное сочетание мягкого картофеля и хрустящей закуски.</strong></p>
             </div>
@@ -200,9 +185,7 @@
         
         <div class="item">
             <h4 class="item-title-overlay">Грибной суп</h4>
-            <div class="image-square-container">
-                <img src="images/gribnoy_sup.jpg" alt="Грибной суп">
-            </div>
+            <img src="images/gribnoy_sup.jpg" alt="Грибной суп">
             <div class="item-info">
                 <p>Наваристый суп на основе белых грибов (боровиков), собранных в лесах региона. Подается с густой сметаной и ржаным хлебом. <strong>Наваристый суп из белых грибов.</strong></p>
             </div>
@@ -210,9 +193,7 @@
         
         <div class="item">
             <h4 class="item-title-overlay">Налистники</h4> 
-            <div class="image-square-container">
-                <img src="images/nalistniki.jpg" alt="Налистники"> 
-            </div>
+            <img src="images/nalistniki.jpg" alt="Налистники"> 
             <div class="item-info">
                 <p>Тонкие блинчики, фаршированные творогом, мясом или грибами. Подаются горячими со сметаной или джемом. <strong>Очень популярное и сытное блюдо.</strong></p>
             </div>
@@ -226,9 +207,7 @@
         
         <div class="item">
             <h4 class="item-title-overlay">Шкловская Золотая</h4> 
-            <div class="image-square-container">
-                <img src="images/shklovskaya_zolotaya.jpg" alt="Водка Шкловская Золотая"> 
-            </div>
+            <img src="images/shklovskaya_zolotaya.jpg" alt="Водка Шкловская Золотая"> 
             <div class="item-info">
                 <p>Местный сорт водки, часто производимый или брендируемый предприятиями региона. Классический крепкий напиток, подходящий к соленьям и грибным блюдам. <strong>Местный сорт с чистым рецептом.</strong></p>
             </div>
@@ -236,9 +215,7 @@
         
         <div class="item">
             <h4 class="item-title-overlay">Настойка "Перцовка"</h4>
-            <div class="image-square-container">
-                <img src="images/nastoyka_percovka.jpg" alt="Настойка Перцовка">
-            </div>
+            <img src="images/nastoyka_percovka.jpg" alt="Настойка Перцовка">
             <div class="item-info">
                 <p>Крепкий напиток на спирту с добавлением красного перца и меда. Традиционно используется как согревающее средство зимой. <strong>Традиционно используется как согревающее средство зимой.</strong></p>
             </div>
@@ -246,9 +223,7 @@
         
         <div class="item">
             <h4 class="item-title-overlay">Свояк</h4> 
-            <div class="image-square-container">
-                <img src="images/svoyak.jpg" alt="Свояк"> 
-            </div>
+            <img src="images/svoyak.jpg" alt="Свояк"> 
             <div class="item-info">
                 <p>Популярный в Могилевской области бренд, отличающийся простотой и чистой рецептурой. Базовый вариант для застолья, широко доступен в местных магазинах. <strong>Базовый вариант для застолья.</strong></p>
             </div>
@@ -262,9 +237,7 @@
         
         <div class="item">
             <h4 class="item-title-overlay">Дымное (Темное)</h4>
-            <div class="image-square-container">
-                <img src="images/pivo_dymnoe.jpg" alt="Пиво Дымное Темное">
-            </div>
+            <img src="images/pivo_dymnoe.jpg" alt="Пиво Дымное Темное">
             <div class="item-info">
                 <p>Крафтовое или региональное темное пиво с легким копченым ароматом. Хорошо сочетается с мясными блюдами и домашней колбасой. <strong>Темное пиво с легким копченым ароматом.</strong></p>
             </div>
@@ -272,19 +245,14 @@
         
         <div class="item">
             <h4 class="item-title-overlay">Лидское Классическое</h4>
-            <div class="image-square-container">
-                <img src="images/lidskoe_klassicheskoe.png" alt="Пиво Лидское Классическое"> 
-            </div>
-            <div class="item-info">
+            <img src="images/lidskoe_klassicheskoe.png" alt="Пиво Лидское Классическое"> <div class="item-info">
                 <p>Светлый лагер от известного белорусского производителя. Легкое и освежающее пиво, идеально для летнего сезона. <strong>Легкое и освежающее пиво.</strong></p>
             </div>
         </div>
         
         <div class="item">
             <h4 class="item-title-overlay">Стары Замак</h4> 
-            <div class="image-square-container">
-                <img src="images/pivo_stary_zamak.jpg" alt="Стары Замак">
-            </div>
+            <img src="images/pivo_stary_zamak.jpg" alt="Стары Замак">
             <div class="item-info">
                 <p>Сорт пива, ассоциирующийся с историческими традициями Беларуси. Насыщенный вкус, который понравится ценителям европейских лагеров. <strong>Сорт с насыщенным вкусом.</strong></p>
             </div>
@@ -298,9 +266,7 @@
         
         <div class="item">
             <h4 class="item-title-overlay">Квас "Шкловский"</h4>
-            <div class="image-square-container">
-                <img src="images/kvas_shklovskiy.jpg" alt="Квас Шкловский">
-            </div>
+            <img src="images/kvas_shklovskiy.jpg" alt="Квас Шкловский">
             <div class="item-info">
                 <p>Местный хлебный квас, который хорошо освежает и отлично утоляет жажду. Легкий и натуральный, популярен летом. <strong>Легкий и натуральный квас.</strong></p>
             </div>
@@ -308,9 +274,7 @@
         
         <div class="item">
             <h4 class="item-title-overlay">Сбитень медовый</h4>
-            <div class="image-square-container">
-                <img src="images/sbiten_medovy.jpg" alt="Сбитень медовый">
-            </div>
+            <img src="images/sbiten_medovy.jpg" alt="Сбитень медовый">
             <div class="item-info">
                 <p>Древний славянский напиток на основе меда, пряностей и трав. Подается как горячим, так и холодным, очень ароматный и полезный. <strong>Ароматный и полезный напиток.</strong></p>
             </div>
@@ -318,9 +282,7 @@
         
         <div class="item">
             <h4 class="item-title-overlay">Яблочный сок</h4> 
-            <div class="image-square-container">
-                <img src="images/yablochniy_sok.jpg" alt="Яблочный сок">
-            </div>
+            <img src="images/yablochniy_sok.jpg" alt="Яблочный сок">
             <div class="item-info">
                 <p>Популярный осенний напиток в регионе, богатый витаминами. <strong>Сок из местных яблок.</strong></p>
             </div>
