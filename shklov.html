@@ -78,20 +78,34 @@
             overflow: hidden; 
             position: relative; 
         }
+
+        /* --- НОВЫЙ/ВОССТАНОВЛЕННЫЙ КОНТЕЙНЕР ДЛЯ КВАДРАТА (CSS) --- */
+        .image-box {
+            width: 100%;
+            /* КЛЮЧЕВОЙ МОМЕНТ: ИСПОЛЬЗУЕМ ВЕРТИКАЛЬНЫЙ ОТСТУП ДЛЯ ФОРМИРОВАНИЯ КВАДРАТА 1:1 */
+            padding-top: 100%; 
+            position: relative;
+            overflow: hidden;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
         
-        /* --- КЛЮЧЕВЫЕ СТИЛИ ДЛЯ КВАДРАТНОГО ИЗОБРАЖЕНИЯ --- */
+        /* --- Стили для ИЗОБРАЖЕНИЯ ВНУТРИ КВАДРАТНОГО КОНТЕЙНЕРА --- */
         .item img { 
+            /* Свойства для изображения, помещенного в квадратный блок */
+            position: absolute; 
+            top: 0;
+            left: 0;
             width: 100%; 
-            height: auto; 
-            aspect-ratio: 1 / 1; /* ГАРАНТИЯ КВАДРАТА 1:1 */
-            object-fit: contain; /* ГАРАНТИЯ ПОЛНОЙ ВИДИМОСТИ ОБЪЕКТА */
+            height: 100%;
+            /* object-fit: contain ГАРАНТИРУЕТ, что объекты видны полностью */
+            object-fit: contain; 
             
             border-radius: 4px; 
-            margin: 0 auto; 
+            margin: 0; /* Убираем маржины */
             display: block; 
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
             z-index: 5; 
-            position: relative;
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
         }
@@ -177,7 +191,9 @@
         
         <div class="item">
             <h4 class="item-title-overlay">Драники со шкловскими огурцами</h4>
-            <img src="images/draniki_shklov_ogurci.jpg" alt="Драники со шкловскими огурцами">
+            <div class="image-box">
+                <img src="images/draniki_shklov_ogurci.jpg" alt="Драники со шкловскими огурцами">
+            </div>
             <div class="item-info">
                 <p>Классические драники, которые подаются с местным специалитетом — хрустящими шкловскими огурцами. Идеальное сочетание мягкого картофеля и хрустящей закуски. <strong>Идеальное сочетание мягкого картофеля и хрустящей закуски.</strong></p>
             </div>
@@ -185,7 +201,9 @@
         
         <div class="item">
             <h4 class="item-title-overlay">Грибной суп</h4>
-            <img src="images/gribnoy_sup.jpg" alt="Грибной суп">
+            <div class="image-box">
+                <img src="images/gribnoy_sup.jpg" alt="Грибной суп">
+            </div>
             <div class="item-info">
                 <p>Наваристый суп на основе белых грибов (боровиков), собранных в лесах региона. Подается с густой сметаной и ржаным хлебом. <strong>Наваристый суп из белых грибов.</strong></p>
             </div>
@@ -193,7 +211,9 @@
         
         <div class="item">
             <h4 class="item-title-overlay">Налистники</h4> 
-            <img src="images/nalistniki.jpg" alt="Налистники"> 
+            <div class="image-box">
+                <img src="images/nalistniki.jpg" alt="Налистники"> 
+            </div>
             <div class="item-info">
                 <p>Тонкие блинчики, фаршированные творогом, мясом или грибами. Подаются горячими со сметаной или джемом. <strong>Очень популярное и сытное блюдо.</strong></p>
             </div>
@@ -207,7 +227,9 @@
         
         <div class="item">
             <h4 class="item-title-overlay">Шкловская Золотая</h4> 
-            <img src="images/shklovskaya_zolotaya.jpg" alt="Водка Шкловская Золотая"> 
+            <div class="image-box">
+                <img src="images/shklovskaya_zolotaya.jpg" alt="Водка Шкловская Золотая"> 
+            </div>
             <div class="item-info">
                 <p>Местный сорт водки, часто производимый или брендируемый предприятиями региона. Классический крепкий напиток, подходящий к соленьям и грибным блюдам. <strong>Местный сорт с чистым рецептом.</strong></p>
             </div>
@@ -215,7 +237,9 @@
         
         <div class="item">
             <h4 class="item-title-overlay">Настойка "Перцовка"</h4>
-            <img src="images/nastoyka_percovka.jpg" alt="Настойка Перцовка">
+            <div class="image-box">
+                <img src="images/nastoyka_percovka.jpg" alt="Настойка Перцовка">
+            </div>
             <div class="item-info">
                 <p>Крепкий напиток на спирту с добавлением красного перца и меда. Традиционно используется как согревающее средство зимой. <strong>Традиционно используется как согревающее средство зимой.</strong></p>
             </div>
@@ -223,7 +247,9 @@
         
         <div class="item">
             <h4 class="item-title-overlay">Свояк</h4> 
-            <img src="images/svoyak.jpg" alt="Свояк"> 
+            <div class="image-box">
+                <img src="images/svoyak.jpg" alt="Свояк"> 
+            </div>
             <div class="item-info">
                 <p>Популярный в Могилевской области бренд, отличающийся простотой и чистой рецептурой. Базовый вариант для застолья, широко доступен в местных магазинах. <strong>Базовый вариант для застолья.</strong></p>
             </div>
@@ -237,7 +263,9 @@
         
         <div class="item">
             <h4 class="item-title-overlay">Дымное (Темное)</h4>
-            <img src="images/pivo_dymnoe.jpg" alt="Пиво Дымное Темное">
+            <div class="image-box">
+                <img src="images/pivo_dymnoe.jpg" alt="Пиво Дымное Темное">
+            </div>
             <div class="item-info">
                 <p>Крафтовое или региональное темное пиво с легким копченым ароматом. Хорошо сочетается с мясными блюдами и домашней колбасой. <strong>Темное пиво с легким копченым ароматом.</strong></p>
             </div>
@@ -245,7 +273,9 @@
         
         <div class="item">
             <h4 class="item-title-overlay">Лидское Классическое</h4>
-            <img src="images/lidskoe_klassicheskoe.png" alt="Пиво Лидское Классическое">
+            <div class="image-box">
+                <img src="images/lidskoe_klassicheskoe.png" alt="Пиво Лидское Классическое">
+            </div>
             <div class="item-info">
                 <p>Светлый лагер от известного белорусского производителя. Легкое и освежающее пиво, идеально для летнего сезона. <strong>Легкое и освежающее пиво.</strong></p>
             </div>
@@ -253,7 +283,9 @@
         
         <div class="item">
             <h4 class="item-title-overlay">Стары Замак</h4> 
-            <img src="images/pivo_stary_zamak.jpg" alt="Стары Замак">
+            <div class="image-box">
+                <img src="images/pivo_stary_zamak.jpg" alt="Стары Замак">
+            </div>
             <div class="item-info">
                 <p>Сорт пива, ассоциирующийся с историческими традициями Беларуси. Насыщенный вкус, который понравится ценителям европейских лагеров. <strong>Сорт с насыщенным вкусом.</strong></p>
             </div>
@@ -267,7 +299,9 @@
         
         <div class="item">
             <h4 class="item-title-overlay">Квас "Шкловский"</h4>
-            <img src="images/kvas_shklovskiy.jpg" alt="Квас Шкловский">
+            <div class="image-box">
+                <img src="images/kvas_shklovskiy.jpg" alt="Квас Шкловский">
+            </div>
             <div class="item-info">
                 <p>Местный хлебный квас, который хорошо освежает и отлично утоляет жажду. Легкий и натуральный, популярен летом. <strong>Легкий и натуральный квас.</strong></p>
             </div>
@@ -275,7 +309,9 @@
         
         <div class="item">
             <h4 class="item-title-overlay">Сбитень медовый</h4>
-            <img src="images/sbiten_medovy.jpg" alt="Сбитень медовый">
+            <div class="image-box">
+                <img src="images/sbiten_medovy.jpg" alt="Сбитень медовый">
+            </div>
             <div class="item-info">
                 <p>Древний славянский напиток на основе меда, пряностей и трав. Подается как горячим, так и холодным, очень ароматный и полезный. <strong>Ароматный и полезный напиток.</strong></p>
             </div>
@@ -283,7 +319,9 @@
         
         <div class="item">
             <h4 class="item-title-overlay">Яблочный сок</h4> 
-            <img src="images/yablochniy_sok.jpg" alt="Яблочный сок">
+            <div class="image-box">
+                <img src="images/yablochniy_sok.jpg" alt="Яблочный сок">
+            </div>
             <div class="item-info">
                 <p>Популярный осенний напиток в регионе, богатый витаминами. <strong>Сок из местных яблок.</strong></p>
             </div>
@@ -298,7 +336,9 @@
         
         <div class="item">
             <h4 class="item-title-overlay">Копысь</h4>
-            <img src="images/kopys.jpg" alt="Копысь">
+            <div class="image-box">
+                <img src="images/kopys.jpg" alt="Копысь">
+            </div>
             <div class="item-info">
                 <p>Городской поселок, исторически связанный с Шкловским районом. Известен как центр белорусской керамики и родина А. Г. Лукашенко. <strong>Центр белорусской керамики.</strong></p>
             </div>
@@ -306,7 +346,9 @@
         
         <div class="item">
             <h4 class="item-title-overlay">Трофимова Криница</h4>
-            <img src="images/trofimova_krinica.jpg" alt="Трофимова Криница">
+            <div class="image-box">
+                <img src="images/trofimova_krinica.jpg" alt="Трофимова Криница">
+            </div>
             <div class="item-info">
                 <p>Известный в регионе освященный источник с чистой родниковой водой. **Трофим, который отыскал и обустроил этот целебный источник, является дедом Александра Григорьевича.** Популярное место для паломничества. <strong>Освященный родник.</strong></p>
             </div>
@@ -314,7 +356,9 @@
 
         <div class="item">
             <h4 class="item-title-overlay">Памятник Огурцу</h4>
-            <img src="images/pamyatnik_ogurcu.jpg" alt="Памятник Огурцу">
+            <div class="image-box">
+                <img src="images/pamyatnik_ogurcu.jpg" alt="Памятник Огурцу">
+            </div>
             <div class="item-info">
                 <p>Оригинальный памятник, символизирующий главный сельскохозяйственный бренд Шклова — огурцы. <strong>Местный символ урожая.</strong></p>
             </div>
