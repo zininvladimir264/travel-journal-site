@@ -81,11 +81,12 @@
             position: relative; 
         }
         
-        /* --- Стили для ИЗОБРАЖЕНИЯ (Бутылки не обрезаются) --- */
+        /* --- Стили для ИЗОБРАЖЕНИЯ (Теперь квадратные) --- */
         .item img { 
             width: 100%; 
-            height: 220px; 
-            object-fit: contain; 
+            height: auto; /* Высота теперь рассчитывается */
+            aspect-ratio: 1 / 1; /* ГЛАВНОЕ ИСПРАВЛЕНИЕ: Делает элемент квадратным */
+            object-fit: contain; /* Сохраняет пропорции, чтобы изображения не обрезались */
             
             border-radius: 4px; 
             margin: 0 auto; 
@@ -223,7 +224,8 @@
         </div>
         
         <div class="item">
-            <h4 class="item-title-overlay">Свояк</h4> <img src="images/svoyak.jpg" alt="Свояк"> 
+            <h4 class="item-title-overlay">Свояк</h4> 
+            <img src="images/svoyak.jpg" alt="Свояк"> 
             <div class="item-info">
                 <p>Популярный в Могилевской области бренд, отличающийся простотой и чистой рецептурой. Базовый вариант для застолья, широко доступен в местных магазинах. <strong>Базовый вариант для застолья.</strong></p>
             </div>
@@ -245,8 +247,7 @@
         
         <div class="item">
             <h4 class="item-title-overlay">Лидское Классическое</h4>
-            <img src="images/lidskoe_klassicheskoe.jpg" alt="Пиво Лидское Классическое">
-            <div class="item-info">
+            <img src="images/lidskoe_klassicheskoe.jpg" alt="Пиво Лидское Классическое"> <div class="item-info">
                 <p>Светлый лагер от известного белорусского производителя. Легкое и освежающее пиво, идеально для летнего сезона. <strong>Легкое и освежающее пиво.</strong></p>
             </div>
         </div>
@@ -282,7 +283,8 @@
         </div>
         
         <div class="item">
-            <h4 class="item-title-overlay">Яблочный сок</h4> <img src="images/yablochniy_sok.jpg" alt="Яблочный сок">
+            <h4 class="item-title-overlay">Яблочный сок</h4> 
+            <img src="images/yablochniy_sok.jpg" alt="Яблочный сок">
             <div class="item-info">
                 <p>Популярный осенний напиток в регионе, богатый витаминами. <strong>Сок из местных яблок.</strong></p>
             </div>
