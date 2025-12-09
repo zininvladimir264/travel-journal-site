@@ -79,10 +79,11 @@
             position: relative; 
         }
         
-        /* --- КОНТЕЙНЕР ДЛЯ КВАДРАТНОГО ИЗОБРАЖЕНИЯ (КВАДРАТ) --- */
+        /* --- КОНТЕЙНЕР ДЛЯ КВАДРАТНОГО ИЗОБРАЖЕНИЯ (НОВЫЙ БЛОК) --- */
         .image-square-container {
             width: 100%;
-            padding-top: 100%; /* Соотношение сторон 1:1 (квадрат) */
+            /* ИСПОЛЬЗУЕТСЯ ДЛЯ СОЗДАНИЯ КВАДРАТА (1:1) */
+            padding-top: 100%; 
             position: relative;
             overflow: hidden;
             border-bottom-left-radius: 0;
@@ -92,9 +93,8 @@
         /* --- Стили для ИЗОБРАЖЕНИЯ ВНУТРИ КВАДРАТНОГО КОНТЕЙНЕРА --- */
         .item img { 
             position: absolute; 
-            top: 50%; /* Сдвигаем на половину вниз */
-            left: 50%; /* Сдвигаем на половину вправо */
-            transform: translate(-50%, -50%); /* Смещаем на половину своего размера вверх/влево для идеального центрирования */
+            top: 0;
+            left: 0;
             width: 100%; 
             height: 100%;
             object-fit: contain; /* Сохраняет пропорции, чтобы объекты были видны полностью */
@@ -272,8 +272,7 @@
         <div class="item">
             <h4 class="item-title-overlay">Лидское Классическое</h4>
             <div class="image-square-container">
-                <img src="images/lidskoe_klassicheskoe.png" alt="Пиво Лидское Классическое">
-            </div>
+                <img src="images/lidskoe_klassicheskoe.png" alt="Пиво Лидское Классическое"> </div>
             <div class="item-info">
                 <p>Светлый лагер от известного белорусского производителя. Легкое и освежающее пиво, идеально для летнего сезона. <strong>Легкое и освежающее пиво.</strong></p>
             </div>
