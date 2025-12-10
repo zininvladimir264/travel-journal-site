@@ -18,7 +18,7 @@
             background-color: #f4f4f4; 
             font-size: 18px; 
         }
-        /* Светло-кремовый фон для основного контейнера*/
+        /* Светло-кремовый фон для основного контейнера */
         #tasty-mogilev { 
             max-width: 900px; 
             margin: 0 auto; 
@@ -28,7 +28,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
         }
         
-        /* Стили для заголовка сайта*/
+        /* Стили для заголовка сайта */
         h2 { 
             text-align: center; 
             color: #FFD700; 
@@ -47,7 +47,7 @@
             line-height: 1.2;
         }
 
-        /* Стили для заголовков категорий*/
+        /* Стили для заголовков категорий */
         h3 { 
             color: #783e49; 
             font-size: 1.5em; 
@@ -55,19 +55,19 @@
             border-radius: 6px; 
             border-bottom: 2px solid #ddd; 
             margin-top: 20px; 
-            margin-bottom: 8px; /* УМЕНЬШЕНО */
+            margin-bottom: 8px; 
             text-shadow: none; 
         } 
         
-        /* Стили для контейнера карточек (3 колонки)*/
+        /* Стили для контейнера карточек (3 колонки) */
         .category { 
-            margin-bottom: 0; /* УМЕНЬШЕНО */
+            margin-bottom: 0; 
             display: grid; 
             grid-template-columns: repeat(3, 1fr); 
             gap: 8px; 
         }
         
-        /* Стили для КАРТОЧКИ (ITEM)*/
+        /* Стили для КАРТОЧКИ (ITEM) */
         .item { 
             border: 1px solid #ddd; 
             border-radius: 8px; 
@@ -79,10 +79,10 @@
             position: relative; 
         }
 
-        /* --- НОВЫЙ/ВОССТАНОВЛЕННЫЙ КОНТЕЙНЕР ДЛЯ КВАДРАТА (CSS) --- */
+        /* --- КОНТЕЙНЕР ДЛЯ КВАДРАТА (КЛЮЧЕВОЙ CSS) --- */
         .image-box {
             width: 100%;
-            /* КЛЮЧЕВОЙ МОМЕНТ: ИСПОЛЬЗУЕМ ВЕРТИКАЛЬНЫЙ ОТСТУП ДЛЯ ФОРМИРОВАНИЯ КВАДРАТА 1:1 */
+            /* ИСПОЛЬЗУЕМ ВЕРТИКАЛЬНЫЙ ОТСТУП ДЛЯ ФОРМИРОВАНИЯ КВАДРАТА 1:1 */
             padding-top: 100%; 
             position: relative;
             overflow: hidden;
@@ -98,7 +98,7 @@
             left: 0;
             width: 100%; 
             height: 100%;
-            /* object-fit: contain ГАРАНТИРУЕТ, что объекты видны полностью (важно для бутылок) */
+            /* object-fit: contain ГАРАНТИРУЕТ, что объекты видны полностью */
             object-fit: contain; 
             
             border-radius: 4px; 
@@ -127,8 +127,8 @@
             box-shadow: none; 
             line-height: 1.2;
             text-shadow: none; 
-            border-top-left-radius: 8px; /* Восстановлено из предыдущей логики */
-            border-top-right-radius: 8px; /* Восстановлено из предыдущей логики */
+            border-top-left-radius: 8px; 
+            border-top-right-radius: 8px; 
         }
 
         /* --- ГАРАНТИРОВАННО СКРЫВАЕМ ЛЮБЫЕ ДРУГИЕ ЗАГОЛОВКИ H4 --- */
@@ -137,14 +137,14 @@
             visibility: hidden !important;
         }
 
-        /* Общий контейнер текста (описание)*/
+        /* Общий контейнер текста (описание) */
         .item-info {
             padding: 10px 18px 18px 18px; 
             margin: 0; 
             min-height: 40px; 
         }
         
-        /* Описание*/
+        /* Описание */
         .item-info p { 
             margin: 10px 0 0 0; 
             font-size: 0.95em; 
@@ -154,14 +154,14 @@
             min-height: 80px; 
         }
         
-        /* Жирный текст в описании*/
+        /* Жирный текст в описании */
         .item-info p strong {
              display: block; 
              margin-top: 5px;
              color: #783e49; 
         }
 
-        /* ЭФФЕКТ УВЕЛИЧЕНИЯ (ПРИ НАВЕДЕНИИ)*/
+        /* ЭФФЕКТ УВЕЛИЧЕНИЯ (ПРИ НАВЕДЕНИИ) */
         .item img:hover {
             transform: scale(1.1); 
             box-shadow: 0 8px 20px rgba(0,0,0,0.3); 
