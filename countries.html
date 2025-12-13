@@ -5,33 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Страны</title>
     <style>
-        /* ГЛАВНЫЕ СТИЛИ - ПОВТОРЯЕМ ОСНОВУ ИЗ MINSK.HTML */
+        /* --- СТАНДАРТНЫЕ СТИЛИ --- */
         * {
             box-sizing: border-box;
         }
-
-        body { 
-            font-family: Arial, sans-serif; 
-            line-height: 1.6; 
-            padding: 20px; 
-            background-color: #f4f4f4; 
-            font-size: 18px; 
-            margin: 0;
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            background-color: #f4f4f4;
+            font-size: 18px;
+        }
+        #countries-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fdf7e3;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        /* КОНТЕЙНЕР ДЛЯ ВСЕЙ СТРАНИЦЫ */
-        #countries-page { 
-            max-width: 900px; 
-            margin: 0 auto; 
-            background-color: #fdf7e3; 
-            padding: 30px; 
-            border-radius: 8px; 
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-        }
-
-        /* СТИЛЬ НАВИГАЦИОННОЙ ПАНЕЛИ (С ВАШИХ СКРИНШОТОВ) */
+        /* --- НАВИГАЦИЯ ВВЕРХУ --- */
         .navbar {
-            text-align: right;
+            text-align: center;
             padding: 10px 0;
             border-bottom: 2px solid #ccc;
             margin-bottom: 20px;
@@ -40,133 +36,103 @@
             text-decoration: none;
             color: #783e49;
             font-weight: bold;
-            margin-left: 20px;
+            margin: 0 15px;
             font-size: 1.1em;
-            transition: color 0.3s;
         }
-        .navbar a:hover {
-            color: #FFD700;
-        }
-        
-        /* Стили для заголовка сайта */
-        h1 { 
-            text-align: center; 
-            color: #333; 
+
+        /* --- ЗАГОЛОВКИ --- */
+        h1 {
+            text-align: center;
+            color: #333;
             margin-bottom: 20px;
             font-size: 2.2em;
         }
-        h2 { /* Путешествия по странам (удален, но оставлен для H2 в целом) */
+        h3 {
+            color: #783e49;
             font-size: 1.5em;
-            text-align: left;
-            margin-top: 0;
-            padding-left: 0;
-            border-bottom: 1px solid #ddd;
-        }
-
-        /* Стили для заголовков категорий (Регионов) */
-        h3 { 
-            color: #783e49; 
-            font-size: 1.5em; 
-            padding: 10px 15px; 
-            border-radius: 6px; 
-            border-bottom: 2px solid #ddd; 
-            margin-top: 25px; 
+            padding: 10px 0;
+            margin-top: 30px;
             margin-bottom: 8px;
-            text-shadow: none; 
-        } 
-        
-        /* Стили для контейнера карточек (3 колонки) */
-        .category { 
-            margin-bottom: 0;
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 12px; /* Увеличим отступ, чтобы выглядело просторнее */
-        }
-        
-        /* Стили для КАРТОЧКИ СТРАНЫ (ITEM) */
-        .item { 
-            /* Делаем всю карточку кликабельной */
-            display: block; 
-            border: 1px solid #ddd; 
-            border-radius: 8px; 
-            background-color: #ffffff; /* Светлее, чем основной фон */
-            padding: 0; 
-            text-align: center; 
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            overflow: hidden; 
-            text-decoration: none; /* Убираем подчеркивание для ссылки */
-            transition: box-shadow 0.3s, transform 0.3s;
-        }
-        
-        /* Эффект при наведении на карточку */
-        .item:hover {
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-            transform: translateY(-2px);
         }
 
-        /* Заголовок внутри карточки */
-        .country-card-title {
-            padding: 15px 10px; 
-            margin: 0;
-            background-color: #F8BBD0; 
-            color: #783e49; 
-            font-weight: bold;
-            font-size: 1.2em;
+        /* --- СТИЛИ ДЛЯ КОНТЕЙНЕРА СТРАН (СЕТКА) --- */
+        .category {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 колонки по умолчанию */
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        /* --- СТИЛИ КАРТОЧКИ (ITEM) --- */
+        .item {
+            display: block;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+            padding: 0;
             text-align: center;
-            line-height: 1.2;
-            border-top-left-radius: 8px; 
-            border-top-right-radius: 8px; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            text-decoration: none;
+            overflow: hidden;
+            position: relative;
         }
 
-        /* Упрощенное содержимое карточки */
+        /* --- ЗАГОЛОВОК КАРТОЧКИ (РОЗОВЫЙ БЛОК) --- */
+        .country-card-title {
+            padding: 10px 5px;
+            margin: 0;
+            background-color: #F8BBD0; /* Розовый цвет */
+            color: #783e49;
+            font-weight: bold;
+            font-size: 1.1em;
+            line-height: 1.2;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        
+        /* --- ТЕКСТ (ОПИСАНИЕ) --- */
         .card-body-placeholder {
             padding: 15px 10px;
-            color: #666;
-            font-size: 0.9em;
-            min-height: 80px;
+            min-height: 100px; /* Фиксируем высоту для единообразия */
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        
-        /* Адаптивность */
+        .card-body-placeholder p {
+            margin: 0;
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        /* --- АДАПТИВНОСТЬ --- */
         @media (max-width: 800px) {
             .category {
-                grid-template-columns: 1fr 1fr; /* Две колонки для планшетов */
+                grid-template-columns: 1fr 1fr; /* 2 колонки для планшетов */
+                gap: 10px;
             }
         }
-        
         @media (max-width: 550px) {
             body {
                 padding: 10px;
-                font-size: 16px; 
+                font-size: 16px;
             }
-            #countries-page {
+            #countries-container {
                 padding: 15px;
             }
-            .navbar {
-                text-align: center;
-                margin-bottom: 15px;
-            }
-            .navbar a {
-                margin: 0 10px;
-            }
             .category {
-                grid-template-columns: 1fr; /* Одна колонка для мобильных */
+                grid-template-columns: 1fr; /* 1 колонка для телефонов */
                 gap: 10px;
             }
-            .country-card-title {
-                font-size: 1.1em;
-            }
             .card-body-placeholder {
-                min-height: 50px;
+                 min-height: 80px; 
             }
         }
     </style>
 </head>
 <body>
 
-<div id="countries-page">
+<div id="countries-container">
 
     <div class="navbar">
         <a href="index.html">Главная</a>
@@ -174,7 +140,7 @@
         <a href="countries.html">Страны</a>
     </div>
 
-    <h1>Страны</h1>
+    <h1>Путешествия по странам</h1>
 
     <h3>Центральная Азия</h3>
     <div class="category">
@@ -182,7 +148,7 @@
         <a href="#" class="item">
             <h4 class="country-card-title">Казахстан</h4>
             <div class="card-body-placeholder">
-                <p>Крупнейшая страна региона, богатая историей.</p>
+                <p>Крупнейшая страна региона, богатая история и современные технологии.</p>
             </div>
         </a>
         
@@ -199,26 +165,25 @@
                 <p>Архитектурные чудеса и газовый кратер Дарваза.</p>
             </div>
         </a>
-        
+
         <a href="#" class="item">
             <h4 class="country-card-title">Узбекистан</h4>
             <div class="card-body-placeholder">
                 <p>Центр Великого шелкового пути, Самарканд и Бухара.</p>
             </div>
         </a>
-
+        
         <a href="#" class="item">
             <h4 class="country-card-title">Таджикистан</h4>
             <div class="card-body-placeholder">
                 <p>Памир и высокогорные маршруты.</p>
             </div>
         </a>
-        
+
     </div>
 
     <h3>Южная и Юго-Восточная Азия</h3>
     <div class="category">
-        
         <a href="#" class="item">
             <h4 class="country-card-title">Индия</h4>
             <div class="card-body-placeholder">
@@ -236,7 +201,7 @@
         <a href="#" class="item">
             <h4 class="country-card-title">Камбоджа</h4>
             <div class="card-body-placeholder">
-                <p>Дом Ангкор-Ват, одного из чудес света.</p>
+                <p>Древний храмовый комплекс Ангкор-Ват.</p>
             </div>
         </a>
         
@@ -246,38 +211,34 @@
                 <p>Культура, пляжи и знаменитые рынки.</p>
             </div>
         </a>
-
+        
         <a href="#" class="item">
             <h4 class="country-card-title">Вьетнам</h4>
             <div class="card-body-placeholder">
                 <p>Заливы, горы и древняя история.</p>
             </div>
         </a>
-
+        
         <a href="#" class="item">
             <h4 class="country-card-title">Малайзия</h4>
             <div class="card-body-placeholder">
-                <p>Смешение культур, Куала-Лумпур и острова.</p>
+                <p>Современные города и тропические острова.</p>
             </div>
         </a>
-        
     </div>
 
     <h3>Восточная Азия</h3>
     <div class="category">
-        
         <a href="#" class="item">
             <h4 class="country-card-title">Южная Корея</h4>
             <div class="card-body-placeholder">
                 <p>Современные технологии и древние дворцы.</p>
             </div>
         </a>
-        
     </div>
 
     <h3>Ближний Восток и Северная Африка</h3>
     <div class="category">
-        
         <a href="#" class="item">
             <h4 class="country-card-title">ОАЭ</h4>
             <div class="card-body-placeholder">
@@ -293,13 +254,6 @@
         </a>
         
         <a href="#" class="item">
-            <h4 class="country-card-title">Иордания</h4>
-            <div class="card-body-placeholder">
-                <p>Древний город Петра и Красное море.</p>
-            </div>
-        </a>
-
-        <a href="#" class="item">
             <h4 class="country-card-title">Ливия</h4>
             <div class="card-body-placeholder">
                 <p>Историческое наследие Северной Африки.</p>
@@ -312,12 +266,10 @@
                 <p>Пирамиды, Нил и морские курорты.</p>
             </div>
         </a>
-        
     </div>
 
     <h3>Кавказ и Ближнее Зарубежье</h3>
     <div class="category">
-        
         <a href="#" class="item">
             <h4 class="country-card-title">Армения</h4>
             <div class="card-body-placeholder">
@@ -335,29 +287,27 @@
         <a href="#" class="item">
             <h4 class="country-card-title">Азербайджан</h4>
             <div class="card-body-placeholder">
-                <p>Баку, современность и древние храмы огня.</p>
+                <p>Баку, современные технологии и древние дворцы.</p>
             </div>
         </a>
-
+        
         <a href="#" class="item">
             <h4 class="country-card-title">Молдова</h4>
             <div class="card-body-placeholder">
                 <p>Виноградники и культурные традиции.</p>
             </div>
         </a>
-
-        <a href="minsk.html" class="item">
+        
+        <a href="belarus.html" class="item">
             <h4 class="country-card-title">Беларусь</h4>
             <div class="card-body-placeholder">
                 <p>Города Минск, Бобруйск и Могилев.</p>
             </div>
         </a>
-        
     </div>
-    
+
     <h3>Восточная Европа и Балканы</h3>
     <div class="category">
-        
         <a href="Turkiye.html" class="item">
             <h4 class="country-card-title">Турция</h4>
             <div class="card-body-placeholder">
@@ -371,7 +321,7 @@
                 <p>От Москвы до Сибири, богатая культура.</p>
             </div>
         </a>
-
+        
         <a href="#" class="item">
             <h4 class="country-card-title">Черногория</h4>
             <div class="card-body-placeholder">
@@ -385,26 +335,24 @@
                 <p>Мосты, история и природа.</p>
             </div>
         </a>
-
+        
         <a href="#" class="item">
             <h4 class="country-card-title">Сербия</h4>
             <div class="card-body-placeholder">
                 <p>Белград, Балканы и гостеприимство.</p>
             </div>
         </a>
-
+        
         <a href="#" class="item">
             <h4 class="country-card-title">Северный Кипр</h4>
             <div class="card-body-placeholder">
                 <p>Средиземноморские пейзажи и античные руины.</p>
             </div>
         </a>
-        
     </div>
 
     <h3>Западная и Центральная Европа</h3>
     <div class="category">
-        
         <a href="#" class="item">
             <h4 class="country-card-title">Испания</h4>
             <div class="card-body-placeholder">
@@ -418,16 +366,15 @@
                 <p>Лиссабон, океан и история мореплавания.</p>
             </div>
         </a>
-
+        
         <a href="#" class="item">
             <h4 class="country-card-title">Австрия</h4>
             <div class="card-body-placeholder">
                 <p>Вена, Альпы и классическая музыка.</p>
             </div>
         </a>
-        
     </div>
-    
+
     <p style="text-align: center; margin-top: 50px; font-size: 0.8em; color: #999;">© Путевой Дневник, 2025</p>
 
 </div>
