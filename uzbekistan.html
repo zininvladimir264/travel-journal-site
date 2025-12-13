@@ -3,263 +3,378 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Путешествия по странам</title>
+    <title>Страны</title>
     <style>
+        /* --- СТАНДАРТНЫЕ СТИЛИ --- */
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
         }
-
-        /* --- ГЛАВНЫЙ КОНТЕЙНЕР (ПОД МОБИЛЬНЫЙ ВИД) --- */
         body {
             font-family: Arial, sans-serif;
-            background-color: #fff;
-            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            background-color: #f4f4f4;
+            font-size: 18px;
         }
-
         #countries-container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 0 15px 30px 15px;
-        }
-        
-        /* --- ШАПКА (ЗАГОЛОВОК и КНОПКА ЗАКРЫТИЯ) --- */
-        .header-mobile {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            margin-bottom: 10px;
-            position: sticky; /* Шапка будет "липкой" */
-            top: 0;
-            background-color: #fff;
-            z-index: 100;
+            background-color: #fdf7e3;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .header-mobile h1 {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #333;
-            margin: 0;
-            /* Выравниваем текст по центру, как на скриншоте */
-            flex-grow: 1; 
+        /* --- НАВИГАЦИЯ ВВЕРХУ --- */
+        .navbar {
             text-align: center;
-            padding-right: 25px; /* Сдвиг, чтобы учесть кнопку X */
+            padding: 10px 0;
+            border-bottom: 2px solid #ccc;
+            margin-bottom: 20px;
         }
-
-        .close-btn {
+        .navbar a {
             text-decoration: none;
-            font-size: 1.5em;
-            color: #777;
-            line-height: 1;
-            position: absolute; /* Позиционируем X отдельно */
-            right: 15px;
-            top: 15px;
-        }
-
-        /* --- ОСНОВНОЙ РАЗДЕЛ --- */
-        h2 {
-            font-size: 1.8em;
+            color: #783e49;
             font-weight: bold;
-            margin: 20px 0 10px 0;
+            margin: 0 15px;
+            font-size: 1.1em;
+        }
+
+        /* --- ЗАГОЛОВКИ --- */
+        h1 {
+            text-align: center;
             color: #333;
+            margin-bottom: 20px;
+            font-size: 2.2em;
         }
-        
         h3 {
-             font-size: 1.5em;
-             color: #783e49;
-             margin: 20px 0 10px 0;
+            color: #783e49;
+            font-size: 1.5em;
+            padding: 10px 0;
+            margin-top: 30px;
+            margin-bottom: 8px;
         }
 
-
-        /* --- СЕТКА КАРТОЧЕК --- */
-        .countries-list {
-            margin-top: 15px;
+        /* --- СТИЛИ ДЛЯ КОНТЕЙНЕРА СТРАН (СЕТКА) --- */
+        .category {
             display: grid;
-            /* Две колонки по умолчанию для широких экранов */
-            grid-template-columns: 1fr 1fr; 
-            gap: 15px; 
+            grid-template-columns: repeat(3, 1fr); /* 3 колонки по умолчанию */
+            gap: 12px;
+            margin-bottom: 20px;
         }
 
         /* --- СТИЛИ КАРТОЧКИ (ITEM) --- */
         .item {
-            border: 1px solid #eee;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
-            background-color: #fff;
-            transition: transform 0.2s;
-        }
-        
-        .item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-        }
-
-        .item img {
-            width: 100%;
-            height: 130px; /* Фиксированная высота для изображения */
-            object-fit: cover; 
             display: block;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+            padding: 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            text-decoration: none;
+            overflow: hidden;
+            position: relative;
         }
 
-        .item-info {
-            padding: 10px 15px 5px 15px;
-            flex-grow: 1;
+        /* --- ЗАГОЛОВОК КАРТОЧКИ (РОЗОВЫЙ БЛОК) --- */
+        .country-card-title {
+            padding: 10px 5px;
+            margin: 0;
+            background-color: #F8BBD0; /* Розовый цвет */
+            color: #783e49;
+            font-weight: bold;
+            font-size: 1.1em;
+            line-height: 1.2;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
         }
         
-        .item-info h3 {
-            font-size: 1.1em;
-            color: #333;
-            margin: 0 0 5px 0;
+        /* --- ТЕКСТ (ОПИСАНИЕ) --- */
+        .card-body-placeholder {
+            padding: 15px 10px;
+            min-height: 100px; /* Фиксируем высоту для единообразия */
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-
-        .item-info p {
+        .card-body-placeholder p {
+            margin: 0;
             font-size: 0.9em;
             color: #666;
-            margin: 0;
-            line-height: 1.3;
+            line-height: 1.4;
         }
 
-        /* --- НИЖНИЙ БЛОК (ЦЕНА и СТРЕЛКА) --- */
-        .item-footer {
-            padding: 5px 15px 15px 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        /* --- АДАПТИВНОСТЬ --- */
+        @media (max-width: 800px) {
+            .category {
+                grid-template-columns: 1fr 1fr; /* 2 колонки для планшетов */
+                gap: 10px;
+            }
         }
-
-        .item-footer .price {
-            font-weight: bold;
-            color: #4CAF50; /* Зеленый цвет для акцента */
-            font-size: 1.1em;
-        }
-
-        .item-footer .arrow {
-            font-size: 1.5em;
-            color: #999;
-        }
-
-        /* --- Адаптивность (Мобильный телефон) --- */
-        @media (max-width: 600px) {
+        @media (max-width: 550px) {
+            body {
+                padding: 10px;
+                font-size: 16px;
+            }
             #countries-container {
-                padding: 0 10px 20px 10px;
+                padding: 15px;
             }
-            .countries-list {
-                /* Одна колонка для мобильных телефонов */
-                grid-template-columns: 1fr; 
-                gap: 20px;
+            .category {
+                grid-template-columns: 1fr; /* 1 колонка для телефонов */
+                gap: 10px;
             }
-            .header-mobile h1 {
-                /* Уменьшаем шрифт заголовка */
-                font-size: 1.1em;
-            }
-            .item-info {
-                min-height: auto; 
+            .card-body-placeholder {
+                 min-height: 80px; 
             }
         }
-
     </style>
 </head>
 <body>
 
 <div id="countries-container">
 
-    <div class="header-mobile">
-        <h1>Путешествия по странам</h1>
-        <a href="index.html" class="close-btn">✕</a>
+    <div class="navbar">
+        <a href="index.html">Главная</a>
+        <a href="about.html">Обо мне</a>
+        <a href="countries.html">Страны</a>
     </div>
 
-    <h2>Регионы мира</h2>
-    
+    <h1>Путешествия по странам</h1>
+
+    <h3>Центральная Азия</h3>
+    <div class="category">
+        
+        <a href="#" class="item">
+            <h4 class="country-card-title">Казахстан</h4>
+            <div class="card-body-placeholder">
+                <p>Крупнейшая страна региона, богатая история и современные технологии.</p>
+            </div>
+        </a>
+        
+        <a href="#" class="item">
+            <h4 class="country-card-title">Киргизия</h4>
+            <div class="card-body-placeholder">
+                <p>Страна горных пейзажей и озера Иссык-Куль.</p>
+            </div>
+        </a>
+        
+        <a href="#" class="item">
+            <h4 class="country-card-title">Туркменистан</h4>
+            <div class="card-body-placeholder">
+                <p>Архитектурные чудеса и газовый кратер Дарваза.</p>
+            </div>
+        </a>
+
+        <a href="#" class="item">
+            <h4 class="country-card-title">Узбекистан</h4>
+            <div class="card-body-placeholder">
+                <p>Центр Великого шелкового пути, Самарканд и Бухара.</p>
+            </div>
+        </a>
+        
+        <a href="#" class="item">
+            <h4 class="country-card-title">Таджикистан</h4>
+            <div class="card-body-placeholder">
+                <p>Памир и высокогорные маршруты.</p>
+            </div>
+        </a>
+
+    </div>
+
+    <h3>Южная и Юго-Восточная Азия</h3>
+    <div class="category">
+        <a href="#" class="item">
+            <h4 class="country-card-title">Индия</h4>
+            <div class="card-body-placeholder">
+                <p>Страна контрастов, древних храмов и Тадж-Махала.</p>
+            </div>
+        </a>
+        
+        <a href="#" class="item">
+            <h4 class="country-card-title">Шри Ланка</h4>
+            <div class="card-body-placeholder">
+                <p>Остров чая, древних крепостей и пляжей.</p>
+            </div>
+        </a>
+        
+        <a href="#" class="item">
+            <h4 class="country-card-title">Камбоджа</h4>
+            <div class="card-body-placeholder">
+                <p>Древний храмовый комплекс Ангкор-Ват.</p>
+            </div>
+        </a>
+        
+        <a href="#" class="item">
+            <h4 class="country-card-title">Таиланд</h4>
+            <div class="card-body-placeholder">
+                <p>Культура, пляжи и знаменитые рынки.</p>
+            </div>
+        </a>
+        
+        <a href="#" class="item">
+            <h4 class="country-card-title">Вьетнам</h4>
+            <div class="card-body-placeholder">
+                <p>Заливы, горы и древняя история.</p>
+            </div>
+        </a>
+        
+        <a href="#" class="item">
+            <h4 class="country-card-title">Малайзия</h4>
+            <div class="card-body-placeholder">
+                <p>Современные города и тропические острова.</p>
+            </div>
+        </a>
+    </div>
+
+    <h3>Восточная Азия</h3>
+    <div class="category">
+        <a href="#" class="item">
+            <h4 class="country-card-title">Южная Корея</h4>
+            <div class="card-body-placeholder">
+                <p>Современные технологии и древние дворцы.</p>
+            </div>
+        </a>
+    </div>
+
+    <h3>Ближний Восток и Северная Африка</h3>
+    <div class="category">
+        <a href="#" class="item">
+            <h4 class="country-card-title">ОАЭ</h4>
+            <div class="card-body-placeholder">
+                <p>Дубай, Абу-Даби, роскошь и небоскребы.</p>
+            </div>
+        </a>
+        
+        <a href="#" class="item">
+            <h4 class="country-card-title">Оман</h4>
+            <div class="card-body-placeholder">
+                <p>Природа, горы и арабская культура.</p>
+            </div>
+        </a>
+        
+        <a href="#" class="item">
+            <h4 class="country-card-title">Ливия</h4>
+            <div class="card-body-placeholder">
+                <p>Историческое наследие Северной Африки.</p>
+            </div>
+        </a>
+
+        <a href="#" class="item">
+            <h4 class="country-card-title">Египет</h4>
+            <div class="card-body-placeholder">
+                <p>Пирамиды, Нил и морские курорты.</p>
+            </div>
+        </a>
+    </div>
+
     <h3>Кавказ и Ближнее Зарубежье</h3>
-    <div class="countries-list">
-
+    <div class="category">
+        <a href="#" class="item">
+            <h4 class="country-card-title">Армения</h4>
+            <div class="card-body-placeholder">
+                <p>Древнейшие монастыри и гора Арарат.</p>
+            </div>
+        </a>
+        
+        <a href="#" class="item">
+            <h4 class="country-card-title">Грузия</h4>
+            <div class="card-body-placeholder">
+                <p>Виноделие, горы и легендарное гостеприимство.</p>
+            </div>
+        </a>
+        
+        <a href="#" class="item">
+            <h4 class="country-card-title">Азербайджан</h4>
+            <div class="card-body-placeholder">
+                <p>Баку, современные технологии и древние дворцы.</p>
+            </div>
+        </a>
+        
+        <a href="#" class="item">
+            <h4 class="country-card-title">Молдова</h4>
+            <div class="card-body-placeholder">
+                <p>Виноградники и культурные традиции.</p>
+            </div>
+        </a>
+        
         <a href="belarus.html" class="item">
-            <img src="images/belarus_main_card.jpg" alt="Беларусь"> 
-            <div class="item-info">
-                <h3>Беларусь</h3>
-                <p>Страна замков и озер. Минск, Бобруйск, Могилев. Идеально для культурного и гастрономического туризма.</p>
-            </div>
-             <div class="item-footer">
-                <span class="price">Смотреть города</span>
-                <span class="arrow">›</span>
+            <h4 class="country-card-title">Беларусь</h4>
+            <div class="card-body-placeholder">
+                <p>Города Минск, Бобруйск и Могилев.</p>
             </div>
         </a>
-
-        <a href="#" class="item">
-            <img src="images/georgia_main_card.jpg" alt="Грузия">
-            <div class="item-info">
-                <h3>Грузия</h3>
-                <p>Страна гор, вина и непревзойденного гостеприимства. Хачапури, Тбилиси и древние монастыри.</p>
-            </div>
-            <div class="item-footer">
-                <span class="price">от 35 000 ₽</span>
-                <span class="arrow">›</span>
-            </div>
-        </a>
-        
-        <a href="#" class="item">
-            <img src="images/armenia_main_card.jpg" alt="Армения">
-            <div class="item-info">
-                <h3>Армения</h3>
-                <p>Древнейшие монастыри и гора Арарат. Историческое и культурное наследие Кавказа.</p>
-            </div>
-            <div class="item-footer">
-                <span class="price">от 40 000 ₽</span>
-                <span class="arrow">›</span>
-            </div>
-        </a>
-        
-        <a href="#" class="item">
-            <img src="images/azerbaijan_main_card.jpg" alt="Азербайджан">
-            <div class="item-info">
-                <h3>Азербайджан</h3>
-                <p>Баку, современная архитектура, нефтяные камни и Каспийское море.</p>
-            </div>
-            <div class="item-footer">
-                <span class="price">от 38 000 ₽</span>
-                <span class="arrow">›</span>
-            </div>
-        </a>
-        
     </div>
 
-    
     <h3>Восточная Европа и Балканы</h3>
-    <div class="countries-list">
-        
+    <div class="category">
         <a href="Turkiye.html" class="item">
-            <img src="images/turkey_main_card.jpg" alt="Турция">
-            <div class="item-info">
-                <h3>Турция</h3>
-                <p>Перекресток цивилизаций, курорты, Каппадокия и Стамбул. Самый популярный регион.</p>
-            </div>
-            <div class="item-footer">
-                <span class="price">от 25 000 ₽</span>
-                <span class="arrow">›</span>
+            <h4 class="country-card-title">Турция</h4>
+            <div class="card-body-placeholder">
+                <p>Перекресток цивилизаций, курорты и Каппадокия.</p>
             </div>
         </a>
         
         <a href="#" class="item">
-            <img src="images/serbia_main_card.jpg" alt="Сербия">
-            <div class="item-info">
-                <h3>Сербия</h3>
-                <p>Белград, Балканы, гостеприимство и православные монастыри.</p>
-            </div>
-            <div class="item-footer">
-                <span class="price">от 42 000 ₽</span>
-                <span class="arrow">›</span>
+            <h4 class="country-card-title">Россия</h4>
+            <div class="card-body-placeholder">
+                <p>От Москвы до Сибири, богатая культура.</p>
             </div>
         </a>
         
+        <a href="#" class="item">
+            <h4 class="country-card-title">Черногория</h4>
+            <div class="card-body-placeholder">
+                <p>Горные массивы и Адриатическое побережье.</p>
+            </div>
+        </a>
+
+        <a href="#" class="item">
+            <h4 class="country-card-title">Босния и Герцеговина</h4>
+            <div class="card-body-placeholder">
+                <p>Мосты, история и природа.</p>
+            </div>
+        </a>
+        
+        <a href="#" class="item">
+            <h4 class="country-card-title">Сербия</h4>
+            <div class="card-body-placeholder">
+                <p>Белград, Балканы и гостеприимство.</p>
+            </div>
+        </a>
+        
+        <a href="#" class="item">
+            <h4 class="country-card-title">Северный Кипр</h4>
+            <div class="card-body-placeholder">
+                <p>Средиземноморские пейзажи и античные руины.</p>
+            </div>
+        </a>
     </div>
-    
+
+    <h3>Западная и Центральная Европа</h3>
+    <div class="category">
+        <a href="#" class="item">
+            <h4 class="country-card-title">Испания</h4>
+            <div class="card-body-placeholder">
+                <p>Барселона, Мадрид, культура и пляжи.</p>
+            </div>
+        </a>
+        
+        <a href="#" class="item">
+            <h4 class="country-card-title">Португалия</h4>
+            <div class="card-body-placeholder">
+                <p>Лиссабон, океан и история мореплавания.</p>
+            </div>
+        </a>
+        
+        <a href="#" class="item">
+            <h4 class="country-card-title">Австрия</h4>
+            <div class="card-body-placeholder">
+                <p>Вена, Альпы и классическая музыка.</p>
+            </div>
+        </a>
+    </div>
+
     <p style="text-align: center; margin-top: 50px; font-size: 0.8em; color: #999;">© Путевой Дневник, 2025</p>
 
 </div>
