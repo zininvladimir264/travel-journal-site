@@ -1,1 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Города Киргизии</title>
+    <style>
+        /* Стиль полностью скопирован из belarus.html для единообразия */
+        * {
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff; 
+        }
+
+        #cities-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 15px 30px 15px;
+        }
+        
+        .header-mobile {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 10px;
+        }
+
+        .header-mobile h1 {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+            margin: 0;
+        }
+
+        .close-btn {
+            text-decoration: none;
+            font-size: 1.5em;
+            color: #777;
+            line-height: 1;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin: 20px 0 10px 0;
+            color: #333;
+        }
+
+        .cities-list {
+            margin-top: 15px;
+            display: grid;
+            grid-template-columns: 1fr 1fr; 
+            gap: 15px; 
+        }
+
+        .item {
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .item img {
+            width: 100%;
+            height: 150px; 
+            object-fit: cover; 
+            display: block;
+        }
+
+        .item-info {
+            padding: 10px 15px;
+            min-height: 120px; 
+        }
+        
+        .item-info h3 {
+            font-size: 1.1em;
+            color: #783e49; 
+            margin: 0 0 5px 0;
+        }
+
+        .item-info p {
+            font-size: 0.9em;
+            color: #666;
+            margin: 0 0 10px 0;
+            line-height: 1.3;
+        }
+
+        .item-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .item-details .price {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        .item-details .arrow {
+            font-size: 1.5em;
+            color: #783e49;
+        }
+
+        @media (max-width: 600px) {
+            .cities-list {
+                grid-template-columns: 1fr; 
+                gap: 20px;
+            }
+            .header-mobile h1 {
+                text-align: center;
+                width: 100%;
+            }
+            .close-btn {
+                position: absolute; 
+                right: 15px;
+                top: 15px;
+            }
+            .item-info {
+                min-height: auto; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div id="cities-container">
+
+    <div class="header-mobile">
+        <h1>Киргизия</h1>
+        <a href="countries.html" class="close-btn">✕</a>
+    </div>
+
+    <h2>Популярные города</h2>
+
+    <div class="cities-list">
+
+        <a href="#" class="item">
+            <img src="images/bishkek_main.jpg" alt="Бишкек"> 
+            <div class="item-info">
+                <h3>Бишкек</h3>
+                <p>Столица Киргизии, расположенная у подножия Тянь-Шаня. Крупный культурный и исторический центр.</p>
+                <div class="item-details">
+                    <span class="price">Смотреть детали</span>
+                    <span class="arrow">›</span>
+                </div>
+            </div>
+        </a>
+
+        <a href="#" class="item">
+            <img src="images/osh_main.jpg" alt="Ош">
+            <div class="item-info">
+                <h3>Ош</h3>
+                <p>Южная столица, старейший город страны, расположенный на Великом Шелковом пути. Гора Сулайман-Тоо.</p>
+                <div class="item-details">
+                    <span class="price">Смотреть детали</span>
+                    <span class="arrow">›</span>
+                </div>
+            </div>
+        </a>
+        
+        <a href="#" class="item">
+            <img src="images/karakol_main.jpg" alt="Каракол">
+            <div class="item-info">
+                <h3>Каракол</h3>
+                <p>Центр активного отдыха и туризма на берегу озера Иссык-Куль.</p>
+                <div class="item-details">
+                    <span class="price">Смотреть детали</span>
+                    <span class="arrow">›</span>
+                </div>
+            </div>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
