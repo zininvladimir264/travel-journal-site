@@ -90,10 +90,12 @@
 
         /* --- СТИЛЬ ПРЕВЬЮ (ДЛЯ ИЗОБРАЖЕНИЯ В КАРТОЧКЕ) --- */
         .item img {
-            width: 100%;
-            height: 120px; /* УВЕЛИЧЕНА ВЫСОТА для более квадратного вида */
+            width: 150px; /* Фиксированная ширина */
+            height: 150px; /* Фиксированная высота = КВАДРАТ */
             object-fit: cover;
             display: block;
+            margin: 0 auto; /* Центрируем изображение по горизонтали */
+            margin-bottom: 5px; /* Добавим небольшой отступ */
         }
         
         /* --- ТЕКСТ (ОПИСАНИЕ) --- */
@@ -324,7 +326,7 @@
         
         <a href="belarus.html" class="item">
             <h4 class="country-card-title">Беларусь</h4>
-            <img src="images/belarus_preview1.jpg" alt="Вид на Минск или достопримечательность Беларуси">
+            <img src="images/belarus_preview.jpg" alt="Вид на Минск или достопримечательность Беларуси">
             <div class="card-body-placeholder">
                 <p>Страна лесов, озер и исторических замков.</p>
             </div>
