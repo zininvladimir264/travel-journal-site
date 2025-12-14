@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Города Армении</title>
     <style>
-        /* --- СТИЛИ КАРТОЧЕК ДЛЯ СПИСКА ГОРОДОВ (КОПИЯ СТИЛЕЙ ИЗ belarus.html) --- */
+        /* --- СТИЛИ КАРТОЧЕК ДЛЯ СПИСКА ГОРОДОВ --- */
         * {
             box-sizing: border-box;
         }
@@ -47,16 +47,11 @@
             margin-bottom: 20px;
             font-size: 2.2em;
         }
-        h3 {
-            color: #783e49;
-            font-size: 1.5em;
-            padding: 10px 0;
-            margin-top: 30px;
-            margin-bottom: 8px;
-        }
-
+        
         /* --- СЕТКА ГОРОДОВ --- */
         .category {
+            /* Изменим сетку, чтобы она лучше смотрелась с двумя элементами, 
+               но оставим возможность для трех, если вернете */
             display: grid;
             grid-template-columns: repeat(3, 1fr); 
             gap: 12px;
@@ -125,6 +120,7 @@
                 min-height: 120px;
             }
         }
+        /* В случае двух элементов на широком экране они займут 2/3 ширины, что выглядит хорошо */
         @media (max-width: 550px) {
             .category {
                 grid-template-columns: 1fr; 
@@ -148,7 +144,6 @@
 
     <h1>Путешествия по Армении</h1>
 
-    <h3>Крупные города и регионы</h3>
     <div class="category">
         
         <a href="yerevan.html" class="item">
@@ -171,17 +166,7 @@
             </div>
         </a>
         
-        <a href="vanadzor.html" class="item">
-            <h4 class="city-card-title">Ванадзор</h4>
-            <div class="card-body-placeholder">
-                <p>Третий по величине город. Индустриальный и туристический центр на севере страны.</p>
-                <ul>
-                    <li>(Нажмите для просмотра блюд/напитков)</li>
-                </ul>
-            </div>
-        </a>
-
-    </div>
+        </div>
     
     <p style="text-align: center; margin-top: 50px; font-size: 0.8em; color: #999;">
         <a href="countries.html" style="color: #783e49; text-decoration: none; font-weight: bold;">← Вернуться к списку стран</a>
