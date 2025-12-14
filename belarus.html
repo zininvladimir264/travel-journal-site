@@ -47,8 +47,7 @@
             margin-bottom: 20px;
             font-size: 2.2em;
         }
-        /* H3 удален */
-
+        
         /* --- СЕТКА ГОРОДОВ --- */
         .category {
             display: grid;
@@ -72,7 +71,7 @@
             text-align: left;
         }
 
-        /* --- СТИЛЬ ПРЕВЬЮ (ДОБАВЛЕНО) --- */
+        /* --- СТИЛЬ ПРЕВЬЮ --- */
         .item img {
             width: 100%;
             height: 120px; 
@@ -94,7 +93,7 @@
             border-top-right-radius: 8px;
         }
         
-        /* --- ТЕКСТ (ОПИСАНИЕ/СПИСОК ГОРОДОВ) --- */
+        /* --- ТЕКСТ ОПИСАНИЕ --- */
         .card-body-placeholder {
             padding: 10px 10px 15px;
             min-height: 150px; 
@@ -104,25 +103,8 @@
             margin: 0;
             font-size: 0.9em;
             color: #333;
-            font-weight: bold;
-            line-height: 1.4;
-        }
-        .card-body-placeholder ul {
-            list-style-type: '• '; 
-            padding-left: 20px;
-            margin-top: 5px;
             font-weight: normal;
-        }
-        .card-body-placeholder ul li a {
-            font-size: 0.8em;
-            color: #666;
-            margin-bottom: 3px;
-            text-decoration: none;
-            display: block;
-        }
-        .card-body-placeholder ul li a:hover {
-            color: #783e49;
-            text-decoration: underline;
+            line-height: 1.4;
         }
 
         /* --- АДАПТИВНОСТЬ --- */
@@ -136,13 +118,6 @@
             }
         }
         @media (max-width: 550px) {
-            body {
-                padding: 10px;
-                font-size: 16px;
-            }
-            #cities-container {
-                padding: 15px;
-            }
             .category {
                 grid-template-columns: 1fr; 
                 gap: 10px;
@@ -171,11 +146,23 @@
             <h4 class="city-card-title">Минск</h4>
             <img src="images/minsk_preview.jpg" alt="Вид на Минск"> 
             <div class="card-body-placeholder">
-                <p>Столица и Минский регион:</p>
-                <ul>
-                    <li><a href="#">Борисов</a></li>
-                    <li><a href="#">Несвиж</a></li>
-                </ul>
+                <p>Столица Беларуси. Кликните для просмотра блюд, напитков и достопримечательностей.</p>
+            </div>
+        </a>
+        
+        <a href="#" class="item">
+            <h4 class="city-card-title">Борисов</h4>
+            <img src="images/borisov_preview.jpg" alt="Вид на Борисов">
+            <div class="card-body-placeholder">
+                <p>Крупный промышленный центр, город с богатой военной историей на Березине.</p>
+            </div>
+        </a>
+
+        <a href="#" class="item">
+            <h4 class="city-card-title">Несвиж</h4>
+            <img src="images/nesvizh_preview.jpg" alt="Вид на Несвиж">
+            <div class="card-body-placeholder">
+                <p>Известен своим знаменитым замком Радзивиллов — объектом ЮНЕСКО.</p>
             </div>
         </a>
         
@@ -183,34 +170,63 @@
             <h4 class="city-card-title">Могилев</h4>
             <img src="images/mogilev_preview.jpg" alt="Вид на Могилев">
             <div class="card-body-placeholder">
-                <p>Могилевский регион:</p>
-                <ul>
-                    <li><a href="bobruisk.html">Бобруйск</a></li>
-                    <li><a href="shklov.html">Шклов</a></li>
-                </ul>
+                <p>Один из крупнейших и старейших городов на берегу Днепра. Кликните для деталей.</p>
             </div>
         </a>
 
+        <a href="bobruisk.html" class="item">
+            <h4 class="city-card-title">Бобруйск</h4>
+            <img src="images/bobruisk_preview.jpg" alt="Вид на Бобруйск">
+            <div class="card-body-placeholder">
+                <p>Крупный промышленный центр Могилёвщины с исторической крепостью.</p>
+            </div>
+        </a>
+
+        <a href="shklov.html" class="item">
+            <h4 class="city-card-title">Шклов</h4>
+            <img src="images/shklov_preview.jpg" alt="Вид на Шклов">
+            <div class="card-body-placeholder">
+                <p>Город на берегу Днепра, имеет свой Дворец и богатую историю.</p>
+            </div>
+        </a>
+        
         <a href="#" class="item">
             <h4 class="city-card-title">Брест</h4>
             <img src="images/brest_preview.jpg" alt="Вид на Брест">
             <div class="card-body-placeholder">
-                <p>Брестский регион:</p>
-                <ul>
-                    <li><a href="#">Пружаны</a></li>
-                </ul>
+                <p>Город-герой, знаменит своей крепостью и историческим центром.</p>
             </div>
         </a>
 
         <a href="#" class="item">
+            <h4 class="city-card-title">Пружаны</h4>
+            <img src="images/pruzhany_preview.jpg" alt="Вид на Пружаны">
+            <div class="card-body-placeholder">
+                <p>Уютный городок, известен своим Дворцом Швыковских ("Белый дворец").</p>
+            </div>
+        </a>
+        
+        <a href="#" class="item">
             <h4 class="city-card-title">Гродно</h4>
             <img src="images/grodno_preview.jpg" alt="Вид на Гродно">
             <div class="card-body-placeholder">
-                <p>Гродненский регион:</p>
-                <ul>
-                    <li><a href="#">Лида</a></li>
-                    <li><a href="#">Сморгонь</a></li>
-                </ul>
+                <p>Культурный центр с богатым архитектурным наследием и двумя замками.</p>
+            </div>
+        </a>
+
+        <a href="#" class="item">
+            <h4 class="city-card-title">Лида</h4>
+            <img src="images/lida_preview.jpg" alt="Вид на Лиду">
+            <div class="card-body-placeholder">
+                <p>Крупный промышленный город, известный своим средневековым Лидским замком.</p>
+            </div>
+        </a>
+
+        <a href="#" class="item">
+            <h4 class="city-card-title">Сморгонь</h4>
+            <img src="images/smorgon_preview.jpg" alt="Вид на Сморгонь">
+            <div class="card-body-placeholder">
+                <p>Город с историческим прошлым, важный центр во времена Великого княжества Литовского.</p>
             </div>
         </a>
         
@@ -218,13 +234,23 @@
             <h4 class="city-card-title">Гомель</h4>
             <img src="images/gomel_preview.jpg" alt="Вид на Гомель">
             <div class="card-body-placeholder">
-                <p>Гомельский регион:</p>
-                <ul>
-                    <li><a href="#">Жлобин</a></li>
-                    <li><a href="#">Мозырь</a></li>
-                    <li><a href="#">Петриков</a></li>
-                    <li><a href="#">Речица</a></li>
-                </ul>
+                <p>Второй по величине город, известен великолепным дворцово-парковым ансамблем.</p>
+            </div>
+        </a>
+
+        <a href="#" class="item">
+            <h4 class="city-card-title">Жлобин</h4>
+            <img src="images/zhlobin_preview.jpg" alt="Вид на Жлобин">
+            <div class="card-body-placeholder">
+                <p>Крупный железнодорожный узел и центр металлургической промышленности.</p>
+            </div>
+        </a>
+
+        <a href="#" class="item">
+            <h4 class="city-card-title">Мозырь</h4>
+            <img src="images/mozyr_preview.jpg" alt="Вид на Мозырь">
+            <div class="card-body-placeholder">
+                <p>Город на Припяти, расположенный на живописных холмах, известен нефтяным комплексом.</p>
             </div>
         </a>
 
@@ -232,24 +258,29 @@
             <h4 class="city-card-title">Витебск</h4>
             <img src="images/vitebsk_preview.jpg" alt="Вид на Витебск">
             <div class="card-body-placeholder">
-                <p>Витебский регион:</p>
-                <ul>
-                    <li><a href="#">Полоцк</a></li>
-                    <li><a href="#">Верхнедвинск</a></li>
-                    <li><a href="#">Россоны</a></li>
-                    <li><a href="#">Ушачи</a></li>
-                    <li><a href="#">Орша</a></li>
-                    <li><a href="#">Новополоцк</a></li>
-                    <li><a href="#">Глубокое</a></li>
-                    <li><a href="#">Поставы</a></li>
-                    <li><a href="#">Лепель</a></li>
-                </ul>
+                <p>Родина Марка Шагала и ежегодного фестиваля "Славянский базар".</p>
+            </div>
+        </a>
+
+        <a href="#" class="item">
+            <h4 class="city-card-title">Полоцк</h4>
+            <img src="images/polotsk_preview.jpg" alt="Вид на Полоцк">
+            <div class="card-body-placeholder">
+                <p>Один из древнейших городов Руси, колыбель белорусской государственности.</p>
+            </div>
+        </a>
+
+        <a href="#" class="item">
+            <h4 class="city-card-title">Орша</h4>
+            <img src="images/orsha_preview.jpg" alt="Вид на Оршу">
+            <div class="card-body-placeholder">
+                <p>Крупный железнодорожный и транспортный узел Витебской области.</p>
             </div>
         </a>
 
     </div>
     
-    <p style="text-align: center; margin-top: 50px; font-size: 0.9em; color: #999;">
+    <p style="text-align: center; margin-top: 20px; font-size: 0.9em; color: #999;">
         <a href="countries.html" style="color: #783e49; text-decoration: none; font-weight: bold;">← Вернуться к списку стран</a>
     </p>
 
