@@ -16,10 +16,11 @@
             font-family: 'Lora', serif;
             line-height: 1.6;
             padding: 20px;
-            background-color: #edeae2; /* Светло-кремовый фон */
-            background-image: url('images/vintage_paper.png'); /* Винтажная текстура */
+            /* !!! ИСПОЛЬЗУЕМ ВАШУ ТЕКСТУРУ !!! */
+            background-color: #edeae2; 
+            background-image: url('images/vintage_paper.png'); 
             background-repeat: repeat;
-            color: #3f362f; /* Темно-коричневый текст */
+            color: #3f362f; 
             font-size: 18px;
         }
         
@@ -44,7 +45,7 @@
         }
         .navbar a {
             text-decoration: none;
-            color: #783e49; /* Розовый акцент */
+            color: #783e49; 
             font-family: 'Playfair Display', serif; 
             font-weight: 700;
             margin: 0 15px;
@@ -65,53 +66,25 @@
             font-weight: 700;
         }
         
-        /* --- ГЕРОЙСКИЙ БЛОК (САМЫЙ КРАСОЧНЫЙ ЭЛЕМЕНТ) --- */
+        /* --- ГЕРОЙСКИЙ БЛОК (БЕЗ ФОТО) --- */
         .hero-vintage {
             text-align: center;
             padding: 40px 20px;
             margin: 30px 0;
             background-color: #fffaf0; 
-            border: 2px solid #a05a67; /* Розовая винтажная рамка */
+            border: 2px solid #a05a67; 
             border-radius: 5px;
             box-shadow: inset 0 0 10px rgba(120, 62, 73, 0.1); 
-            position: relative; /* Для позиционирования декоративных элементов */
-            overflow: hidden;
+            position: relative; 
         }
 
-        /* --- СТИЛЬ ДЛЯ БОЛЬШОГО ИЗОБРАЖЕНИЯ (Баннера) --- */
-        .hero-image {
-            height: 250px; /* Фиксированная высота баннера */
-            background-image: url('images/vintage_map.jpg'); /* !!! Главное изображение !!! */
-            background-size: cover;
-            background-position: center;
-            margin: -40px -20px 20px -20px; /* Растягиваем его до краев рамки */
-            border-bottom: 3px solid #783e49; /* Разделитель под фото */
-            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-            position: relative;
-        }
+        /* --- СТИЛИ, СВЯЗАННЫЕ С ФОТО, УДАЛЕНЫ/УПРОЩЕНЫ --- */
         
-        /* --- ДЕКОРАТИВНЫЙ ЭЛЕМЕНТ (КОМПАС) --- */
-        .decor-compass {
-            position: absolute;
-            top: 60px; /* Смещаем вниз, чтобы он был поверх Hero-блока */
-            right: 40px;
-            width: 80px;
-            height: 80px;
-            background-image: url('images/vintage_compass.png'); /* !!! Декор !!! */
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.8;
-            z-index: 10;
-        }
-        
-        /* ТЕКСТ И КНОПКИ ВНУТРИ HERO */
         .hero-vintage h2 {
             font-family: 'Playfair Display', serif;
             color: #5d4a3e; 
             font-size: 2.2em;
             margin-bottom: 5px;
-            z-index: 2;
-            position: relative;
         }
         
         .hero-vintage p {
@@ -121,8 +94,6 @@
             font-style: italic;
             margin-top: 5px;
             margin-bottom: 20px;
-            z-index: 2;
-            position: relative;
         }
 
         /* Кнопка "Начать" */
@@ -137,8 +108,6 @@
             font-family: 'Playfair Display', serif;
             transition: background-color 0.3s;
             border: 1px solid #5d4a3e;
-            z-index: 2;
-            position: relative;
         }
         .hero-vintage .btn-vintage:hover {
             background-color: #a05a67;
@@ -192,10 +161,6 @@
     <h1>Путевой Дневник</h1>
     
     <div class="hero-vintage">
-        <div class="hero-image">
-            <div class="decor-compass"></div>
-        </div>
-
         <h2>🗺️ Хроники Странствий и Впечатлений</h2>
         <p>Запечатленные моменты, дальние земли и сокровенные мысли.</p>
         <a href="countries.html" class="btn-vintage">Начать Путешествие</a>
