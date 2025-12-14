@@ -4,55 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Страны</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
         /* --- СТАНДАРТНЫЕ СТИЛИ --- */
         * {
             box-sizing: border-box;
         }
+        /* ВИНТАЖНАЯ БАЗА: Фон, Текст, Шрифты */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Lora', serif; /* Винтажный шрифт для основного текста */
             line-height: 1.6;
             padding: 20px;
-            background-color: #f4f4f4;
+            background-color: #edeae2; /* Светло-кремовый фон */
+            /* Текстура бумаги (убедитесь, что images/vintage_paper.png существует) */
+            background-image: url('images/vintage_paper.png'); 
+            background-repeat: repeat;
+            color: #3f362f; /* Темно-коричневый текст */
             font-size: 18px;
         }
+        
+        /* КОНТЕЙНЕР: Эффект старой страницы */
         #countries-container {
             max-width: 900px;
             margin: 0 auto;
-            background-color: #fdf7e3;
+            background-color: #fcf8ee; /* Чуть светлее, чем фон body */
             padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /* Мягкая тень */
+            border: 1px solid #d4c9b9; /* Легкая рамка */
         }
         
         /* --- НАВИГАЦИЯ ВВЕРХУ --- */
         .navbar {
             text-align: center;
             padding: 10px 0;
-            border-bottom: 2px solid #ccc;
+            border-bottom: 2px solid #d4c9b9; /* Винтажная линия */
             margin-bottom: 20px;
         }
         .navbar a {
             text-decoration: none;
-            color: #783e49;
-            font-weight: bold;
+            color: #783e49; /* Розовый акцент */
+            font-family: 'Playfair Display', serif; 
+            font-weight: 700;
             margin: 0 15px;
             font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+        .navbar a:hover {
+            color: #a05a67;
         }
 
         /* --- ЗАГОЛОВКИ --- */
         h1 {
+            font-family: 'Playfair Display', serif; /* Винтажный шрифт */
             text-align: center;
-            color: #333;
+            color: #783e49; /* Розовый акцент */
             margin-bottom: 20px;
-            font-size: 2.2em;
+            font-size: 2.5em;
+            font-weight: 700;
         }
         h3 {
-            color: #783e49;
-            font-size: 1.5em;
+            font-family: 'Playfair Display', serif; /* Винтажный шрифт */
+            color: #5d4a3e; /* Теплый коричневый для подзаголовков */
+            font-size: 1.8em;
             padding: 10px 0;
             margin-top: 30px;
             margin-bottom: 8px;
+            border-bottom: 1px dashed #d4c9b9; /* Пунктирная разделительная линия */
         }
         
         /* --- СЕТКА СТРАН --- */
@@ -66,15 +86,20 @@
         /* --- СТИЛИ КАРТОЧКИ (ITEM) --- */
         .item {
             display: block;
-            border: 1px solid #ddd;
+            border: 1px solid #d4c9b9; /* Легкая винтажная рамка */
             border-radius: 8px;
-            background-color: #fff;
+            background-color: #fffaf0; /* Белая бумага для карточек */
             padding: 0;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
             text-decoration: none;
             overflow: hidden;
             position: relative;
+            transition: transform 0.2s;
+        }
+        .item:hover {
+            transform: translateY(-3px);
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
         }
 
         /* --- ЗАГОЛОВОК КАРТОЧКИ (РОЗОВЫЙ БЛОК) --- */
@@ -83,17 +108,19 @@
             margin: 0;
             background-color: #F8BBD0; 
             color: #783e49;
-            font-weight: bold;
-            font-size: 1.1em;
+            font-family: 'Playfair Display', serif; 
+            font-weight: 700;
+            font-size: 1.2em;
             line-height: 1.2;
         }
 
         /* --- СТИЛЬ ПРЕВЬЮ (ДЛЯ ИЗОБРАЖЕНИЯ В КАРТОЧКЕ) --- */
         .item img {
-            width: 100%; /* Занимает всю ширину карточки (ВОЗВРАЩЕНО) */
-            height: 120px; /* Фиксированная высота */
+            width: 100%; 
+            height: 120px; 
             object-fit: cover;
             display: block;
+            border-bottom: 1px solid #d4c9b9;
         }
         
         /* --- ТЕКСТ (ОПИСАНИЕ) --- */
@@ -106,10 +133,17 @@
         }
         .card-body-placeholder p {
             margin: 0;
-            font-size: 0.9em;
-            color: #666;
+            font-size: 0.95em;
+            color: #5d4a3e; /* Темно-коричневый текст */
             font-weight: normal;
             line-height: 1.4;
+        }
+        
+        /* --- ФУТЕР --- */
+        #countries-container > p {
+            font-family: 'Playfair Display', serif;
+            color: #a05a67;
+            font-style: italic;
         }
         
         /* --- АДАПТИВНОСТЬ --- */
@@ -138,9 +172,10 @@
         <a href="index.html">Главная</a>
         <a href="about.html">Обо мне</a>
         <a href="countries.html">Страны</a>
+        <a href="poem.html">Стих</a> 
     </div>
 
-    <h1>Страны</h1>
+    <h1>Страны, которые я посетил</h1>
 
     <h3>Центральная Азия</h3>
     <div class="category">
@@ -324,7 +359,7 @@
         
         <a href="belarus.html" class="item">
             <h4 class="country-card-title">Беларусь</h4>
-            <img src="images/belarus_preview1.jpg" alt="Вид на Минск или достопримечательность Беларуси">
+            <img src="images/belarus_preview.jpg" alt="Вид на Минск или достопримечательность Беларуси">
             <div class="card-body-placeholder">
                 <p>Страна лесов, озер и исторических замков.</p>
             </div>
