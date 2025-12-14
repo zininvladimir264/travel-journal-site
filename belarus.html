@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Города Армении</title>
+    <title>Беларусь</title>
     <style>
         /* --- СТИЛИ КАРТОЧЕК ДЛЯ СПИСКА ГОРОДОВ --- */
         * {
@@ -47,13 +47,12 @@
             margin-bottom: 20px;
             font-size: 2.2em;
         }
-        
+        /* H3 удален */
+
         /* --- СЕТКА ГОРОДОВ --- */
         .category {
-            /* Изменим сетку, чтобы она лучше смотрелась с двумя элементами, 
-               но оставим возможность для трех, если вернете */
             display: grid;
-            grid-template-columns: repeat(3, 1fr); 
+            grid-template-columns: repeat(3, 1fr);
             gap: 12px;
             margin-bottom: 20px;
         }
@@ -70,6 +69,16 @@
             text-decoration: none;
             overflow: hidden;
             position: relative;
+            text-align: left;
+        }
+
+        /* --- СТИЛЬ ПРЕВЬЮ (ДОБАВЛЕНО) --- */
+        .item img {
+            width: 100%;
+            height: 120px; 
+            object-fit: cover;
+            display: block;
+            margin-bottom: 5px;
         }
 
         /* --- ЗАГОЛОВОК КАРТОЧКИ (РОЗОВЫЙ БЛОК) --- */
@@ -87,7 +96,7 @@
         
         /* --- ТЕКСТ (ОПИСАНИЕ/СПИСОК ГОРОДОВ) --- */
         .card-body-placeholder {
-            padding: 15px 10px;
+            padding: 10px 10px 15px;
             min-height: 150px; 
             text-align: left;
         }
@@ -99,15 +108,21 @@
             line-height: 1.4;
         }
         .card-body-placeholder ul {
-            list-style-type: none; 
-            padding-left: 0;
+            list-style-type: '• '; 
+            padding-left: 20px;
             margin-top: 5px;
             font-weight: normal;
         }
-        .card-body-placeholder ul li {
+        .card-body-placeholder ul li a {
             font-size: 0.8em;
             color: #666;
             margin-bottom: 3px;
+            text-decoration: none;
+            display: block;
+        }
+        .card-body-placeholder ul li a:hover {
+            color: #783e49;
+            text-decoration: underline;
         }
 
         /* --- АДАПТИВНОСТЬ --- */
@@ -120,8 +135,14 @@
                 min-height: 120px;
             }
         }
-        /* В случае двух элементов на широком экране они займут 2/3 ширины, что выглядит хорошо */
         @media (max-width: 550px) {
+            body {
+                padding: 10px;
+                font-size: 16px;
+            }
+            #cities-container {
+                padding: 15px;
+            }
             .category {
                 grid-template-columns: 1fr; 
                 gap: 10px;
@@ -142,33 +163,93 @@
         <a href="about.html">Обо мне</a>
     </div>
 
-    <h1>Путешествия по Армении</h1>
-
+    <h1>Беларусь</h1>
+    
     <div class="category">
         
-        <a href="yerevan.html" class="item">
-            <h4 class="city-card-title">Ереван</h4>
+        <a href="minsk.html" class="item">
+            <h4 class="city-card-title">Минск</h4>
+            <img src="images/minsk_preview.jpg" alt="Вид на Минск"> 
             <div class="card-body-placeholder">
-                <p>Столица Армении. Центр истории, культуры и современного туризма.</p>
+                <p>Столица и Минский регион:</p>
                 <ul>
-                    <li>(Нажмите для просмотра блюд/напитков)</li>
+                    <li><a href="#">Борисов</a></li>
+                    <li><a href="#">Несвиж</a></li>
                 </ul>
             </div>
         </a>
         
-        <a href="gyumri.html" class="item">
-            <h4 class="city-card-title">Гюмри</h4>
+        <a href="mogilev.html" class="item">
+            <h4 class="city-card-title">Могилев</h4>
+            <img src="images/mogilev_preview.jpg" alt="Вид на Могилев">
             <div class="card-body-placeholder">
-                <p>Культурная столица. Известен архитектурой и традиционными ремеслами.</p>
+                <p>Могилевский регион:</p>
                 <ul>
-                    <li>(Нажмите для просмотра блюд/напитков)</li>
+                    <li><a href="bobruisk.html">Бобруйск</a></li>
+                    <li><a href="shklov.html">Шклов</a></li>
+                </ul>
+            </div>
+        </a>
+
+        <a href="#" class="item">
+            <h4 class="city-card-title">Брест</h4>
+            <img src="images/brest_preview.jpg" alt="Вид на Брест">
+            <div class="card-body-placeholder">
+                <p>Брестский регион:</p>
+                <ul>
+                    <li><a href="#">Пружаны</a></li>
+                </ul>
+            </div>
+        </a>
+
+        <a href="#" class="item">
+            <h4 class="city-card-title">Гродно</h4>
+            <img src="images/grodno_preview.jpg" alt="Вид на Гродно">
+            <div class="card-body-placeholder">
+                <p>Гродненский регион:</p>
+                <ul>
+                    <li><a href="#">Лида</a></li>
+                    <li><a href="#">Сморгонь</a></li>
                 </ul>
             </div>
         </a>
         
-        </div>
+        <a href="#" class="item">
+            <h4 class="city-card-title">Гомель</h4>
+            <img src="images/gomel_preview.jpg" alt="Вид на Гомель">
+            <div class="card-body-placeholder">
+                <p>Гомельский регион:</p>
+                <ul>
+                    <li><a href="#">Жлобин</a></li>
+                    <li><a href="#">Мозырь</a></li>
+                    <li><a href="#">Петриков</a></li>
+                    <li><a href="#">Речица</a></li>
+                </ul>
+            </div>
+        </a>
+
+        <a href="#" class="item">
+            <h4 class="city-card-title">Витебск</h4>
+            <img src="images/vitebsk_preview.jpg" alt="Вид на Витебск">
+            <div class="card-body-placeholder">
+                <p>Витебский регион:</p>
+                <ul>
+                    <li><a href="#">Полоцк</a></li>
+                    <li><a href="#">Верхнедвинск</a></li>
+                    <li><a href="#">Россоны</a></li>
+                    <li><a href="#">Ушачи</a></li>
+                    <li><a href="#">Орша</a></li>
+                    <li><a href="#">Новополоцк</a></li>
+                    <li><a href="#">Глубокое</a></li>
+                    <li><a href="#">Поставы</a></li>
+                    <li><a href="#">Лепель</a></li>
+                </ul>
+            </div>
+        </a>
+
+    </div>
     
-    <p style="text-align: center; margin-top: 50px; font-size: 0.8em; color: #999;">
+    <p style="text-align: center; margin-top: 50px; font-size: 0.9em; color: #999;">
         <a href="countries.html" style="color: #783e49; text-decoration: none; font-weight: bold;">← Вернуться к списку стран</a>
     </p>
 
