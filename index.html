@@ -1,30 +1,179 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Путевой дневник</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная - Путевой Дневник</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- ОСНОВНЫЕ ВИНТАЖНЫЕ СТИЛИ (BODY) --- */
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Lora', serif;
+            line-height: 1.6;
+            padding: 20px;
+            background-color: #edeae2; /* Светло-кремовый фон */
+            background-image: url('images/vintage_paper.png'); /* Винтажная текстура */
+            background-repeat: repeat;
+            color: #3f362f; /* Темно-коричневый текст */
+            font-size: 18px;
+        }
+        
+        /* КОНТЕЙНЕР: Эффект старой страницы */
+        #main-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fcf8ee; 
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); 
+            border: 1px solid #d4c9b9; 
+            min-height: 80vh;
+        }
+
+        /* --- НАВИГАЦИЯ ВВЕРХУ --- */
+        .navbar {
+            text-align: center;
+            padding: 10px 0;
+            border-bottom: 2px solid #d4c9b9; 
+            margin-bottom: 20px;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: #783e49; /* Розовый акцент */
+            font-family: 'Playfair Display', serif; 
+            font-weight: 700;
+            margin: 0 15px;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+        .navbar a:hover {
+            color: #a05a67;
+        }
+
+        /* --- ГЛАВНЫЙ ЗАГОЛОВОК СТРАНИЦЫ --- */
+        h1 {
+            font-family: 'Playfair Display', serif; 
+            text-align: center;
+            color: #783e49; 
+            margin-bottom: 20px;
+            font-size: 2.8em;
+            font-weight: 700;
+        }
+        
+        /* --- ГЕРОЙСКИЙ БЛОК (САМЫЙ КРАСОЧНЫЙ ЭЛЕМЕНТ) --- */
+        .hero-vintage {
+            text-align: center;
+            padding: 40px 20px;
+            margin: 30px 0;
+            background-color: #fffaf0; /* Очень светлая бумага */
+            border: 2px solid #a05a67; /* Розовая винтажная рамка */
+            border-radius: 5px;
+            box-shadow: inset 0 0 10px rgba(120, 62, 73, 0.1); /* Внутренняя тень, как у старой рамки */
+        }
+        
+        .hero-vintage h2 {
+            font-family: 'Playfair Display', serif;
+            color: #5d4a3e; /* Теплый коричневый */
+            font-size: 2.2em;
+            margin-bottom: 5px;
+        }
+        
+        .hero-vintage p {
+            font-family: 'Lora', serif;
+            color: #783e49;
+            font-size: 1.2em;
+            font-style: italic;
+            margin-top: 5px;
+            margin-bottom: 20px;
+        }
+
+        /* Кнопка "Начать" */
+        .hero-vintage .btn-vintage {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: #783e49; /* Темный винтажный розовый */
+            color: #fffaf0;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+            transition: background-color 0.3s;
+            border: 1px solid #5d4a3e;
+        }
+        .hero-vintage .btn-vintage:hover {
+            background-color: #a05a67;
+        }
+        
+        /* --- ДОПОЛНИТЕЛЬНОЕ СОДЕРЖАНИЕ --- */
+        .content-section {
+            padding: 20px 0;
+            border-top: 1px dashed #d4c9b9;
+            margin-top: 30px;
+        }
+        
+        .content-section h3 {
+            font-family: 'Playfair Display', serif;
+            color: #5d4a3e;
+            font-size: 1.8em;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .content-section p {
+            text-align: justify;
+            text-indent: 20px; /* Отступ красной строки */
+            color: #3f362f;
+        }
+
+        /* --- ФУТЕР --- */
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px dashed #d4c9b9;
+            color: #999;
+            font-size: 0.9em;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+        
+    </style>
 </head>
 <body>
-<header>
-    <h1>✈ Путевой дневник</h1>
-    <nav>
+
+<div id="main-container">
+
+    <div class="navbar">
         <a href="index.html">Главная</a>
         <a href="about.html">Обо мне</a>
         <a href="countries.html">Страны</a>
-    </nav>
-</header>
+        </div>
 
-<main>
-    <section class="hero">
-        <h2>Добро пожаловать в мой мир путешествий!</h2>
-        <p>Здесь я собираю маршруты, заметки, полезные советы и вдохновение для новых приключений.</p>
-    </section>
-</main>
+    <h1>Путевой Дневник</h1>
+    
+    <div class="hero-vintage">
+        <h2>🗺️ Хроники Странствий и Впечатлений</h2>
+        <p>Запечатленные моменты, дальние земли и сокровенные мысли.</p>
+        <a href="countries.html" class="btn-vintage">Начать Путешествие</a>
+    </div>
 
-<footer>
-    <p>© Путевой дневник, 2025</p>
-</footer>
+    <div class="content-section">
+        <h3>О нашем Дневнике</h3>
+        <p>Этот дневник — собрание дорожных заметок, воспоминаний и фотографий, бережно переплетенных в стиле старых писем и карт. Здесь вы найдете не только сухие факты о странах, но и личные впечатления от горных троп, шумных рынков и тихих морских берегов. Добро пожаловать в наше путешествие во времени и пространстве.</p>
+        
+        <p>Отправляйтесь в раздел "Страны", чтобы увидеть все места, которые оставили след в этом дневнике.</p>
+    </div>
+    
+    <div class="footer">
+        Путевой Дневник, 2025
+    </div>
+
+</div>
+
 </body>
 </html>
