@@ -86,14 +86,20 @@
             font-weight: bold;
             font-size: 1.1em;
             line-height: 1.2;
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
+        }
+
+        /* --- СТИЛЬ ПРЕВЬЮ (ДЛЯ ИЗОБРАЖЕНИЯ В КАРТОЧКЕ) --- */
+        .item img {
+            width: 100%;
+            height: 100px; /* Фиксированная высота для превью */
+            object-fit: cover; /* Обрезка, чтобы изображение заполнило область */
+            display: block;
         }
         
         /* --- ТЕКСТ (ОПИСАНИЕ) --- */
         .card-body-placeholder {
-            padding: 15px 10px;
-            min-height: 100px; 
+            padding: 10px; /* Уменьшаем padding, чтобы оставалось место для изображения */
+            min-height: 40px; /* Уменьшаем высоту */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -292,6 +298,7 @@
         
         <a href="belarus.html" class="item">
             <h4 class="country-card-title">Беларусь</h4>
+            <img src="images/belarus_preview.jpg" alt="Вид на Минск или достопримечательность Беларуси">
             <div class="card-body-placeholder">
                 <p>Страна лесов, озер и исторических замков.</p>
             </div>
