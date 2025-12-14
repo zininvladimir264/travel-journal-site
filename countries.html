@@ -126,11 +126,17 @@
         /* --- ТЕКСТ (ОПИСАНИЕ) --- */
         .card-body-placeholder {
             padding: 10px;
-            min-height: 40px;
+            min-height: 40px; /* Увеличим min-height, чтобы карточки с фото и без были одинаковой высоты */
             display: flex;
             align-items: center;
             justify-content: center;
         }
+
+        /* Если есть изображение, устанавливаем минимальную высоту карточки */
+        .item:has(img) .card-body-placeholder {
+            min-height: 30px; 
+        }
+
         .card-body-placeholder p {
             margin: 0;
             font-size: 0.95em;
@@ -181,6 +187,7 @@
         
         <a href="#" class="item">
             <h4 class="country-card-title">Россия</h4>
+            <img src="images/russia_preview.jpg" alt="Вид на Москву или достопримечательность России"> 
             <div class="card-body-placeholder">
                 <p>От Москвы до Сибири, богатая культура.</p>
             </div>
