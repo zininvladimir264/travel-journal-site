@@ -3,32 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Путевой дневник (Винтаж)</title>
+    <title>Путевой дневник (Максимальный Винтаж)</title>
     <style>
         /* --- СТИЛИ ВИНТАЖ (ОСНОВА) --- */
         * { box-sizing: border-box; }
         body {
-            font-family: Georgia, serif; 
+            font-family: 'Georgia', serif; 
             line-height: 1.6;
             padding: 40px 20px;
-            background-color: #f7e6c4; /* Светло-бежевый фон (старая бумага) */
-            color: #5d4037; /* Коричневый текст */
+            /* Имитация старого холста/текстуры бумаги. */
+            background-color: #e3d4b6; 
+            background-image: repeating-linear-gradient(
+                180deg, 
+                #f2e9d2, 
+                #f2e9d2 1px, 
+                #e3d4b6 1px, 
+                #e3d4b6 3px
+            ); /* Имитация полос/текстуры бумаги */
+            color: #4a3e3c; /* Темно-коричневый, как старые чернила */
         }
         #container {
             max-width: 900px;
             margin: 0 auto;
-            background-color: #fffbe6; /* Почти белый/кремовый фон контента */
+            background-color: #fffaf0; /* Почти белый/кремовый фон контента */
             padding: 50px;
-            border: 3px solid #bcaaa4; /* Коричневая рамка */
+            border: 5px double #bcaaa4; /* Двойная толстая рамка */
             border-radius: 6px;
-            box-shadow: 8px 8px 0 #d7ccc8; 
+            box-shadow: 10px 10px 0 #c7bcae; /* Более выраженная тень */
+        }
+        p, .intro-text {
+            /* Незначительное смещение и шум для имитации чернильного текста */
+            text-shadow: 0 0 0.5px #4a3e3c; 
+            letter-spacing: 0.1px;
+            text-align: justify;
         }
 
         /* --- НАВИГАЦИЯ --- */
         .navbar {
             padding: 10px 0;
             text-align: center;
-            border-bottom: 1px dashed #bcaaa4; 
+            border-bottom: 2px dotted #bcaaa4; /* Пунктирная линия */
             margin-bottom: 40px;
         }
         .navbar a {
@@ -44,44 +58,45 @@
             color: #d84315; 
         }
 
-        /* --- ЗАГОЛОВОК (СТИЛЬ СТАРОЙ КНИГИ) --- */
+        /* --- ЗАГОЛОВОК (СТИЛЬ СТАРОЙ КНИГИ/ЖУРНАЛА) --- */
         .vintage-header {
             text-align: center;
             margin-bottom: 40px;
         }
         .vintage-header h1 {
             color: #5d4037;
-            font-size: 3.8em;
+            font-size: 4em;
             font-family: 'Times New Roman', serif;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             margin: 0;
+            padding-bottom: 5px;
+            border-bottom: 3px solid #d84315; /* Толстая акцентная линия */
         }
         .vintage-header h2 {
             color: #d84315; 
-            font-size: 1.5em;
-            margin-top: 5px;
+            font-size: 1.6em;
+            margin-top: 10px;
             font-style: italic;
-            border-bottom: 1px solid #ffab91;
-            display: inline-block;
-            padding-bottom: 5px;
         }
         
-        /* --- ОСНОВНОЙ КОНТЕНТ --- */
-        .intro-text {
-            font-size: 1.1em;
-            text-align: justify;
-            margin-bottom: 40px;
-            padding: 0 15px;
-        }
-        
-        /* --- СЕКЦИЯ ПОСЛЕДНИХ ПОЕЗДОК (КАРТОЧКИ) --- */
+        /* --- ДЕКОРАТИВНЫЙ РАЗДЕЛИТЕЛЬ --- */
         h3 {
             color: #5d4037;
             font-size: 1.6em;
             margin-top: 40px;
-            margin-bottom: 20px;
-            text-decoration: underline wavy #ffab91;
+            margin-bottom: 25px;
+            /* Имитация орнамента или декоративной линии */
+            text-align: center;
+            text-decoration: none;
         }
+        h3::before, h3::after {
+            content: "•";
+            color: #d84315;
+            display: inline-block;
+            margin: 0 10px;
+        }
+        
+        /* --- СЕТКА КАРТОЧЕК --- */
         .latest-trips-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -98,28 +113,31 @@
             transform: translateY(-5px);
         }
 
-        /* --- СТИЛИЗАЦИЯ ФОТОГРАФИИ (СТАРАЯ КАРТОЧКА) --- */
+        /* --- СТИЛИЗАЦИЯ ФОТОГРАФИИ (СТАРАЯ КАРТОЧКА/РИСУНОК) --- */
         .photo-frame {
             background-color: #f0f0f0; 
-            border: 5px solid #fff; /* Имитация белой рамки Polaroid */
+            border: 5px solid #fff; 
             padding: 10px;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Легкая тень */
-            transform: rotate(var(--rotation)); /* Поворот для старого эффекта */
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Более темная тень */
+            transform: rotate(var(--rotation)); 
             margin-bottom: 10px;
         }
         .photo-frame img {
             width: 100%;
             height: 150px; 
             object-fit: cover;
-            filter: sepia(0.3); /* Сепия эффект для старого фото */
+            /* Усиленный эффект старого фото */
+            filter: sepia(0.9) contrast(1.2) brightness(0.9) grayscale(0.1); 
             border: 1px solid #bcaaa4;
             display: block;
         }
         .photo-caption {
-            font-size: 1.1em;
-            font-weight: bold;
+            font-size: 1.3em;
             color: #d84315; 
             margin-top: 5px;
+            font-family: 'Courier New', monospace; 
+            letter-spacing: 0.5px;
+            font-weight: bold;
         }
         .photo-location {
             font-size: 0.9em;
@@ -133,7 +151,7 @@
             text-align: center;
             margin-top: 50px;
             padding-top: 20px;
-            border-top: 1px dashed #bcaaa4;
+            border-top: 2px dotted #bcaaa4;
             font-size: 0.9em;
             color: #795548;
         }
@@ -166,7 +184,7 @@
         <p>Начните с последних заметок или перейдите в раздел "Страны", чтобы найти интересующий вас регион.</p>
     </div>
 
-    <h3>📷 Из последних поездок</h3>
+    <h3>Из последних поездок</h3>
 
     <div class="latest-trips-grid">
         
@@ -197,7 +215,7 @@
     </div>
     
     <div class="footer">
-        © 2025 Путевой Дневник. Все права защищены.
+        Путевой Дневник, 2025
     </div>
 
 </div>
