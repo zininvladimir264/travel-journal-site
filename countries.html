@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Страны (Обновленный список)</title>
+    <title>Страны (Финальный список)</title>
     <style>
         /* --- ОСНОВНЫЕ СТИЛИ --- */
         * { box-sizing: border-box; }
@@ -55,18 +55,10 @@
         /* --- СЕТКА И КАРТОЧКИ --- */
         .category {
             display: grid;
+            /* 4 колонки для основного контента */
             grid-template-columns: repeat(4, 1fr); 
             gap: 15px;
             margin-bottom: 25px;
-        }
-        /* Отдельный блок для России - занимает всю ширину */
-        .featured-country {
-            display: block;
-            margin-bottom: 30px;
-        }
-        .featured-country .item {
-            width: 50%; /* Россия занимает половину ширины страницы */
-            margin: 0 auto;
         }
         
         .item {
@@ -126,13 +118,13 @@
         /* --- АДАПТИВНОСТЬ --- */
         @media (max-width: 900px) { 
             .category { grid-template-columns: repeat(3, 1fr); } 
-            .featured-country .item { width: 70%; } /* Уменьшаем Россию на средних экранах */
         }
         @media (max-width: 650px) { 
             .category { grid-template-columns: repeat(2, 1fr); } 
-            .featured-country .item { width: 100%; } /* Россия на всю ширину на мобильных */
         }
-        @media (max-width: 400px) { .category { grid-template-columns: 1fr; } }
+        @media (max-width: 400px) { 
+            .category { grid-template-columns: 1fr; } 
+        }
     </style>
 </head>
 <body>
@@ -147,14 +139,14 @@
 
     <h1>Путешествия по странам</h1>
 
-    <div class="featured-country">
+    <div class="category">
         <a href="#" class="item">
             <img src="images/russia_placeholder.jpg" alt="Вид на Кремль" class="card-image"> 
             <div class="card-content">
                 <h4 class="country-card-title">Россия</h4>
             </div>
         </a>
-    </div>
+        </div>
     
     <h3>Ближнее Зарубежье</h3>
     <div class="category"> 
