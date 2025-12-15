@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Страны (Винтаж)</title>
+    <title>Страны (Современный стиль)</title>
     <style>
-        /* --- СТИЛИ ВИНТАЖ (ОСНОВА) --- */
+        /* --- ОСНОВНЫЕ СТИЛИ (Винтажная подложка сохранена) --- */
         * { box-sizing: border-box; }
         body {
-            font-family: Georgia, serif; 
+            font-family: Arial, sans-serif; 
             line-height: 1.5;
             padding: 25px;
             background-color: #f7e6c4; 
-            color: #5d4037; 
+            color: #333; 
         }
         #countries-container {
-            max-width: 850px;
+            max-width: 950px;
             margin: 0 auto;
-            background-color: #fffbe6; 
+            background-color: #fffaf0; 
             padding: 35px;
             border: 2px solid #bcaaa4; 
             border-radius: 6px;
-            box-shadow: 5px 5px 0 #d7ccc8; 
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
         }
         .navbar {
             padding: 10px 0;
@@ -40,79 +40,86 @@
         h1 {
             text-align: center;
             color: #5d4037;
-            margin-bottom: 20px;
-            font-size: 2.8em;
-            font-style: italic;
+            margin-bottom: 30px;
+            font-size: 2.5em;
         }
         h3 {
             color: #d84315; 
-            font-size: 1.5em;
-            padding: 8px 0;
-            margin-top: 25px;
+            font-size: 1.4em;
+            padding: 5px 0;
+            margin-top: 20px;
             margin-bottom: 15px;
-            text-decoration: underline wavy #ffab91; 
+            border-bottom: 2px solid #ffab91;
         }
         
-        /* --- СЕТКА И КАРТОЧКИ (ВИНТАЖ) --- */
+        /* --- СЕТКА И КАРТОЧКИ (СОВРЕМЕННЫЙ СТИЛЬ) --- */
         .category {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 20px; 
-            margin-bottom: 20px;
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 15px;
+            margin-bottom: 25px;
         }
         .item {
             display: block;
             text-decoration: none;
-            color: #5d4037;
-            text-align: center;
-            transition: transform 0.2s;
-            border: none;
-            box-shadow: none;
-            background-color: transparent;
+            position: relative;
+            /* Обеспечиваем квадратную форму */
+            padding-bottom: 100%; 
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px; /* Закругленные углы */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            /* Убраны все винтажные стили, включая повороты */
         }
         .item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px); /* Слегка поднимаем при наведении */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
-        /* СТИЛИ ФОТОГРАММЫ (КАРТОЧКИ) */
-        .photo-frame {
-            background-color: #f0f0f0; 
-            border: 5px solid #fff; 
-            padding: 10px;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-            margin-bottom: 10px;
-            transform: rotate(var(--rotation, 0deg)); /* Поворот */
-        }
-        .photo-frame img {
+        /* КОНТЕНТ КАРТОЧКИ */
+        .card-content {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 120px; 
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; 
+            padding: 15px;
+            z-index: 10;
+        }
+        
+        /* ФОТОГРАФИЯ НА ЗАДНЕМ ПЛАНЕ */
+        .card-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            /* Эффект старого фото */
-            filter: sepia(0.9) contrast(1.2) brightness(0.9) grayscale(0.1); 
-            border: 1px solid #bcaaa4;
-            display: block;
+            /* Затемнение для читаемости текста */
+            filter: brightness(0.7); 
+            transition: filter 0.3s;
         }
+        .item:hover .card-image {
+             filter: brightness(0.8);
+        }
+
+        /* ТЕКСТ */
         .country-card-title {
-            padding: 0;
-            margin: 0;
-            color: #d84315; 
+            color: #ffffff; 
             font-size: 1.3em;
-            font-family: 'Courier New', monospace; 
-            letter-spacing: 0.5px;
             font-weight: bold;
-            background: none; 
-        }
-        .card-description {
-            font-size: 0.9em;
-            font-style: italic;
-            color: #795548;
-            padding: 0 5px 10px;
-            margin-top: 5px;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.8); 
+            margin-bottom: 5px;
         }
         
         /* --- АДАПТИВНОСТЬ --- */
-        @media (max-width: 800px) { .category { grid-template-columns: 1fr 1fr; gap: 15px; } }
-        @media (max-width: 550px) { .category { grid-template-columns: 1fr; gap: 15px; } }
+        @media (max-width: 900px) { .category { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 650px) { .category { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 400px) { .category { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -130,81 +137,72 @@
     <h3>Россия и Ближнее Зарубежье</h3>
     <div class="category"> 
         
-        <a href="#" class="item" style="--rotation: 2deg;">
-            <div class="photo-frame">
-                <img src="images/russia_placeholder.jpg" alt="Вид на Кремль">
+        <a href="#" class="item">
+            <img src="images/russia_placeholder.jpg" alt="Вид на Кремль" class="card-image"> 
+            <div class="card-content">
+                <h4 class="country-card-title">Россия</h4>
             </div>
-            <h4 class="country-card-title">Россия</h4>
-            <p class="card-description">От Москвы до Сахалина, богатая культура.</p>
         </a>
         
-        <a href="belarus.html" class="item" style="--rotation: -3deg;">
-            <div class="photo-frame">
-                <img src="images/belarus_placeholder.jpg" alt="Минск">
+        <a href="belarus.html" class="item">
+            <img src="images/belarus_placeholder.jpg" alt="Минск" class="card-image"> 
+            <div class="card-content">
+                <h4 class="country-card-title">Беларусь</h4>
             </div>
-            <h4 class="country-card-title">Беларусь</h4>
-            <p class="card-description">Города Минск, Бобруйск и Могилев.</p>
         </a>
 
-        <a href="#" class="item" style="--rotation: 1deg;">
-            <div class="photo-frame">
-                <img src="images/moldova_placeholder.jpg" alt="Виноградники">
+        <a href="#" class="item">
+            <img src="images/moldova_placeholder.jpg" alt="Виноградники" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Молдова</h4>
             </div>
-            <h4 class="country-card-title">Молдова</h4>
-            <p class="card-description">Виноградники и культурные традиции.</p>
         </a>
 
-        <a href="#" class="item" style="--rotation: 4deg;">
-            <div class="photo-frame">
-                <img src="images/ukraine_placeholder.jpg" alt="Киев">
+        <a href="#" class="item">
+            <img src="images/ukraine_placeholder.jpg" alt="Киев" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Украина</h4>
             </div>
-            <h4 class="country-card-title">Украина</h4>
-            <p class="card-description">Киев и живописные места.</p>
         </a>
-
+        
     </div>
 
     <h3>Центральная Азия</h3>
     <div class="category">
         
-        <a href="kazakhstan.html" class="item" style="--rotation: -1deg;">
-            <div class="photo-frame">
-                <img src="images/kazakhstan_placeholder.jpg" alt="Астана">
+        <a href="kazakhstan.html" class="item">
+            <img src="images/kazakhstan_placeholder.jpg" alt="Астана" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Казахстан</h4>
             </div>
-            <h4 class="country-card-title">Казахстан</h4>
-            <p class="card-description">Степи и современная архитектура.</p>
         </a>
 
-        <a href="kyrgyzstan.html" class="item" style="--rotation: 3deg;">
-            <div class="photo-frame">
-                <img src="images/kyrgyzstan_placeholder.jpg" alt="Иссык-Куль">
+        <a href="kyrgyzstan.html" class="item">
+            <img src="images/kyrgyzstan_placeholder.jpg" alt="Иссык-Куль" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Кыргызстан</h4>
             </div>
-            <h4 class="country-card-title">Кыргызстан</h4>
-            <p class="card-description">Страна горных пейзажей и озер.</p>
         </a>
 
-        <a href="#" class="item" style="--rotation: -2deg;">
-            <div class="photo-frame">
-                <img src="images/turkmenistan_placeholder.jpg" alt="Дарваза">
+        <a href="#" class="item">
+            <img src="images/turkmenistan_placeholder.jpg" alt="Дарваза" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Туркменистан</h4>
             </div>
-            <h4 class="country-card-title">Туркменистан</h4>
-            <p class="card-description">Архитектурные чудеса и газовый кратер.</p>
         </a>
         
-        <a href="#" class="item" style="--rotation: 1deg;">
-            <div class="photo-frame">
-                <img src="images/uzbekistan_placeholder.jpg" alt="Самарканд">
+        <a href="#" class="item">
+            <img src="images/uzbekistan_placeholder.jpg" alt="Самарканд" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Узбекистан</h4>
             </div>
-            <h4 class="country-card-title">Узбекистан</h4>
-            <p class="card-description">Центр Великого шелкового пути.</p>
         </a>
 
-        <a href="tajikistan.html" class="item" style="--rotation: -3deg;">
-            <div class="photo-frame">
-                <img src="images/tajikistan_placeholder.jpg" alt="Памир">
+        <a href="tajikistan.html" class="item">
+            <img src="images/tajikistan_placeholder.jpg" alt="Памир" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Таджикистан</h4>
             </div>
-            <h4 class="country-card-title">Таджикистан</h4>
-            <p class="card-description">Памир и высокогорные маршруты.</p>
         </a>
 
     </div>
@@ -212,80 +210,71 @@
     <h3>Кавказ</h3>
     <div class="category">
         
-        <a href="armenia.html" class="item" style="--rotation: 4deg;">
-            <div class="photo-frame">
-                <img src="images/armenia_placeholder.jpg" alt="Арарат">
+        <a href="armenia.html" class="item">
+            <img src="images/armenia_placeholder.jpg" alt="Арарат" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Армения</h4>
             </div>
-            <h4 class="country-card-title">Армения</h4>
-            <p class="card-description">Древнейшие монастыри и гора Арарат.</p>
         </a>
         
-        <a href="#" class="item" style="--rotation: -1deg;"> 
-            <div class="photo-frame">
-                <img src="images/georgia_placeholder.jpg" alt="Тбилиси">
+        <a href="#" class="item"> 
+            <img src="images/georgia_placeholder.jpg" alt="Тбилиси" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Грузия</h4>
             </div>
-            <h4 class="country-card-title">Грузия</h4>
-            <p class="card-description">Виноделие, горы и гостеприимство.</p>
         </a>
         
-        <a href="#" class="item" style="--rotation: 2deg;">
-            <div class="photo-frame">
-                <img src="images/azerbaijan_placeholder.jpg" alt="Баку">
+        <a href="#" class="item">
+            <img src="images/azerbaijan_placeholder.jpg" alt="Баку" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Азербайджан</h4>
             </div>
-            <h4 class="country-card-title">Азербайджан</h4>
-            <p class="card-description">Баку и древние крепости.</p>
         </a>
     </div>
 
     <h3>Восточная Европа и Балканы</h3>
     <div class="category">
 
-        <a href="turkiye.html" class="item" style="--rotation: -2deg;">
-            <div class="photo-frame">
-                <img src="images/turkiye_placeholder.jpg" alt="Стамбул">
+        <a href="turkiye.html" class="item">
+            <img src="images/turkiye_placeholder.jpg" alt="Стамбул" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Турция</h4>
             </div>
-            <h4 class="country-card-title">Турция</h4>
-            <p class="card-description">Перекресток цивилизаций.</p>
         </a>
 
-        <a href="#" class="item" style="--rotation: 3deg;">
-            <div class="photo-frame">
-                <img src="images/montenegro_placeholder.jpg" alt="Котор">
+        <a href="#" class="item">
+            <img src="images/montenegro_placeholder.jpg" alt="Котор" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Черногория</h4>
             </div>
-            <h4 class="country-card-title">Черногория</h4>
-            <p class="card-description">Горные массивы и побережье.</p>
         </a>
 
-        <a href="#" class="item" style="--rotation: -1deg;">
-            <div class="photo-frame">
-                <img src="images/bosnia_placeholder.jpg" alt="Сараево">
+        <a href="#" class="item">
+            <img src="images/bosnia_placeholder.jpg" alt="Сараево" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Босния и Герцеговина</h4>
             </div>
-            <h4 class="country-card-title">Босния и Герцеговина</h4>
-            <p class="card-description">Мосты, история и природа.</p>
         </a>
 
-        <a href="#" class="item" style="--rotation: 2deg;">
-            <div class="photo-frame">
-                <img src="images/serbia_placeholder.jpg" alt="Белград">
+        <a href="#" class="item">
+            <img src="images/serbia_placeholder.jpg" alt="Белград" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Сербия</h4>
             </div>
-            <h4 class="country-card-title">Сербия</h4>
-            <p class="card-description">Белград, Балканы.</p>
         </a>
         
-        <a href="#" class="item" style="--rotation: -4deg;">
-            <div class="photo-frame">
-                <img src="images/albania_placeholder.jpg" alt="Тирана" class="card-image">
+        <a href="#" class="item">
+            <img src="images/albania_placeholder.jpg" alt="Тирана" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Албания</h4>
             </div>
-            <h4 class="country-card-title">Албания</h4>
-            <p class="card-description">Адриатическое побережье и горы.</p>
         </a>
 
-        <a href="#" class="item" style="--rotation: 1deg;">
-            <div class="photo-frame">
-                <img src="images/cyprus_placeholder.jpg" alt="Кипр">
+        <a href="#" class="item">
+            <img src="images/cyprus_placeholder.jpg" alt="Кипр" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Северный Кипр</h4>
             </div>
-            <h4 class="country-card-title">Северный Кипр</h4>
-            <p class="card-description">Средиземноморские пейзажи.</p>
         </a>
 
     </div>
@@ -293,28 +282,25 @@
     <h3>Прибалтика</h3>
     <div class="category">
         
-        <a href="#" class="item" style="--rotation: -1deg;">
-            <div class="photo-frame">
-                <img src="images/lithuania_placeholder.jpg" alt="Вильнюс">
+        <a href="#" class="item">
+            <img src="images/lithuania_placeholder.jpg" alt="Вильнюс" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Литва</h4>
             </div>
-            <h4 class="country-card-title">Литва</h4>
-            <p class="card-description">Вильнюс и Балтийское побережье.</p>
         </a>
 
-        <a href="#" class="item" style="--rotation: 2deg;">
-            <div class="photo-frame">
-                <img src="images/latvia_placeholder.jpg" alt="Рига">
+        <a href="#" class="item">
+            <img src="images/latvia_placeholder.jpg" alt="Рига" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Латвия</h4>
             </div>
-            <h4 class="country-card-title">Латвия</h4>
-            <p class="card-description">Рига и юрмальские пляжи.</p>
         </a>
 
-        <a href="#" class="item" style="--rotation: -3deg;">
-            <div class="photo-frame">
-                <img src="images/estonia_placeholder.jpg" alt="Таллин">
+        <a href="#" class="item">
+            <img src="images/estonia_placeholder.jpg" alt="Таллин" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Эстония</h4>
             </div>
-            <h4 class="country-card-title">Эстония</h4>
-            <p class="card-description">Таллин и острова.</p>
         </a>
         
     </div>
@@ -322,44 +308,39 @@
     <h3>Западная и Центральная Европа</h3>
     <div class="category">
         
-        <a href="#" class="item" style="--rotation: 4deg;">
-            <div class="photo-frame">
-                <img src="images/spain_placeholder.jpg" alt="Барселона">
+        <a href="#" class="item">
+            <img src="images/spain_placeholder.jpg" alt="Барселона" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Испания</h4>
             </div>
-            <h4 class="country-card-title">Испания</h4>
-            <p class="card-description">Барселона, Мадрид, пляжи.</p>
         </a>
 
-        <a href="#" class="item" style="--rotation: -1deg;">
-            <div class="photo-frame">
-                <img src="images/portugal_placeholder.jpg" alt="Лиссабон">
+        <a href="#" class="item">
+            <img src="images/portugal_placeholder.jpg" alt="Лиссабон" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Португалия</h4>
             </div>
-            <h4 class="country-card-title">Португалия</h4>
-            <p class="card-description">Лиссабон и океан.</p>
         </a>
 
-        <a href="#" class="item" style="--rotation: 2deg;">
-            <div class="photo-frame">
-                <img src="images/austria_placeholder.jpg" alt="Вена">
+        <a href="#" class="item">
+            <img src="images/austria_placeholder.jpg" alt="Вена" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Австрия</h4>
             </div>
-            <h4 class="country-card-title">Австрия</h4>
-            <p class="card-description">Вена, Альпы.</p>
         </a>
         
-        <a href="#" class="item" style="--rotation: -3deg;">
-            <div class="photo-frame">
-                <img src="images/czech_placeholder.jpg" alt="Прага">
+        <a href="#" class="item">
+            <img src="images/czech_placeholder.jpg" alt="Прага" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Чехия</h4>
             </div>
-            <h4 class="country-card-title">Чехия</h4>
-            <p class="card-description">Прага и средневековые замки.</p>
         </a>
         
-        <a href="#" class="item" style="--rotation: 1deg;">
-            <div class="photo-frame">
-                <img src="images/germany_placeholder.jpg" alt="Берлин">
+        <a href="#" class="item">
+            <img src="images/germany_placeholder.jpg" alt="Берлин" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Германия</h4>
             </div>
-            <h4 class="country-card-title">Германия</h4>
-            <p class="card-description">Берлин и культурные центры.</p>
         </a>
 
     </div>
@@ -367,52 +348,46 @@
     <h3>Южная и Юго-Восточная Азия</h3>
     <div class="category">
         
-        <a href="#" class="item" style="--rotation: 2deg;">
-            <div class="photo-frame">
-                <img src="images/india_placeholder.jpg" alt="Тадж-Махал">
+        <a href="#" class="item">
+            <img src="images/india_placeholder.jpg" alt="Тадж-Махал" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Индия</h4>
             </div>
-            <h4 class="country-card-title">Индия</h4>
-            <p class="card-description">Страна контрастов и Тадж-Махала.</p>
         </a>
 
-        <a href="#" class="item" style="--rotation: -1deg;">
-            <div class="photo-frame">
-                <img src="images/srilanka_placeholder.jpg" alt="Шри-Ланка">
+        <a href="#" class="item">
+            <img src="images/srilanka_placeholder.jpg" alt="Шри-Ланка" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Шри-Ланка</h4>
             </div>
-            <h4 class="country-card-title">Шри-Ланка</h4>
-            <p class="card-description">Остров чая и тропических пляжей.</p>
         </a>
 
-        <a href="#" class="item" style="--rotation: 3deg;">
-            <div class="photo-frame">
-                <img src="images/cambodia_placeholder.jpg" alt="Ангкор-Ват">
+        <a href="#" class="item">
+            <img src="images/cambodia_placeholder.jpg" alt="Ангкор-Ват" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Камбоджа</h4>
             </div>
-            <h4 class="country-card-title">Камбоджа</h4>
-            <p class="card-description">Храмовый комплекс Ангкор-Ват.</p>
         </a>
         
-        <a href="#" class="item" style="--rotation: -2deg;">
-            <div class="photo-frame">
-                <img src="images/thailand_placeholder.jpg" alt="Таиланд">
+        <a href="#" class="item">
+            <img src="images/thailand_placeholder.jpg" alt="Таиланд" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Таиланд</h4>
             </div>
-            <h4 class="country-card-title">Таиланд</h4>
-            <p class="card-description">Культура и пляжи.</p>
         </a>
 
-        <a href="#" class="item" style="--rotation: 1deg;">
-            <div class="photo-frame">
-                <img src="images/vietnam_placeholder.jpg" alt="Вьетнам">
+        <a href="#" class="item">
+            <img src="images/vietnam_placeholder.jpg" alt="Вьетнам" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Вьетнам</h4>
             </div>
-            <h4 class="country-card-title">Вьетнам</h4>
-            <p class="card-description">Заливы, горы и история.</p>
         </a>
 
-        <a href="#" class="item" style="--rotation: -3deg;">
-            <div class="photo-frame">
-                <img src="images/malaysia_placeholder.jpg" alt="Куала-Лумпур">
+        <a href="#" class="item">
+            <img src="images/malaysia_placeholder.jpg" alt="Куала-Лумпур" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Малайзия</h4>
             </div>
-            <h4 class="country-card-title">Малайзия</h4>
-            <p class="card-description">Современные города и леса.</p>
         </a>
 
     </div>
@@ -420,28 +395,25 @@
     <h3>Восточная Азия</h3>
     <div class="category">
         
-        <a href="#" class="item" style="--rotation: 2deg;">
-            <div class="photo-frame">
-                <img src="images/korea_placeholder.jpg" alt="Сеул">
+        <a href="#" class="item">
+            <img src="images/korea_placeholder.jpg" alt="Сеул" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Южная Корея</h4>
             </div>
-            <h4 class="country-card-title">Южная Корея</h4>
-            <p class="card-description">Технологии и традиционные дворцы.</p>
         </a>
         
-        <a href="#" class="item" style="--rotation: -1deg;">
-            <div class="photo-frame">
-                <img src="images/japan_placeholder.jpg" alt="Сакура">
+        <a href="#" class="item">
+            <img src="images/japan_placeholder.jpg" alt="Сакура" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Япония</h4>
             </div>
-            <h4 class="country-card-title">Япония</h4>
-            <p class="card-description">Храмы и сакура.</p>
         </a>
         
-        <a href="#" class="item" style="--rotation: 3deg;">
-            <div class="photo-frame">
-                <img src="images/china_placeholder.jpg" alt="Китай">
+        <a href="#" class="item">
+            <img src="images/china_placeholder.jpg" alt="Китай" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Китай</h4>
             </div>
-            <h4 class="country-card-title">Китай</h4>
-            <p class="card-description">Великая стена и мегаполисы.</p>
         </a>
 
     </div>
@@ -449,36 +421,32 @@
     <h3>Ближний Восток и Северная Африка</h3>
     <div class="category">
         
-        <a href="#" class="item" style="--rotation: 4deg;">
-            <div class="photo-frame">
-                <img src="images/uae_placeholder.jpg" alt="Дубай">
+        <a href="#" class="item">
+            <img src="images/uae_placeholder.jpg" alt="Дубай" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">ОАЭ</h4>
             </div>
-            <h4 class="country-card-title">ОАЭ</h4>
-            <p class="card-description">Дубай, роскошь и небоскребы.</p>
         </a>
         
-        <a href="#" class="item" style="--rotation: -2deg;">
-            <div class="photo-frame">
-                <img src="images/oman_placeholder.jpg" alt="Маскат">
+        <a href="#" class="item">
+            <img src="images/oman_placeholder.jpg" alt="Маскат" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Оман</h4>
             </div>
-            <h4 class="country-card-title">Оман</h4>
-            <p class="card-description">Горы и арабская культура.</p>
         </a>
 
-        <a href="#" class="item" style="--rotation: 1deg;">
-            <div class="photo-frame">
-                <img src="images/egypt_placeholder.jpg" alt="Пирамиды">
+        <a href="#" class="item">
+            <img src="images/egypt_placeholder.jpg" alt="Пирамиды" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Египет</h4>
             </div>
-            <h4 class="country-card-title">Египет</h4>
-            <p class="card-description">Пирамиды, Нил.</p>
         </a>
         
-        <a href="#" class="item" style="--rotation: -3deg;">
-            <div class="photo-frame">
-                <img src="images/libya_placeholder.jpg" alt="Ливия">
+        <a href="#" class="item">
+            <img src="images/libya_placeholder.jpg" alt="Ливия" class="card-image">
+            <div class="card-content">
+                <h4 class="country-card-title">Ливия</h4>
             </div>
-            <h4 class="country-card-title">Ливия</h4>
-            <p class="card-description">Историческое наследие.</p>
         </a>
 
     </div>
