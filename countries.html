@@ -15,7 +15,7 @@
             color: #333; 
         }
         #countries-container {
-            max-width: 950px;
+            max-width: 95%; /* <--- ИЗМЕНЕНО: Ширина 95% от размера окна */
             margin: 0 auto;
             background-color: #fffaf0; 
             padding: 35px;
@@ -54,6 +54,7 @@
         
         /* --- СЕТКА И КАРТОЧКИ (СОВРЕМЕННЫЙ СТИЛЬ) --- */
         .category {
+            /* Теперь сетка будет шире, и карточки, возможно, будут больше */
             display: grid;
             grid-template-columns: repeat(4, 1fr); 
             gap: 15px;
@@ -70,10 +71,9 @@
             border-radius: 12px; /* Закругленные углы */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s, box-shadow 0.2s;
-            /* Убраны все винтажные стили, включая повороты */
         }
         .item:hover {
-            transform: translateY(-3px); /* Слегка поднимаем при наведении */
+            transform: translateY(-3px); 
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
