@@ -3,135 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная - Путевой Дневник</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    
+    <title>Путевой дневник (Винтаж)</title>
     <style>
-        /* --- ОСНОВНЫЕ ВИНТАЖНЫЕ СТИЛИ (BODY) --- */
-        * {
-            box-sizing: border-box;
-        }
+        /* --- СТИЛИ ВИНТАЖ (ОСНОВА) --- */
+        * { box-sizing: border-box; }
         body {
-            font-family: 'Lora', serif;
+            font-family: Georgia, serif; /* Винтажный шрифт */
             line-height: 1.6;
-            padding: 20px;
-            /* !!! ИСПОЛЬЗУЕМ ВАШУ ТЕКСТУРУ !!! */
-            background-color: #edeae2; 
-            background-image: url('images/vintage_paper.png'); 
-            background-repeat: repeat;
-            color: #3f362f; 
-            font-size: 18px;
+            padding: 40px 20px;
+            background-color: #f7e6c4; /* Светло-бежевый фон (старая бумага) */
+            color: #5d4037; /* Коричневый текст */
         }
-        
-        /* КОНТЕЙНЕР: Эффект старой страницы */
-        #main-container {
+        #container {
             max-width: 900px;
             margin: 0 auto;
-            background-color: #fcf8ee; 
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); 
-            border: 1px solid #d4c9b9; 
-            min-height: 80vh;
+            background-color: #fffbe6; /* Почти белый/кремовый фон контента */
+            padding: 50px;
+            border: 3px solid #bcaaa4; /* Коричневая рамка */
+            border-radius: 6px;
+            box-shadow: 8px 8px 0 #d7ccc8; /* Сдвинутая тень, как от книги */
         }
 
-        /* --- НАВИГАЦИЯ ВВЕРХУ --- */
+        /* --- НАВИГАЦИЯ --- */
         .navbar {
-            text-align: center;
             padding: 10px 0;
-            border-bottom: 2px solid #d4c9b9; 
-            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 1px dashed #bcaaa4; /* Пунктирная линия */
+            margin-bottom: 40px;
         }
         .navbar a {
             text-decoration: none;
-            color: #783e49; 
-            font-family: 'Playfair Display', serif; 
-            font-weight: 700;
-            margin: 0 15px;
-            font-size: 1.1em;
-            transition: color 0.3s ease;
+            color: #795548; /* Коричневый */
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: 0 20px;
+            font-size: 1.2em;
+            transition: color 0.3s;
         }
         .navbar a:hover {
-            color: #a05a67;
+            color: #d84315; /* Оранжево-красный акцент при наведении */
         }
 
-        /* --- ГЛАВНЫЙ ЗАГОЛОВОК СТРАНИЦЫ --- */
+        /* --- ЗАГОЛОВОК --- */
         h1 {
-            font-family: 'Playfair Display', serif; 
             text-align: center;
-            color: #783e49; 
+            color: #5d4037;
+            margin-bottom: 10px;
+            font-size: 3.5em;
+            font-style: italic;
+            border-bottom: 2px solid #ffab91; /* Легкое подчеркивание */
+            padding-bottom: 10px;
+        }
+        h2 {
+            text-align: center;
+            color: #d84315; /* Акцентный цвет */
+            font-size: 1.8em;
+            margin-top: 5px;
+            margin-bottom: 30px;
+        }
+        
+        /* --- ОСНОВНОЙ КОНТЕНТ --- */
+        .intro-text {
+            font-size: 1.1em;
+            text-align: justify;
+            margin-bottom: 40px;
+            padding: 0 15px;
+        }
+        
+        /* --- СЕКЦИЯ ПОСЛЕДНИХ ПОЕЗДОК (КАРТОЧКИ) --- */
+        h3 {
+            color: #5d4037;
+            font-size: 1.6em;
+            margin-top: 40px;
             margin-bottom: 20px;
-            font-size: 2.8em;
-            font-weight: 700;
+            text-decoration: underline wavy #ffab91;
         }
-        
-        /* --- ГЕРОЙСКИЙ БЛОК (БЕЗ ФОТО) --- */
-        .hero-vintage {
+        .latest-trips-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .trip-card {
+            border: 1px solid #bcaaa4;
+            border-radius: 4px;
+            background-color: #fffaf0;
+            box-shadow: 2px 2px 0 #d7ccc8;
+            padding: 15px;
             text-align: center;
-            padding: 40px 20px;
-            margin: 30px 0;
-            background-color: #fffaf0; 
-            border: 2px solid #a05a67; 
-            border-radius: 5px;
-            box-shadow: inset 0 0 10px rgba(120, 62, 73, 0.1); 
-            position: relative; 
+            text-decoration: none;
+            color: #5d4037;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-
-        /* --- СТИЛИ, СВЯЗАННЫЕ С ФОТО, УДАЛЕНЫ/УПРОЩЕНЫ --- */
-        
-        .hero-vintage h2 {
-            font-family: 'Playfair Display', serif;
-            color: #5d4a3e; 
-            font-size: 2.2em;
+        .trip-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 4px 4px 0 #d84315;
+        }
+        .trip-card h4 {
+            font-size: 1.3em;
+            color: #d84315;
+            margin-top: 0;
             margin-bottom: 5px;
         }
-        
-        .hero-vintage p {
-            font-family: 'Lora', serif;
-            color: #783e49;
-            font-size: 1.2em;
-            font-style: italic;
-            margin-top: 5px;
-            margin-bottom: 20px;
-        }
-
-        /* Кнопка "Начать" */
-        .hero-vintage .btn-vintage {
-            display: inline-block;
-            padding: 10px 25px;
-            background-color: #783e49; 
-            color: #fffaf0;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            font-family: 'Playfair Display', serif;
-            transition: background-color 0.3s;
-            border: 1px solid #5d4a3e;
-        }
-        .hero-vintage .btn-vintage:hover {
-            background-color: #a05a67;
-        }
-        
-        /* --- ДОПОЛНИТЕЛЬНОЕ СОДЕРЖАНИЕ --- */
-        .content-section {
-            padding: 20px 0;
-            border-top: 1px dashed #d4c9b9;
-            margin-top: 30px;
-        }
-        
-        .content-section h3 {
-            font-family: 'Playfair Display', serif;
-            color: #5d4a3e;
-            font-size: 1.8em;
-            text-align: center;
-            margin-bottom: 15px;
-        }
-        
-        .content-section p {
-            text-align: justify;
-            text-indent: 20px; 
-            color: #3f362f;
+        .trip-card p {
+            font-size: 0.9em;
+            margin: 5px 0 0;
         }
 
         /* --- ФУТЕР --- */
@@ -139,18 +114,25 @@
             text-align: center;
             margin-top: 50px;
             padding-top: 20px;
-            border-top: 1px dashed #d4c9b9;
-            color: #999;
+            border-top: 1px dashed #bcaaa4;
             font-size: 0.9em;
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
+            color: #795548;
         }
         
+        /* --- АДАПТИВНОСТЬ --- */
+        @media (max-width: 768px) {
+            #container {
+                padding: 30px;
+            }
+            .latest-trips-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
 
-<div id="main-container">
+<div id="container">
 
     <div class="navbar">
         <a href="index.html">Главная</a>
@@ -159,22 +141,39 @@
     </div>
 
     <h1>Путевой Дневник</h1>
-    
-    <div class="hero-vintage">
-        <h2>🗺️ Хроники Странствий и Впечатлений</h2>
-        <p>Запечатленные моменты, дальние земли и сокровенные мысли.</p>
-        <a href="countries.html" class="btn-vintage">Начать Путешествие</a>
+    <h2>Мои записи о путешествиях по миру</h2>
+
+    <div class="intro-text">
+        <p>Добро пожаловать в мой цифровой дневник! Здесь собраны впечатления, фотографии и заметки из моих поездок по странам Азии, Европы и Кавказа. Я предпочитаю погружение в культуру, а не просто туристические маршруты, поэтому делюсь только самым интересным и аутентичным.</p>
+        <p>Начните с последних заметок или перейдите в раздел "Страны", чтобы найти интересующий вас регион.</p>
     </div>
 
-    <div class="content-section">
-        <h3>О нашем Дневнике</h3>
-        <p>Этот дневник — собрание дорожных заметок, воспоминаний и фотографий, бережно переплетенных в стиле старых писем и карт. Здесь вы найдете не только сухие факты о странах, но и личные впечатления от горных троп, шумных рынков и тихих морских берегов. Добро пожаловать в наше путешествие во времени и пространстве.</p>
+    <h3>🗺️ Последние заметки</h3>
+
+    <div class="latest-trips-grid">
         
-        <p>Отправляйтесь в раздел "Страны", чтобы увидеть все места, которые оставили след в этом дневнике.</p>
+        <a href="#" class="trip-card">
+            <h4>Стамбул</h4>
+            <p>Турция | 12.2025</p>
+            <p style="font-style: italic; margin-top: 8px;">Перекресток континентов и веков.</p>
+        </a>
+
+        <a href="#" class="trip-card">
+            <h4>Бишкек</h4>
+            <p>Кыргызстан | 10.2025</p>
+            <p style="font-style: italic; margin-top: 8px;">Современность у подножия великих гор.</p>
+        </a>
+
+        <a href="#" class="trip-card">
+            <h4>Ереван</h4>
+            <p>Армения | 09.2025</p>
+            <p style="font-style: italic; margin-top: 8px;">Розовый город из туфа и древних историй.</p>
+        </a>
+        
     </div>
     
     <div class="footer">
-        Путевой Дневник, 2025
+        © 2025 Путевой Дневник. Все права защищены.
     </div>
 
 </div>
