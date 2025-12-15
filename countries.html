@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Страны (Современный стиль)</title>
+    <title>Страны (Обновленный список)</title>
     <style>
-        /* --- ОСНОВНЫЕ СТИЛИ (Винтажная подложка сохранена) --- */
+        /* --- ОСНОВНЫЕ СТИЛИ --- */
         * { box-sizing: border-box; }
         body {
             font-family: Arial, sans-serif; 
@@ -15,7 +15,7 @@
             color: #333; 
         }
         #countries-container {
-            max-width: 95%; /* <--- ИЗМЕНЕНО: Ширина 95% от размера окна */
+            max-width: 95%; /* Ширина 95% от размера окна */
             margin: 0 auto;
             background-color: #fffaf0; 
             padding: 35px;
@@ -52,20 +52,28 @@
             border-bottom: 2px solid #ffab91;
         }
         
-        /* --- СЕТКА И КАРТОЧКИ (СОВРЕМЕННЫЙ СТИЛЬ) --- */
+        /* --- СЕТКА И КАРТОЧКИ --- */
         .category {
-            /* Теперь сетка будет шире, и карточки, возможно, будут больше */
             display: grid;
             grid-template-columns: repeat(4, 1fr); 
             gap: 15px;
             margin-bottom: 25px;
         }
+        /* Отдельный блок для России - занимает всю ширину */
+        .featured-country {
+            display: block;
+            margin-bottom: 30px;
+        }
+        .featured-country .item {
+            width: 50%; /* Россия занимает половину ширины страницы */
+            margin: 0 auto;
+        }
+        
         .item {
             display: block;
             text-decoration: none;
             position: relative;
-            /* Обеспечиваем квадратную форму */
-            padding-bottom: 100%; 
+            padding-bottom: 100%; /* Обеспечиваем квадратную форму */
             height: 0;
             overflow: hidden;
             border-radius: 12px; /* Закругленные углы */
@@ -99,7 +107,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* Затемнение для читаемости текста */
             filter: brightness(0.7); 
             transition: filter 0.3s;
         }
@@ -117,8 +124,14 @@
         }
         
         /* --- АДАПТИВНОСТЬ --- */
-        @media (max-width: 900px) { .category { grid-template-columns: repeat(3, 1fr); } }
-        @media (max-width: 650px) { .category { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 900px) { 
+            .category { grid-template-columns: repeat(3, 1fr); } 
+            .featured-country .item { width: 70%; } /* Уменьшаем Россию на средних экранах */
+        }
+        @media (max-width: 650px) { 
+            .category { grid-template-columns: repeat(2, 1fr); } 
+            .featured-country .item { width: 100%; } /* Россия на всю ширину на мобильных */
+        }
         @media (max-width: 400px) { .category { grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -134,15 +147,17 @@
 
     <h1>Путешествия по странам</h1>
 
-    <h3>Россия и Ближнее Зарубежье</h3>
-    <div class="category"> 
-        
+    <div class="featured-country">
         <a href="#" class="item">
             <img src="images/russia_placeholder.jpg" alt="Вид на Кремль" class="card-image"> 
             <div class="card-content">
                 <h4 class="country-card-title">Россия</h4>
             </div>
         </a>
+    </div>
+    
+    <h3>Ближнее Зарубежье</h3>
+    <div class="category"> 
         
         <a href="belarus.html" class="item">
             <img src="images/belarus_placeholder.jpg" alt="Минск" class="card-image"> 
@@ -157,14 +172,6 @@
                 <h4 class="country-card-title">Молдова</h4>
             </div>
         </a>
-
-        <a href="#" class="item">
-            <img src="images/ukraine_placeholder.jpg" alt="Киев" class="card-image">
-            <div class="card-content">
-                <h4 class="country-card-title">Украина</h4>
-            </div>
-        </a>
-        
     </div>
 
     <h3>Центральная Азия</h3>
@@ -181,13 +188,6 @@
             <img src="images/kyrgyzstan_placeholder.jpg" alt="Иссык-Куль" class="card-image">
             <div class="card-content">
                 <h4 class="country-card-title">Кыргызстан</h4>
-            </div>
-        </a>
-
-        <a href="#" class="item">
-            <img src="images/turkmenistan_placeholder.jpg" alt="Дарваза" class="card-image">
-            <div class="card-content">
-                <h4 class="country-card-title">Туркменистан</h4>
             </div>
         </a>
         
@@ -232,7 +232,7 @@
         </a>
     </div>
 
-    <h3>Восточная Европа и Балканы</h3>
+    <h3>Европа и Балканы</h3>
     <div class="category">
 
         <a href="turkiye.html" class="item">
@@ -264,24 +264,12 @@
         </a>
         
         <a href="#" class="item">
-            <img src="images/albania_placeholder.jpg" alt="Тирана" class="card-image">
-            <div class="card-content">
-                <h4 class="country-card-title">Албания</h4>
-            </div>
-        </a>
-
-        <a href="#" class="item">
             <img src="images/cyprus_placeholder.jpg" alt="Кипр" class="card-image">
             <div class="card-content">
                 <h4 class="country-card-title">Северный Кипр</h4>
             </div>
         </a>
 
-    </div>
-
-    <h3>Прибалтика</h3>
-    <div class="category">
-        
         <a href="#" class="item">
             <img src="images/lithuania_placeholder.jpg" alt="Вильнюс" class="card-image">
             <div class="card-content">
@@ -302,12 +290,7 @@
                 <h4 class="country-card-title">Эстония</h4>
             </div>
         </a>
-        
-    </div>
 
-    <h3>Западная и Центральная Европа</h3>
-    <div class="category">
-        
         <a href="#" class="item">
             <img src="images/spain_placeholder.jpg" alt="Барселона" class="card-image">
             <div class="card-content">
@@ -328,24 +311,9 @@
                 <h4 class="country-card-title">Австрия</h4>
             </div>
         </a>
-        
-        <a href="#" class="item">
-            <img src="images/czech_placeholder.jpg" alt="Прага" class="card-image">
-            <div class="card-content">
-                <h4 class="country-card-title">Чехия</h4>
-            </div>
-        </a>
-        
-        <a href="#" class="item">
-            <img src="images/germany_placeholder.jpg" alt="Берлин" class="card-image">
-            <div class="card-content">
-                <h4 class="country-card-title">Германия</h4>
-            </div>
-        </a>
-
     </div>
 
-    <h3>Южная и Юго-Восточная Азия</h3>
+    <h3>Азия</h3>
     <div class="category">
         
         <a href="#" class="item">
@@ -390,35 +358,15 @@
             </div>
         </a>
 
-    </div>
-
-    <h3>Восточная Азия</h3>
-    <div class="category">
-        
         <a href="#" class="item">
             <img src="images/korea_placeholder.jpg" alt="Сеул" class="card-image">
             <div class="card-content">
                 <h4 class="country-card-title">Южная Корея</h4>
             </div>
         </a>
-        
-        <a href="#" class="item">
-            <img src="images/japan_placeholder.jpg" alt="Сакура" class="card-image">
-            <div class="card-content">
-                <h4 class="country-card-title">Япония</h4>
-            </div>
-        </a>
-        
-        <a href="#" class="item">
-            <img src="images/china_placeholder.jpg" alt="Китай" class="card-image">
-            <div class="card-content">
-                <h4 class="country-card-title">Китай</h4>
-            </div>
-        </a>
-
     </div>
 
-    <h3>Ближний Восток и Северная Африка</h3>
+    <h3>Ближний Восток</h3>
     <div class="category">
         
         <a href="#" class="item">
@@ -443,9 +391,9 @@
         </a>
         
         <a href="#" class="item">
-            <img src="images/libya_placeholder.jpg" alt="Ливия" class="card-image">
+            <img src="images/lebanon_placeholder.jpg" alt="Бейрут" class="card-image">
             <div class="card-content">
-                <h4 class="country-card-title">Ливия</h4>
+                <h4 class="country-card-title">Ливан</h4>
             </div>
         </a>
 
