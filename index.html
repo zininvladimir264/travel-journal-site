@@ -1,235 +1,99 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Путевой Дневник</title>
-    <style>
-        /* --- ОСНОВНЫЕ СТИЛИ --- */
-        * { box-sizing: border-box; }
-        body {
-            font-family: 'Times New Roman', Times, serif; 
-            line-height: 1.6;
-            padding: 0; 
-            margin: 0;
-            background-color: #f0e0c0; /* Светло-бежевый фон */
-            color: #4b3832; /* Темно-коричневый текст */
-        }
-        #main-container {
-            max-width: 900px;
-            margin: 0 auto;
-            background-color: #fffaf0; /* Цвет старой бумаги */
-            border: 5px double #a0522d; 
-            border-top: none; 
-            border-radius: 0 0 6px 6px;
-            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2); 
-            overflow: hidden; 
-        }
+/* Базовый сброс стилей */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        /* --- БЛОК ОБЛОЖКИ (С ТЕКСТОМ НАД ФОТО) --- */
-        .cover-section {
-            width: 100%;
-            height: 350px; 
-            /* 1. ФОТОГРАФИЯ: Предполагаем, что вы сохранили ее как 'images/beach1_cover.jpg' */
-            background: url('images/beach1.jpg') center center no-repeat; 
-            background-size: cover;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            margin-bottom: 20px; 
-            border-bottom: 5px solid #a0522d;
-        }
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
 
-        /* ЗАГОЛОВОК НА ОБЛОЖКЕ (в стиле, как на примере) */
-        .cover-title {
-            color: #ffffff; /* Белый цвет текста */
-            font-size: 4.5em; /* Очень крупный */
-            font-family: Georgia, serif;
-            font-weight: bold;
-            /* Четкая тень, чтобы текст был виден на любом фоне */
-            text-shadow: 0 0 10px #000000, 0 0 5px #000000; 
-            z-index: 2;
-        }
-        
-        /* --- НАВИГАЦИЯ --- */
-        .navbar {
-            padding: 15px 0;
-            text-align: center;
-            border-bottom: 1px dashed #a0522d; 
-            margin-bottom: 20px;
-        }
-        .navbar a {
-            text-decoration: none;
-            color: #8b4513; 
-            font-weight: bold;
-            text-transform: uppercase;
-            margin: 0 20px;
-            font-size: 1.1em;
-            letter-spacing: 1px;
-            text-shadow: 1px 1px 1px #f5f5dc;
-        }
+/* Контейнер для центрирования контента */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-        /* --- ОСНОВНОЙ КОНТЕНТ --- */
-        .content {
-            padding: 0 40px 40px 40px; 
-        }
-        h2 {
-            color: #694f36; 
-            border-bottom: 1px dashed #deb887;
-            padding-bottom: 5px;
-            margin-top: 35px;
-            font-family: Georgia, serif;
-            text-align: center; 
-            font-size: 1.8em;
-        }
-        .highlight {
-            background-color: #fcf6e6; 
-            padding: 15px;
-            border: 1px solid #c8a487;
-            border-left: 5px solid #a0522d; 
-            margin: 25px 0;
-            font-style: italic;
-        }
-        
-        /* --- СТИЛЬ КАРТОЧЕК ДЛЯ ПОСЛЕДНИХ ЗАПИСЕЙ (ВИНТАЖ) --- */
-        .latest-posts-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 20px;
-            margin-top: 30px;
-        }
-        .post-card {
-            display: block;
-            text-decoration: none;
-            position: relative;
-            padding-bottom: 100%; 
-            height: 0;
-            overflow: hidden;
-            border: 3px solid #8b4513; 
-            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .post-card:hover {
-            transform: translateY(-5px) rotate(-1deg);
-            box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.3);
-        }
-        
-        .card-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(10%) brightness(0.95); 
-        }
-        
-        .card-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 10px;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%); 
-            color: #fffdd0;
-        }
-        .card-content h4 {
-            margin: 0;
-            font-size: 1.1em;
-            text-shadow: 1px 1px 2px #4b3832;
-        }
-        .card-content p {
-            margin: 0;
-            font-size: 0.8em;
-            opacity: 0.8;
-        }
+/* 1. Стили для Обложки (Ваше изображение) */
+.cover {
+    width: 100%; /* Занимает всю ширину экрана */
+    height: 450px; /* Фиксированная высота для горизонтальной обложки */
+    overflow: hidden; /* Обрезает излишки изображения */
+}
 
-        /* --- ФУТЕР --- */
-        footer {
-            text-align: center; 
-            padding-top: 25px;
-            margin-top: 40px;
-            border-top: 1px dashed #a0522d; 
-            color: #8b4513;
-            font-size: 0.9em;
-            font-style: italic;
-        }
+.cover-image {
+    width: 100%; /* Изображение занимает 100% ширины контейнера */
+    height: 100%; /* Изображение занимает 100% высоты контейнера */
+    object-fit: cover; /* Ключевое свойство: гарантирует, что изображение покроет контейнер, не искажаясь */
+    display: block;
+}
 
-        /* --- АДАПТИВНОСТЬ --- */
-        @media (max-width: 700px) {
-            .cover-title { font-size: 3.5em; }
-            .latest-posts-grid { grid-template-columns: repeat(2, 1fr); }
-            .content { padding: 0 20px 20px 20px; }
-        }
-        @media (max-width: 500px) {
-            .cover-section { height: 250px; }
-            .cover-title { font-size: 2.8em; }
-            .latest-posts-grid { grid-template-columns: 1fr; }
-            .navbar a { margin: 0 10px; font-size: 1em; }
-        }
-    </style>
-</head>
-<body>
+/* Стили для навигации */
+.main-nav {
+    background: #007bff;
+    color: #fff;
+    padding: 10px 0;
+}
 
-<div id="main-container">
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+}
 
-    <div class="cover-section">
-        <h1 class="cover-title">Путевой Дневник</h1>
-    </div>
+.main-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+}
 
-    <div class="navbar">
-        <a href="index.html">Главная</a>
-        <a href="about.html">Обо мне</a>
-        <a href="countries.html">Страны</a>
-    </div>
+.main-nav ul li a:hover {
+    background: #0056b3;
+}
 
-    <div class="content">
+/* Стили для Секции Карточек */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 30px 0;
+}
 
-        <p class="highlight">
-            Добро пожаловать в мой личный дневник путешествий, где я делюсь впечатлениями, фотографиями и полезными советами по посещению стран Азии, Европы и Ближнего Зарубежья. Цель этого проекта — вдохновить вас на новые открытия!
-        </p>
-        
-        <h2>Последние записи</h2>
-        
-        <div class="latest-posts-grid">
-            
-            <a href="kazakhstan.html" class="post-card">
-                <img src="images/kaza.jpg" alt="Современная Астана" class="card-image">
-                <div class="card-content">
-                    <h4>Казахстан: Астана и степи</h4>
-                    <p>Июль 2025</p>
-                </div>
-            </a>
-            
-            <a href="turkiye.html" class="post-card">
-                <img src="images/turkiye_placeholder.jpg" alt="Вид на Каппадокию" class="card-image">
-                <div class="card-content">
-                    <h4>Турция: От Стамбула до Каппадокии</h4>
-                    <p>Май 2025</p>
-                </div>
-            </a>
-            
-            <a href="belarus.html" class="post-card">
-                <img src="images/belarus.jpg" alt="Дворец в Беларуси" class="card-image">
-                <div class="card-content">
-                    <h4>Беларусь: Дворцы и природа</h4>
-                    <p>Апрель 2025</p>
-                </div>
-            </a>
+/* 2. Стили для Карточек (со скругленными углами) */
+.card {
+    background-color: #fff;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    
+    /* СВОЙСТВО ДЛЯ СКРУГЛЕННЫХ УГЛОВ */
+    border-radius: 15px; 
+    /* Вы можете изменить 15px на другое значение для другого эффекта */
+}
 
-        </div>
-        
-        <p style="text-align: center; margin-top: 30px;">
-            <a href="countries.html" style="color: #a0522d; font-weight: bold; text-decoration: none;">Посмотреть все направления →</a>
-        </p>
+.card h3 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
 
-        <footer>
-            &copy; Путевой Дневник, 2025. Все права защищены.
-        </footer>
-    </div>
-</div>
+.card a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+}
 
-</body>
-</html>
+/* Стили для футера */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
