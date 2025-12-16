@@ -75,29 +75,10 @@
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
-        /* --- ОТДЕЛЬНЫЙ СТИЛЬ ДЛЯ КАРТОЧЕК БЕЗ ФОТО --- */
-        .item-no-photo {
-            background-color: #e0f7fa; 
-            border: 2px solid #00bcd4; 
-            display: flex; 
-            align-items: center;
-            justify-content: center;
-            padding-bottom: 0; 
-            height: auto; 
-            min-height: 100%;
-        }
-        .item-no-photo .card-content {
-            position: static;
-            padding: 20px;
-            background: none;
-            text-align: center;
-        }
-        .item-no-photo .country-card-title {
-            color: #00838f; 
-            text-shadow: none;
-        }
-        /* --- / ОТДЕЛЬНЫЙ СТИЛЬ --- */
-
+        /* --- СТИЛЬ ДЛЯ КАРТОЧЕК БЕЗ ФОТО (УДАЛЕН) --- 
+         * Я оставляю комментарии, чтобы вы знали, что я удалил стили 
+         * для .item-no-photo, так как Беларусь теперь с фото. 
+        */
 
         /* КОНТЕНТ КАРТОЧКИ (С ФОТО) */
         .card-content {
@@ -238,7 +219,8 @@
             </div>
         </a>
 
-        <a href="belarus.html" class="item item-no-photo">
+        <a href="belarus.html" class="item">
+            <img src="images/belarus.jpg" alt="Минск" class="card-image">
             <div class="card-content">
                 <h4 class="country-card-title">Беларусь</h4>
                 <p class="card-description">Минск, Бобруйск.</p>
