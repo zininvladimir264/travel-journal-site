@@ -5,82 +5,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Путевой Дневник</title>
     <style>
-        /* --- ОСНОВНЫЕ СТИЛИ --- */
+        /* --- ОРИГИНАЛЬНЫЙ ВИНТАЖНЫЙ/РЕТРО СТИЛЬ --- */
         * { box-sizing: border-box; }
         body {
-            font-family: Arial, sans-serif; 
+            font-family: 'Times New Roman', Times, serif; /* Классический шрифт */
             line-height: 1.6;
-            padding: 25px; 
+            padding: 30px;
             margin: 0;
-            background-color: #f7e6c4; 
-            color: #333; 
+            background-color: #f0e0c0; /* Светло-бежевый фон */
+            color: #4b3832; /* Темно-коричневый текст */
         }
         #main-container {
-            max-width: 950px;
+            max-width: 900px;
             margin: 0 auto;
-            background-color: #fffaf0; 
-            padding: 35px; /* Возвращено внутреннее поле */
-            border: 2px solid #bcaaa4; 
-            border-radius: 6px;
-            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1); 
+            background-color: #fffaf0; /* Цвет старой бумаги */
+            padding: 40px;
+            border: 5px double #a0522d; /* Двойная рамка */
+            border-radius: 0;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2); 
         }
 
         /* --- НАВИГАЦИЯ --- */
         .navbar {
             padding: 10px 0;
             text-align: center;
-            border-bottom: 1px dashed #bcaaa4; 
-            margin-bottom: 20px; 
+            border-bottom: 1px dashed #a0522d; 
+            margin-bottom: 30px;
         }
         .navbar a {
             text-decoration: none;
-            color: #795548; 
+            color: #8b4513; /* Сепия */
             font-weight: bold;
             text-transform: uppercase;
-            margin: 0 15px;
+            margin: 0 20px;
             font-size: 1.1em;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 1px #f5f5dc;
             transition: color 0.3s;
         }
         .navbar a:hover {
-            color: #d84315; 
+            color: #5d4037; 
         }
 
         /* --- ОСНОВНОЙ КОНТЕНТ --- */
         h1 {
             text-align: center;
             color: #5d4037;
-            margin-bottom: 30px;
-            font-size: 2.5em;
+            margin-bottom: 40px;
+            font-size: 2.8em;
+            font-family: Georgia, serif; 
+            border-bottom: 2px solid #a0522d;
+            padding-bottom: 10px;
         }
         h2 {
-            color: #d84315; 
-            border-bottom: 2px solid #ffab91;
+            color: #694f36; 
+            border-bottom: 1px dashed #deb887;
             padding-bottom: 5px;
-            margin-top: 40px;
+            margin-top: 35px;
+            font-family: Georgia, serif;
         }
         .highlight {
-            background-color: #fff8e1;
+            /* Стиль рамки для цитат/выделений в винтажном стиле */
+            background-color: #fcf6e6; 
             padding: 15px;
-            border-left: 4px solid #f9a825;
-            margin: 20px 0;
+            border: 1px solid #c8a487;
+            border-left: 5px solid #a0522d; /* Более заметный акцент */
+            margin: 25px 0;
+            font-style: italic;
         }
         ul {
-            list-style-type: square;
-            color: #795548;
-            padding-left: 20px;
+            list-style-type: disc;
+            color: #4b3832;
+            padding-left: 25px;
         }
         ul li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+        }
+        /* Ссылкам дадим винтажный оттенок */
+        ul li a {
+            color: #8b4513;
+            text-decoration: none;
+            border-bottom: 1px dotted #8b4513;
+        }
+        ul li a:hover {
+            color: #a0522d;
+            border-bottom: 1px solid #a0522d;
         }
         
         /* --- ФУТЕР --- */
         footer {
             text-align: center; 
-            padding-top: 20px;
-            margin-top: 30px;
-            border-top: 1px dashed #bcaaa4; 
-            color: #795548;
+            padding-top: 25px;
+            margin-top: 40px;
+            border-top: 1px dashed #a0522d; 
+            color: #8b4513;
             font-size: 0.9em;
+            font-style: italic;
         }
 
         /* --- АДАПТИВНОСТЬ --- */
@@ -93,7 +113,10 @@
                 padding: 20px;
             }
             h1 {
-                font-size: 2em;
+                font-size: 2.2em;
+            }
+            body {
+                padding: 15px;
             }
         }
     </style>
@@ -117,9 +140,9 @@
     <h2>Последние записи</h2>
     
     <ul>
-        <li><a href="kazakhstan.html" style="color:#00838f; text-decoration: none;">Казахстан: Современная Астана и бескрайние степи</a> - Июль 2025</li>
-        <li><a href="turkiye.html" style="color:#00838f; text-decoration: none;">Турция: От Стамбула до Каппадокии</a> - Май 2025</li>
-        <li><a href="belarus.html" style="color:#00838f; text-decoration: none;">Беларусь: Дворцы и природные заповедники</a> - Апрель 2025</li>
+        <li><a href="kazakhstan.html">Казахстан: Современная Астана и бескрайние степи</a> - Июль 2025</li>
+        <li><a href="turkiye.html">Турция: От Стамбула до Каппадокии</a> - Май 2025</li>
+        <li><a href="belarus.html">Беларусь: Дворцы и природные заповедники</a> - Апрель 2025</li>
         <li>Ливан: Древний Бейрут и средиземноморская кухня - Январь 2025</li>
     </ul>
 
