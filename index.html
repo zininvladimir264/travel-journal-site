@@ -3,170 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Путевой дневник (Максимальный Винтаж)</title>
+    <title>Путевой Дневник</title>
     <style>
-        /* --- СТИЛИ ВИНТАЖ (ОСНОВА) --- */
+        /* --- ОСНОВНЫЕ СТИЛИ --- */
         * { box-sizing: border-box; }
         body {
-            font-family: 'Georgia', serif; 
+            font-family: Arial, sans-serif; 
             line-height: 1.6;
-            padding: 40px 20px;
-            /* Имитация старого холста/текстуры бумаги. */
-            background-color: #e3d4b6; 
-            background-image: repeating-linear-gradient(
-                180deg, 
-                #f2e9d2, 
-                #f2e9d2 1px, 
-                #e3d4b6 1px, 
-                #e3d4b6 3px
-            ); /* Имитация полос/текстуры бумаги */
-            color: #4a3e3c; /* Темно-коричневый, как старые чернила */
+            padding: 0;
+            margin: 0;
+            background-color: #f7e6c4; 
+            color: #333; 
         }
-        #container {
-            max-width: 900px;
+        #main-container {
+            max-width: 950px;
             margin: 0 auto;
-            background-color: #fffaf0; /* Почти белый/кремовый фон контента */
-            padding: 50px;
-            border: 5px double #bcaaa4; /* Двойная толстая рамка */
-            border-radius: 6px;
-            box-shadow: 10px 10px 0 #c7bcae; /* Более выраженная тень */
-        }
-        p, .intro-text {
-            /* Незначительное смещение и шум для имитации чернильного текста */
-            text-shadow: 0 0 0.5px #4a3e3c; 
-            letter-spacing: 0.1px;
-            text-align: justify;
+            background-color: #fffaf0; 
+            border: 2px solid #bcaaa4; 
+            border-top: none;
+            border-radius: 0 0 6px 6px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
         }
 
         /* --- НАВИГАЦИЯ --- */
         .navbar {
             padding: 10px 0;
             text-align: center;
-            border-bottom: 2px dotted #bcaaa4; /* Пунктирная линия */
-            margin-bottom: 40px;
+            border-bottom: 1px dashed #bcaaa4; 
+            background-color: #f0e0d6;
         }
         .navbar a {
             text-decoration: none;
             color: #795548; 
             font-weight: bold;
             text-transform: uppercase;
-            margin: 0 20px;
-            font-size: 1.2em;
+            margin: 0 15px;
+            font-size: 1.1em;
+            padding: 5px 10px;
             transition: color 0.3s;
         }
         .navbar a:hover {
             color: #d84315; 
         }
 
-        /* --- ЗАГОЛОВОК (СТИЛЬ СТАРОЙ КНИГИ/ЖУРНАЛА) --- */
-        .vintage-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .vintage-header h1 {
-            color: #5d4037;
-            font-size: 4em;
-            font-family: 'Times New Roman', serif;
-            letter-spacing: 3px;
-            margin: 0;
-            padding-bottom: 5px;
-            border-bottom: 3px solid #d84315; /* Толстая акцентная линия */
-        }
-        .vintage-header h2 {
-            color: #d84315; 
-            font-size: 1.6em;
-            margin-top: 10px;
-            font-style: italic;
-        }
-        
-        /* --- ДЕКОРАТИВНЫЙ РАЗДЕЛИТЕЛЬ --- */
-        h3 {
-            color: #5d4037;
-            font-size: 1.6em;
-            margin-top: 40px;
-            margin-bottom: 25px;
-            /* Имитация орнамента или декоративной линии */
-            text-align: center;
-            text-decoration: none;
-        }
-        h3::before, h3::after {
-            content: "•";
-            color: #d84315;
-            display: inline-block;
-            margin: 0 10px;
-        }
-        
-        /* --- СЕТКА КАРТОЧЕК --- */
-        .latest-trips-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-        .trip-card {
-            display: block;
-            text-decoration: none;
-            color: #5d4037;
-            text-align: center;
-            transition: transform 0.2s;
-        }
-        .trip-card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* --- СТИЛИЗАЦИЯ ФОТОГРАФИИ (СТАРАЯ КАРТОЧКА/РИСУНОК) --- */
-        .photo-frame {
-            background-color: #f0f0f0; 
-            border: 5px solid #fff; 
-            padding: 10px;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); 
-            transform: rotate(var(--rotation)); 
-            margin-bottom: 10px;
-        }
-        .photo-frame img {
+        /* --- ОБЛОЖКА (НОВОЕ) --- */
+        .cover-image-container {
             width: 100%;
-            height: 150px; 
-            object-fit: cover;
-            /* Усиленный эффект старого фото */
-            filter: sepia(0.9) contrast(1.2) brightness(0.9) grayscale(0.1); 
-            border: 1px solid #bcaaa4;
+            overflow: hidden;
+            max-height: 400px; /* Ограничиваем высоту для эстетики */
+        }
+        .cover-image {
+            width: 100%;
             display: block;
-        }
-        .photo-caption {
-            font-size: 1.3em;
-            color: #d84315; 
-            margin-top: 5px;
-            font-family: 'Courier New', monospace; 
-            letter-spacing: 0.5px;
-            font-weight: bold;
-        }
-        .photo-location {
-            font-size: 0.9em;
-            font-style: italic;
-            color: #795548;
-        }
-
-
-        /* --- ФУТЕР --- */
-        .footer {
-            text-align: center;
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 2px dotted #bcaaa4;
-            font-size: 0.9em;
-            color: #795548;
+            height: auto;
+            object-fit: cover;
         }
         
+        /* --- ОСНОВНОЙ КОНТЕНТ --- */
+        .content {
+            padding: 35px;
+        }
+        h1 {
+            text-align: center;
+            color: #5d4037;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #d84315; 
+            border-bottom: 2px solid #ffab91;
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+        .highlight {
+            background-color: #fff8e1;
+            padding: 15px;
+            border-left: 4px solid #f9a825;
+            margin: 20px 0;
+        }
+        ul {
+            list-style-type: square;
+            color: #795548;
+            padding-left: 20px;
+        }
+        ul li {
+            margin-bottom: 8px;
+        }
+        
+        /* --- ФУТЕР --- */
+        footer {
+            text-align: center; 
+            padding: 20px;
+            margin-top: 30px;
+            border-top: 1px dashed #bcaaa4; 
+            color: #795548;
+            font-size: 0.9em;
+        }
+
         /* --- АДАПТИВНОСТЬ --- */
-        @media (max-width: 768px) {
-            #container { padding: 30px; }
-            .latest-trips-grid { grid-template-columns: 1fr; }
-            .photo-frame { transform: none !important; }
+        @media (max-width: 600px) {
+            .navbar a {
+                margin: 0 8px;
+                font-size: 1em;
+            }
+            .content {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
         }
     </style>
 </head>
 <body>
 
-<div id="container">
+<div id="main-container">
 
     <div class="navbar">
         <a href="index.html">Главная</a>
@@ -174,50 +125,35 @@
         <a href="countries.html">Страны</a>
     </div>
 
-    <div class="vintage-header">
-        <h1>Путевой Дневник</h1>
-        <h2>Мои записи о путешествиях по миру</h2>
-    </div>
-
-    <div class="intro-text">
-        <p>Добро пожаловать в мой путевой дневник! Здесь собраны впечатления, фотографии и заметки из моих поездок по странам Азии, Европы и Кавказа. Я предпочитаю погружение в культуру, а не просто туристические маршруты, поэтому делюсь только самым интересным и аутентичным.</p>
-        <p>Начните с последних заметок или перейдите в раздел "Страны", чтобы найти интересующий вас регион.</p>
-    </div>
-
-    <h3>Из последних поездок</h3>
-
-    <div class="latest-trips-grid">
-        
-        <a href="#" class="trip-card">
-            <div class="photo-frame" style="--rotation: -3deg;"> 
-                <img src="images/istanbul_square.jpg" alt="Площадь Таксим в Стамбуле">
-            </div>
-            <div class="photo-caption">Площадь Таксим</div>
-            <div class="photo-location">Турция | 12.2025</div>
-        </a>
-
-        <a href="#" class="trip-card">
-            <div class="photo-frame" style="--rotation: 2deg;"> 
-                <img src="images/bishkek_ala-too.jpg" alt="Площадь Ала-Тоо в Бишкеке">
-            </div>
-            <div class="photo-caption">Бишкек</div>
-            <div class="photo-location">Кыргызстан | 10.2025</div>
-        </a>
-
-        <a href="#" class="trip-card">
-            <div class="photo-frame" style="--rotation: -1deg;"> 
-                <img src="images/yerevan_cascade.jpg" alt="Каскад в Ереване">
-            </div>
-            <div class="photo-caption">Ереван</div>
-            <div class="photo-location">Армения | 09.2025</div>
-        </a>
-        
+    <div class="cover-image-container">
+        <img src="images/beach.jpg" alt="Море, песок и пальмы" class="cover-image">
     </div>
     
-    <div class="footer">
-        Путевой Дневник, 2025
-    </div>
+    <div class="content">
+        <h1>Путевой Дневник</h1>
 
+        <p class="highlight">
+            Добро пожаловать в мой личный дневник путешествий, где я делюсь впечатлениями, фотографиями и полезными советами по посещению стран Азии, Европы и Ближнего Зарубежья. Цель этого проекта — вдохновить вас на новые открытия!
+        </p>
+        
+        <h2>Последние записи</h2>
+        
+        <ul>
+            <li><a href="kazakhstan.html" style="color:#00838f; text-decoration: none;">Казахстан: Современная Астана и бескрайние степи</a> - Июль 2025</li>
+            <li><a href="turkiye.html" style="color:#00838f; text-decoration: none;">Турция: От Стамбула до Каппадокии</a> - Май 2025</li>
+            <li><a href="belarus.html" style="color:#00838f; text-decoration: none;">Беларусь: Дворцы и природные заповедники</a> - Апрель 2025</li>
+            <li>Ливан: Древний Бейрут и средиземноморская кухня - Январь 2025</li>
+        </ul>
+
+        <h2>Мои приоритеты в путешествиях</h2>
+        <p>
+            Я стараюсь выбирать направления, которые сочетают богатую историю, уникальную культуру и живописную природу, избегая слишком туристических и "избитых" маршрутов.
+        </p>
+        
+        <footer>
+            &copy; Путевой Дневник, 2025. Все права защищены.
+        </footer>
+    </div>
 </div>
 
 </body>
