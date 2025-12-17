@@ -3,45 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Путевой дневник (Максимальный Винтаж)</title>
+    <title>Путевой дневник — Пляжный выпуск</title>
     <style>
-        /* --- СТИЛИ ВИНТАЖ (ОСНОВА) --- */
-        * { box-sizing: border-box; }
+        /* --- БАЗОВЫЕ СТИЛИ (ВИНТАЖ) --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
         body {
             font-family: 'Georgia', serif; 
             line-height: 1.6;
-            padding: 40px 20px;
-            background-color: #e3d4b6; 
-            background-image: repeating-linear-gradient(
-                180deg, 
-                #f2e9d2, 
-                #f2e9d2 1px, 
-                #e3d4b6 1px, 
-                #e3d4b6 3px
-            ); 
+            padding: 20px;
+            background-color: #e3d4b6; /* Цвет старой бумаги */
+            background-image: repeating-linear-gradient(180deg, #f2e9d2, #f2e9d2 1px, #e3d4b6 1px, #e3d4b6 3px); 
             color: #4a3e3c; 
         }
+
         #container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             background-color: #fffaf0; 
-            padding: 50px;
             border: 5px double #bcaaa4; 
-            border-radius: 6px;
-            box-shadow: 10px 10px 0 #c7bcae; 
+            border-radius: 8px;
+            box-shadow: 10px 10px 0 #c7bcae;
+            overflow: hidden; /* Чтобы фото не вылезало за границы */
         }
-        p, .intro-text {
-            text-shadow: 0 0 0.5px #4a3e3c; 
-            letter-spacing: 0.1px;
-            text-align: justify;
+
+        /* --- ОБЛОЖКА (beach1.jpg) --- */
+        .cover {
+            width: 100%;
+            height: 400px; /* Высота для широкого формата 2:1 */
+            overflow: hidden;
+            border-bottom: 3px solid #bcaaa4;
+        }
+        .cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Фото заполнит всё пространство без искажений */
+            display: block;
         }
 
         /* --- НАВИГАЦИЯ --- */
         .navbar {
-            padding: 10px 0;
+            padding: 20px 0;
             text-align: center;
-            border-bottom: 2px dotted #bcaaa4; 
-            margin-bottom: 40px;
+            border-bottom: 2px dotted #bcaaa4;
         }
         .navbar a {
             text-decoration: none;
@@ -49,95 +53,77 @@
             font-weight: bold;
             text-transform: uppercase;
             margin: 0 20px;
-            font-size: 1.2em;
             transition: color 0.3s;
         }
-        .navbar a:hover {
-            color: #d84315; 
+        .navbar a:hover { color: #d84315; }
+
+        /* --- ЗАГОЛОВОК --- */
+        .content-padding { padding: 40px; }
+        
+        h1 {
+            text-align: center;
+            color: #5d4037;
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            font-family: 'Times New Roman', serif;
         }
 
-        /* --- ЗАГОЛОВОК (СТИЛЬ СТАРОЙ КНИГИ) --- */
-        .vintage-header {
+        .intro-text {
             text-align: center;
             margin-bottom: 40px;
-        }
-        .vintage-header h1 {
-            color: #5d4037;
-            font-size: 4em;
-            font-family: 'Times New Roman', serif;
-            letter-spacing: 3px;
-            margin: 0;
-            padding-bottom: 5px;
-            border-bottom: 3px solid #d84315; 
-        }
-        .vintage-header h2 {
-            color: #d84315; 
-            font-size: 1.6em;
-            margin-top: 10px;
             font-style: italic;
         }
-        
-        /* --- СЕТКА КАРТОЧЕК --- */
-        .latest-trips-grid {
+
+        /* --- КАРТОЧКИ ГОРОДОВ (РОВНО И СО СКРУГЛЕНИЕМ) --- */
+        .trips-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3, 1fr); /* 3 колонки в ряд */
             gap: 20px;
         }
+
         .trip-card {
-            display: block;
-            text-decoration: none;
-            color: #5d4037;
+            background: #fdf6e3;
+            border: 1px solid #bcaaa4;
+            padding: 15px;
             text-align: center;
-            transition: transform 0.2s;
+            text-decoration: none;
+            color: #4a3e3c;
+            
+            /* СКРУГЛЕННЫЕ УГЛЫ */
+            border-radius: 15px; 
+            
+            transition: all 0.3s ease;
+            box-shadow: 3px 3px 0 #d7ccc8;
         }
+
         .trip-card:hover {
             transform: translateY(-5px);
+            box-shadow: 5px 5px 0 #d84315;
+            border-color: #d84315;
         }
 
-        /* --- СТИЛИЗАЦИЯ ФОТОГРАФИИ (СТАРАЯ КАРТОЧКА) --- */
-        .photo-frame {
-            background-color: #f0f0f0; 
-            border: 5px solid #fff; 
-            padding: 10px;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); 
-            transform: rotate(var(--rotation)); 
-            margin-bottom: 10px;
+        .trip-card h4 {
+            color: #d84315;
+            font-size: 1.4em;
+            margin-bottom: 5px;
         }
-        .photo-frame img {
-            width: 100%;
-            height: 150px; 
-            object-fit: cover;
-            filter: sepia(0.9) contrast(1.2) brightness(0.9) grayscale(0.1); 
-            border: 1px solid #bcaaa4;
-            display: block;
-        }
-        .photo-caption {
-            font-size: 1.3em;
-            color: #d84315; 
-            margin-top: 5px;
-            font-family: 'Courier New', monospace; 
-            letter-spacing: 0.5px;
-            font-weight: bold;
-        }
-        .photo-location {
+
+        .trip-card p {
             font-size: 0.9em;
-            font-style: italic;
             color: #795548;
         }
 
-        .footer {
+        footer {
             text-align: center;
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 2px dotted #bcaaa4;
-            font-size: 0.9em;
-            color: #795548;
+            padding: 30px;
+            border-top: 1px dashed #bcaaa4;
+            font-size: 0.8em;
         }
-        
+
+        /* Адаптивность для телефонов */
         @media (max-width: 768px) {
-            #container { padding: 30px; }
-            .latest-trips-grid { grid-template-columns: 1fr; }
-            .photo-frame { transform: none !important; }
+            .trips-grid { grid-template-columns: 1fr; }
+            .cover { height: 250px; }
         }
     </style>
 </head>
@@ -145,52 +131,44 @@
 
 <div id="container">
 
+    <div class="cover">
+        <img src="images/beach1.jpg" alt="Тропический рай">
+    </div>
+
     <div class="navbar">
         <a href="index.html">Главная</a>
-        <a href="about.html">Обо мне</a>
-        <a href="countries.html">Страны</a>
+        <a href="#">Обо мне</a>
+        <a href="#">Страны</a>
     </div>
 
-    <div class="vintage-header">
+    <div class="content-padding">
         <h1>Путевой Дневник</h1>
-        <h2>Мои записи о путешествиях по миру</h2>
+        <p class="intro-text">Мои заметки о море, пальмах и ярких путешествиях.</p>
+
+        <div class="trips-grid">
+            <a href="#" class="trip-card">
+                <h4>Стамбул</h4>
+                <p>Турция | 2025</p>
+                <p>Город контрастов</p>
+            </a>
+
+            <a href="#" class="trip-card">
+                <h4>Бишкек</h4>
+                <p>Кыргызстан | 2025</p>
+                <p>Горы и гостеприимство</p>
+            </a>
+
+            <a href="#" class="trip-card">
+                <h4>Ереван</h4>
+                <p>Армения | 2025</p>
+                <p>Древняя культура</p>
+            </a>
+        </div>
     </div>
 
-    <div class="intro-text">
-        <p>Добро пожаловать в мой путевой дневник! Здесь собраны впечатления, фотографии и заметки из моих поездок по странам Азии, Европы и Кавказа. Я предпочитаю погружение в культуру, поэтому делюсь только самым интересным и аутентичным.</p>
-    </div>
-
-    <div class="latest-trips-grid">
-        
-        <a href="#" class="trip-card">
-            <div class="photo-frame" style="--rotation: -3deg;"> 
-                <img src="images/istanbul_square.jpg" alt="Стамбул">
-            </div>
-            <div class="photo-caption">Площадь Таксим</div>
-            <div class="photo-location">Турция | 12.2025</div>
-        </a>
-
-        <a href="#" class="trip-card">
-            <div class="photo-frame" style="--rotation: 2deg;"> 
-                <img src="images/bishkek_ala-too.jpg" alt="Бишкек">
-            </div>
-            <div class="photo-caption">Бишкек</div>
-            <div class="photo-location">Кыргызстан | 10.2025</div>
-        </a>
-
-        <a href="#" class="trip-card">
-            <div class="photo-frame" style="--rotation: -1deg;"> 
-                <img src="images/yerevan_cascade.jpg" alt="Ереван">
-            </div>
-            <div class="photo-caption">Ереван</div>
-            <div class="photo-location">Армения | 09.2025</div>
-        </a>
-        
-    </div>
-    
-    <div class="footer">
-        Путевой Дневник, 2025
-    </div>
+    <footer>
+        Путевой Дневник © 2025. Сделано с любовью к дорогам.
+    </footer>
 
 </div>
 
