@@ -1,98 +1,59 @@
-/* Базовый сброс стилей */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой Тропический Сайт</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
-}
+    <header>
+        <div class="cover">
+            <img src="images/beach1.jpg" alt="Море, пальмы и песок с ярким голубым небом" class="cover-image">
+        </div>
+        
+        <nav class="main-nav">
+            <ul class="container">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="#">О нас</a></li>
+                <li><a href="#">Галерея</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
 
-/* Контейнер для центрирования контента */
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+    <main class="container">
+        <h1>Добро пожаловать в тропический рай!</h1>
+        <p class="intro-text">Исследуйте лучшие пляжи мира, вдохновляйтесь яркими пейзажами и планируйте свое идеальное путешествие к морю.</p>
 
-/* 1. Стили для Обложки (гарантируем полную ширину) */
-.cover {
-    width: 100%; 
-    height: 450px; 
-    overflow: hidden; 
-}
+        <h2>Последние записи</h2>
+        <div class="cards-grid">
+            
+            <div class="card">
+                <h3>Пляж "Лагуна"</h3>
+                <p>Невероятное место, о котором мало кто знает. Идеально для уединенного отдыха и дайвинга.</p>
+                <a href="#">Читать далее →</a>
+            </div>
+            
+            <div class="card">
+                <h3>Топ-5 пальм</h3>
+                <p>Какие виды пальм стоит увидеть, и где их лучше всего фотографировать. Наш подробный гид.</p>
+                <a href="#">Читать далее →</a>
+            </div>
+            
+            <div class="card">
+                <h3>Секреты голубого неба</h3>
+                <p>Как фотографировать небо, чтобы оно было ярким, как на вашей обложке!</p>
+                <a href="#">Читать далее →</a>
+            </div>
 
-.cover-image {
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; /* Растягивает и обрезает изображение, чтобы оно покрыло весь контейнер */
-    display: block;
-}
+        </div>
+    </main>
 
-/* Стили для навигации */
-.main-nav {
-    background: #007bff;
-    color: #fff;
-    padding: 10px 0;
-}
+    <footer>
+        <p class="container">&copy; 2025 Мой Тропический Сайт</p>
+    </footer>
 
-.main-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: flex-start;
-}
-
-.main-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 15px;
-    display: block;
-}
-
-.main-nav ul li a:hover {
-    background: #0056b3;
-}
-
-/* Стили для Секции Карточек */
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin: 30px 0;
-}
-
-/* 2. Стили для Карточек (со скругленными углами) */
-.card {
-    background-color: #fff;
-    padding: 25px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    
-    /* СВОЙСТВО ДЛЯ СКРУГЛЕННЫХ УГЛОВ */
-    border-radius: 15px; 
-}
-
-.card h3 {
-    color: #007bff;
-    margin-bottom: 10px;
-}
-
-.card a {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-    margin-top: 10px;
-}
-
-/* Стили для футера */
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 40px;
-}
+</body>
+</html>
