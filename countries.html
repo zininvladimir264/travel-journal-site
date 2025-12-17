@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Страны — Путевой Дневник</title>
     <style>
+        /* ОСНОВНЫЕ СТИЛИ СТРАНИЦЫ */
         * { box-sizing: border-box; }
         body {
             font-family: Arial, sans-serif;
@@ -28,7 +29,9 @@
             font-weight: bold;
             margin: 0 25px;
             font-size: 1.2em;
+            transition: 0.3s;
         }
+        .nav-menu a:hover { color: #d84315; }
 
         #countries-container {
             max-width: 1100px;
@@ -37,6 +40,7 @@
             padding: 40px;
             border: 2px solid #bcaaa4;
             border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
         h2 {
@@ -47,6 +51,7 @@
             padding-bottom: 10px;
         }
 
+        /* СЕТКА СТРОГО ПО 3 В РЯД */
         .category-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -54,15 +59,16 @@
             margin-top: 20px;
         }
 
+        /* КВАДРАТНАЯ КАРТОЧКА */
         .country-card {
             background-color: #fff;
             border: 1px solid #ccc;
             border-radius: 10px;
             overflow: hidden;
-            aspect-ratio: 1 / 1;
+            aspect-ratio: 1 / 1; /* Делает карточку квадратом */
             display: flex;
             flex-direction: column;
-            transition: 0.3s;
+            transition: 0.3s ease;
         }
         
         .country-card a {
@@ -78,12 +84,14 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
 
+        /* РОЗОВАЯ ШАПКА КАРТОЧКИ */
         .country-card-title {
             background-color: #e9b7c3;
             padding: 15px;
             margin: 0;
             text-align: center;
             font-weight: bold;
+            font-size: 1.1em;
             border-bottom: 1px solid #ccc;
             min-height: 60px;
             display: flex;
@@ -91,19 +99,27 @@
             justify-content: center;
         }
 
-        .empty-photo {
-            flex-grow: 1;
-            background-color: #fff;
-        }
-
+        /* ФОТОГРАФИИ */
         .country-card img {
             width: 100%;
             flex-grow: 1;
             object-fit: cover;
+            display: block;
         }
 
-        @media (max-width: 850px) { .category-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 550px) { .category-grid { grid-template-columns: 1fr; } }
+        /* Заглушка для карточек без фото */
+        .no-photo {
+            flex-grow: 1;
+            background-color: #fff;
+        }
+
+        /* АДАПТИВНОСТЬ ДЛЯ ТЕЛЕФОНОВ */
+        @media (max-width: 850px) {
+            .category-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 550px) {
+            .category-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -118,62 +134,87 @@
 
     <h2>Россия</h2>
     <div class="category-grid">
-        <div class="country-card"><a href="russia.html"><h4 class="country-card-title">Россия</h4><div class="empty-photo"></div></a></div>
+        <div class="country-card">
+            <a href="russia.html">
+                <h4 class="country-card-title">Россия</h4>
+                <img src="images/russia_prewiew.jpg" alt="Россия">
+            </a>
+        </div>
     </div>
 
     <h2>Кавказ</h2>
     <div class="category-grid">
-        <div class="country-card"><a href="georgia.html"><h4 class="country-card-title">Грузия</h4><div class="empty-photo"></div></a></div>
-        <div class="country-card"><a href="armenia.html"><h4 class="country-card-title">Армения</h4><div class="empty-photo"></div></a></div>
-        <div class="country-card"><a href="azerbaijan.html"><h4 class="country-card-title">Азербайджан</h4><div class="empty-photo"></div></a></div>
+        <div class="country-card">
+            <a href="georgia.html">
+                <h4 class="country-card-title">Грузия</h4>
+                <img src="images/gruz.jpg" alt="Грузия">
+            </a>
+        </div>
+        <div class="country-card">
+            <a href="armenia.html">
+                <h4 class="country-card-title">Армения</h4>
+                <img src="images/arm.jpg" alt="Армения">
+            </a>
+        </div>
+        <div class="country-card">
+            <a href="azerbaijan.html">
+                <h4 class="country-card-title">Азербайджан</h4>
+                <img src="images/az.jpg" alt="Азербайджан">
+            </a>
+        </div>
     </div>
 
     <h2>Центральная Азия</h2>
     <div class="category-grid">
-        <div class="country-card"><a href="kazakhstan.html"><h4 class="country-card-title">Казахстан</h4><div class="empty-photo"></div></a></div>
-        <div class="country-card"><a href="uzbekistan.html"><h4 class="country-card-title">Узбекистан</h4><div class="empty-photo"></div></a></div>
-        <div class="country-card"><a href="tajikistan.html"><h4 class="country-card-title">Таджикистан</h4><div class="empty-photo"></div></a></div>
-        <div class="country-card"><a href="kyrgyzstan.html"><h4 class="country-card-title">Кыргызстан</h4><div class="empty-photo"></div></a></div>
+        <div class="country-card"><a href="kazakhstan.html"><h4 class="country-card-title">Казахстан</h4><div class="no-photo"></div></a></div>
+        <div class="country-card"><a href="uzbekistan.html"><h4 class="country-card-title">Узбекистан</h4><div class="no-photo"></div></a></div>
+        <div class="country-card"><a href="tajikistan.html"><h4 class="country-card-title">Таджикистан</h4><div class="no-photo"></div></a></div>
+        <div class="country-card"><a href="kyrgyzstan.html"><h4 class="country-card-title">Кыргызстан</h4><div class="no-photo"></div></a></div>
     </div>
 
     <h2>Европа и Балканы</h2>
     <div class="category-grid">
-        <div class="country-card"><a href="spain.html"><h4 class="country-card-title">Испания</h4><div class="empty-photo"></div></a></div>
-        <div class="country-card"><a href="portugal.html"><h4 class="country-card-title">Португалия</h4><div class="empty-photo"></div></a></div>
-        <div class="country-card"><a href="austria.html"><h4 class="country-card-title">Австрия</h4><div class="empty-photo"></div></a></div>
-        <div class="country-card"><a href="serbia.html"><h4 class="country-card-title">Сербия</h4><div class="empty-photo"></div></a></div>
-        <div class="country-card"><a href="montenegro.html"><h4 class="country-card-title">Черногория</h4><div class="empty-photo"></div></a></div>
-        <div class="country-card"><a href="bosnia.html"><h4 class="country-card-title">Босния и Герцеговина</h4><div class="empty-photo"></div></a></div>
+        <div class="country-card"><a href="spain.html"><h4 class="country-card-title">Испания</h4><div class="no-photo"></div></a></div>
+        <div class="country-card"><a href="portugal.html"><h4 class="country-card-title">Португалия</h4><div class="no-photo"></div></a></div>
+        <div class="country-card"><a href="austria.html"><h4 class="country-card-title">Австрия</h4><div class="no-photo"></div></a></div>
+        <div class="country-card"><a href="serbia.html"><h4 class="country-card-title">Сербия</h4><div class="no-photo"></div></a></div>
+        <div class="country-card"><a href="montenegro.html"><h4 class="country-card-title">Черногория</h4><div class="no-photo"></div></a></div>
+        <div class="country-card"><a href="bosnia.html"><h4 class="country-card-title">Босния и Герцеговина</h4><div class="no-photo"></div></a></div>
         <div class="country-card">
             <a href="belarus.html">
                 <h4 class="country-card-title">Беларусь</h4>
                 <img src="images/belarus.jpg" alt="Беларусь">
             </a>
         </div>
-        <div class="country-card"><a href="moldova.html"><h4 class="country-card-title">Молдова</h4><div class="empty-photo"></div></a></div>
+        <div class="country-card">
+            <a href="moldova.html">
+                <h4 class="country-card-title">Молдова</h4>
+                <img src="images/moldova.jpg" alt="Молдова">
+            </a>
+        </div>
     </div>
 
     <h2>Ближний Восток</h2>
     <div class="category-grid">
-        <div class="country-card"><a href="lebanon.html"><h4 class="country-card-title">Ливан</h4><div class="empty-photo"></div></a></div>
-        <div class="country-card"><a href="oman.html"><h4 class="country-card-title">Оман</h4><div class="empty-photo"></div></a></div>
-        <div class="country-card"><a href="uae.html"><h4 class="country-card-title">ОАЭ</h4><div class="empty-photo"></div></a></div>
+        <div class="country-card"><a href="lebanon.html"><h4 class="country-card-title">Ливан</h4><div class="no-photo"></div></a></div>
+        <div class="country-card"><a href="oman.html"><h4 class="country-card-title">Оман</h4><div class="no-photo"></div></a></div>
+        <div class="country-card"><a href="uae.html"><h4 class="country-card-title">ОАЭ</h4><div class="no-photo"></div></a></div>
     </div>
 
     <h2>Азия</h2>
     <div class="category-grid">
-        <div class="country-card"><a href="turkey.html"><h4 class="country-card-title">Турция</h4><div class="empty-photo"></div></a></div>
-        <div class="country-card"><a href="india.html"><h4 class="country-card-title">Индия</h4><div class="empty-photo"></div></a></div>
-        <div class="country-card"><a href="srilanka.html"><h4 class="country-card-title">Шри-Ланка</h4><div class="empty-photo"></div></a></div>
-        <div class="country-card"><a href="korea.html"><h4 class="country-card-title">Корея</h4><div class="empty-photo"></div></a></div>
-        <div class="country-card"><a href="thailand.html"><h4 class="country-card-title">Таиланд</h4><div class="empty-photo"></div></a></div>
-        <div class="country-card"><a href="vietnam.html"><h4 class="country-card-title">Вьетнам</h4><div class="empty-photo"></div></a></div>
-        <div class="country-card"><a href="cambodia.html"><h4 class="country-card-title">Камбоджа</h4><div class="empty-photo"></div></a></div>
+        <div class="country-card"><a href="turkey.html"><h4 class="country-card-title">Турция</h4><div class="no-photo"></div></a></div>
+        <div class="country-card"><a href="india.html"><h4 class="country-card-title">Индия</h4><div class="no-photo"></div></a></div>
+        <div class="country-card"><a href="srilanka.html"><h4 class="country-card-title">Шри-Ланка</h4><div class="no-photo"></div></a></div>
+        <div class="country-card"><a href="korea.html"><h4 class="country-card-title">Корея</h4><div class="no-photo"></div></a></div>
+        <div class="country-card"><a href="thailand.html"><h4 class="country-card-title">Таиланд</h4><div class="no-photo"></div></a></div>
+        <div class="country-card"><a href="vietnam.html"><h4 class="country-card-title">Вьетнам</h4><div class="no-photo"></div></a></div>
+        <div class="country-card"><a href="cambodia.html"><h4 class="country-card-title">Камбоджа</h4><div class="no-photo"></div></a></div>
     </div>
 
     <h2>Африка</h2>
     <div class="category-grid">
-        <div class="country-card"><a href="egypt.html"><h4 class="country-card-title">Египет</h4><div class="empty-photo"></div></a></div>
+        <div class="country-card"><a href="egypt.html"><h4 class="country-card-title">Египет</h4><div class="no-photo"></div></a></div>
     </div>
 
 </div>
