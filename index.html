@@ -1,76 +1,98 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Мой блог о путешествиях</title>
-    <style>
-        /* Стиль для закругления углов у фотографий в последних записях */
-        .last-posts img {
-            border-radius: 15px; /* Степень закругления */
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-            display: block;
-            margin-bottom: 10px;
-        }
+/* Базовый сброс стилей */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        .post-card {
-            border: 1px solid #ddd;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            background-color: #fdfdfd;
-        }
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
 
-        nav a {
-            margin-right: 15px;
-            text-decoration: none;
-            font-weight: bold;
-            color: #333;
-        }
-    </style>
-</head>
-<body>
+/* Контейнер для центрирования контента */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-    <header>
-        <h1>Добро пожаловать в мой дневник путешествий</h1>
-        <nav>
-            <a href="index.html">Главная</a>
-            <a href="countries.html">Страны</a>
-            <a href="about.html">Обо мне</a>
-        </nav>
-    </header>
+/* 1. Стили для Обложки (гарантируем полную ширину) */
+.cover {
+    width: 100%; 
+    height: 450px; 
+    overflow: hidden; 
+}
 
-    <hr>
+.cover-image {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; /* Растягивает и обрезает изображение, чтобы оно покрыло весь контейнер */
+    display: block;
+}
 
-    <main>
-        <h2>Последние записи</h2>
+/* Стили для навигации */
+.main-nav {
+    background: #007bff;
+    color: #fff;
+    padding: 10px 0;
+}
 
-        <div class="last-posts">
-            
-            <div class="post-card">
-                <h3>Путешествие по Беларуси</h3>
-                <p>Беларусь — страна с богатой историей и вкусной кухней. Недавно я обновил список городов и добавил новые рецепты.</p>
-                <img src="belarus.jpg" alt="Беларусь">
-                <br>
-                <a href="belarus.html">Читать подробнее...</a>
-            </div>
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+}
 
-            <div class="post-card">
-                <h3>Вкусненький Могилёв</h3>
-                <p>Сегодня в разделе "вкусненькое" мы заглянули в Могилёв. Картофельная бабка и местное гостеприимство!</p>
-                <img src="babka.jpg" alt="Вкусная еда">
-                <br>
-                <a href="belarus.html">Перейти к кухне</a>
-            </div>
+.main-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+}
 
-        </div>
-    </main>
+.main-nav ul li a:hover {
+    background: #0056b3;
+}
 
-    <hr>
-    <footer>
-        <p>&copy; 2024 Мой travel-блог</p>
-    </footer>
+/* Стили для Секции Карточек */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 30px 0;
+}
 
-</body>
-</html>
+/* 2. Стили для Карточек (со скругленными углами) */
+.card {
+    background-color: #fff;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    
+    /* СВОЙСТВО ДЛЯ СКРУГЛЕННЫХ УГЛОВ */
+    border-radius: 15px; 
+}
+
+.card h3 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.card a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* Стили для футера */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
