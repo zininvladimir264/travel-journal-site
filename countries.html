@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Страны — Путевой Дневник</title>
     <style>
-        /* ОСНОВНЫЕ СТИЛИ СТРАНИЦЫ */
+        /* ОСНОВНЫЕ СТИЛИ */
         * { box-sizing: border-box; }
         body {
             font-family: Arial, sans-serif;
@@ -14,7 +14,7 @@
             padding: 20px;
         }
 
-        /* ВЕРХНЕЕ МЕНЮ */
+        /* МЕНЮ НАВИГАЦИИ */
         .nav-menu {
             text-align: center;
             margin-bottom: 30px;
@@ -29,7 +29,6 @@
             font-weight: bold;
             margin: 0 25px;
             font-size: 1.2em;
-            transition: 0.3s;
         }
         .nav-menu a:hover { color: #d84315; }
 
@@ -40,7 +39,6 @@
             padding: 40px;
             border: 2px solid #bcaaa4;
             border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
         h2 {
@@ -51,7 +49,7 @@
             padding-bottom: 10px;
         }
 
-        /* СЕТКА СТРОГО ПО 3 В РЯД */
+        /* СЕТКА ПО 3 В РЯД */
         .category-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -65,10 +63,10 @@
             border: 1px solid #ccc;
             border-radius: 10px;
             overflow: hidden;
-            aspect-ratio: 1 / 1; /* Делает карточку квадратом */
+            aspect-ratio: 1 / 1;
             display: flex;
             flex-direction: column;
-            transition: 0.3s ease;
+            transition: 0.3s;
         }
         
         .country-card a {
@@ -84,14 +82,13 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
 
-        /* РОЗОВАЯ ШАПКА КАРТОЧКИ */
+        /* РОЗОВАЯ ШАПКА */
         .country-card-title {
             background-color: #e9b7c3;
             padding: 15px;
             margin: 0;
             text-align: center;
             font-weight: bold;
-            font-size: 1.1em;
             border-bottom: 1px solid #ccc;
             min-height: 60px;
             display: flex;
@@ -99,7 +96,6 @@
             justify-content: center;
         }
 
-        /* ФОТОГРАФИИ */
         .country-card img {
             width: 100%;
             flex-grow: 1;
@@ -107,19 +103,13 @@
             display: block;
         }
 
-        /* Заглушка для карточек без фото */
         .no-photo {
             flex-grow: 1;
             background-color: #fff;
         }
 
-        /* АДАПТИВНОСТЬ ДЛЯ ТЕЛЕФОНОВ */
-        @media (max-width: 850px) {
-            .category-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 550px) {
-            .category-grid { grid-template-columns: 1fr; }
-        }
+        @media (max-width: 850px) { .category-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 550px) { .category-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -166,10 +156,30 @@
 
     <h2>Центральная Азия</h2>
     <div class="category-grid">
-        <div class="country-card"><a href="kazakhstan.html"><h4 class="country-card-title">Казахстан</h4><div class="no-photo"></div></a></div>
-        <div class="country-card"><a href="uzbekistan.html"><h4 class="country-card-title">Узбекистан</h4><div class="no-photo"></div></a></div>
-        <div class="country-card"><a href="tajikistan.html"><h4 class="country-card-title">Таджикистан</h4><div class="no-photo"></div></a></div>
-        <div class="country-card"><a href="kyrgyzstan.html"><h4 class="country-card-title">Кыргызстан</h4><div class="no-photo"></div></a></div>
+        <div class="country-card">
+            <a href="kazakhstan.html">
+                <h4 class="country-card-title">Казахстан</h4>
+                <img src="images/kaza.jpg" alt="Казахстан">
+            </a>
+        </div>
+        <div class="country-card">
+            <a href="uzbekistan.html">
+                <h4 class="country-card-title">Узбекистан</h4>
+                <img src="images/uzbek.jpg" alt="Узбекистан">
+            </a>
+        </div>
+        <div class="country-card">
+            <a href="tajikistan.html">
+                <h4 class="country-card-title">Таджикистан</h4>
+                <img src="images/tadj.jpg" alt="Таджикистан">
+            </a>
+        </div>
+        <div class="country-card">
+            <a href="kyrgyzstan.html">
+                <h4 class="country-card-title">Кыргызстан</h4>
+                <img src="images/kurg.jpg" alt="Кыргызстан">
+            </a>
+        </div>
     </div>
 
     <h2>Европа и Балканы</h2>
