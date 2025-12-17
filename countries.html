@@ -3,158 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Список стран</title>
+    <title>Список стран — Путевой Дневник</title>
     <style>
-        /* ОСНОВНЫЕ СТИЛИ (из истории изменений) */
+        /* ОСНОВНЫЕ СТИЛИ КОНТЕЙНЕРА */
         * { box-sizing: border-box; }
         body {
             font-family: Arial, sans-serif;
             line-height: 1.5;
             padding: 25px;
-            background-color: #f7e6c4; /* Теплый фон */
-            color: #333;
+            background-color: #f7e6c4; /* Теплый бежевый фон */
+            margin: 0;
         }
 
         #countries-container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             background-color: #fffaf0;
-            padding: 30px;
+            padding: 40px;
             border: 2px solid #bcaaa4;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
 
-        h3 {
-            border-bottom: 2px solid #e9b7c3;
+        h2 {
+            font-size: 2.2em;
+            color: #5d4037;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #e9b7c3;
             padding-bottom: 10px;
-            color: #d84315;
-            margin-top: 30px;
         }
 
+        /* СЕТКА КАРТОЧЕК */
         .category-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 20px;
+            margin-bottom: 50px;
         }
 
-        /* СТИЛЬ КАРТОЧЕК С РОЗОВОЙ ШАПКОЙ */
+        /* КЛИКАБЕЛЬНАЯ КАРТОЧКА */
         .country-card {
             background-color: #fff;
-            border: 1px solid #ddd;
+            border: 1px solid #ccc;
             border-radius: 10px;
-            width: calc(33.333% - 10px); /* 3 карточки в ряд */
-            min-width: 250px;
+            width: calc(33.333% - 14px); /* Три в ряд */
             overflow: hidden;
-            text-align: center;
-            box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
+        .country-card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            height: 100%;
+        }
+
+        .country-card:hover {
+            transform: translateY(-8px); /* Эффект парения */
+            box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+        }
+
+        /* ШАПКА КАРТОЧКИ (РОЗОВАЯ) */
         .country-card-title {
-            background-color: #e9b7c3; /* Тот самый розовый цвет */
-            padding: 12px;
+            background-color: #e9b7c3; /* Цвет как на фото */
+            padding: 15px;
             margin: 0;
-            font-size: 1.1em;
-            color: #4a4a4a;
-            border-bottom: 1px solid #ddd;
+            text-align: center;
+            font-weight: bold;
+            border-bottom: 1px solid #ccc;
         }
 
-        .card-body {
+        .card-content {
             padding: 15px;
+            text-align: center;
         }
 
         .country-card img {
             width: 100%;
-            height: 150px;
+            height: 160px;
             object-fit: cover;
             display: block;
         }
 
         p {
-            font-size: 0.9em;
-            margin: 10px 0;
+            font-size: 0.95em;
+            color: #444;
+        }
+
+        /* АДАПТИВНОСТЬ */
+        @media (max-width: 900px) {
+            .country-card { width: calc(50% - 10px); }
+        }
+        @media (max-width: 600px) {
+            .country-card { width: 100%; }
         }
     </style>
 </head>
 <body>
 
 <div id="countries-container">
-    
-    <h3>Кавказ и Ближнее Зарубежье</h3>
+
+    <h2>Кавказ и ближнее зарубежье</h2>
     <div class="category-grid">
         <div class="country-card">
-            <h4 class="country-card-title">Армения</h4>
-            <div class="card-body">
-                <p>Древнейшие монастыри и гора Арарат.</p>
-            </div>
+            <a href="armenia.html">
+                <h4 class="country-card-title">Армения</h4>
+                <div class="card-content"><p>Древнейшие монастыри и гора Арарат.</p></div>
+            </a>
         </div>
         <div class="country-card">
-            <h4 class="country-card-title">Грузия</h4>
-            <div class="card-body">
-                <p>Виноделие, горы и легендарное гостеприимство.</p>
-            </div>
+            <a href="georgia.html">
+                <h4 class="country-card-title">Грузия</h4>
+                <div class="card-content"><p>Виноделие, горы и легендарное гостеприимство.</p></div>
+            </a>
         </div>
         <div class="country-card">
-            <h4 class="country-card-title">Азербайджан</h4>
-            <div class="card-body">
-                <p>Баку, современные технологии и древние крепости.</p>
-            </div>
+            <a href="azerbaijan.html">
+                <h4 class="country-card-title">Азербайджан</h4>
+                <div class="card-content"><p>Баку, современные технологии и древние крепости.</p></div>
+            </a>
         </div>
     </div>
 
-    <h3>Восточная Европа и Балканы</h3>
+    <h2>Восточная Европа и Балканы</h2>
     <div class="category-grid">
         <div class="country-card">
-            <h4 class="country-card-title">Турция</h4>
-            <div class="card-body">
-                <p>Перекресток цивилизаций, курорты и памятники.</p>
-            </div>
+            <a href="turkey.html">
+                <h4 class="country-card-title">Турция</h4>
+                <div class="card-content"><p>Перекресток цивилизаций, курорты и история.</p></div>
+            </a>
         </div>
         <div class="country-card">
-            <h4 class="country-card-title">Молдова</h4>
-            <div class="card-body">
-                <p>Виноградники и культурные традиции.</p>
-            </div>
+            <a href="moldova.html">
+                <h4 class="country-card-title">Молдова</h4>
+                <div class="card-content"><p>Виноградники и культурные традиции.</p></div>
+            </a>
         </div>
         <div class="country-card">
-            <h4 class="country-card-title">Беларусь</h4>
-            <img src="images/belarus.jpg" alt="Беларусь">
-            <div class="card-body">
-                <p>Страна лесов, озер и исторических замков.</p>
-            </div>
+            <a href="belarus.html">
+                <h4 class="country-card-title">Беларусь</h4>
+                <img src="images/belarus.jpg" alt="Беларусь">
+                <div class="card-content"><p>Страна лесов, озер и исторических замков.</p></div>
+            </a>
         </div>
         <div class="country-card">
-            <h4 class="country-card-title">Черногория</h4>
-            <div class="card-body">
-                <p>Горные массивы и Адриатическое побережье.</p>
-            </div>
+            <a href="montenegro.html">
+                <h4 class="country-card-title">Черногория</h4>
+                <div class="card-content"><p>Горные массивы и Адриатическое побережье.</p></div>
+            </a>
         </div>
         <div class="country-card">
-            <h4 class="country-card-title">Сербия</h4>
-            <div class="card-body">
-                <p>Белград, Балканы и гостеприимство.</p>
-            </div>
+            <a href="serbia.html">
+                <h4 class="country-card-title">Сербия</h4>
+                <div class="card-content"><p>Белград, Балканы и гостеприимство.</p></div>
+            </a>
         </div>
         <div class="country-card">
-            <h4 class="country-card-title">Северный Кипр</h4>
-            <div class="card-body">
-                <p>Средиземноморские пейзажи и античные руины.</p>
-            </div>
+            <a href="cyprus.html">
+                <h4 class="country-card-title">Северный Кипр</h4>
+                <div class="card-content"><p>Средиземноморские пейзажи и античные руины.</p></div>
+            </a>
         </div>
     </div>
 
-    <h3>Западная и Центральная Европа</h3>
+    <h2>Западная и Центральная Европа</h2>
     <div class="category-grid">
-        <div class="country-card"><h4 class="country-card-title">Испания</h4><div class="card-body"><p>Культура, фламенко и пляжи.</p></div></div>
-        <div class="country-card"><h4 class="country-card-title">Португалия</h4><div class="card-body"><p>Океан, фаду и старинные города.</p></div></div>
-        <div class="country-card"><h4 class="country-card-title">Австрия</h4><div class="card-body"><p>Альпы, музыка и венские кафе.</p></div></div>
+        <div class="country-card">
+            <a href="spain.html"><h4 class="country-card-title">Испания</h4><div class="card-content"><p>Культура, фламенко и солнечные пляжи.</p></div></a>
+        </div>
+        <div class="country-card">
+            <a href="portugal.html"><h4 class="country-card-title">Португалия</h4><div class="card-content"><p>Океан, фаду и старинные города у воды.</p></div></a>
+        </div>
+        <div class="country-card">
+            <a href="austria.html"><h4 class="country-card-title">Австрия</h4><div class="card-content"><p>Альпы, классическая музыка и венские кафе.</p></div></a>
+        </div>
     </div>
 
-    <h3>Центральная Азия</h3>
+    <h2>Центральная Азия</h2>
     <div class="category-grid">
-        <div class="country-card"><h4 class="country-card-title">Казахстан</h4><div class="card-body"><p>Степи, современные города и горы.</p></div></div>
-        <div class="country-card"><h4 class="country-card-title">Узбекистан</h4><div class="card-body"><p>Самарканд, Бухара и шелковый путь.</p></div></div>
-        <div class="country-card"><h4 class="country-card-title">Кыргызстан</h4><div class="card-body"><p>Озеро Иссык-Куль и Тянь-Шань.</p></div></div>
+        <div class="country-card">
+            <a href="kazakhstan.html"><h4 class="country-card-title">Казахстан</h4><div class="card-content"><p>Бескрайние степи и современные мегаполисы.</p></div></a>
+        </div>
+        <div class="country-card">
+            <a href="uzbekistan.html"><h4 class="country-card-title">Узбекистан</h4><div class="card-content"><p>Древний Самарканд и легендарная кухня.</p></div></a>
+        </div>
+        <div class="country-card">
+            <a href="kyrgyzstan.html"><h4 class="country-card-title">Кыргызстан</h4><div class="card-content"><p>Величественные горы Тянь-Шаня и Иссык-Куль.</p></div></a>
+        </div>
     </div>
 
 </div>
