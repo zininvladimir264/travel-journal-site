@@ -3,176 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Путевой Дневник — Страны</title>
+    <title>Список стран</title>
     <style>
-        /* --- БАЗОВЫЕ СТИЛИ --- */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        
+        /* ОСНОВНЫЕ СТИЛИ (из истории изменений) */
+        * { box-sizing: border-box; }
         body {
-            font-family: 'Georgia', serif; 
-            line-height: 1.6;
-            padding: 20px;
-            background-color: #e3d4b6; 
-            background-image: repeating-linear-gradient(180deg, #f2e9d2, #f2e9d2 1px, #e3d4b6 1px, #e3d4b6 3px); 
-            color: #4a3e3c; 
-        }
-
-        #container {
-            max-width: 1100px;
-            margin: 0 auto;
-            background-color: #fffaf0; 
-            border: 5px double #bcaaa4; 
-            border-radius: 8px;
-            box-shadow: 10px 10px 0 #c7bcae;
-            overflow: hidden;
-        }
-
-        /* --- НАВИГАЦИЯ --- */
-        .navbar {
-            padding: 20px 0;
-            text-align: center;
-            border-bottom: 2px dotted #bcaaa4;
-            background-color: #fffaf0;
-        }
-        .navbar a {
-            text-decoration: none;
-            color: #795548; 
-            font-weight: bold;
-            text-transform: uppercase;
-            margin: 0 20px;
-            transition: color 0.3s;
-        }
-        .navbar a:hover { color: #d84315; }
-
-        /* --- КОНТЕНТ --- */
-        .content-padding { padding: 40px; }
-        
-        h1 {
-            text-align: center;
-            color: #5d4037;
-            font-size: 2.5em;
-            margin-bottom: 30px;
-        }
-
-        /* --- СЕТКА КАРТОЧЕК (КАК У РОССИИ И БЕЛАРУСИ) --- */
-        .countries-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-
-        .country-card {
-            background: #fff;
-            border: 1px solid #ddd;
-            text-decoration: none;
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+            padding: 25px;
+            background-color: #f7e6c4; /* Теплый фон */
             color: #333;
-            
-            /* СКРУГЛЕННЫЕ УГЛЫ КАРТОЧКИ */
-            border-radius: 15px; 
-            
-            overflow: hidden; /* Чтобы фото тоже скруглялось сверху */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        #countries-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #fffaf0;
+            padding: 30px;
+            border: 2px solid #bcaaa4;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+            border-bottom: 2px solid #e9b7c3;
+            padding-bottom: 10px;
+            color: #d84315;
+            margin-top: 30px;
+        }
+
+        .category-grid {
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
-        .country-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        /* СТИЛЬ КАРТОЧЕК С РОЗОВОЙ ШАПКОЙ */
+        .country-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            width: calc(33.333% - 10px); /* 3 карточки в ряд */
+            min-width: 250px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
         }
 
-        /* ФОТО ВНУТРИ КАРТОЧКИ */
+        .country-card-title {
+            background-color: #e9b7c3; /* Тот самый розовый цвет */
+            padding: 12px;
+            margin: 0;
+            font-size: 1.1em;
+            color: #4a4a4a;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
         .country-card img {
             width: 100%;
-            height: 180px;
+            height: 150px;
             object-fit: cover;
             display: block;
         }
 
-        /* ТЕКСТ ВНУТРИ КАРТОЧКИ */
-        .country-info {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .country-info h3 {
-            color: #d84315;
-            font-size: 1.5em;
-            margin-bottom: 5px;
-        }
-
-        .country-info p {
+        p {
             font-size: 0.9em;
-            color: #666;
-            font-style: italic;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            border-top: 1px dashed #bcaaa4;
-            font-size: 0.9em;
-        }
-
-        @media (max-width: 600px) {
-            .countries-grid { grid-template-columns: 1fr; }
+            margin: 10px 0;
         }
     </style>
 </head>
 <body>
 
-<div id="container">
-
-    <nav class="navbar">
-        <a href="index.html">Главная</a>
-        <a href="about.html">Обо мне</a>
-        <a href="countries.html">Страны</a>
-    </nav>
-
-    <div class="content-padding">
-        <h1>Направления поездок</h1>
-
-        <div class="countries-grid">
-            
-            <a href="#" class="country-card">
-                <img src="images/arm.jpg" alt="Армения">
-                <div class="country-info">
-                    <h3>Армения</h3>
-                    <p>Закавказье</p>
-                </div>
-            </a>
-
-            <a href="#" class="country-card">
-                <img src="images/gruz.jpg" alt="Грузия">
-                <div class="country-info">
-                    <h3>Грузия</h3>
-                    <p>Кавказское гостеприимство</p>
-                </div>
-            </a>
-
-            <a href="#" class="country-card">
-                <img src="images/az.jpg" alt="Азербайджан">
-                <div class="country-info">
-                    <h3>Азербайджан</h3>
-                    <p>Страна огней</p>
-                </div>
-            </a>
-
-            <a href="#" class="country-card">
-                <img src="images/moldova.jpg" alt="Молдова">
-                <div class="country-info">
-                    <h3>Молдова</h3>
-                    <p>Виноградные края</p>
-                </div>
-            </a>
-
+<div id="countries-container">
+    
+    <h3>Кавказ и Ближнее Зарубежье</h3>
+    <div class="category-grid">
+        <div class="country-card">
+            <h4 class="country-card-title">Армения</h4>
+            <div class="card-body">
+                <p>Древнейшие монастыри и гора Арарат.</p>
+            </div>
+        </div>
+        <div class="country-card">
+            <h4 class="country-card-title">Грузия</h4>
+            <div class="card-body">
+                <p>Виноделие, горы и легендарное гостеприимство.</p>
+            </div>
+        </div>
+        <div class="country-card">
+            <h4 class="country-card-title">Азербайджан</h4>
+            <div class="card-body">
+                <p>Баку, современные технологии и древние крепости.</p>
+            </div>
         </div>
     </div>
 
-    <footer>
-        Путевой Дневник © 2025
-    </footer>
+    <h3>Восточная Европа и Балканы</h3>
+    <div class="category-grid">
+        <div class="country-card">
+            <h4 class="country-card-title">Турция</h4>
+            <div class="card-body">
+                <p>Перекресток цивилизаций, курорты и памятники.</p>
+            </div>
+        </div>
+        <div class="country-card">
+            <h4 class="country-card-title">Молдова</h4>
+            <div class="card-body">
+                <p>Виноградники и культурные традиции.</p>
+            </div>
+        </div>
+        <div class="country-card">
+            <h4 class="country-card-title">Беларусь</h4>
+            <img src="images/belarus.jpg" alt="Беларусь">
+            <div class="card-body">
+                <p>Страна лесов, озер и исторических замков.</p>
+            </div>
+        </div>
+        <div class="country-card">
+            <h4 class="country-card-title">Черногория</h4>
+            <div class="card-body">
+                <p>Горные массивы и Адриатическое побережье.</p>
+            </div>
+        </div>
+        <div class="country-card">
+            <h4 class="country-card-title">Сербия</h4>
+            <div class="card-body">
+                <p>Белград, Балканы и гостеприимство.</p>
+            </div>
+        </div>
+        <div class="country-card">
+            <h4 class="country-card-title">Северный Кипр</h4>
+            <div class="card-body">
+                <p>Средиземноморские пейзажи и античные руины.</p>
+            </div>
+        </div>
+    </div>
+
+    <h3>Западная и Центральная Европа</h3>
+    <div class="category-grid">
+        <div class="country-card"><h4 class="country-card-title">Испания</h4><div class="card-body"><p>Культура, фламенко и пляжи.</p></div></div>
+        <div class="country-card"><h4 class="country-card-title">Португалия</h4><div class="card-body"><p>Океан, фаду и старинные города.</p></div></div>
+        <div class="country-card"><h4 class="country-card-title">Австрия</h4><div class="card-body"><p>Альпы, музыка и венские кафе.</p></div></div>
+    </div>
+
+    <h3>Центральная Азия</h3>
+    <div class="category-grid">
+        <div class="country-card"><h4 class="country-card-title">Казахстан</h4><div class="card-body"><p>Степи, современные города и горы.</p></div></div>
+        <div class="country-card"><h4 class="country-card-title">Узбекистан</h4><div class="card-body"><p>Самарканд, Бухара и шелковый путь.</p></div></div>
+        <div class="country-card"><h4 class="country-card-title">Кыргызстан</h4><div class="card-body"><p>Озеро Иссык-Куль и Тянь-Шань.</p></div></div>
+    </div>
 
 </div>
 
