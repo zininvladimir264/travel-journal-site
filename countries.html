@@ -5,28 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Страны — Путевой Дневник</title>
     <style>
-        /* ОБЩИЕ СТИЛИ */
         * { box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             background-color: #f7e6c4;
             margin: 0;
             padding: 20px;
-            color: #333;
         }
 
-        /* ОСНОВНОЙ КОНТЕЙНЕР */
         .container {
-            max-width: 1100px;
+            max-width: 1200px; /* Немного расширил для 4-х карточек */
             margin: 0 auto;
             background-color: #fffaf0;
             padding: 30px;
             border-radius: 15px;
             border: 1px solid #bcaaa4;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
-        /* НАВИГАЦИЯ */
         .nav { 
             text-align: center; 
             margin-bottom: 30px; 
@@ -38,78 +33,58 @@
             color: #5d4037; 
             font-weight: bold; 
             margin: 0 20px; 
-            transition: color 0.3s;
         }
-        .nav a:hover { color: #d84315; }
 
-        /* ЗАГОЛОВКИ РАЗДЕЛОВ */
         h2 { 
-            font-size: 1.6em; 
+            font-size: 1.5em; 
             color: #5d4037; 
             border-bottom: 2px solid #bcaaa4; 
             padding-bottom: 8px; 
             margin-top: 40px;
-            font-weight: 600;
         }
 
-        /* СЕТКА СТРАН */
+        /* СЕТКА ПО 4 В РЯД */
         .grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(4, 1fr); /* 4 колонки */
+            gap: 15px;
             margin-top: 20px;
         }
 
-        /* КАРТОЧКА-КВАДРАТ */
         .card {
             position: relative;
             aspect-ratio: 1 / 1;
-            border-radius: 18px; /* Красивое закругление как в Opera */
+            border-radius: 12px;
             overflow: hidden;
             background-color: #e0e0e0;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease;
         }
 
-        .card:hover { 
-            transform: translateY(-5px); 
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        }
+        .card:hover { transform: translateY(-5px); }
 
-        .card a { display: block; width: 100%; height: 100%; }
-
-        /* НАСТРОЙКИ ЧЕТКОСТИ ФОТО */
         .card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
-            /* Улучшение четкости для браузеров */
             image-rendering: -webkit-optimize-contrast;
-            image-rendering: crisp-edges;
         }
 
-        /* НАЗВАНИЕ СТРАНЫ ПОВЕРХ ФОТО */
         .label {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 30px 10px 15px;
-            /* Градиент от прозрачного к черному для читаемости текста */
-            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 40%, transparent 100%);
+            bottom: 0; left: 0; right: 0;
+            padding: 20px 5px 10px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
             color: white;
             text-align: center;
             font-weight: bold;
-            font-size: 1.1em;
+            font-size: 0.95em; /* Чуть меньше шрифт, так как карточки уже */
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin: 0;
-            z-index: 2;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
 
         /* АДАПТИВНОСТЬ */
-        @media (max-width: 850px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 1000px) { .grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 500px) { .grid { grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -121,6 +96,18 @@
         <a href="about.html">Обо мне</a>
         <a href="countries.html">Страны</a>
     </nav>
+
+    <h2>Европа и Балканы</h2>
+    <div class="grid">
+        <div class="card"><a href="russia.html"><img src="images/rus.jpg"><p class="label">Россия</p></a></div>
+        <div class="card"><a href="spain.html"><img src="images/isp.jpg"><p class="label">Испания</p></a></div>
+        <div class="card"><a href="portugal.html"><img src="images/port.jpg"><p class="label">Португалия</p></a></div>
+        <div class="card"><a href="serbia.html"><img src="images/serbia.jpg"><p class="label">Сербия</p></a></div>
+        <div class="card"><a href="bosnia.html"><img src="images/bosnia.jpg"><p class="label">Босния и Герцеговина</p></a></div>
+        <div class="card"><a href="montenegro.html"><img src="images/montenegro.jpg"><p class="label">Черногория</p></a></div>
+        <div class="card"><a href="belarus.html"><img src="images/belarus.jpg"><p class="label">Беларусь</p></a></div>
+        <div class="card"><a href="moldova.html"><img src="images/moldova.jpg"><p class="label">Молдова</p></a></div>
+    </div>
 
     <h2>Южная и Юго-Восточная Азия</h2>
     <div class="grid">
@@ -140,23 +127,11 @@
         <div class="card"><a href="kyrgyzstan.html"><img src="images/kirg.jpg"><p class="label">Киргизия</p></a></div>
     </div>
 
-    <h2>Кавказ и Ближнее Зарубежье</h2>
+    <h2>Кавказ</h2>
     <div class="grid">
         <div class="card"><a href="georgia.html"><img src="images/gruz.jpg"><p class="label">Грузия</p></a></div>
         <div class="card"><a href="armenia.html"><img src="images/arm.jpg"><p class="label">Армения</p></a></div>
         <div class="card"><a href="azerbaijan.html"><img src="images/az.jpg"><p class="label">Азербайджан</p></a></div>
-        <div class="card"><a href="belarus.html"><img src="images/belarus.jpg"><p class="label">Беларусь</p></a></div>
-        <div class="card"><a href="moldova.html"><img src="images/moldova.jpg"><p class="label">Молдова</p></a></div>
-    </div>
-
-    <h2>Европа и Балканы</h2>
-    <div class="grid">
-        <div class="card"><a href="russia.html"><img src="images/rus.jpg"><p class="label">Россия</p></a></div>
-        <div class="card"><a href="spain.html"><img src="images/isp.jpg"><p class="label">Испания</p></a></div>
-        <div class="card"><a href="portugal.html"><img src="images/port.jpg"><p class="label">Португалия</p></a></div>
-        <div class="card"><a href="serbia.html"><img src="images/serbia.jpg"><p class="label">Сербия</p></a></div>
-        <div class="card"><a href="bosnia.html"><img src="images/bosnia.jpg"><p class="label">Босния и Герцеговина</p></a></div>
-        <div class="card"><a href="montenegro.html"><img src="images/montenegro.jpg"><p class="label">Черногория</p></a></div>
     </div>
 
     <h2>Прибалтика</h2>
