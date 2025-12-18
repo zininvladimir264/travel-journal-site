@@ -47,7 +47,6 @@
             padding-bottom: 10px;
         }
 
-        /* СЕТКА СТРОГО ПО 3 В РЯД */
         .category-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -55,13 +54,13 @@
             margin-top: 20px;
         }
 
-        /* КАРТОЧКА: ЧИСТЫЙ КВАДРАТ С ФОТО */
+        /* КАРТОЧКА: ПОЛНЫЙ КВАДРАТ */
         .country-card {
-            position: relative; /* Чтобы текст был поверх картинки */
+            position: relative;
             background-color: #ddd;
             border-radius: 10px;
             overflow: hidden;
-            aspect-ratio: 1 / 1; /* Квадрат */
+            aspect-ratio: 1 / 1;
             transition: 0.3s ease;
         }
 
@@ -80,29 +79,27 @@
         .country-card img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Заполняет весь квадрат без искажений */
+            object-fit: cover;
             display: block;
         }
 
-        /* НАЗВАНИЕ СТРАНЫ ПРЯМО НА ФОТО */
+        /* НАЗВАНИЕ ПОВЕРХ ФОТО */
         .country-label {
             position: absolute;
-            bottom: 15px; /* Снизу */
+            bottom: 15px;
             left: 0;
             right: 0;
-            text-align: center; /* По центру */
+            text-align: center;
             color: white;
             font-weight: bold;
             font-size: 1.4em;
             text-transform: uppercase;
             letter-spacing: 1px;
-            /* Тень, чтобы текст читался на любом фоне */
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9); 
             z-index: 2;
             pointer-events: none;
         }
 
-        /* АДАПТИВНОСТЬ */
         @media (max-width: 850px) { .category-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 550px) { .category-grid { grid-template-columns: 1fr; } }
     </style>
@@ -142,6 +139,13 @@
         <div class="country-card"><a href="kyrgyzstan.html"><img src="images/kirg.jpg"><div class="country-label">Кыргызстан</div></a></div>
     </div>
 
+    <h2>Прибалтика</h2>
+    <div class="category-grid">
+        <div class="country-card"><a href="estonia.html"><img src="images/estonia.jpg"><div class="country-label">Эстония</div></a></div>
+        <div class="country-card"><a href="latvia.html"><img src="images/latvia.jpg"><div class="country-label">Латвия</div></a></div>
+        <div class="country-card"><a href="lithuania.html"><img src="images/lithuania.jpg"><div class="country-label">Литва</div></a></div>
+    </div>
+
     <h2>Европа и Балканы</h2>
     <div class="category-grid">
         <div class="country-card"><a href="spain.html"><img src="images/isp.jpg"><div class="country-label">Испания</div></a></div>
@@ -161,9 +165,12 @@
 
     <h2>Азия</h2>
     <div class="category-grid">
-        <div class="country-card"><a href="turkey.html"><img src="images/turkey.jpg"><div class="country-label">Турция</div></a></div>
-        <div class="country-card"><a href="india.html"><img src="images/india.jpg"><div class="country-label">Индия</div></a></div>
+        <div class="country-card"><a href="turkey.html"><img src="images/tur.jpg"><div class="country-label">Турция</div></a></div>
+        <div class="country-card"><a href="india.html"><img src="images/ind.jpg"><div class="country-label">Индия</div></a></div>
         <div class="country-card"><a href="malaysia.html"><img src="images/malaysia.jpg"><div class="country-label">Малайзия</div></a></div>
+        <div class="country-card"><a href="vietnam.html"><img src="images/vietnam.jpg"><div class="country-label">Вьетнам</div></a></div>
+        <div class="country-card"><a href="cambodia.html"><img src="images/cambodia.jpg"><div class="country-label">Камбоджа</div></a></div>
+        <div class="country-card"><a href="thailand.html"><img src="images/thailand.jpg"><div class="country-label">Таиланд</div></a></div>
     </div>
 
     <h2>Африка</h2>
