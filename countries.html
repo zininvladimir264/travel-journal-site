@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Страны — Путевой Дневник</title>
     <style>
+        /* ОБЩИЕ СТИЛИ */
         * { box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
@@ -20,8 +21,10 @@
             padding: 30px;
             border-radius: 15px;
             border: 1px solid #bcaaa4;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
+        /* НАВИГАЦИЯ */
         .nav { 
             text-align: center; 
             margin-bottom: 30px; 
@@ -35,6 +38,7 @@
             margin: 0 20px; 
         }
 
+        /* ЗАГОЛОВКИ */
         h2 { 
             font-size: 1.5em; 
             color: #5d4037; 
@@ -43,6 +47,7 @@
             margin-top: 40px;
         }
 
+        /* СЕТКА 4 В РЯД */
         .grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -50,6 +55,7 @@
             margin-top: 20px;
         }
 
+        /* КАРТОЧКА */
         .card {
             position: relative;
             aspect-ratio: 1 / 1;
@@ -69,19 +75,25 @@
             image-rendering: -webkit-optimize-contrast;
         }
 
+        /* НАЗВАНИЕ СТРАНЫ (БЕЗ ФОНА) */
         .label {
             position: absolute;
-            bottom: 0; left: 0; right: 0;
-            padding: 20px 5px 10px;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            bottom: 12px; 
+            left: 0; 
+            right: 0;
+            background: transparent; /* УБРАН ЧЕРНЫЙ ФОН */
             color: white;
             text-align: center;
             font-weight: bold;
-            font-size: 0.95em;
+            font-size: 1em;
             text-transform: uppercase;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            /* Тень для читаемости белых букв */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.9), 0px 0px 10px rgba(0,0,0,0.5); 
+            margin: 0;
+            pointer-events: none;
         }
 
+        /* АДАПТИВНОСТЬ */
         @media (max-width: 1000px) { .grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 500px) { .grid { grid-template-columns: 1fr; } }
     </style>
@@ -95,13 +107,18 @@
         <a href="countries.html">Страны</a>
     </nav>
 
+    <h2>Россия</h2>
+    <div class="grid">
+        <div class="card"><a href="russia.html"><img src="images/rus.jpg"><p class="label">Россия</p></a></div>
+    </div>
+
     <h2>Европа и Балканы</h2>
     <div class="grid">
         <div class="card"><a href="austria.html"><img src="images/austria.jpg"><p class="label">Австрия</p></a></div>
         <div class="card"><a href="spain.html"><img src="images/isp.jpg"><p class="label">Испания</p></a></div>
         <div class="card"><a href="portugal.html"><img src="images/port.jpg"><p class="label">Португалия</p></a></div>
         <div class="card"><a href="serbia.html"><img src="images/serbia.jpg"><p class="label">Сербия</p></a></div>
-        <div class="card"><a href="bosnia.html"><img src="images/bosnia.jpg"><p class="label">Босния и Герцеговина</p></a></div>
+        <div class="card"><a href="bosnia.html"><img src="images/bosnia.jpg"><p class="label">Босния</p></a></div>
         <div class="card"><a href="montenegro.html"><img src="images/montenegro.jpg"><p class="label">Черногория</p></a></div>
         <div class="card"><a href="belarus.html"><img src="images/belarus.jpg"><p class="label">Беларусь</p></a></div>
         <div class="card"><a href="moldova.html"><img src="images/moldova.jpg"><p class="label">Молдова</p></a></div>
