@@ -5,144 +5,133 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Страны — Путевой Дневник</title>
     <style>
-        /* ПРИНУДИТЕЛЬНОЕ УДАЛЕНИЕ РОЗОВОГО СТИЛЯ */
         * { box-sizing: border-box; }
-        body { 
-            background-color: #f7e6c4 !important; 
-            font-family: Arial, sans-serif !important; 
-            margin: 0; 
-            padding: 20px; 
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7e6c4;
+            margin: 0;
+            padding: 20px;
         }
 
-        /* КОНТЕЙНЕР (Светло-бежевый фон как в Opera) */
-        .main-wrapper { 
-            max-width: 1100px; 
-            margin: 0 auto; 
-            background-color: #fffaf0 !important; 
-            padding: 30px; 
-            border: 1px solid #bcaaa4; 
-            border-radius: 20px; 
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: #fffaf0;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #bcaaa4;
         }
 
-        /* НАВИГАЦИЯ */
-        .nav-menu { text-align: center; margin-bottom: 30px; }
-        .nav-menu a { text-decoration: none; color: #5d4037; font-weight: bold; margin: 0 15px; }
+        /* Навигация */
+        .nav { text-align: center; margin-bottom: 30px; }
+        .nav a { text-decoration: none; color: #5d4037; font-weight: bold; margin: 0 20px; }
 
-        /* ЗАГОЛОВКИ (Тонкая линия снизу) */
         h2 { 
-            font-size: 1.4em; 
-            color: #5d4037 !important; 
-            border-bottom: 2px solid #bcaaa4 !important; 
-            background: none !important; /* Убираем розовый фон, если он был */
-            padding-bottom: 8px; 
-            margin-top: 40px; 
+            font-size: 1.5em; 
+            color: #5d4037; 
+            border-bottom: 2px solid #bcaaa4; 
+            padding-bottom: 5px; 
+            margin-top: 30px;
         }
 
-        /* СЕТКА ПЛИТОК (3 в ряд) */
-        .photo-grid { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 20px; 
-            margin-top: 20px; 
+        /* Сетка как в Opera */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 15px;
         }
 
-        /* КАРТОЧКА-КВАДРАТ (Закругленные углы как в Opera) */
-        .country-tile { 
-            position: relative; 
-            aspect-ratio: 1 / 1; 
-            border-radius: 18px; 
-            overflow: hidden; 
-            background-color: #e0e0e0;
-            transition: transform 0.3s;
-        }
-        .country-tile:hover { transform: scale(1.03); }
-
-        .country-tile a { display: block; width: 100%; height: 100%; }
-
-        /* КАРТИНКА НА ВЕСЬ КВАДРАТ */
-        .country-tile img { 
-            width: 100% !important; 
-            height: 100% !important; 
-            object-fit: cover !important; 
-            display: block; 
+        /* Квадратная карточка с закруглением */
+        .card {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            border-radius: 15px; 
+            overflow: hidden;
+            background-color: #ddd;
+            transition: transform 0.2s;
         }
 
-        /* НАЗВАНИЕ СТРАНЫ ПОВЕРХ ФОТО */
-        .tile-label {
-            position: absolute; 
-            bottom: 0; left: 0; right: 0;
-            padding: 25px 10px 10px;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            color: #ffffff !important;
+        .card:hover { transform: scale(1.02); }
+
+        .card a { display: block; width: 100%; height: 100%; }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Надпись внутри фото снизу */
+        .label {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
             text-align: center;
+            color: white;
+            font-size: 1em;
             font-weight: bold;
             text-transform: uppercase;
-            font-size: 0.9em;
-            letter-spacing: 1px;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+            z-index: 2;
         }
 
-        /* Адаптивность для мобильных */
-        @media (max-width: 800px) { .photo-grid { grid-template-columns: 1fr 1fr; } }
-        @media (max-width: 500px) { .photo-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 800px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 500px) { .grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
-<div class="main-wrapper">
-    <nav class="nav-menu">
+<div class="container">
+    <nav class="nav">
         <a href="index.html">Главная</a>
         <a href="about.html">Обо мне</a>
         <a href="countries.html">Страны</a>
     </nav>
 
-    <h2>Центральная Азия</h2>
-    <div class="photo-grid">
-        <div class="country-tile"><a href="kaz.html"><img src="images/kaza.jpg"><div class="tile-label">Казахстан</div></a></div>
-        <div class="country-tile"><a href="uzb.html"><img src="images/uzbek.jpg"><div class="tile-label">Узбекистан</div></a></div>
-        <div class="country-tile"><a href="kir.html"><img src="images/kirg.jpg"><div class="tile-label">Киргизия</div></a></div>
-        <div class="country-tile"><a href="tadj.html"><img src="images/tadj.jpg"><div class="tile-label">Таджикистан</div></a></div>
-    </div>
-
-    <h2>Южная и Юго-Восточная Азия</h2>
-    <div class="photo-grid">
-        <div class="country-tile"><a href="india.html"><img src="images/ind.jpg"><div class="tile-label">Индия</div></a></div>
-        <div class="country-tile"><a href="lanka.html"><img src="images/lanka.jpg"><div class="tile-label">Шри-Ланка</div></a></div>
-        <div class="country-tile"><a href="thai.html"><img src="images/thailand.jpg"><div class="tile-label">Таиланд</div></a></div>
-        <div class="country-tile"><a href="viet.html"><img src="images/vietnam.jpg"><div class="tile-label">Вьетнам</div></a></div>
-        <div class="country-tile"><a href="malay.html"><img src="images/malaysia.jpg"><div class="tile-label">Малайзия</div></a></div>
-    </div>
-
-    <h2>Европа и Балканы</h2>
-    <div class="photo-grid">
-        <div class="country-tile"><a href="isp.html"><img src="images/isp.jpg"><div class="tile-label">Испания</div></a></div>
-        <div class="country-tile"><a href="port.html"><img src="images/port.jpg"><div class="tile-label">Португалия</div></a></div>
-        <div class="country-tile"><a href="rus.html"><img src="images/rus.jpg"><div class="tile-label">Россия</div></a></div>
-        <div class="country-tile"><a href="serb.html"><img src="images/serbia.jpg"><div class="tile-label">Сербия</div></a></div>
-        <div class="country-tile"><a href="bosnia.html"><img src="images/bosnia.jpg"><div class="tile-label">Босния и Герцеговина</div></a></div>
-        <div class="country-tile"><a href="belarus.html"><img src="images/belarus.jpg"><div class="tile-label">Беларусь</div></a></div>
-        <div class="country-tile"><a href="moldova.html"><img src="images/moldova.jpg"><div class="tile-label">Молдова</div></a></div>
+    <h2>Россия</h2>
+    <div class="grid">
+        <div class="card"><a href="russia.html"><img src="images/rus.jpg"><div class="label">Россия</div></a></div>
     </div>
 
     <h2>Кавказ</h2>
-    <div class="photo-grid">
-        <div class="country-tile"><a href="gruz.html"><img src="images/gruz.jpg"><div class="tile-label">Грузия</div></a></div>
-        <div class="country-tile"><a href="arm.html"><img src="images/arm.jpg"><div class="tile-label">Армения</div></a></div>
-        <div class="country-tile"><a href="azer.html"><img src="images/az.jpg"><div class="tile-label">Азербайджан</div></a></div>
+    <div class="grid">
+        <div class="card"><a href="georgia.html"><img src="images/gruz.jpg"><div class="label">Грузия</div></a></div>
+        <div class="card"><a href="armenia.html"><img src="images/arm.jpg"><div class="label">Армения</div></a></div>
+        <div class="card"><a href="azerbaijan.html"><img src="images/az.jpg"><div class="label">Азербайджан</div></a></div>
+    </div>
+
+    <h2>Центральная Азия</h2>
+    <div class="grid">
+        <div class="card"><a href="kazakhstan.html"><img src="images/kaza.jpg"><div class="label">Казахстан</div></a></div>
+        <div class="card"><a href="uzbekistan.html"><img src="images/uzbek.jpg"><div class="label">Узбекистан</div></a></div>
+        <div class="card"><a href="tajikistan.html"><img src="images/tadj.jpg"><div class="label">Таджикистан</div></a></div>
+        <div class="card"><a href="kyrgyzstan.html"><img src="images/kirg.jpg"><div class="label">Кыргызстан</div></a></div>
     </div>
 
     <h2>Прибалтика</h2>
-    <div class="photo-grid">
-        <div class="country-tile"><a href="est.html"><img src="images/estonia.jpg"><div class="tile-label">Эстония</div></a></div>
-        <div class="country-tile"><a href="lat.html"><img src="images/latvia.jpg"><div class="tile-label">Латвия</div></a></div>
-        <div class="country-tile"><a href="lit.html"><img src="images/lithuania.jpg"><div class="tile-label">Литва</div></a></div>
+    <div class="grid">
+        <div class="card"><a href="estonia.html"><img src="images/estonia.jpg"><div class="label">Эстония</div></a></div>
+        <div class="card"><a href="latvia.html"><img src="images/latvia.jpg"><div class="label">Латвия</div></a></div>
+        <div class="card"><a href="lithuania.html"><img src="images/lithuania.jpg"><div class="label">Литва</div></a></div>
     </div>
 
-    <h2>Африка и Ближний Восток</h2>
-    <div class="photo-grid">
-        <div class="country-tile"><a href="egypt.html"><img src="images/egypt.jpg"><div class="tile-label">Египет</div></a></div>
-        <div class="country-tile"><a href="turkey.html"><img src="images/tur.jpg"><div class="tile-label">Турция</div></a></div>
-        <div class="country-tile"><a href="uae.html"><img src="images/uae.jpg"><div class="tile-label">ОАЭ</div></a></div>
+    <h2>Европа и Балканы</h2>
+    <div class="grid">
+        <div class="card"><a href="spain.html"><img src="images/isp.jpg"><div class="label">Испания</div></a></div>
+        <div class="card"><a href="portugal.html"><img src="images/port.jpg"><div class="label">Португалия</div></a></div>
+        <div class="card"><a href="serbia.html"><img src="images/serbia.jpg"><div class="label">Сербия</div></a></div>
     </div>
+
+    <h2>Азия</h2>
+    <div class="grid">
+        <div class="card"><a href="turkey.html"><img src="images/tur.jpg"><div class="label">Турция</div></a></div>
+        <div class="card"><a href="india.html"><img src="images/ind.jpg"><div class="label">Индия</div></a></div>
+        <div class="card"><a href="vietnam.html"><img src="images/vietnam.jpg"><div class="label">Вьетнам</div></a></div>
+    </div>
+
 </div>
 
 </body>
