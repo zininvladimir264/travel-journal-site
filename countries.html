@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Страны — Путевой Дневник</title>
     <style>
+        /* ОБЩИЕ СТИЛИ */
         * { box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
@@ -23,6 +24,7 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
+        /* НАВИГАЦИЯ */
         .nav { 
             text-align: center; 
             margin-bottom: 30px; 
@@ -36,6 +38,7 @@
             margin: 0 20px; 
         }
 
+        /* ЗАГОЛОВКИ */
         h2 { 
             font-size: 1.5em; 
             color: #5d4037; 
@@ -44,6 +47,7 @@
             margin-top: 40px;
         }
 
+        /* СЕТКА 4 В РЯД */
         .grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -51,6 +55,7 @@
             margin-top: 20px;
         }
 
+        /* КАРТОЧКА */
         .card {
             position: relative;
             aspect-ratio: 1 / 1;
@@ -70,6 +75,7 @@
             image-rendering: -webkit-optimize-contrast;
         }
 
+        /* НАЗВАНИЕ СТРАНЫ (БЕЗ ФОНА) */
         .label {
             position: absolute;
             bottom: 12px; 
@@ -86,6 +92,7 @@
             pointer-events: none;
         }
 
+        /* АДАПТИВНОСТЬ */
         @media (max-width: 1000px) { .grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 500px) { .grid { grid-template-columns: 1fr; } }
     </style>
@@ -112,7 +119,7 @@
         <div class="card"><a href="serbia.html"><img src="images/serbia.jpg"><p class="label">Сербия</p></a></div>
         <div class="card"><a href="bosnia.html"><img src="images/big.jpg"><p class="label">Босния и Герцеговина</p></a></div>
         <div class="card"><a href="montenegro.html"><img src="images/monten.jpg"><p class="label">Черногория</p></a></div>
-        <div class="card"><a href="belarus.html"><img src="images/belarus.jpg"><p class="label">Беларусь</p></a></div>
+        <div class="card"><a href="belarus.html"><img src="images/bel.jpg"><p class="label">Беларусь</p></a></div>
         <div class="card"><a href="moldova.html"><img src="images/moldova.jpg"><p class="label">Молдова</p></a></div>
     </div>
 
