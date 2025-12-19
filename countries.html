@@ -61,7 +61,7 @@
             aspect-ratio: 1 / 1;
             border-radius: 12px;
             overflow: hidden;
-            background-color: #e0e0e0;
+            background-color: #e0e0e0; /* Фон пока картинка грузится */
             transition: transform 0.3s ease;
         }
 
@@ -75,7 +75,7 @@
             image-rendering: -webkit-optimize-contrast;
         }
 
-        /* НАЗВАНИЕ СТРАНЫ (БЕЗ ФОНА) */
+        /* НАЗВАНИЕ СТРАНЫ */
         .label {
             position: absolute;
             bottom: 12px; 
@@ -87,7 +87,6 @@
             font-weight: bold;
             font-size: 0.9em;
             text-transform: uppercase;
-            /* Усиленная тень для читаемости на любом фоне */
             text-shadow: 2px 2px 4px rgba(0,0,0,0.9), 0px 0px 8px rgba(0,0,0,0.4); 
             margin: 0;
             pointer-events: none;
@@ -109,61 +108,61 @@
 
     <h2>Россия</h2>
     <div class="grid">
-        <div class="card"><a href="russia.html"><img src="images/rus.jpg"><p class="label">Россия</p></a></div>
+        <div class="card"><a href="russia.html"><img src="images/rus.jpg" loading="lazy"><p class="label">Россия</p></a></div>
     </div>
 
     <h2>Европа и Балканы</h2>
     <div class="grid">
-        <div class="card"><a href="austria.html"><img src="images/austria.jpg"><p class="label">Австрия</p></a></div>
-        <div class="card"><a href="spain.html"><img src="images/isp.jpg"><p class="label">Испания</p></a></div>
-        <div class="card"><a href="portugal.html"><img src="images/port.jpg"><p class="label">Португалия</p></a></div>
-        <div class="card"><a href="serbia.html"><img src="images/serbia.jpg"><p class="label">Сербия</p></a></div>
-        <div class="card"><a href="bosnia.html"><img src="images/big.jpg"><p class="label">Босния и Герцеговина</p></a></div>
-        <div class="card"><a href="montenegro.html"><img src="images/monten.jpg"><p class="label">Черногория</p></a></div>
-        <div class="card"><a href="belarus.html"><img src="images/bel.jpg"><p class="label">Беларусь</p></a></div>
-        <div class="card"><a href="moldova.html"><img src="images/moldova.jpg"><p class="label">Молдова</p></a></div>
+        <div class="card"><a href="austria.html"><img src="images/austria.jpg" loading="lazy"><p class="label">Австрия</p></a></div>
+        <div class="card"><a href="spain.html"><img src="images/isp.jpg" loading="lazy"><p class="label">Испания</p></a></div>
+        <div class="card"><a href="portugal.html"><img src="images/port.jpg" loading="lazy"><p class="label">Португалия</p></a></div>
+        <div class="card"><a href="serbia.html"><img src="images/serbia.jpg" loading="lazy"><p class="label">Сербия</p></a></div>
+        <div class="card"><a href="bosnia.html"><img src="images/big.jpg" loading="lazy"><p class="label">Босния и Герцеговина</p></a></div>
+        <div class="card"><a href="montenegro.html"><img src="images/monten.jpg" loading="lazy"><p class="label">Черногория</p></a></div>
+        <div class="card"><a href="belarus.html"><img src="images/bel.jpg" loading="lazy"><p class="label">Беларусь</p></a></div>
+        <div class="card"><a href="moldova.html"><img src="images/moldova.jpg" loading="lazy"><p class="label">Молдова</p></a></div>
     </div>
 
     <h2>Южная и Юго-Восточная Азия</h2>
     <div class="grid">
-        <div class="card"><a href="india.html"><img src="images/ind.jpg"><p class="label">Индия</p></a></div>
-        <div class="card"><a href="lanka.html"><img src="images/sri.jpg"><p class="label">Шри-Ланка</p></a></div>
-        <div class="card"><a href="thailand.html"><img src="images/tay.jpg"><p class="label">Таиланд</p></a></div>
-        <div class="card"><a href="vietnam.html"><img src="images/vietnam.jpg"><p class="label">Вьетнам</p></a></div>
-        <div class="card"><a href="cambodia.html"><img src="images/camb.jpg"><p class="label">Камбоджа</p></a></div>
-        <div class="card"><a href="malaysia.html"><img src="images/malay.jpg"><p class="label">Малайзия</p></a></div>
+        <div class="card"><a href="india.html"><img src="images/ind.jpg" loading="lazy"><p class="label">Индия</p></a></div>
+        <div class="card"><a href="lanka.html"><img src="images/sri.jpg" loading="lazy"><p class="label">Шри-Ланка</p></a></div>
+        <div class="card"><a href="thailand.html"><img src="images/tay.jpg" loading="lazy"><p class="label">Таиланд</p></a></div>
+        <div class="card"><a href="vietnam.html"><img src="images/vietnam.jpg" loading="lazy"><p class="label">Вьетнам</p></a></div>
+        <div class="card"><a href="cambodia.html"><img src="images/camb.jpg" loading="lazy"><p class="label">Камбоджа</p></a></div>
+        <div class="card"><a href="malaysia.html"><img src="images/malay.jpg" loading="lazy"><p class="label">Малайзия</p></a></div>
     </div>
 
     <h2>Центральная Азия</h2>
     <div class="grid">
-        <div class="card"><a href="kazakhstan.html"><img src="images/kaza.jpg"><p class="label">Казахстан</p></a></div>
-        <div class="card"><a href="uzbekistan.html"><img src="images/uzbek.jpg"><p class="label">Узбекистан</p></a></div>
-        <div class="card"><a href="tajikistan.html"><img src="images/tadj.jpg"><p class="label">Таджикистан</p></a></div>
-        <div class="card"><a href="kyrgyzstan.html"><img src="images/kirg.jpg"><p class="label">Киргизия</p></a></div>
+        <div class="card"><a href="kazakhstan.html"><img src="images/kaza.jpg" loading="lazy"><p class="label">Казахстан</p></a></div>
+        <div class="card"><a href="uzbekistan.html"><img src="images/uzbek.jpg" loading="lazy"><p class="label">Узбекистан</p></a></div>
+        <div class="card"><a href="tajikistan.html"><img src="images/tadj.jpg" loading="lazy"><p class="label">Таджикистан</p></a></div>
+        <div class="card"><a href="kyrgyzstan.html"><img src="images/kirg.jpg" loading="lazy"><p class="label">Киргизия</p></a></div>
     </div>
 
     <h2>Кавказ</h2>
     <div class="grid">
-        <div class="card"><a href="georgia.html"><img src="images/gruz.jpg"><p class="label">Грузия</p></a></div>
-        <div class="card"><a href="armenia.html"><img src="images/arm.jpg"><p class="label">Армения</p></a></div>
-        <div class="card"><a href="azerbaijan.html"><img src="images/az.jpg"><p class="label">Азербайджан</p></a></div>
-        <div class="card"><a href="abkhazia.html"><img src="images/abkhazia.jpg"><p class="label">Абхазия</p></a></div>
+        <div class="card"><a href="georgia.html"><img src="images/gruz.jpg" loading="lazy"><p class="label">Грузия</p></a></div>
+        <div class="card"><a href="armenia.html"><img src="images/arm.jpg" loading="lazy"><p class="label">Армения</p></a></div>
+        <div class="card"><a href="azerbaijan.html"><img src="images/az.jpg" loading="lazy"><p class="label">Азербайджан</p></a></div>
+        <div class="card"><a href="abkhazia.html"><img src="images/abkhazia.jpg" loading="lazy"><p class="label">Абхазия</p></a></div>
     </div>
 
     <h2>Африка и Ближний Восток</h2>
     <div class="grid">
-        <div class="card"><a href="egypt.html"><img src="images/egypt.jpg"><p class="label">Египет</p></a></div>
-        <div class="card"><a href="turkey.html"><img src="images/tur.jpg"><p class="label">Турция</p></a></div>
-        <div class="card"><a href="uae.html"><img src="images/uae.jpg"><p class="label">ОАЭ</p></a></div>
-        <div class="card"><a href="oman.html"><img src="images/oman.jpg"><p class="label">Оман</p></a></div>
-        <div class="card"><a href="lebanon.html"><img src="images/lebanon.jpg"><p class="label">Ливан</p></a></div>
+        <div class="card"><a href="egypt.html"><img src="images/egypt.jpg" loading="lazy"><p class="label">Египет</p></a></div>
+        <div class="card"><a href="turkey.html"><img src="images/tur.jpg" loading="lazy"><p class="label">Турция</p></a></div>
+        <div class="card"><a href="uae.html"><img src="images/uae.jpg" loading="lazy"><p class="label">ОАЭ</p></a></div>
+        <div class="card"><a href="oman.html"><img src="images/oman.jpg" loading="lazy"><p class="label">Оман</p></a></div>
+        <div class="card"><a href="lebanon.html"><img src="images/lebanon.jpg" loading="lazy"><p class="label">Ливан</p></a></div>
     </div>
 
     <h2>Прибалтика</h2>
     <div class="grid">
-        <div class="card"><a href="estonia.html"><img src="images/estonia.jpg"><p class="label">Эстония</p></a></div>
-        <div class="card"><a href="latvia.html"><img src="images/latvia.jpg"><p class="label">Латвия</p></a></div>
-        <div class="card"><a href="lithuania.html"><img src="images/lithuania.jpg"><p class="label">Литва</p></a></div>
+        <div class="card"><a href="estonia.html"><img src="images/estonia.jpg" loading="lazy"><p class="label">Эстония</p></a></div>
+        <div class="card"><a href="latvia.html"><img src="images/latvia.jpg" loading="lazy"><p class="label">Латвия</p></a></div>
+        <div class="card"><a href="lithuania.html"><img src="images/lithuania.jpg" loading="lazy"><p class="label">Литва</p></a></div>
     </div>
 
 </div>
