@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Страны — Путевой Дневник</title>
     <style>
-        /* ОБЩИЕ СТИЛИ */
-        * { box-sizing: border-box; }
+        /* БАЗОВЫЕ СТИЛИ */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             background-color: #f7e6c4;
-            margin: 0;
             padding: 20px;
         }
 
@@ -21,7 +20,7 @@
             padding: 30px;
             border-radius: 15px;
             border: 1px solid #bcaaa4;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         /* НАВИГАЦИЯ */
@@ -29,43 +28,43 @@
             text-align: center; 
             margin-bottom: 30px; 
             padding-bottom: 15px;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #ddd;
         }
         .nav a { 
             text-decoration: none; 
             color: #5d4037; 
             font-weight: bold; 
             margin: 0 20px; 
+            text-transform: uppercase;
         }
 
-        /* ЗАГОЛОВКИ */
+        /* ЗАГОЛОВКИ СЕКЦИЙ */
         h2 { 
-            font-size: 1.5em; 
+            font-size: 1.6em; 
             color: #5d4037; 
             border-bottom: 2px solid #bcaaa4; 
-            padding-bottom: 8px; 
-            margin-top: 40px;
+            padding-bottom: 5px; 
+            margin: 40px 0 20px 0;
         }
 
-        /* СЕТКА */
+        /* СЕТКА КАРТОЧЕК */
         .grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin-top: 20px;
+            gap: 20px;
         }
 
-        /* КАРТОЧКА */
+        /* КАРТОЧКА СТРАНЫ */
         .card {
             position: relative;
             aspect-ratio: 1 / 1;
             border-radius: 12px;
             overflow: hidden;
-            background-color: #e0e0e0;
             transition: transform 0.3s ease;
+            background: #ccc;
         }
 
-        .card:hover { transform: translateY(-5px); }
+        .card:hover { transform: translateY(-8px); }
 
         .card img {
             width: 100%;
@@ -76,20 +75,21 @@
 
         .label {
             position: absolute;
-            bottom: 12px; 
-            left: 0; 
+            bottom: 0;
+            left: 0;
             right: 0;
-            background: transparent;
+            background: rgba(0, 0, 0, 0.4);
             color: white;
             text-align: center;
+            padding: 10px 0;
             font-weight: bold;
-            font-size: 0.9em;
             text-transform: uppercase;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.9); 
-            margin: 0;
+            font-size: 0.85em;
+            backdrop-filter: blur(2px);
         }
 
-        @media (max-width: 1000px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+        /* Адаптация под мобильные */
+        @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 500px) { .grid { grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -102,64 +102,55 @@
         <a href="countries.html">Страны</a>
     </nav>
 
-    <h2>Россия</h2>
-    <div class="grid">
-        <div class="card"><a href="russia.html"><img src="images/rus.jpg" loading="lazy"><p class="label">Россия</p></a></div>
-    </div>
-
     <h2>Европа и Балканы</h2>
     <div class="grid">
-        <div class="card"><a href="vienna.html"><img src="austria.jpg" loading="lazy"><p class="label">Австрия</p></a></div>
-        <div class="card"><a href="spain.html"><img src="images/isp.jpg" loading="lazy"><p class="label">Испания</p></a></div>
-        <div class="card"><a href="portugal.html"><img src="images/port.jpg" loading="lazy"><p class="label">Португалия</p></a></div>
-        <div class="card"><a href="serbia.html"><img src="images/serbia.jpg" loading="lazy"><p class="label">Сербия</p></a></div>
-        <div class="card"><a href="bosnia.html"><img src="images/big.jpg" loading="lazy"><p class="label">Босния и Герцеговина</p></a></div>
-        <div class="card"><a href="montenegro.html"><img src="images/monten.jpg" loading="lazy"><p class="label">Черногория</p></a></div>
-        <div class="card"><a href="belarus.html"><img src="images/bel.jpg" loading="lazy"><p class="label">Беларусь</p></a></div>
-        <div class="card"><a href="chisinau.html"><img src="images/moldova.jpg" loading="lazy"><p class="label">Молдова</p></a></div>
-    </div>
+        <div class="card">
+            <a href="vienna.html">
+                <img src="austria.jpg" alt="Австрия">
+                <p class="label">Австрия</p>
+            </a>
+        </div>
 
-    <h2>Южная и Юго-Восточная Азия</h2>
-    <div class="grid">
-        <div class="card"><a href="india.html"><img src="images/ind.jpg" loading="lazy"><p class="label">Индия</p></a></div>
-        <div class="card"><a href="lanka.html"><img src="images/sri.jpg" loading="lazy"><p class="label">Шри-Ланка</p></a></div>
-        <div class="card"><a href="thailand.html"><img src="images/tay.jpg" loading="lazy"><p class="label">Таиланд</p></a></div>
-        <div class="card"><a href="vietnam.html"><img src="images/vietnam.jpg" loading="lazy"><p class="label">Вьетнам</p></a></div>
-        <div class="card"><a href="cambodia.html"><img src="images/camb.jpg" loading="lazy"><p class="label">Камбоджа</p></a></div>
-        <div class="card"><a href="malaysia.html"><img src="images/malay.jpg" loading="lazy"><p class="label">Малайзия</p></a></div>
-    </div>
+        <div class="card">
+            <a href="spain.html">
+                <img src="images/isp.jpg" alt="Испания">
+                <p class="label">Испания</p>
+            </a>
+        </div>
 
-    <h2>Центральная Азия</h2>
-    <div class="grid">
-        <div class="card"><a href="kazakhstan.html"><img src="images/kaza.jpg" loading="lazy"><p class="label">Казахстан</p></a></div>
-        <div class="card"><a href="uzbekistan.html"><img src="images/uzbek.jpg" loading="lazy"><p class="label">Узбекистан</p></a></div>
-        <div class="card"><a href="tajikistan.html"><img src="images/tadj.jpg" loading="lazy"><p class="label">Таджикистан</p></a></div>
-        <div class="card"><a href="kyrgyzstan.html"><img src="images/kirg.jpg" loading="lazy"><p class="label">Киргизия</p></a></div>
+        <div class="card">
+            <a href="belarus.html">
+                <img src="images/bel.jpg" alt="Беларусь">
+                <p class="label">Беларусь</p>
+            </a>
+        </div>
+
+        <div class="card">
+            <a href="chisinau.html">
+                <img src="images/moldova.jpg" alt="Молдова">
+                <p class="label">Молдова</p>
+            </a>
+        </div>
     </div>
 
     <h2>Кавказ</h2>
     <div class="grid">
-        <div class="card"><a href="georgia.html"><img src="images/gruz.jpg" loading="lazy"><p class="label">Грузия</p></a></div>
-        <div class="card"><a href="armenia.html"><img src="images/arm.jpg" loading="lazy"><p class="label">Армения</p></a></div>
-        <div class="card"><a href="azerbaijan.html"><img src="images/az.jpg" loading="lazy"><p class="label">Азербайджан</p></a></div>
-        <div class="card"><a href="abkhazia.html"><img src="images/abkhazia.jpg" loading="lazy"><p class="label">Абхазия</p></a></div>
+        <div class="card">
+            <a href="georgia.html">
+                <img src="images/gruz.jpg" alt="Грузия">
+                <p class="label">Грузия</p>
+            </a>
+        </div>
+
+        <div class="card">
+            <a href="armenia.html">
+                <img src="images/arm.jpg" alt="Армения">
+                <p class="label">Армения</p>
+            </a>
+        </div>
     </div>
 
-    <h2>Африка и Ближний Восток</h2>
-    <div class="grid">
-        <div class="card"><a href="egypt.html"><img src="images/egypt.jpg" loading="lazy"><p class="label">Египет</p></a></div>
-        <div class="card"><a href="turkiye.html"><img src="images/tur.jpg" loading="lazy"><p class="label">Турция</p></a></div>
-        <div class="card"><a href="uae.html"><img src="images/uae.jpg" loading="lazy"><p class="label">ОАЭ</p></a></div>
-        <div class="card"><a href="oman.html"><img src="images/oman.jpg" loading="lazy"><p class="label">Оман</p></a></div>
-        <div class="card"><a href="lebanon.html"><img src="images/lebanon.jpg" loading="lazy"><p class="label">Ливан</p></a></div>
-    </div>
-
-    <h2>Прибалтика</h2>
-    <div class="grid">
-        <div class="card"><a href="estonia.html"><img src="images/estonia.jpg" loading="lazy"><p class="label">Эстония</p></a></div>
-        <div class="card"><a href="latvia.html"><img src="images/latvia.jpg" loading="lazy"><p class="label">Латвия</p></a></div>
-        <div class="card"><a href="lithuania.html"><img src="images/lithuania.jpg" loading="lazy"><p class="label">Литва</p></a></div>
-    </div>
+    <h2 style="margin-top: 50px; text-align: center; border: none;">...</h2>
 
 </div>
 
