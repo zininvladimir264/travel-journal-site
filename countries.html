@@ -47,7 +47,7 @@
             margin-top: 40px;
         }
 
-        /* СЕТКА 4 В РЯД */
+        /* СЕТКА */
         .grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -61,7 +61,7 @@
             aspect-ratio: 1 / 1;
             border-radius: 12px;
             overflow: hidden;
-            background-color: #e0e0e0; /* Фон пока картинка грузится */
+            background-color: #e0e0e0;
             transition: transform 0.3s ease;
         }
 
@@ -72,10 +72,8 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            image-rendering: -webkit-optimize-contrast;
         }
 
-        /* НАЗВАНИЕ СТРАНЫ */
         .label {
             position: absolute;
             bottom: 12px; 
@@ -87,12 +85,10 @@
             font-weight: bold;
             font-size: 0.9em;
             text-transform: uppercase;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.9), 0px 0px 8px rgba(0,0,0,0.4); 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.9); 
             margin: 0;
-            pointer-events: none;
         }
 
-        /* АДАПТИВНОСТЬ */
         @media (max-width: 1000px) { .grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 500px) { .grid { grid-template-columns: 1fr; } }
     </style>
@@ -113,14 +109,14 @@
 
     <h2>Европа и Балканы</h2>
     <div class="grid">
-        <div class="card"><a href="austria.html"><img src="images/austria.jpg" loading="lazy"><p class="label">Австрия</p></a></div>
+        <div class="card"><a href="vienna.html"><img src="austria.jpg" loading="lazy"><p class="label">Австрия</p></a></div>
         <div class="card"><a href="spain.html"><img src="images/isp.jpg" loading="lazy"><p class="label">Испания</p></a></div>
         <div class="card"><a href="portugal.html"><img src="images/port.jpg" loading="lazy"><p class="label">Португалия</p></a></div>
         <div class="card"><a href="serbia.html"><img src="images/serbia.jpg" loading="lazy"><p class="label">Сербия</p></a></div>
         <div class="card"><a href="bosnia.html"><img src="images/big.jpg" loading="lazy"><p class="label">Босния и Герцеговина</p></a></div>
         <div class="card"><a href="montenegro.html"><img src="images/monten.jpg" loading="lazy"><p class="label">Черногория</p></a></div>
         <div class="card"><a href="belarus.html"><img src="images/bel.jpg" loading="lazy"><p class="label">Беларусь</p></a></div>
-        <div class="card"><a href="moldova.html"><img src="images/moldova.jpg" loading="lazy"><p class="label">Молдова</p></a></div>
+        <div class="card"><a href="chisinau.html"><img src="images/moldova.jpg" loading="lazy"><p class="label">Молдова</p></a></div>
     </div>
 
     <h2>Южная и Юго-Восточная Азия</h2>
@@ -152,7 +148,7 @@
     <h2>Африка и Ближний Восток</h2>
     <div class="grid">
         <div class="card"><a href="egypt.html"><img src="images/egypt.jpg" loading="lazy"><p class="label">Египет</p></a></div>
-        <div class="card"><a href="turkey.html"><img src="images/tur.jpg" loading="lazy"><p class="label">Турция</p></a></div>
+        <div class="card"><a href="turkiye.html"><img src="images/tur.jpg" loading="lazy"><p class="label">Турция</p></a></div>
         <div class="card"><a href="uae.html"><img src="images/uae.jpg" loading="lazy"><p class="label">ОАЭ</p></a></div>
         <div class="card"><a href="oman.html"><img src="images/oman.jpg" loading="lazy"><p class="label">Оман</p></a></div>
         <div class="card"><a href="lebanon.html"><img src="images/lebanon.jpg" loading="lazy"><p class="label">Ливан</p></a></div>
