@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Испания — Города</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f7e6c4; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; background-color: #fffaf0; padding: 30px; border-radius: 15px; border: 1px solid #bcaaa4; text-align: center; min-height: 80vh; }
+        
+        .nav-links { margin-bottom: 30px; }
+        .nav-links a { text-decoration: none; color: #5d4037; font-weight: bold; margin: 0 15px; text-transform: uppercase; font-size: 0.9em; }
+        
+        h1 { color: #5d4037; margin-bottom: 40px; font-size: 2.2em; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* Сетка: по умолчанию 4 колонки */
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 20px; 
+        }
+
+        .card { position: relative; aspect-ratio: 1/1; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: 0.3s; background: #eee; }
+        .card:hover { transform: translateY(-5px); }
+        .card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        
+        .label { position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6); color: white; padding: 10px; font-weight: bold; text-transform: uppercase; font-size: 0.8em; backdrop-filter: blur(2px); }
+
+        /* Адаптивность: для планшетов и телефонов */
+        @media (max-width: 900px) {
+            .grid { grid-template-columns: repeat(2, 1fr); } /* 2 в ряд */
+            .container { padding: 15px; }
+        }
+
+        /* Для совсем маленьких экранов (по желанию можно оставить 2 или сделать 1) */
+        @media (max-width: 400px) {
+            .grid { gap: 10px; }
+            .label { font-size: 0.7em; padding: 8px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav-links">
+            <a href="index.html">Главная</a>
+            <a href="countries.html">← Назад к странам</a>
+        </div>
+        <h1>Испания</h1>
+        <div class="grid">
+            <div class="card"><a href="madrid.html"><img src="images/madrid.jpg" onerror="this.src='images/isp.jpg'"><p class="label">Мадрид</p></a></div>
+            <div class="card"><a href="barcelona.html"><img src="images/barcelona.jpg" onerror="this.src='images/isp.jpg'"><p class="label">Барселона</p></a></div>
+            <div class="card"><a href="zaragoza.html"><img src="images/zaragoza.jpg" onerror="this.src='images/isp.jpg'"><p class="label">Сарагоса</p></a></div>
+            <div class="card"><a href="seville.html"><img src="images/seville.jpg" onerror="this.src='images/isp.jpg'"><p class="label">Севилья</p></a></div>
+            <div class="card"><a href="girona.html"><img src="images/girona.jpg" onerror="this.src='images/isp.jpg'"><p class="label">Жирона</p></a></div>
+            <div class="card"><a href="tarragona.html"><img src="images/tarragona.jpg" onerror="this.src='images/isp.jpg'"><p class="label">Таррагона</p></a></div>
+            <div class="card"><a href="pamplona.html"><img src="images/pamplona.jpg" onerror="this.src='images/isp.jpg'"><p class="label">Памплона</p></a></div>
+            <div class="card"><a href="figueras.html"><img src="images/figueras.jpg" onerror="this.src='images/isp.jpg'"><p class="label">Фигерас</p></a></div>
+            <div class="card"><a href="rioja.html"><img src="images/rioja.jpg" onerror="this.src='images/isp.jpg'"><p class="label">Риоха</p></a></div>
+        </div>
+    </div>
+</body>
+</html>
