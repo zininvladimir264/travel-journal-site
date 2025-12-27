@@ -7,7 +7,7 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f7e6c4; padding: 20px; }
-        .container { max-width: 1200px; margin: 0 auto; background-color: #fffaf0; padding: 30px; border-radius: 15px; border: 1px solid #bcaaa4; text-align: center; min-height: 80vh; }
+        .container { max-width: 1200px; margin: 0 auto; background-color: #fffaf0; padding: 30px; border-radius: 15px; border: 1px solid #bcaaa4; text-align: center; min-height: 85vh; }
         .nav-links { margin-bottom: 30px; }
         .nav-links a { text-decoration: none; color: #5d4037; font-weight: bold; margin: 0 15px; text-transform: uppercase; font-size: 0.9em; }
         h1 { color: #5d4037; margin-bottom: 40px; font-size: 2.2em; text-transform: uppercase; letter-spacing: 2px; }
@@ -16,7 +16,7 @@
         .card:hover { transform: translateY(-5px); }
         .card img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .label { position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6); color: white; padding: 10px; font-weight: bold; text-transform: uppercase; font-size: 0.8em; backdrop-filter: blur(2px); }
-        @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); gap: 15px; } }
     </style>
 </head>
 <body>
@@ -24,8 +24,14 @@
         <div class="nav-links"><a href="index.html">Главная</a><a href="countries.html">← К странам</a></div>
         <h1>Вьетнам</h1>
         <div class="grid">
-            <div class="card"><a href="hanoi.html"><img src="images/vietnam.jpg"><p class="label">Ханой</p></a></div>
-            <div class="card"><a href="hochiminh.html"><img src="images/hcm.jpg" onerror="this.src='images/vietnam.jpg'"><p class="label">Хошимин</p></a></div>
+            <div class="card"><a href="hochiminh.html"><img src="images/hcm.jpg" onerror="this.src='images/viet.jpg'"><p class="label">Хошимин</p></a></div>
+            <div class="card"><a href="phuquoc.html"><img src="images/phuquoc.jpg" onerror="this.src='images/viet.jpg'"><p class="label">Фукуок</p></a></div>
+            <div class="card"><a href="cantho.html"><img src="images/cantho.jpg" onerror="this.src='images/viet.jpg'"><p class="label">Кантхо</p></a></div>
+            <div class="card"><a href="dalat.html"><img src="images/dalat.jpg" onerror="this.src='images/viet.jpg'"><p class="label">Далат</p></a></div>
+            <div class="card"><a href="nhatrang.html"><img src="images/nhatrang.jpg" onerror="this.src='images/viet.jpg'"><p class="label">Нячанг</p></a></div>
+            <div class="card"><a href="danang.html"><img src="images/danang.jpg" onerror="this.src='images/viet.jpg'"><p class="label">Дананг</p></a></div>
+            <div class="card"><a href="hoian.html"><img src="images/hoian.jpg" onerror="this.src='images/viet.jpg'"><p class="label">Хойан</p></a></div>
+            <div class="card"><a href="hue.html"><img src="images/hue.jpg" onerror="this.src='images/viet.jpg'"><p class="label">Хюэ</p></a></div>
         </div>
     </div>
 </body>
