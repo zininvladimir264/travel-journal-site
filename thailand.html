@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Таиланд — Города</title>
     <style>
-        /* Те же стили для единообразия */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f7e6c4; padding: 20px; }
-        .container { max-width: 1200px; margin: 0 auto; background-color: #fffaf0; padding: 30px; border-radius: 15px; border: 1px solid #bcaaa4; text-align: center; min-height: 80vh; }
+        .container { max-width: 1200px; margin: 0 auto; background-color: #fffaf0; padding: 30px; border-radius: 15px; border: 1px solid #bcaaa4; text-align: center; min-height: 85vh; }
         .nav-links { margin-bottom: 30px; }
         .nav-links a { text-decoration: none; color: #5d4037; font-weight: bold; margin: 0 15px; text-transform: uppercase; font-size: 0.9em; }
         h1 { color: #5d4037; margin-bottom: 40px; font-size: 2.2em; text-transform: uppercase; letter-spacing: 2px; }
@@ -17,7 +16,7 @@
         .card:hover { transform: translateY(-5px); }
         .card img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .label { position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6); color: white; padding: 10px; font-weight: bold; text-transform: uppercase; font-size: 0.8em; backdrop-filter: blur(2px); }
-        @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); gap: 15px; } }
     </style>
 </head>
 <body>
@@ -25,10 +24,12 @@
         <div class="nav-links"><a href="index.html">Главная</a><a href="countries.html">← К странам</a></div>
         <h1>Таиланд</h1>
         <div class="grid">
-            <div class="card"><a href="bangkok.html"><img src="images/bangkok.jpg" onerror="this.src='images/tay.jpg'"><p class="label">Бангкок</p></a></div>
-            <div class="card"><a href="phuket.html"><img src="images/phuket.jpg" onerror="this.src='images/tay.jpg'"><p class="label">Пхукет</p></a></div>
-            <div class="card"><a href="samui.html"><img src="images/samui.jpg" onerror="this.src='images/tay.jpg'"><p class="label">Самуи</p></a></div>
-            <div class="card"><a href="pattaya.html"><img src="images/pattaya.jpg" onerror="this.src='images/tay.jpg'"><p class="label">Паттайя</p></a></div>
+            <div class="card"><a href="bangkok.html"><img src="images/bangkok.jpg" onerror="this.src='images/thai.jpg'"><p class="label">Бангкок</p></a></div>
+            <div class="card"><a href="pattaya.html"><img src="images/pattaya.jpg" onerror="this.src='images/thai.jpg'"><p class="label">Паттайя</p></a></div>
+            <div class="card"><a href="phuket.html"><img src="images/phuket.jpg" onerror="this.src='images/thai.jpg'"><p class="label">Пхукет</p></a></div>
+            <div class="card"><a href="chonburi.html"><img src="images/chonburi.jpg" onerror="this.src='images/thai.jpg'"><p class="label">Чонбури</p></a></div>
+            <div class="card"><a href="ayutthaya.html"><img src="images/ayu.jpg" onerror="this.src='images/thai.jpg'"><p class="label">Аютхайя</p></a></div>
+            <div class="card"><a href="phiphi.html"><img src="images/phiphi.jpg" onerror="this.src='images/thai.jpg'"><p class="label">Пхи-Пхи</p></a></div>
         </div>
     </div>
 </body>
