@@ -3,163 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Города Таджикистана</title>
+    <title>Таджикистан — Города</title>
     <style>
-        /* --- СТИЛИ КАРТОЧЕК (Единый шаблон) --- */
-        * {
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-        body {
-            line-height: 1.6;
-            padding: 20px;
-            background-color: #f4f4f4; 
-            font-size: 18px;
-        }
-        #country-detail-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* --- НАВИГАЦИЯ --- */
-        .navbar {
-            text-align: center;
-            padding: 10px 0;
-            border-bottom: 2px solid #ccc;
-            margin-bottom: 20px;
-        }
-        .navbar a {
-            text-decoration: none;
-            color: #783e49;
-            font-weight: bold;
-            margin: 0 15px;
-            font-size: 1.1em;
-        }
-
-        /* --- ЗАГОЛОВОК СТРАНЫ --- */
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 20px;
-            font-size: 2.8em;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #783e49; 
-        }
-        
-        /* --- СЕТКА ГОРОДОВ --- */
-        .city-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        /* --- СТИЛИ КАРТОЧКИ ГОРОДА --- */
-        .city-card {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            text-decoration: none;
-            color: inherit;
-            position: relative;
-        }
-
-        /* --- ЗАГОЛОВОК КАРТОЧКИ (РОЗОВЫЙ/АКЦЕНТНЫЙ БЛОК) --- */
-        .city-card-header {
-            padding: 15px;
-            background-color: #F8BBD0; 
-            color: #783e49;
-            font-weight: bold;
-            text-align: center;
-            font-size: 1.3em;
-        }
-        
-        /* --- ИЗОБРАЖЕНИЕ ГОРОДА --- */
-        .city-card img {
-            width: 100%;
-            height: 150px; 
-            object-fit: cover;
-            display: block;
-        }
-        
-        /* --- ОПИСАНИЕ --- */
-        .city-card-body {
-            padding: 15px;
-            min-height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: left;
-        }
-        .city-card-body p {
-            margin: 0;
-            font-size: 0.9em;
-            color: #555;
-        }
-        
-        /* --- АДАПТИВНОСТЬ --- */
-        @media (max-width: 768px) {
-            .city-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        @media (max-width: 500px) {
-            .city-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f7e6c4; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; background-color: #fffaf0; padding: 30px; border-radius: 15px; border: 1px solid #bcaaa4; text-align: center; min-height: 80vh; }
+        .nav-links { margin-bottom: 30px; }
+        .nav-links a { text-decoration: none; color: #5d4037; font-weight: bold; margin: 0 15px; text-transform: uppercase; font-size: 0.9em; }
+        h1 { color: #5d4037; margin-bottom: 40px; font-size: 2.2em; text-transform: uppercase; letter-spacing: 2px; }
+        .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .card { position: relative; aspect-ratio: 1/1; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: 0.3s; background: #eee; }
+        .card:hover { transform: translateY(-5px); }
+        .card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .label { position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6); color: white; padding: 10px; font-weight: bold; text-transform: uppercase; font-size: 0.8em; backdrop-filter: blur(2px); }
+        @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
     </style>
 </head>
 <body>
-
-<div id="country-detail-container">
-
-    <div class="navbar">
-        <a href="index.html">Главная</a>
-        <a href="countries.html">Страны</a>
-        <a href="about.html">Обо мне</a>
+    <div class="container">
+        <div class="nav-links"><a href="index.html">Главная</a><a href="countries.html">← К странам</a></div>
+        <h1>Таджикистан</h1>
+        <div class="grid">
+            <div class="card"><a href="dushanbe.html"><img src="images/dushanbe.jpg" onerror="this.src='images/tadj.jpg'"><p class="label">Душанбе</p></a></div>
+        </div>
     </div>
-
-    <h1>Таджикистан</h1>
-    <p style="text-align: center; margin-bottom: 40px; font-size: 1.1em; color: #783e49;">
-        Страна Памира и древних горных перевалов. Идеальное место для любителей экстремальных путешествий и высокогорных пейзажей.
-    </p>
-
-    <div class="city-grid">
-        
-        <a href="#" class="city-card">
-            <div class="city-card-header">Душанбе</div>
-            <img src="images/dushanbe_preview.jpg" alt="Вид на Душанбе и проспект Рудаки">
-            <div class="city-card-body">
-                <p>Столица Таджикистана. Современный город, окруженный горами. Славится своими парками и музеями.</p>
-            </div>
-        </a>
-        
-        <a href="#" class="city-card">
-            <div class="city-card-header">Худжанд</div>
-            <img src="images/khujand_preview.jpg" alt="Дворец Арбоб">
-            <div class="city-card-body">
-                <p>Древний город на севере страны, расположенный на реке Сырдарья. Важный центр Шелкового пути.</p>
-            </div>
-        </a>
-
-        <a href="#" class="city-card">
-            <div class="city-card-header">Хорог</div>
-            <img src="images/khorog_preview.jpg" alt="Вид на Хорог и Памир">
-            <div class="city-card-body">
-                <p>Главный город Горно-Бадахшанской автономной области. Отправная точка для путешествий по Памирскому тракту.</p>
-            </div>
-        </a>
-
-    </div>
-
-</div>
-
 </body>
 </html>
