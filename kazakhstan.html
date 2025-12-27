@@ -3,193 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Города Казахстана</title>
+    <title>Казахстан — Города</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #fff;
-            color: #333;
-        }
-
-        #main-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 15px 30px 15px;
-        }
-
-        /* --- МОБИЛЬНЫЙ ХЕДЕР: "Казахстан" и "X" (как в приложении) --- */
-        .header-mobile {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 15px 0;
-            position: relative;
-        }
-
-        .header-mobile h1 {
-            font-size: 1.2em;
-            font-weight: 500; 
-            color: #333;
-            margin: 0;
-        }
-
-        /* Кнопка "X" будет вести назад к списку стран */
-        .close-btn {
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            text-decoration: none;
-            font-size: 1.5em;
-            color: #777;
-            line-height: 1;
-        }
-
-        /* --- ОСНОВНОЙ ЗАГОЛОВОК (Города Казахстана) --- */
-        h2 {
-            font-size: 1.8em;
-            font-weight: bold;
-            margin: 20px 0 15px 0;
-            color: #333;
-        }
-
-        /* --- КОНТЕЙНЕР КАРТОЧЕК (2 колонки) --- */
-        .category {
-            margin-top: 15px;
-            display: grid;
-            grid-template-columns: 1fr 1fr; 
-            gap: 15px; 
-        }
-
-        /* --- СТИЛИ КАРТОЧКИ (ITEM) --- */
-        .item {
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-        
-        /* БЛОК ИЗОБРАЖЕНИЯ */
-        .image-box {
-            position: relative;
-            width: 100%;
-            height: 150px; 
-            overflow: hidden;
-        }
-
-        .item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; 
-            display: block;
-        }
-
-        /* ОСНОВНАЯ ИНФОРМАЦИЯ КАРТОЧКИ */
-        .item-info {
-            padding: 10px 12px 0;
-            min-height: 120px; /* Фиксируем высоту, чтобы карточки не "прыгали" */
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        
-        .item-info h3 {
-            font-size: 1.1em;
-            color: #333;
-            margin: 0 0 5px 0;
-            line-height: 1.3;
-        }
-
-        .item-info p {
-            font-size: 0.9em;
-            color: #666;
-            margin: 0 0 10px 0;
-            line-height: 1.4;
-        }
-        
-        /* СЕКЦИЯ ДЕТАЛЕЙ (ЦЕНА/ДАТА) - ИСПОЛЬЗУЕМ ДЛЯ КНОПКИ "ПЕРЕЙТИ" */
-        .item-details {
-            display: flex;
-            justify-content: flex-end; /* Переносим стрелку вправо */
-            align-items: center; 
-            padding: 10px 12px 12px 12px;
-            border-top: 1px solid #eee;
-        }
-        
-        .price-block, .date-block {
-            display: none; /* Скрываем поля цены/даты, т.к. они не нужны для городов */
-        }
-        
-        .arrow-icon {
-            font-size: 1.5em;
-            color: #783e49; /* Сделаем цвет стрелки как у заголовков категорий */
-            text-decoration: none;
-            line-height: 1;
-        }
-
-        /* --- Адаптивность (Мобильный телефон) --- */
-        @media (max-width: 600px) {
-            .category {
-                grid-template-columns: 1fr; /* Одна колонка для мобильных телефонов */
-                gap: 15px;
-            }
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f7e6c4; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; background-color: #fffaf0; padding: 30px; border-radius: 15px; border: 1px solid #bcaaa4; text-align: center; min-height: 80vh; }
+        .nav-links { margin-bottom: 30px; }
+        .nav-links a { text-decoration: none; color: #5d4037; font-weight: bold; margin: 0 15px; text-transform: uppercase; font-size: 0.9em; }
+        h1 { color: #5d4037; margin-bottom: 40px; font-size: 2.2em; text-transform: uppercase; letter-spacing: 2px; }
+        .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .card { position: relative; aspect-ratio: 1/1; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: 0.3s; background: #eee; }
+        .card:hover { transform: translateY(-5px); }
+        .card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .label { position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6); color: white; padding: 10px; font-weight: bold; text-transform: uppercase; font-size: 0.8em; backdrop-filter: blur(2px); }
+        @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); gap: 15px; } }
     </style>
 </head>
 <body>
-
-<div id="main-container">
-
-    <div class="header-mobile">
+    <div class="container">
+        <div class="nav-links"><a href="index.html">Главная</a><a href="countries.html">← К странам</a></div>
         <h1>Казахстан</h1>
-        <a href="countries.html" class="close-btn">✕</a>
-    </div>
-
-    <h2>Города Казахстана</h2>
-
-    <div class="category">
-
-        <a href="#" class="item">
-            <div class="image-box"> 
-                <img src="images/shymkent_image.jpg" alt="Шымкент"> 
-            </div>
-            <div class="item-info">
-                <div>
-                    <h3>Шымкент</h3>
-                    <p>Один из древнейших городов Центральной Азии, культурный и экономический центр юга страны. Известен своим колоритом и историей Великого шелкового пути.</p>
-                </div>
-            </div>
-            <div class="item-details">
-                <span class="arrow-icon">›</span>
-            </div>
-        </a>
-        
-        <a href="#" class="item">
-            <div class="image-box"> 
-                <img src="images/almaty_image.jpg" alt="Алматы"> 
-            </div>
-            <div class="item-info">
-                <div>
-                    <h3>Алматы</h3>
-                    <p>Бывшая столица и крупнейший город Казахстана, расположенный у подножия гор Заилийского Алатау. Здесь можно увидеть знаменитый каток Медеу и насладиться горным воздухом.</p>
-                </div>
-            </div>
-            <div class="item-details">
-                <span class="arrow-icon">›</span>
-            </div>
-        </a>
-
+        <div class="grid">
+            <div class="card"><a href="almaty.html"><img src="images/kaza.jpg"><p class="label">Алматы</p></a></div>
+            <div class="card"><a href="astana.html"><img src="images/astana.jpg" onerror="this.src='images/kaza.jpg'"><p class="label">Астана</p></a></div>
         </div>
-
-</div>
-
+    </div>
 </body>
 </html>
