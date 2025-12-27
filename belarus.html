@@ -7,20 +7,49 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f7e6c4; padding: 20px; }
-        .container { max-width: 1200px; margin: 0 auto; background-color: #fffaf0; padding: 30px; border-radius: 15px; border: 1px solid #bcaaa4; text-align: center; min-height: 80vh; }
+        .container { max-width: 1200px; margin: 0 auto; background-color: #fffaf0; padding: 30px; border-radius: 15px; border: 1px solid #bcaaa4; text-align: center; min-height: 90vh; }
         .nav-links { margin-bottom: 30px; }
         .nav-links a { text-decoration: none; color: #5d4037; font-weight: bold; margin: 0 15px; text-transform: uppercase; font-size: 0.9em; }
         h1 { color: #5d4037; margin-bottom: 40px; font-size: 2.2em; text-transform: uppercase; letter-spacing: 2px; }
         
-        /* Сетка: 4 карточки на ПК, 2 на мобильных */
-        .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        /* Сетка: 4 в ряд на ПК, 2 на мобильном */
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 20px; 
+            padding: 10px;
+        }
         
-        .card { position: relative; aspect-ratio: 1/1; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: 0.3s; background: #eee; }
+        .card { 
+            position: relative; 
+            aspect-ratio: 1/1; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+            transition: 0.3s; 
+            background: #ddd; /* Серый фон, если фото не загрузится */
+        }
+        
         .card:hover { transform: translateY(-5px); }
         .card img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .label { position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6); color: white; padding: 10px; font-weight: bold; text-transform: uppercase; font-size: 0.8em; backdrop-filter: blur(2px); }
         
-        @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); gap: 15px; } }
+        .label { 
+            position: absolute; 
+            bottom: 0; 
+            width: 100%; 
+            background: rgba(0,0,0,0.7); 
+            color: white; 
+            padding: 12px 5px; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            font-size: 0.75em; 
+            backdrop-filter: blur(4px); 
+        }
+        
+        /* Адаптация для телефонов */
+        @media (max-width: 900px) { 
+            .grid { grid-template-columns: repeat(2, 1fr); gap: 15px; } 
+        }
     </style>
 </head>
 <body>
@@ -30,24 +59,92 @@
             <a href="countries.html">← К странам</a>
         </div>
         <h1>Беларусь</h1>
+        
         <div class="grid">
-            <div class="card"><a href="minsk.html"><img src="images/minsk.jpg" onerror="this.src='images/bel.jpg'"><p class="label">Минск</p></a></div>
-            <div class="card"><a href="mir.html"><img src="images/mir.jpg" onerror="this.src='images/bel.jpg'"><p class="label">Мир</p></a></div>
-            <div class="card"><a href="nesvizh.html"><img src="images/nesvizh.jpg" onerror="this.src='images/bel.jpg'"><p class="label">Несвиж</p></a></div>
-            <div class="card"><a href="brest.html"><img src="images/brest.jpg" onerror="this.src='images/bel.jpg'"><p class="label">Брест</p></a></div>
-            
-            <div class="card"><a href="grodno.html"><img src="images/grodno.jpg" onerror="this.src='images/bel.jpg'"><p class="label">Гродно</p></a></div>
-            <div class="card"><a href="vitebsk.html"><img src="images/vitebsk.jpg" onerror="this.src='images/bel.jpg'"><p class="label">Витебск</p></a></div>
-            <div class="card"><a href="gomel.html"><img src="images/gomel.jpg" onerror="this.src='images/bel.jpg'"><p class="label">Гомель</p></a></div>
-            <div class="card"><a href="mogilev.html"><img src="images/mogilev.jpg" onerror="this.src='images/bel.jpg'"><p class="label">Могилев</p></a></div>
-            
-            <div class="card"><a href="polotsk.html"><img src="images/polotsk.jpg" onerror="this.src='images/bel.jpg'"><p class="label">Полоцк</p></a></div>
-            <div class="card"><a href="novopolotsk.html"><img src="images/novopolotsk.jpg" onerror="this.src='images/bel.jpg'"><p class="label">Новополоцк</p></a></div>
-            <div class="card"><a href="lida.html"><img src="images/lida.jpg" onerror="this.src='images/bel.jpg'"><p class="label">Лида</p></a></div>
-            <div class="card"><a href="bobruisk.html"><img src="images/bobruisk.jpg" onerror="this.src='images/bel.jpg'"><p class="label">Бобруйск</p></a></div>
-            
-            <div class="card"><a href="baranovichi.html"><img src="images/baranovichi.jpg" onerror="this.src='images/bel.jpg'"><p class="label">Барановичи</p></a></div>
-            <div class="card"><a href="borisov.html"><img src="images/borisov.jpg" onerror="this.src='images/bel.jpg'"><p class="label">Борисов</p></a></div>
+            <div class="card">
+                <a href="minsk.html">
+                    <img src="images/minsk.jpg" onerror="this.src='images/bel.jpg'">
+                    <p class="label">Минск</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="mir.html">
+                    <img src="images/mir.jpg" onerror="this.src='images/bel.jpg'">
+                    <p class="label">Мир</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="nesvizh.html">
+                    <img src="images/nesvizh.jpg" onerror="this.src='images/bel.jpg'">
+                    <p class="label">Несвиж</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="brest.html">
+                    <img src="images/brest.jpg" onerror="this.src='images/bel.jpg'">
+                    <p class="label">Брест</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="grodno.html">
+                    <img src="images/grodno.jpg" onerror="this.src='images/bel.jpg'">
+                    <p class="label">Гродно</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="vitebsk.html">
+                    <img src="images/vitebsk.jpg" onerror="this.src='images/bel.jpg'">
+                    <p class="label">Витебск</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="gomel.html">
+                    <img src="images/gomel.jpg" onerror="this.src='images/bel.jpg'">
+                    <p class="label">Гомель</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="mogilev.html">
+                    <img src="images/mogilev.jpg" onerror="this.src='images/bel.jpg'">
+                    <p class="label">Могилев</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="polotsk.html">
+                    <img src="images/polotsk.jpg" onerror="this.src='images/bel.jpg'">
+                    <p class="label">Полоцк</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="novopolotsk.html">
+                    <img src="images/novopolotsk.jpg" onerror="this.src='images/bel.jpg'">
+                    <p class="label">Новополоцк</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="lida.html">
+                    <img src="images/lida.jpg" onerror="this.src='images/bel.jpg'">
+                    <p class="label">Лида</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="bobruisk.html">
+                    <img src="images/bobruisk.jpg" onerror="this.src='images/bel.jpg'">
+                    <p class="label">Бобруйск</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="baranovichi.html">
+                    <img src="images/baranovichi.jpg" onerror="this.src='images/bel.jpg'">
+                    <p class="label">Барановичи</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="borisov.html">
+                    <img src="images/borisov.jpg" onerror="this.src='images/bel.jpg'">
+                    <p class="label">Борисов</p>
+                </a>
+            </div>
         </div>
     </div>
 </body>
