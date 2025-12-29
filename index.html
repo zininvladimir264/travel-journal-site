@@ -7,31 +7,23 @@
     <style>
         /* --- БАЗОВЫЕ СТИЛИ --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        
+
         body {
-            font-family: 'Georgia', serif; 
+            font-family: 'Georgia', serif;
             line-height: 1.6;
             padding: 20px;
-            background-color: #e3d4b6; 
-            background-image: repeating-linear-gradient(180deg, #f2e9d2, #f2e9d2 1px, #e3d4b6 1px, #e3d4b6 3px); 
-            color: #4a3e3c; 
+            background-color: #e3d4b6;
+            background-image: repeating-linear-gradient(180deg, #f2e9d2, #f2e9d2 1px, #e3d4b6 1px, #e3d4b6 2px);
+            color: #4a3e3c;
         }
 
         #container {
             max-width: 1000px;
             margin: 0 auto;
-            background-color: #fffaf0; 
-            border: 5px double #bcaaa4; 
+            background-color: #fffaf0;
+            border: 5px double #bcaaa4;
             border-radius: 8px;
             box-shadow: 10px 10px 0 #c7bcae;
-            overflow: hidden;
-        }
-
-        /* --- ОБЛОЖКА С ТЕКСТОМ ПО ЦЕНТРУ --- */
-        .cover-wrapper {
-            position: relative; /* Чтобы текст можно было наложить сверху */
-            width: 100%;
-            height: 450px;
             overflow: hidden;
             border-bottom: 3px solid #bcaaa4;
         }
@@ -41,18 +33,18 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            filter: brightness(0.8); /* Немного затемняем фото, чтобы текст лучше читался */
+            filter: brightness(0.8); /* Немного затемняем */
         }
 
         .cover-title {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%); /* Идеальное центрирование */
+            transform: translate(-50%, -50%);
             color: #ffffff;
             font-size: 4.5em;
             font-family: 'Times New Roman', serif;
-            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7); /* Тень для четкости */
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
             white-space: nowrap;
             text-align: center;
         }
@@ -64,19 +56,21 @@
             border-bottom: 2px dotted #bcaaa4;
             background-color: #fffaf0;
         }
+
         .navbar a {
             text-decoration: none;
-            color: #795548; 
+            color: #795548;
             font-weight: bold;
             text-transform: uppercase;
             margin: 0 20px;
             transition: color 0.3s;
         }
+
         .navbar a:hover { color: #d84315; }
 
         /* --- КОНТЕНТ --- */
         .content-padding { padding: 40px; }
-        
+
         .section-title {
             font-size: 2em;
             color: #5d4037;
@@ -86,7 +80,7 @@
             padding-bottom: 10px;
         }
 
-        /* --- СЕТКА КАРТОЧЕК (РОВНО) --- */
+        /* --- СЕТКА КАРТОЧЕК --- */
         .trips-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -100,7 +94,7 @@
             text-align: center;
             text-decoration: none;
             color: #4a3e3c;
-            border-radius: 15px; /* Скругленные углы */
+            border-radius: 15px;
             transition: all 0.3s ease;
             box-shadow: 4px 4px 0 #d7ccc8;
         }
@@ -125,7 +119,6 @@
             color: #795548;
         }
 
-        /* Адаптивность для мобильных устройств */
         @media (max-width: 768px) {
             .trips-grid { grid-template-columns: 1fr; }
             .cover-title { font-size: 2.5em; }
@@ -134,52 +127,45 @@
     </style>
 </head>
 <body>
-
-<div id="container">
-
-    <div class="cover-wrapper">
-        <img src="images/beach1.jpg" alt="Тропический пейзаж">
-        <h1 class="cover-title">Путевой Дневник</h1>
-    </div>
-
-    <nav class="navbar">
-        <a href="index.html">Главная</a>
-        <a href="about.html">Обо мне</a>
-        <a href="countries.html">Страны</a>
-    </nav>
-
-    <div class="content-padding">
-        
-        <h2 class="section-title">Последние записи</h2>
-
-        <div class="trips-grid">
-            
-            <a href="#" class="trip-card">
-                <h4>Стамбул</h4>
-                <p>Турция | 2025</p>
-                <p style="margin-top: 10px; font-style: italic;">Перекресток двух миров.</p>
-            </a>
-
-            <a href="#" class="trip-card">
-                <h4>Бишкек</h4>
-                <p>Кыргызстан | 2025</p>
-                <p style="margin-top: 10px; font-style: italic;">Сердце Тянь-Шаня.</p>
-            </a>
-
-            <a href="#" class="trip-card">
-                <h4>Ереван</h4>
-                <p>Армения | 2025</p>
-                <p style="margin-top: 10px; font-style: italic;">Розовый город и гора Арарат.</p>
-            </a>
-
+    <div id="container">
+        <div class="cover-wrapper">
+             <h1 class="cover-title">Путевой Дневник</h1>
         </div>
+
+        <nav class="navbar">
+            <a href="index.html">Главная</a>
+            <a href="about.html">Обо мне</a>
+            <a href="countries.html">Страны</a>
+        </nav>
+
+        <div class="content-padding">
+            <h2 class="section-title">Последние записи</h2>
+            
+            <div class="trips-grid">
+                <a href="#" class="trip-card">
+                    <h4>Стамбул</h4>
+                    <p>Турция | 2025</p>
+                    <p style="margin-top: 10px; font-style: italic;">Подробнее...</p>
+                </a>
+
+                <a href="#" class="trip-card">
+                    <h4>Бишкек</h4>
+                    <h4 style="display:none">Бишкек</h4>
+                    <p>Кыргызстан | 2025</p>
+                    <p style="margin-top: 10px; font-style: italic;">Подробнее...</p>
+                </a>
+
+                <a href="#" class="trip-card">
+                    <h4>Ереван</h4>
+                    <p>Армения | 2025</p>
+                    <p style="margin-top: 10px; font-style: italic;">Подробнее...</p>
+                </a>
+            </div>
+        </div>
+
+        <footer>
+            <p>Путевой Дневник &copy; 2025. Все записи сделаны автором.</p>
+        </footer>
     </div>
-
-    <footer>
-        Путевой Дневник © 2025. Все записи сделаны автором.
-    </footer>
-
-</div>
-
 </body>
 </html>
