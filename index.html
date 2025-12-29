@@ -5,41 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Путевой дневник — Главная</title>
     <style>
-        /* --- БАЗОВЫЕ СТИЛИ --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Georgia', serif;
             line-height: 1.6;
             padding: 20px;
             background-color: #e3d4b6;
+            background-image: repeating-linear-gradient(180deg, #f2e9d2, #f2e9d2 1px, #e3d4b6 1px, #e3d4b6 2px);
             color: #4a3e3c;
         }
         #container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             background-color: #fffaf0;
             border: 5px double #bcaaa4;
             border-radius: 8px;
+            box-shadow: 10px 10px 0 #c7bcae;
             overflow: hidden;
-        }
-        .cover-wrapper {
-            position: relative;
-            width: 100%;
-            height: 400px;
-            /* ЗДЕСЬ УЖЕ WEBP */
-            background: url('images/main-cover.webp') no-repeat center center;
-            background-size: cover;
-            border-bottom: 3px solid #bcaaa4;
-        }
-        .cover-title {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #ffffff;
-            font-size: 4.5em;
-            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
-            text-align: center;
         }
         .navbar {
             padding: 20px 0;
@@ -50,53 +32,100 @@
             text-decoration: none;
             color: #795548;
             font-weight: bold;
+            text-transform: uppercase;
             margin: 0 20px;
         }
         .content-padding { padding: 40px; }
+        .section-title {
+            font-size: 1.8em;
+            color: #5d4037;
+            margin: 30px 0 15px;
+            text-align: left;
+            border-bottom: 1px solid #ffab91;
+        }
         .trips-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 20px;
         }
         .trip-card {
             background: #fdf6e3;
             border: 1px solid #bcaaa4;
-            padding: 20px;
-            text-align: center;
+            border-radius: 10px;
+            overflow: hidden;
             text-decoration: none;
             color: #4a3e3c;
-            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
         }
-        footer { text-align: center; padding: 30px; color: #795548; }
+        .trip-card:hover { transform: translateY(-5px); border-color: #d84315; }
+        .trip-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .trip-card h4 { padding: 10px; font-size: 1.1em; background: rgba(0,0,0,0.05); }
+        footer { text-align: center; padding: 30px; border-top: 1px dashed #bcaaa4; color: #795548; }
     </style>
 </head>
 <body>
     <div id="container">
-        <div class="cover-wrapper">
-             <h1 class="cover-title">Путевой Дневник</h1>
-        </div>
         <nav class="navbar">
             <a href="index.html">Главная</a>
             <a href="about.html">Обо мне</a>
             <a href="countries.html">Страны</a>
         </nav>
+
         <div class="content-padding">
-            <h2 style="text-align:center; margin-bottom: 20px;">Последние записи</h2>
+            <h2 class="section-title">Юго-Восточная Азия</h2>
             <div class="trips-grid">
-                <a href="thailand.html" class="trip-card">
-                    <h4>Таиланд</h4>
-                    <p>2025</p>
-                </a>
-                <a href="kyrgyzstan.html" class="trip-card">
-                    <h4>Кыргызстан</h4>
-                    <p>2025</p>
-                </a>
-                <a href="armenia.html" class="trip-card">
-                    <h4>Армения</h4>
-                    <p>2025</p>
-                </a>
+                <a href="#" class="trip-card"><img src="images/india.webp" alt="Индия"><h4>ИНДИЯ</h4></a>
+                <a href="#" class="trip-card"><img src="images/srilanka.webp" alt="Шри-Ланка"><h4>ШРИ-ЛАНКА</h4></a>
+                <a href="#" class="trip-card"><img src="images/thailand.webp" alt="Таиланд"><h4>ТАИЛАНД</h4></a>
+                <a href="#" class="trip-card"><img src="images/vietnam.webp" alt="Вьетнам"><h4>ВЬЕТНАМ</h4></a>
+                <a href="#" class="trip-card"><img src="images/cambodia.webp" alt="Камбоджа"><h4>КАМБОДЖА</h4></a>
+                <a href="#" class="trip-card"><img src="images/malaysia.webp" alt="Малайзия"><h4>МАЛАЙЗИЯ</h4></a>
+            </div>
+
+            <h2 class="section-title">Центральная Азия</h2>
+            <div class="trips-grid">
+                <a href="#" class="trip-card"><img src="images/kazakhstan.webp" alt="Казахстан"><h4>КАЗАХСТАН</h4></a>
+                <a href="#" class="trip-card"><img src="images/uzbekistan.webp" alt="Узбекистан"><h4>УЗБЕКИСТАН</h4></a>
+                <a href="#" class="trip-card"><img src="images/tajikistan.webp" alt="Таджикистан"><h4>ТАДЖИКИСТАН</h4></a>
+                <a href="#" class="trip-card"><img src="images/kyrgyzstan.webp" alt="Киргизия"><h4>КИРГИЗИЯ</h4></a>
+            </div>
+
+            <h2 class="section-title">Кавказ и Ближний Восток</h2>
+            <div class="trips-grid">
+                <a href="#" class="trip-card"><img src="images/georgia.webp" alt="Грузия"><h4>ГРУЗИЯ</h4></a>
+                <a href="#" class="trip-card"><img src="images/armenia.webp" alt="Армения"><h4>АРМЕНИЯ</h4></a>
+                <a href="#" class="trip-card"><img src="images/azerbaijan.webp" alt="Азербайджан"><h4>АЗЕРБАЙДЖАН</h4></a>
+                <a href="#" class="trip-card"><img src="images/egypt.webp" alt="Египет"><h4>ЕГИПЕТ</h4></a>
+                <a href="#" class="trip-card"><img src="images/turkey.webp" alt="Турция"><h4>ТУРЦИЯ</h4></a>
+                <a href="#" class="trip-card"><img src="images/uae.webp" alt="ОАЭ"><h4>ОАЭ</h4></a>
+                <a href="#" class="trip-card"><img src="images/lebanon.webp" alt="Ливан"><h4>ЛИВАН</h4></a>
+            </div>
+
+            <h2 class="section-title">Европа и Балканы</h2>
+            <div class="trips-grid">
+                <a href="#" class="trip-card"><img src="images/russia.webp" alt="Россия"><h4>РОССИЯ</h4></a>
+                <a href="#" class="trip-card"><img src="images/austria.webp" alt="Австрия"><h4>АВСТРИЯ</h4></a>
+                <a href="#" class="trip-card"><img src="images/spain.webp" alt="Испания"><h4>ИСПАНИЯ</h4></a>
+                <a href="#" class="trip-card"><img src="images/portugal.webp" alt="Португалия"><h4>ПОРТУГАЛИЯ</h4></a>
+                <a href="#" class="trip-card"><img src="images/serbia.webp" alt="Сербия"><h4>СЕРБИЯ</h4></a>
+                <a href="#" class="trip-card"><img src="images/bosnia.webp" alt="Босния"><h4>БОСНИЯ</h4></a>
+                <a href="#" class="trip-card"><img src="images/montenegro.webp" alt="Черногория"><h4>ЧЕРНОГОРИЯ</h4></a>
+                <a href="#" class="trip-card"><img src="images/belarus.webp" alt="Беларусь"><h4>БЕЛАРУСЬ</h4></a>
+            </div>
+
+            <h2 class="section-title">Прибалтика</h2>
+            <div class="trips-grid">
+                <a href="#" class="trip-card"><img src="images/estonia.webp" alt="Эстония"><h4>ЭСТОНИЯ</h4></a>
+                <a href="#" class="trip-card"><img src="images/latvia.webp" alt="Латвия"><h4>ЛАТВИЯ</h4></a>
+                <a href="#" class="trip-card"><img src="images/lithuania.webp" alt="Литва"><h4>ЛИТВА</h4></a>
             </div>
         </div>
+
         <footer>
             <p>Путевой Дневник &copy; 2025</p>
         </footer>
