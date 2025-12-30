@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Путевой дневник</title>
     <style>
+        /* ОСНОВНЫЕ СТИЛИ */
         body {
-            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background-color: #f4f7f9;
             margin: 0;
             padding: 0;
@@ -40,7 +41,7 @@
             letter-spacing: 1px;
         }
 
-        /* ФОТО НА ВСЮ ШИРИНУ */
+        /* ПОЛНОШИРИННЫЙ БАННЕР */
         .hero {
             width: 100%;
             height: 40vh;
@@ -78,139 +79,150 @@
         .hero h1 {
             font-size: 2.5rem;
             margin: 0;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
 
-        /* ЗАГОЛОВОК СЕКЦИИ */
+        /* ЗАГОЛОВКИ СЕКЦИЙ */
         .section-header {
             width: 100%;
             max-width: 1100px;
-            padding: 30px 20px 10px;
+            padding: 40px 20px 20px;
             box-sizing: border-box;
         }
 
         .section-header h2 {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
+            margin: 0;
             color: #222;
             border-left: 5px solid #007bff;
             padding-left: 15px;
-            margin: 0;
         }
 
-        /* СЕТКА КАРТОЧЕК (2 В РЯД) */
+        /* СЕТКА КАРТОЧЕК */
         .container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
             width: 100%;
             max-width: 1100px;
-            padding: 15px 15px 40px;
+            padding: 0 15px 40px;
             box-sizing: border-box;
         }
 
         @media (min-width: 768px) {
             .container { grid-template-columns: repeat(3, 1fr); gap: 30px; }
             .hero { height: 60vh; }
-            .hero h1 { font-size: 4rem; }
+            .hero h1 { font-size: 4.5rem; }
         }
 
-        /* КАРТОЧКИ БЕЗ ОБРЕЗКИ ФОТО */
+        /* ИСПРАВЛЕННЫЕ КАРТОЧКИ (Чтобы фото не обрезалось) */
         .trip-card {
             background: white;
             text-decoration: none;
             color: inherit;
-            border-radius: 12px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             display: flex;
             flex-direction: column;
         }
 
         .trip-card img {
             width: 100%;
-            height: auto; /* Автоматическая высота */
-            max-height: 250px; 
+            height: auto; /* Позволяет фото сохранять пропорции */
+            aspect-ratio: 4 / 3; /* Задает аккуратное соотношение сторон */
             object-fit: contain; /* ПОКАЗЫВАЕТ ФОТО ЦЕЛИКОМ */
-            background-color: #eee; /* Фон, если фото не на всю карточку */
+            background-color: #f0f0f0; /* Серый фон, если фото меньше карточки */
         }
 
         .trip-card-info {
-            padding: 12px;
-            background: white;
+            padding: 15px;
         }
 
-        .trip-card h4 { margin: 0; font-size: 1rem; }
-        .trip-card p { margin: 5px 0 0; font-size: 0.8rem; color: #777; }
+        .trip-card h4 {
+            margin: 0 0 5px;
+            font-size: 1.1rem;
+        }
 
-        /* ОБ АВТОРЕ (БЕЗ ФОТО) */
-        .about-section {
+        .trip-card p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        /* БЛОК ОБ АВТОРЕ (БЕЗ ФОТО) */
+        .about-me {
             width: 100%;
             max-width: 1100px;
-            padding: 30px 20px;
+            padding: 40px 20px;
+            background: white;
+            border-radius: 20px;
+            margin-bottom: 50px;
             box-sizing: border-box;
+            text-align: center;
         }
 
-        .about-box {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
+        .about-text h3 { margin: 0 0 10px; font-size: 1.5rem; }
+        .about-text p { margin: 0; color: #555; line-height: 1.6; max-width: 700px; margin: 0 auto; }
 
         /* СТАТИСТИКА */
         .stats {
             width: 100%;
             background: #fff;
-            padding: 40px 20px;
+            padding: 60px 20px;
             display: flex;
             justify-content: center;
-            gap: 30px;
-            margin-top: 20px;
+            gap: 40px;
+            border-top: 1px solid #eee;
+            box-sizing: border-box;
         }
 
         .stat-item { text-align: center; }
-        .stat-item b { display: block; font-size: 1.8rem; color: #007bff; }
-        .stat-item span { font-size: 0.7rem; color: #999; text-transform: uppercase; }
+        .stat-item b { display: block; font-size: 2rem; color: #007bff; }
+        .stat-item span { font-size: 0.8rem; color: #888; text-transform: uppercase; }
 
         /* ПОДПИСКА */
         .subscribe {
             width: 100%;
             background: #007bff;
             color: white;
-            padding: 50px 20px;
+            padding: 60px 20px;
             text-align: center;
             box-sizing: border-box;
         }
 
         .subscribe-form {
-            margin-top: 15px;
+            margin-top: 20px;
             display: flex;
             justify-content: center;
             gap: 10px;
+            flex-wrap: wrap;
         }
 
         .subscribe input {
-            padding: 12px;
-            border-radius: 25px;
+            padding: 15px 20px;
+            border-radius: 30px;
             border: none;
-            width: 200px;
+            width: 100%;
+            max-width: 300px;
+            font-size: 1rem;
         }
 
         .subscribe button {
-            padding: 12px 25px;
-            border-radius: 25px;
+            padding: 15px 35px;
+            border-radius: 30px;
             border: none;
             background: #222;
             color: white;
-            font-weight: bold;
+            font-weight: 700;
             cursor: pointer;
         }
 
         footer {
             width: 100%;
             background: #111;
-            color: #555;
-            padding: 25px;
+            color: #666;
+            padding: 30px;
             text-align: center;
         }
     </style>
@@ -228,6 +240,7 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>Путевой дневник</h1>
+            <p>Коллекционирую закаты и впечатления</p>
         </div>
     </div>
 
@@ -261,10 +274,14 @@
         </a>
     </div>
 
-    <div class="about-section">
-        <div class="about-box">
-            <h3>О проекте</h3>
-            <p>Добро пожаловать в мой личный блог о путешествиях. Здесь я делюсь фотографиями и историями из поездок по самым разным уголкам мира.</p>
+    <div class="section-header">
+        <h2>Обо мне</h2>
+    </div>
+    
+    <div class="about-me">
+        <div class="about-text">
+            <h3>Привет, я путешественник!</h3>
+            <p>Я веду этот дневник, чтобы сохранить моменты из своих поездок. Каждая страна — это новая история, и я рад поделиться ими с вами. Люблю горы, море и местную уличную еду.</p>
         </div>
     </div>
 
@@ -275,9 +292,10 @@
     </div>
 
     <div class="subscribe">
-        <h3>Подпишитесь на новости</h3>
+        <h3>Присоединяйтесь к приключениям</h3>
+        <p>Получайте уведомления о новых отчетах</p>
         <div class="subscribe-form">
-            <input type="email" placeholder="Email">
+            <input type="email" placeholder="Ваш Email">
             <button>ОК</button>
         </div>
     </div>
