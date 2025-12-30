@@ -5,39 +5,117 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Путевой дневник</title>
     <style>
-        body { font-family: 'Georgia', serif; background-color: #e3d4b6; color: #4a3e3c; margin: 0; padding: 20px; }
-        #container { max-width: 1000px; margin: 0 auto; background: #fffaf0; border: 5px double #bcaaa4; border-radius: 8px; overflow: hidden; }
-        .navbar { padding: 20px; text-align: center; border-bottom: 2px dotted #bcaaa4; }
-        .navbar a { text-decoration: none; color: #795548; font-weight: bold; margin: 0 15px; }
-        .content { padding: 40px; text-align: center; }
-        .trips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 20px; }
-        .trip-card { background: #fdf6e3; border: 1px solid #bcaaa4; padding: 15px; border-radius: 10px; text-decoration: none; color: inherit; }
-        .trip-card img { width: 100%; border-radius: 8px; }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        /* Стиль для баннера */
+        .banner {
+            width: 100%;
+            max-width: 1000px;
+            margin-bottom: 30px;
+        }
+
+        .banner img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Контейнер для карточек */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        /* Стиль карточек */
+        .trip-card {
+            background: white;
+            text-decoration: none;
+            color: inherit;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .trip-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .trip-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .trip-card-content {
+            padding: 15px;
+        }
+
+        .trip-card h4 {
+            margin: 0 0 5px 0;
+            font-size: 1.2rem;
+            color: #222;
+        }
+
+        .trip-card p {
+            margin: 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
-    <div id="container">
-        <nav class="navbar">
-            <a href="index.html">ГЛАВНАЯ</a>
-            <a href="countries.html">СТРАНЫ</a>
-        </nav>
-        <div class="content">
-            <h1>Путевой Дневник</h1>
-            <div class="trips-grid">
-                <a href="#" class="trip-card">
-                    <img src="images/istanbul.webp" alt="Стамбул">
-                    <h4>Стамбул</h4>
-                </a>
-                <a href="#" class="trip-card">
-                    <img src="images/bishkek.webp" alt="Бишкек">
-                    <h4>Бишкек</h4>
-                </a>
-                <a href="#" class="trip-card">
-                    <img src="images/armenia.webp" alt="Ереван">
-                    <h4>Ереван</h4>
-                </a>
-            </div>
-        </div>
+
+    <h1>Путевой дневник</h1>
+
+    <div class="banner">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?fm=jpg&q=80&w=2000" alt="Тропический пляж">
     </div>
+
+    <div class="container">
+
+        <a href="#" class="trip-card">
+            <img src="images/istanbul.webp" alt="Стамбул">
+            <div class="trip-card-content">
+                <h4>Стамбул</h4>
+                <p>Турция | 2025</p>
+            </div>
+        </a>
+
+        <a href="#" class="trip-card">
+            <img src="images/bishkek.webp" alt="Бишкек">
+            <div class="trip-card-content">
+                <h4>Бишкек</h4>
+                <p>Киргизия | 2024</p>
+            </div>
+        </a>
+
+        <a href="#" class="trip-card">
+            <img src="images/armenia.webp" alt="Армения">
+            <div class="trip-card-content">
+                <h4>Ереван</h4>
+                <p>Армения | 2024</p>
+            </div>
+        </a>
+
+    </div>
+
 </body>
 </html>
