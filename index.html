@@ -49,7 +49,7 @@
             color: #222;
         }
 
-        /* Стиль для баннера - УМЕНЬШЕН В 2 РАЗА ПО ВЕРТИКАЛИ */
+        /* Стиль для баннера */
         .banner {
             width: 100%;
             max-width: 1100px;
@@ -60,7 +60,7 @@
 
         .banner img {
             width: 100%;
-            height: 125px; /* Было 250px, теперь 125px для мобильных */
+            height: 125px; 
             object-fit: cover;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -84,14 +84,14 @@
             margin: 0;
         }
 
-        /* Контейнер для карточек - СТРОГО 2 В РЯД */
+        /* Контейнер для карточек */
         .container {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Ровно две колонки */
+            grid-template-columns: 1fr 1fr;
             gap: 10px;
             width: 100%;
             max-width: 1100px;
-            padding: 0 10px 40px 10px;
+            padding: 0 10px 30px 10px;
             box-sizing: border-box;
         }
 
@@ -101,12 +101,9 @@
                 grid-template-columns: repeat(3, 1fr);
                 gap: 20px;
             }
-            .banner img { 
-                height: 350px; /* На ПК оставляем крупным или по желанию */
-            }
+            .banner img { height: 350px; }
             h1 { font-size: 2.5rem; }
             .section-title h2 { font-size: 1.8rem; }
-            nav a { font-size: 0.9rem; gap: 30px; }
         }
 
         /* Стиль карточек */
@@ -123,7 +120,7 @@
 
         .trip-card img {
             width: 100%;
-            height: 100px; /* Высота фото в маленькой карточке */
+            height: 100px;
             object-fit: cover;
         }
 
@@ -147,10 +144,67 @@
             font-size: 0.7rem;
         }
 
-        @media (min-width: 768px) {
-            .trip-card-content { padding: 15px; }
-            .trip-card h4 { font-size: 1.2rem; }
-            .trip-card p { font-size: 0.9rem; }
+        /* Кнопка "Смотреть все" */
+        .btn-all {
+            margin: 10px 0 40px 0;
+            padding: 12px 25px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .btn-all:hover {
+            background-color: #0056b3;
+        }
+
+        /* Блок статистики */
+        .stats {
+            width: 100%;
+            background-color: #f0f4f8;
+            padding: 30px 10px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .stat-item b {
+            display: block;
+            font-size: 1.5rem;
+            color: #007bff;
+        }
+
+        .stat-item span {
+            font-size: 0.8rem;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        /* Подвал */
+        footer {
+            width: 100%;
+            background-color: #222;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .social-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .footer-text {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #888;
         }
     </style>
 </head>
@@ -175,7 +229,6 @@
     </div>
 
     <div class="container">
-
         <a href="#" class="trip-card">
             <img src="images/istanbul.webp" alt="Стамбул">
             <div class="trip-card-content">
@@ -199,8 +252,33 @@
                 <p>Армения | 2024</p>
             </div>
         </a>
-
     </div>
+
+    <a href="countries.html" class="btn-all">Смотреть все страны</a>
+
+    <div class="stats">
+        <div class="stat-item">
+            <b>12</b>
+            <span>Стран</span>
+        </div>
+        <div class="stat-item">
+            <b>48</b>
+            <span>Городов</span>
+        </div>
+        <div class="stat-item">
+            <b>3</b>
+            <span>Года в пути</span>
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-links">
+            <a href="#">Instagram</a>
+            <a href="#">Telegram</a>
+            <a href="#">YouTube</a>
+        </div>
+        <p class="footer-text">© 2025 Путевой Дневник. Все права защищены.</p>
+    </footer>
 
 </body>
 </html>
