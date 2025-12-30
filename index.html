@@ -5,48 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Путевой дневник</title>
     <style>
+        /* ОСНОВНЫЕ СТИЛИ */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f7f9;
             margin: 0;
             padding: 0;
+            color: #333;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* Навигация поверх фото */
+        /* НАВИГАЦИЯ */
         nav {
             width: 100%;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.95);
             padding: 15px 0;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             position: sticky;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(5px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            backdrop-filter: blur(10px);
         }
 
         nav a {
             text-decoration: none;
-            color: #333;
+            color: #444;
             font-weight: 600;
             text-transform: uppercase;
             font-size: 0.8rem;
             letter-spacing: 1px;
+            transition: color 0.3s;
         }
 
-        /* ПОЛНОЭКРАННЫЙ БАННЕР */
+        nav a:hover { color: #007bff; }
+
+        /* ПОЛНОШИРИННЫЙ БАННЕР (HERO) */
         .hero {
             width: 100%;
-            height: 40vh; /* Занимает 40% высоты экрана */
+            height: 50vh; /* Половина высоты экрана */
             position: relative;
-            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: white;
+            text-align: center;
         }
 
         .hero img {
@@ -56,46 +63,53 @@
             position: absolute;
             top: 0;
             left: 0;
+            z-index: -1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.3); /* Затемнение фото для читаемости текста */
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
             z-index: 1;
         }
 
-        /* Текст поверх фото */
-        .hero-text {
-            position: relative;
-            z-index: 2;
-            color: white;
-            text-align: center;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-        }
-
-        .hero-text h1 {
-            font-size: 2.5rem;
+        .hero h1 {
+            font-size: 3rem;
             margin: 0;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
 
-        .hero-text p {
-            font-size: 1.1rem;
-            font-weight: 300;
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            opacity: 0.9;
         }
 
-        /* Секции */
-        .section-title {
+        /* ЗАГОЛОВКИ СЕКЦИЙ */
+        .section-header {
             width: 100%;
             max-width: 1100px;
-            padding: 30px 20px 15px;
+            padding: 40px 20px 20px;
             box-sizing: border-box;
         }
 
-        .section-title h2 {
-            font-size: 1.5rem;
-            color: #222;
+        .section-header h2 {
+            font-size: 1.8rem;
             margin: 0;
+            color: #222;
+            border-left: 5px solid #007bff;
+            padding-left: 15px;
         }
 
-        /* Сетка карточек (2 в ряд для мобильных) */
+        /* СЕТКА КАРТОЧЕК (2 В РЯД НА МОБИЛЬНЫХ) */
         .container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr; /* 2 колонки всегда */
             gap: 15px;
             width: 100%;
             max-width: 1100px;
@@ -104,95 +118,141 @@
         }
 
         @media (min-width: 768px) {
-            .container { grid-template-columns: repeat(3, 1fr); gap: 25px; }
+            .container { grid-template-columns: repeat(3, 1fr); gap: 30px; }
             .hero { height: 60vh; }
-            .hero-text h1 { font-size: 4rem; }
+            .hero h1 { font-size: 4.5rem; }
         }
 
-        /* Карточки */
+        /* СТИЛЬ КАРТОЧЕК (ИСПРАВЛЕНО ОБРЕЗАНИЕ) */
         .trip-card {
             background: white;
             text-decoration: none;
             color: inherit;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .trip-card:hover { transform: translateY(-5px); }
-
-        .trip-card img { width: 100%; height: 120px; object-fit: cover; }
-
-        @media (min-width: 768px) { .trip-card img { height: 220px; } }
-
-        .trip-card-content { padding: 12px; }
-        .trip-card h4 { margin: 0; font-size: 1rem; }
-        .trip-card p { margin: 5px 0 0; color: #777; font-size: 0.8rem; }
-
-        /* Кнопка */
-        .btn-all {
-            margin: 0 0 50px;
-            padding: 14px 30px;
-            background: #222;
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
+        .trip-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
         }
 
-        /* Статистика */
+        .trip-card img {
+            width: 100%;
+            height: 180px; /* Увеличил высоту, чтобы не было сильного обрезания */
+            object-fit: cover;
+            display: block;
+        }
+
+        .trip-card-info {
+            padding: 15px;
+        }
+
+        .trip-card h4 {
+            margin: 0 0 5px;
+            font-size: 1.1rem;
+        }
+
+        .trip-card p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        /* БЛОК ОБ АВТОРЕ */
+        .about-me {
+            width: 100%;
+            max-width: 1100px;
+            padding: 40px 20px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: white;
+            border-radius: 20px;
+            margin-bottom: 50px;
+            box-sizing: border-box;
+        }
+
+        .about-me img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #f0f4f8;
+        }
+
+        .about-text h3 { margin: 0 0 10px; font-size: 1.5rem; }
+        .about-text p { margin: 0; color: #555; line-height: 1.6; }
+
+        @media (max-width: 600px) {
+            .about-me { flex-direction: column; text-align: center; }
+        }
+
+        /* СТАТИСТИКА */
         .stats {
             width: 100%;
             background: #fff;
-            padding: 50px 20px;
+            padding: 60px 20px;
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 40px;
             border-top: 1px solid #eee;
+            box-sizing: border-box;
         }
 
         .stat-item { text-align: center; }
-        .stat-item b { display: block; font-size: 1.8rem; color: #333; }
-        .stat-item span { font-size: 0.7rem; color: #999; text-transform: uppercase; }
+        .stat-item b { display: block; font-size: 2rem; color: #007bff; }
+        .stat-item span { font-size: 0.8rem; color: #888; text-transform: uppercase; }
 
-        /* НОВОЕ: Блок подписки */
+        /* ПОДПИСКА */
         .subscribe {
             width: 100%;
-            padding: 60px 20px;
             background: #007bff;
             color: white;
+            padding: 60px 20px;
             text-align: center;
             box-sizing: border-box;
         }
 
-        .subscribe h3 { margin-top: 0; }
+        .subscribe-form {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
 
         .subscribe input {
-            padding: 12px;
-            border-radius: 25px;
+            padding: 15px 20px;
+            border-radius: 30px;
             border: none;
-            width: 250px;
-            margin-right: 10px;
+            width: 100%;
+            max-width: 300px;
+            font-size: 1rem;
         }
 
         .subscribe button {
-            padding: 12px 25px;
-            border-radius: 25px;
+            padding: 15px 35px;
+            border-radius: 30px;
             border: none;
             background: #222;
             color: white;
+            font-weight: 700;
             cursor: pointer;
-            font-weight: 600;
+            transition: background 0.3s;
         }
+
+        .subscribe button:hover { background: #444; }
 
         footer {
             width: 100%;
             background: #111;
-            color: white;
-            padding: 40px;
+            color: #666;
+            padding: 30px;
             text-align: center;
-            box-sizing: border-box;
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -205,58 +265,73 @@
     </nav>
 
     <div class="hero">
-        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?fm=jpg&q=80&w=2000" alt="Ocean">
-        <div class="hero-text">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?fm=jpg&q=80&w=2000" alt="Пляж">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
             <h1>Путевой дневник</h1>
-            <p>Мои приключения по всему миру</p>
+            <p>Коллекционирую закаты и впечатления</p>
         </div>
     </div>
 
-    <div class="section-title">
+    <div class="section-header">
         <h2>Последние записи</h2>
     </div>
 
     <div class="container">
         <a href="#" class="trip-card">
             <img src="images/istanbul.webp" alt="Стамбул">
-            <div class="trip-card-content">
+            <div class="trip-card-info">
                 <h4>Стамбул</h4>
                 <p>Турция | 2025</p>
             </div>
         </a>
+
         <a href="#" class="trip-card">
             <img src="images/bishkek.webp" alt="Бишкек">
-            <div class="trip-card-content">
+            <div class="trip-card-info">
                 <h4>Бишкек</h4>
                 <p>Киргизия | 2024</p>
             </div>
         </a>
+
         <a href="#" class="trip-card">
             <img src="images/armenia.webp" alt="Армения">
-            <div class="trip-card-content">
+            <div class="trip-card-info">
                 <h4>Ереван</h4>
                 <p>Армения | 2024</p>
             </div>
         </a>
     </div>
 
-    <a href="countries.html" class="btn-all">Все направления</a>
+    <div class="section-header">
+        <h2>Обо мне</h2>
+    </div>
+    
+    <div class="about-me">
+        <img src="https://i.pravatar.cc/150?u=traveler" alt="Автор">
+        <div class="about-text">
+            <h3>Привет, я путешественник!</h3>
+            <p>Я веду этот дневник, чтобы сохранить моменты из своих поездок. Каждая страна — это новая история, и я рад поделиться ими с вами. Люблю горы, море и местную уличную еду.</p>
+        </div>
+    </div>
 
     <div class="stats">
-        <div class="stat-item"><b>12</b><span>Стран</span></div>
-        <div class="stat-item"><b>48</b><span>Городов</span></div>
-        <div class="stat-item"><b>3</b><span>Года</span></div>
+        <div class="stat-item"><b>15</b><span>Стран</span></div>
+        <div class="stat-item"><b>52</b><span>Города</span></div>
+        <div class="stat-item"><b>340</b><span>Фото</span></div>
     </div>
 
     <div class="subscribe">
-        <h3>Хотите получать анонсы новых поездок?</h3>
-        <p>Оставьте свой Email, и я напишу вам!</p>
-        <input type="email" placeholder="Ваш Email">
-        <button>Подписаться</button>
+        <h3>Присоединяйтесь к приключениям</h3>
+        <p>Получайте уведомления о новых отчетах раз в месяц</p>
+        <div class="subscribe-form">
+            <input type="email" placeholder="Ваш Email">
+            <button>ОК</button>
+        </div>
     </div>
 
     <footer>
-        <p>© 2025 Путевой Дневник</p>
+        <p>© 2025 Мой Travel Blog. Создано с любовью к миру.</p>
     </footer>
 
 </body>
