@@ -5,19 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* ОСНОВНЫЕ НАСТРОЙКИ */
+        /* БАЗОВЫЕ СТИЛИ */
+        * {
+            box-sizing: border-box;
+        }
+
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
             width: 100%;
             background-color: #000;
-            font-family: 'Arial Black', 'Arial', sans-serif;
+            font-family: 'Arial Black', sans-serif;
             color: #fff;
-            overflow: hidden; /* Убираем прокрутку, чтобы ничего не двоилось */
+            overflow: hidden; /* Чтобы не было прокрутки и задвоений */
         }
 
-        /* ФОНОВОЕ ИЗОБРАЖЕНИЕ */
+        /* ФОН (ГЛАВНЫЙ ЭКРАН) */
         .hero {
             position: relative;
             height: 100vh;
@@ -26,10 +30,14 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            /* Исправляем задвоение: center/cover и no-repeat */
-            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), 
-                        url('bg.jpg') no-repeat center center;
-            background-size: cover; 
+            
+            /* ПРАВИЛЬНЫЙ ПУТЬ К ФОТО */
+            /* Убедитесь, что ваше фото называется bg.jpg и лежит рядом с этим файлом */
+            background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('bg.jpg');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover; /* Растягивает фото на весь экран без дырок */
+            
             text-align: center;
         }
 
@@ -58,20 +66,18 @@
             position: relative;
             z-index: 2;
             width: 90%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            max-width: 800px;
         }
 
-        /* УВЕЛИЧЕННЫЙ ЗАГОЛОВОК */
+        /* ЗАГОЛОВОК (УВЕЛИЧЕННЫЙ) */
         h1 {
-            font-size: 80px; /* Размер для ПК */
+            font-size: 85px; /* Размер для компьютера */
             line-height: 0.85;
             margin: 0 0 30px 0;
             text-transform: uppercase;
             letter-spacing: -2px;
             font-weight: 900;
-            text-shadow: 0 5px 20px rgba(0,0,0,0.8);
+            text-shadow: 0 5px 25px rgba(0,0,0,0.8);
         }
 
         /* КНОПКИ */
@@ -83,7 +89,7 @@
         }
 
         .btn {
-            padding: 10px 45px;
+            padding: 12px 50px;
             border: 2px solid #fff;
             background: transparent;
             color: #fff;
@@ -94,37 +100,38 @@
             transition: 0.2s;
         }
 
-        /* ОПИСАНИЕ (ВЕРХНЕЕ) */
+        .btn:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        /* ОПИСАНИЕ (БЕЗ ЛИШНЕГО ТЕКСТА ВНИЗУ) */
         .description {
-            font-family: 'Arial', sans-serif;
-            font-size: 16px;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
             line-height: 1.4;
-            max-width: 500px;
+            max-width: 550px;
             margin: 0 auto;
             color: #fff;
-            text-shadow: 1px 1px 10px rgba(0,0,0,0.9);
+            text-shadow: 1px 1px 10px rgba(0,0,0,1);
         }
 
         /* АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНА */
         @media (max-width: 600px) {
             h1 { 
-                font-size: 75px; /* Увеличили шрифт на телефоне */
+                font-size: 70px; /* Крупный шрифт на телефоне */
                 margin-bottom: 25px;
             }
             .btn {
-                padding: 12px 40px;
-                font-size: 22px; /* Кнопки покрупнее для пальца */
+                padding: 12px 35px;
+                font-size: 20px;
             }
             .description {
                 font-size: 15px;
-                padding: 0 10px;
+                padding: 0 15px;
             }
             nav {
-                top: 20px;
-                gap: 20px;
-            }
-            nav a {
-                font-size: 12px;
+                top: 25px;
             }
         }
     </style>
