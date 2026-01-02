@@ -2,117 +2,100 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Обнуление и базовые настройки */
-        * {
+        /* Общие стили */
+        body, html {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        body, html {
             height: 100%;
+            font-family: 'Arial Black', Gadget, sans-serif;
             background-color: #000;
             color: #fff;
-            font-family: 'Arial Black', 'Arial', sans-serif;
-            /* Убираем горизонтальный скролл */
-            overflow-x: hidden; 
-        }
-
-        /* Фоновое изображение hero2.jpg */
-        .hero-section {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('images/hero2.jpg') no-repeat center center;
-            background-size: cover;
-            z-index: 1;
-        }
-
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: 2;
         }
 
         /* Навигация */
         nav {
             position: absolute;
-            top: 0;
+            top: 20px;
             width: 100%;
-            padding: 20px;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 30px;
             z-index: 10;
         }
 
         nav a {
-            color: rgba(255, 255, 255, 0.6);
             text-decoration: none;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
             text-transform: uppercase;
-            font-size: 0.7rem;
             letter-spacing: 2px;
+            transition: 0.3s;
         }
 
-        /* Контентная часть */
-        .content {
+        nav a:hover {
+            color: #fff;
+        }
+
+        /* Главный экран */
+        .hero {
             position: relative;
-            z-index: 3;
+            height: 100vh;
             width: 100%;
-            padding: 0 20px; /* Отступы по бокам, чтобы текст не лип к краям */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            background: url('https://images.unsplash.com/photo-1536939459926-301728717817?q=80&w=2070') no-repeat center center/cover;
         }
 
-        /* ГЛАВНЫЙ ТЕКСТ - Исправленный для мобильных */
+        /* Затемнение фона для читаемости */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        /* Заголовок ЕМ ПЬЮ ХОЖУ */
         h1 {
-            /* Используем vw для гибкости и ставим лимит через clamp */
-            font-size: clamp(3rem, 18vw, 8rem); 
+            font-size: 80px;
             line-height: 0.9;
+            margin: 0 0 40px 0;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 30px;
+            letter-spacing: -2px;
             font-weight: 900;
-            word-wrap: break-word; /* Перенос слова, если оно слишком длинное */
-            text-shadow: 0 5px 15px rgba(0,0,0,0.7);
         }
 
-        /* Кнопки */
+        /* Кнопки Я / ОНИ */
         .btn-container {
             display: flex;
-            gap: 15px;
             justify-content: center;
-            margin-bottom: 30px;
-            flex-wrap: wrap; /* Кнопки встанут друг под друга на очень узких экранах */
+            gap: 20px;
+            margin-bottom: 40px;
         }
 
         .btn {
-            min-width: 120px;
-            padding: 12px 30px;
+            padding: 12px 50px;
             border: 2px solid #fff;
+            background: transparent;
             color: #fff;
-            text-decoration: none;
-            font-size: 1.1rem;
             text-transform: uppercase;
+            font-size: 20px;
             font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
             transition: 0.3s;
         }
 
@@ -123,48 +106,41 @@
 
         /* Описание */
         .description {
-            max-width: 500px;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-size: 18px;
+            line-height: 1.4;
+            max-width: 600px;
             margin: 0 auto;
-            font-family: 'Helvetica', sans-serif;
-            font-size: clamp(0.9rem, 4vw, 1.2rem);
-            line-height: 1.5;
-            color: rgba(255,255,255,0.8);
+            font-weight: normal;
         }
 
-        /* Тонкая настройка для самых маленьких экранов (iPhone SE и т.д.) */
-        @media (max-width: 380px) {
-            h1 {
-                font-size: 15vw;
-                letter-spacing: 1px;
-            }
-            nav {
-                gap: 10px;
-            }
+        /* Адаптивность для мобильных */
+        @media (max-width: 600px) {
+            h1 { font-size: 50px; }
+            .btn { padding: 10px 30px; font-size: 18px; }
+            .description { font-size: 16px; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="index.html">Главная</a>
+        <a href="#">Главная</a>
         <a href="#">Обо мне</a>
-        <a href="countries.html">Страны</a>
+        <a href="#">Страны</a>
     </nav>
 
-    <div class="hero-section">
-        <div class="hero-bg"></div>
-        <div class="overlay"></div>
-
-        <div class="content">
+    <div class="hero">
+        <div class="hero-content">
             <h1>ЕМ<br>ПЬЮ<br>ХОЖУ</h1>
-
+            
             <div class="btn-container">
                 <a href="#" class="btn">Я</a>
                 <a href="#" class="btn">ОНИ</a>
             </div>
 
             <p class="description">
-                Только то, что было на моем столе в разных точках мира. Без рецептов и лишних слов.
+                Рецептов не будет. Советов тоже. Только факт того, что было на моем столе в разных точках мира. Я прошел этот путь сам.
             </p>
         </div>
     </div>
