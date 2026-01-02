@@ -53,22 +53,22 @@
             gap: 15px 50px;
         }
 
-        .country-block { margin-bottom: 8px; }
-
+        /* УРОВЕНЬ 1: СТРАНА */
+        .country-block { margin-bottom: 10px; }
         .country-btn {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: #bbb;
             border-left: 2px solid transparent;
-            padding: 6px 15px;
+            padding: 8px 15px;
             cursor: pointer;
             transition: 0.3s;
         }
-
         .country-btn:hover { color: #fff; border-left: 2px solid #555; }
         .country-block.active > .country-btn { color: #fff; border-left: 2px solid #fff; font-weight: bold; }
 
+        /* УРОВЕНЬ 2: ГОРОДА */
         .cities-list {
             max-height: 0;
             overflow: hidden;
@@ -77,40 +77,40 @@
             padding: 0;
             margin-left: 20px;
         }
+        .country-block.active > .cities-list { max-height: 3000px; padding-top: 10px; }
 
-        .country-block.active > .cities-list { max-height: 2000px; padding-top: 10px; }
-
-        .city-block { margin-bottom: 5px; }
-
+        .city-block { margin-bottom: 8px; }
         .city-btn {
-            font-size: 0.9rem;
-            color: #666;
-            padding: 5px 10px;
+            font-size: 0.95rem;
+            color: #888;
+            padding: 5px 12px;
             cursor: pointer;
-            border-left: 1px solid #222;
+            border-left: 1px solid #333;
             transition: 0.3s;
         }
+        .city-btn:hover { color: #fff; background: rgba(255,255,255,0.05); }
+        .city-block.active > .city-btn { color: #fff; border-left: 1px solid #fff; font-weight: bold; }
 
-        .city-btn:hover { color: #aaa; background: rgba(255,255,255,0.03); }
-        .city-block.active > .city-btn { color: #fff; border-left: 1px solid #fff; }
-
+        /* УРОВЕНЬ 3: МЕНЮ (МАТРЕШКА) */
         .details-list {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-in-out;
             list-style: none;
             padding: 0;
-            margin-left: 20px;
+            margin-left: 25px;
         }
-
-        .city-block.active > .details-list { max-height: 200px; padding: 5px 0; }
+        .city-block.active > .details-list { max-height: 500px; padding: 5px 0 10px 0; }
 
         .detail-item {
-            font-size: 0.8rem;
-            color: #444;
-            padding: 3px 10px;
-            text-transform: lowercase;
+            font-size: 0.85rem;
+            color: #555;
+            padding: 4px 10px;
+            border-left: 1px dashed #222;
+            cursor: pointer;
+            transition: 0.2s;
         }
+        .detail-item:hover { color: #aaa; }
 
         @media (max-width: 650px) {
             .countries-grid { grid-template-columns: 1fr; }
@@ -122,90 +122,93 @@
     <nav>
         <a href="index.html">Главная</a>
         <a href="countries.html">Страны</a>
-        <a href="#">Обо мне</a>
     </nav>
-
-    <div class="region-section">
-        <div class="region-title">Азия</div>
-        <div class="countries-grid">
-            <div class="country-block">
-                <div class="country-btn">Тайланд</div>
-                <div class="cities-list">
-                    <div class="city-block"><div class="city-btn">Бангкок</div><div class="details-list"><div class="detail-item">Фото</div><div class="detail-item">Заметки</div></div></div>
-                    <div class="city-block"><div class="city-btn">Пхукет</div><div class="details-list"><div class="detail-item">Фото</div></div></div>
-                </div>
-            </div>
-            <div class="country-block"><div class="country-btn">Вьетнам</div><div class="cities-list"><div class="city-block"><div class="city-btn">Ханой</div><div class="details-list"><div class="detail-item">Фото</div></div></div></div></div>
-            <div class="country-block"><div class="country-btn">Индия</div><div class="cities-list"><div class="city-block"><div class="city-btn">Дели</div><div class="details-list"><div class="detail-item">Фото</div></div></div></div></div>
-            <div class="country-block"><div class="country-btn">Малайзия</div><div class="cities-list"><div class="city-block"><div class="city-btn">Куала-Лумпур</div><div class="details-list"><div class="detail-item">Фото</div></div></div></div></div>
-            <div class="country-block"><div class="country-btn">Шри-Ланка</div><div class="cities-list"><div class="city-block"><div class="city-btn">Коломбо</div><div class="details-list"><div class="detail-item">Фото</div></div></div></div></div>
-            <div class="country-block"><div class="country-btn">Камбоджа</div><div class="cities-list"><div class="city-block"><div class="city-btn">Пномпень</div><div class="details-list"><div class="detail-item">Фото</div></div></div></div></div>
-            <div class="country-block"><div class="country-btn">Индонезия</div><div class="cities-list"><div class="city-block"><div class="city-btn">Бали</div><div class="details-list"><div class="detail-item">Фото</div></div></div></div></div>
-            <div class="country-block"><div class="country-btn">Филиппины</div><div class="cities-list"><div class="city-block"><div class="city-btn">Манила</div><div class="details-list"><div class="detail-item">Фото</div></div></div></div></div>
-            <div class="country-block"><div class="country-btn">Китай</div><div class="cities-list"><div class="city-block"><div class="city-btn">Пекин</div><div class="details-list"><div class="detail-item">Фото</div></div></div></div></div>
-        </div>
-    </div>
 
     <div class="region-section">
         <div class="region-title">Ближний Восток и СНГ</div>
         <div class="countries-grid">
-            <div class="country-block">
-                <div class="country-btn">Россия</div>
-                <div class="cities-list">
-                    <div class="city-block"><div class="city-btn">Москва</div><div class="details-list"><div class="detail-item">Фото</div></div></div>
-                    <div class="city-block"><div class="city-btn">Сочи</div><div class="details-list"><div class="detail-item">Фото</div></div></div>
-                </div>
-            </div>
+            
             <div class="country-block">
                 <div class="country-btn">Беларусь</div>
                 <div class="cities-list">
-                    <div class="city-block"><div class="city-btn">Минск</div><div class="details-list"><div class="detail-item">Фото</div></div></div>
-                    <div class="city-block"><div class="city-btn">Гродно</div><div class="details-list"><div class="detail-item">Фото</div></div></div>
-                    <div class="city-block"><div class="city-btn">Брест</div><div class="details-list"><div class="detail-item">Фото</div></div></div>
+                    <div class="city-block">
+                        <div class="city-btn">Минск</div>
+                        <div class="details-list">
+                            <div class="detail-item">Блюда</div>
+                            <div class="detail-item">Пиво</div>
+                            <div class="detail-item">Водка</div>
+                            <div class="detail-item">Хожу</div>
+                        </div>
+                    </div>
+                    <div class="city-block">
+                        <div class="city-btn">Гродно</div>
+                        <div class="details-list">
+                            <div class="detail-item">Блюда</div>
+                            <div class="detail-item">Пиво</div>
+                            <div class="detail-item">Водка</div>
+                            <div class="detail-item">Хожу</div>
+                        </div>
+                    </div>
+                    <div class="city-block">
+                        <div class="city-btn">Брест</div>
+                        <div class="details-list">
+                            <div class="detail-item">Блюда</div>
+                            <div class="detail-item">Пиво</div>
+                            <div class="detail-item">Хожу</div>
+                        </div>
+                    </div>
+                    <div class="city-block">
+                        <div class="city-btn">Витебск</div>
+                        <div class="details-list">
+                            <div class="detail-item">Блюда</div>
+                            <div class="detail-item">Пиво</div>
+                        </div>
+                    </div>
+                    <div class="city-block"><div class="city-btn">Могилев</div><div class="details-list"><div class="detail-item">Блюда</div><div class="detail-item">Пиво</div></div></div>
+                    <div class="city-block"><div class="city-btn">Гомель</div><div class="details-list"><div class="detail-item">Блюда</div><div class="detail-item">Пиво</div></div></div>
+                    <div class="city-block"><div class="city-btn">Лида</div><div class="details-list"><div class="detail-item">Замок</div><div class="detail-item">Пиво Лидское</div></div></div>
+                    <div class="city-block"><div class="city-btn">Несвиж</div><div class="details-list"><div class="detail-item">Замок</div><div class="detail-item">Хожу</div></div></div>
+                    <div class="city-block"><div class="city-btn">Мир</div><div class="details-list"><div class="detail-item">Замок</div></div></div>
+                    <div class="city-block"><div class="city-btn">Пинск</div><div class="details-list"><div class="detail-item">Хожу</div></div></div>
+                    <div class="city-block"><div class="city-btn">Полоцк</div><div class="details-list"><div class="detail-item">Хожу</div></div></div>
                 </div>
             </div>
-            <div class="country-block"><div class="country-btn">Турция</div><div class="cities-list"><div class="city-block"><div class="city-btn">Стамбул</div><div class="details-list"><div class="detail-item">Фото</div></div></div></div></div>
-            <div class="country-block"><div class="country-btn">ОАЭ</div><div class="cities-list"><div class="city-block"><div class="city-btn">Дубай</div><div class="details-list"><div class="detail-item">Фото</div></div></div></div></div>
-            <div class="country-block"><div class="country-btn">Армения</div><div class="cities-list"><div class="city-block"><div class="city-btn">Ереван</div><div class="details-list"><div class="detail-item">Фото</div></div></div></div></div>
-            <div class="country-block"><div class="country-btn">Грузия</div><div class="cities-list"><div class="city-block"><div class="city-btn">Тбилиси</div><div class="details-list"><div class="detail-item">Фото</div></div></div></div></div>
-            <div class="country-block"><div class="country-btn">Узбекистан</div><div class="cities-list"><div class="city-block"><div class="city-btn">Ташкент</div><div class="details-list"><div class="detail-item">Фото</div></div></div></div></div>
-            <div class="country-block"><div class="country-btn">Кыргызстан</div><div class="cities-list"><div class="city-block"><div class="city-btn">Бишкек</div><div class="details-list"><div class="detail-item">Фото</div></div></div></div></div>
-            <div class="country-block"><div class="country-btn">Казахстан</div><div class="cities-list"><div class="city-block"><div class="city-btn">Алматы</div><div class="details-list"><div class="detail-item">Фото</div></div></div></div></div>
-            <div class="country-block"><div class="country-btn">Таджикистан</div><div class="cities-list"><div class="city-block"><div class="city-btn">Душанбе</div><div class="details-list"><div class="detail-item">Фото</div></div></div></div></div>
-            <div class="country-block"><div class="country-btn">Азербайджан</div><div class="cities-list"><div class="city-block"><div class="city-btn">Баку</div><div class="details-list"><div class="detail-item">Фото</div></div></div></div></div>
-            <div class="country-block"><div class="country-btn">Молдова</div><div class="cities-list"><div class="city-block"><div class="city-btn">Кишинев</div><div class="details-list"><div class="detail-item">Фото</div></div></div></div></div>
-            <div class="country-block"><div class="country-btn">Ливан</div><div class="cities-list"><div class="city-block"><div class="city-btn">Бейрут</div><div class="details-list"><div class="detail-item">Фото</div></div></div></div></div>
-            <div class="country-block"><div class="country-btn">Оман</div><div class="cities-list"><div class="city-block"><div class="city-btn">Маскат</div><div class="details-list"><div class="detail-item">Фото</div></div></div></div></div>
-            <div class="country-block"><div class="country-btn">Египет</div><div class="cities-list"><div class="city-block"><div class="city-btn">Каир</div><div class="details-list"><div class="detail-item">Фото</div></div></div></div></div>
-        </div>
-    </div>
 
-    <div class="region-section">
-        <div class="region-title">Европа</div>
-        <div class="countries-grid">
-            <div class="country-block"><div class="country-btn">Литва</div><div class="cities-list"><div class="city-block"><div class="city-btn">Вильнюс</div><div class="details-list"><div class="detail-item">Фото</div></div></div></div></div>
-            <div class="country-block"><div class="country-btn">Латвия</div><div class="cities-list"><div class="city-block"><div class="city-btn">Рига</div><div class="details-list"><div class="detail-item">Фото</div></div></div></div></div>
-            <div class="country-block"><div class="country-btn">Эстония</div><div class="cities-list"><div class="city-block"><div class="city-btn">Таллин</div><div class="details-list"><div class="detail-item">Фото</div></div></div></div></div>
-            <div class="country-block"><div class="country-btn">Сербия</div><div class="cities-list"><div class="city-block"><div class="city-btn">Белград</div><div class="details-list"><div class="detail-item">Фото</div></div></div></div></div>
-            <div class="country-block"><div class="country-btn">Черногория</div><div class="cities-list"><div class="city-block"><div class="city-btn">Будва</div><div class="details-list"><div class="detail-item">Фото</div></div></div></div></div>
-            <div class="country-block"><div class="country-btn">Испания</div><div class="cities-list"><div class="city-block"><div class="city-btn">Барселона</div><div class="details-list"><div class="detail-item">Фото</div></div></div></div></div>
-            <div class="country-block"><div class="country-btn">Португалия</div><div class="cities-list"><div class="city-block"><div class="city-btn">Лиссабон</div><div class="details-list"><div class="detail-item">Фото</div></div></div></div></div>
-            <div class="country-block"><div class="country-btn">Австрия</div><div class="cities-list"><div class="city-block"><div class="city-btn">Вена</div><div class="details-list"><div class="detail-item">Фото</div></div></div></div></div>
-            <div class="country-block"><div class="country-btn">Босния</div><div class="cities-list"><div class="city-block"><div class="city-btn">Сараево</div><div class="details-list"><div class="detail-item">Фото</div></div></div></div></div>
-            <div class="country-block"><div class="country-btn">Венгрия</div><div class="cities-list"><div class="city-block"><div class="city-btn">Будапешт</div><div class="details-list"><div class="detail-item">Фото</div></div></div></div></div>
+            <div class="country-block">
+                <div class="country-btn">Россия</div>
+                <div class="cities-list">
+                    <div class="city-block"><div class="city-btn">Москва</div><div class="details-list"><div class="detail-item">Блюда</div><div class="detail-item">Пиво</div><div class="detail-item">Хожу</div></div></div>
+                    <div class="city-block"><div class="city-btn">Санкт-Петербург</div><div class="details-list"><div class="detail-item">Настойки</div><div class="detail-item">Пиво</div><div class="detail-item">Хожу</div></div></div>
+                    <div class="city-block"><div class="city-btn">Сочи</div><div class="details-list"><div class="detail-item">Блюда</div><div class="detail-item">Хожу</div></div></div>
+                </div>
+            </div>
+
+            <div class="country-block">
+                <div class="country-btn">Турция</div>
+                <div class="cities-list">
+                    <div class="city-block"><div class="city-btn">Стамбул</div><div class="details-list"><div class="detail-item">Кебаб</div><div class="detail-item">Ракия</div><div class="detail-item">Хожу</div></div></div>
+                    <div class="city-block"><div class="city-btn">Каш</div><div class="details-list"><div class="detail-item">Блюда</div><div class="detail-item">Хожу</div></div></div>
+                </div>
+            </div>
+
+            <div class="country-block"><div class="country-btn">Молдова</div><div class="cities-list"><div class="city-block"><div class="city-btn">Кишинев</div><div class="details-list"><div class="detail-item">Вино</div><div class="detail-item">Блюда</div></div></div></div></div>
+            <div class="country-block"><div class="country-btn">Ливан</div><div class="cities-list"><div class="city-block"><div class="city-btn">Бейрут</div><div class="details-list"><div class="detail-item">Арак</div></div></div></div></div>
+            <div class="country-block"><div class="country-btn">Оман</div><div class="cities-list"><div class="city-block"><div class="city-btn">Маскат</div><div class="details-list"><div class="detail-item">Хожу</div></div></div></div></div>
         </div>
     </div>
 
     <script>
+        // Клик по стране
         document.querySelectorAll('.country-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 btn.parentElement.classList.toggle('active');
             });
         });
 
+        // Клик по городу (Матрешка)
         document.querySelectorAll('.city-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
-                e.stopPropagation();
+                e.stopPropagation(); // Чтобы не закрывалась страна
                 btn.parentElement.classList.toggle('active');
             });
         });
