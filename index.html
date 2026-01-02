@@ -2,10 +2,10 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Общие настройки */
+        /* Обнуление и базовые настройки */
         * {
             margin: 0;
             padding: 0;
@@ -14,13 +14,14 @@
 
         body, html {
             height: 100%;
-            font-family: 'Arial Black', sans-serif;
             background-color: #000;
             color: #fff;
-            overflow-x: hidden;
+            font-family: 'Arial Black', 'Arial', sans-serif;
+            /* Убираем горизонтальный скролл */
+            overflow-x: hidden; 
         }
 
-        /* Фоновое изображение */
+        /* Фоновое изображение hero2.jpg */
         .hero-section {
             position: relative;
             width: 100%;
@@ -29,7 +30,6 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            text-align: center;
         }
 
         .hero-bg {
@@ -38,78 +38,79 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* Ссылка на ваш новый файл */
             background: url('images/hero2.jpg') no-repeat center center;
             background-size: cover;
             z-index: 1;
         }
 
-        /* Затемнение, чтобы текст читался идеально */
         .overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.4);
             z-index: 2;
         }
 
-        /* Контент поверх фото */
-        .content {
-            position: relative;
-            z-index: 3;
-            padding: 20px;
-        }
-
+        /* Навигация */
         nav {
             position: absolute;
             top: 0;
             width: 100%;
-            padding: 30px;
+            padding: 20px;
             display: flex;
             justify-content: center;
-            gap: 40px;
+            gap: 20px;
             z-index: 10;
         }
 
         nav a {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.6);
             text-decoration: none;
             text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 3px;
-            transition: 0.3s;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
         }
 
-        nav a:hover {
-            color: #fff;
+        /* Контентная часть */
+        .content {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            padding: 0 20px; /* Отступы по бокам, чтобы текст не лип к краям */
+            text-align: center;
         }
 
-        /* Главный текст */
+        /* ГЛАВНЫЙ ТЕКСТ - Исправленный для мобильных */
         h1 {
-            font-size: clamp(4rem, 12vw, 9rem);
-            line-height: 0.85;
+            /* Используем vw для гибкости и ставим лимит через clamp */
+            font-size: clamp(3rem, 18vw, 8rem); 
+            line-height: 0.9;
             text-transform: uppercase;
-            letter-spacing: 5px;
-            margin-bottom: 40px;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
             font-weight: 900;
-            text-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            word-wrap: break-word; /* Перенос слова, если оно слишком длинное */
+            text-shadow: 0 5px 15px rgba(0,0,0,0.7);
         }
 
+        /* Кнопки */
         .btn-container {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             justify-content: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
+            flex-wrap: wrap; /* Кнопки встанут друг под друга на очень узких экранах */
         }
 
         .btn {
-            padding: 15px 50px;
-            border: 3px solid #fff;
+            min-width: 120px;
+            padding: 12px 30px;
+            border: 2px solid #fff;
             color: #fff;
             text-decoration: none;
-            font-size: 1.5rem;
+            font-size: 1.1rem;
             text-transform: uppercase;
             font-weight: bold;
             transition: 0.3s;
@@ -120,20 +121,25 @@
             color: #000;
         }
 
+        /* Описание */
         .description {
-            max-width: 600px;
+            max-width: 500px;
             margin: 0 auto;
-            font-family: 'Segoe UI', sans-serif;
-            font-size: 1.2rem;
-            line-height: 1.6;
-            color: rgba(255,255,255,0.9);
-            text-shadow: 1px 1px 10px rgba(0,0,0,0.8);
+            font-family: 'Helvetica', sans-serif;
+            font-size: clamp(0.9rem, 4vw, 1.2rem);
+            line-height: 1.5;
+            color: rgba(255,255,255,0.8);
         }
 
-        /* Адаптивность для мобильных */
-        @media (max-width: 768px) {
-            h1 { font-size: 4.5rem; }
-            .btn { padding: 12px 30px; font-size: 1.2rem; }
+        /* Тонкая настройка для самых маленьких экранов (iPhone SE и т.д.) */
+        @media (max-width: 380px) {
+            h1 {
+                font-size: 15vw;
+                letter-spacing: 1px;
+            }
+            nav {
+                gap: 10px;
+            }
         }
     </style>
 </head>
@@ -158,7 +164,7 @@
             </div>
 
             <p class="description">
-                Рецептов не будет. Советов тоже. Только факт того, что было на моем столе в разных точках мира. Я прошел этот путь сам.
+                Только то, что было на моем столе в разных точках мира. Без рецептов и лишних слов.
             </p>
         </div>
     </div>
