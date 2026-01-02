@@ -3,76 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Страны — ЕМ ПЬЮ ХОЖУ</title>
+    <title>ГДЕ Я БЫЛ — ЕМ ПЬЮ ХОЖУ</title>
     <style>
+        /* ОБЩИЙ СТИЛЬ СТРАНИЦЫ */
         body {
             background-color: #000;
             color: #fff;
             font-family: 'Segoe UI', Roboto, sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 40px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
+        /* НАВИГАЦИЯ (опционально, если нужна) */
         nav {
             margin-bottom: 40px;
             display: flex;
             gap: 20px;
         }
-
         nav a {
-            color: #666;
+            color: #888;
             text-decoration: none;
             text-transform: uppercase;
-            font-size: 0.8rem;
+            font-size: 12px;
             letter-spacing: 1px;
-        }
-
-        .region-section {
-            width: 100%;
-            max-width: 800px;
-            margin-bottom: 50px;
         }
 
         h2 {
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 1rem;
-            color: #888;
-            border-bottom: 1px solid #222;
+            letter-spacing: 3px;
+            border-bottom: 1px solid #333;
             padding-bottom: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+            width: 100%;
+            max-width: 700px;
+            text-align: center;
         }
 
-        /* Список в два ряда */
+        /* КОНТЕЙНЕР ДЛЯ ДВУХ КОЛОНОК */
         .countries-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px 40px;
-            list-style: none;
-            padding: 0;
+            grid-template-columns: 1fr 1fr; /* Две колонки */
+            gap: 20px 40px;
+            width: 100%;
+            max-width: 700px;
+            align-items: start;
         }
 
-        .country-item {
+        /* СЕКЦИЯ СТРАНЫ */
+        .country-block {
+            margin-bottom: 5px;
+        }
+
+        /* НАЗВАНИЕ СТРАНЫ (КНОПКА) */
+        .country-btn {
             font-size: 1.1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: #eee;
-            border-left: 2px solid #333;
-            padding-left: 15px;
-            transition: 0.3s;
+            color: #ccc;
+            border-left: 2px solid transparent;
+            padding: 5px 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
         }
 
-        .country-item:hover {
-            border-left: 2px solid #fff;
+        .country-btn:hover {
             color: #fff;
-            background: rgba(255,255,255,0.05);
+            border-left: 2px solid #fff;
+            background: rgba(255, 255, 255, 0.05);
         }
 
-        @media (max-width: 480px) {
-            .countries-grid { grid-template-columns: 1fr; }
+        /* КОГДА СТРАНА ВЫБРАНА */
+        .country-block.active .country-btn {
+            color: #fff;
+            border-left: 2px solid #fff;
+            font-weight: bold;
+        }
+
+        /* СПИСОК ГОРОДОВ (СКРЫТ ПО УМОЛЧАНИЮ) */
+        .cities-list {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .country-block.active .cities-list {
+            max-height: 500px; /* Раскрываем */
+            padding-top: 10px;
+            padding-bottom: 15px;
+        }
+
+        .city-item {
+            font-size: 0.95rem;
+            color: #888;
+            padding: 4px 15px;
+            margin-left: 15px;
+            border-left: 1px solid #222;
+        }
+
+        .city-item:hover {
+            color: #fff;
+        }
+
+        /* ДЛЯ МОБИЛЬНЫХ ТЕЛЕФОНОВ (В ОДИН РЯД) */
+        @media (max-width: 600px) {
+            .countries-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -81,62 +125,105 @@
     <nav>
         <a href="index.html">Главная</a>
         <a href="#">Обо мне</a>
-        <a href="countries.html" style="color: #fff;">Страны</a>
     </nav>
 
-    <div class="region-section">
-        <h2>Европа и Балканы</h2>
-        <ul class="countries-grid">
-            <li class="country-item">Россия</li>
-            <li class="country-item">Австрия</li>
-            <li class="country-item">Испания</li>
-            <li class="country-item">Португалия</li>
-            <li class="country-item">Сербия</li>
-            <li class="country-item">Черногория</li>
-            <li class="country-item">Беларусь</li>
-            <li class="country-item">Молдова</li>
-            <li class="country-item">Босния и Герцеговина</li>
-        </ul>
+    <h2>ГДЕ Я БЫЛ</h2>
+
+    <div class="countries-grid">
+        
+        <div class="country-block">
+            <div class="country-btn">Россия</div>
+            <div class="cities-list">
+                <div class="city-item">Москва</div>
+                <div class="city-item">Санкт-Петербург</div>
+                <div class="city-item">Сочи</div>
+            </div>
+        </div>
+
+        <div class="country-block">
+            <div class="country-btn">Тайланд</div>
+            <div class="cities-list">
+                <div class="city-item">Бангкок</div>
+                <div class="city-item">Пхукет</div>
+                <div class="city-item">Паттайя</div>
+                <div class="city-item">Краби</div>
+            </div>
+        </div>
+
+        <div class="country-block">
+            <div class="country-btn">Турция</div>
+            <div class="cities-list">
+                <div class="city-item">Стамбул</div>
+                <div class="city-item">Анталья</div>
+                <div class="city-item">Каш</div>
+                <div class="city-item">Фетхие</div>
+            </div>
+        </div>
+
+        <div class="country-block">
+            <div class="country-btn">Вьетнам</div>
+            <div class="cities-list">
+                <div class="city-item">Ханой</div>
+                <div class="city-item">Хошимин</div>
+                <div class="city-item">Дананг</div>
+            </div>
+        </div>
+
+        <div class="country-block">
+            <div class="country-btn">Армения</div>
+            <div class="cities-list">
+                <div class="city-item">Ереван</div>
+                <div class="city-item">Гюмри</div>
+            </div>
+        </div>
+
+        <div class="country-block">
+            <div class="country-btn">Грузия</div>
+            <div class="cities-list">
+                <div class="city-item">Тбилиси</div>
+                <div class="city-item">Батуми</div>
+                <div class="city-item">Кутаиси</div>
+            </div>
+        </div>
+
+        <div class="country-block">
+            <div class="country-btn">Кыргызстан</div>
+            <div class="cities-list">
+                <div class="city-item">Бишкек</div>
+                <div class="city-item">Ош</div>
+            </div>
+        </div>
+
+        <div class="country-block">
+            <div class="country-btn">ОАЭ</div>
+            <div class="cities-list">
+                <div class="city-item">Дубай</div>
+                <div class="city-item">Абу-Даби</div>
+            </div>
+        </div>
+
     </div>
 
-    <div class="region-section">
-        <h2>Азия</h2>
-        <ul class="countries-grid">
-            <li class="country-item">Тайланд</li>
-            <li class="country-item">Вьетнам</li>
-            <li class="country-item">Малайзия</li>
-            <li class="country-item">Шри-Ланка</li>
-            <li class="country-item">Индия</li>
-            <li class="country-item">Камбоджа</li>
-            <li class="country-item">Узбекистан</li>
-            <li class="country-item">Кыргызстан</li>
-            <li class="country-item">Таджикистан</li>
-        </ul>
-    </div>
+    <script>
+        // ЛОГИКА НАЖАТИЯ:
+        // Находим все кнопки стран
+        const countryBlocks = document.querySelectorAll('.country-block');
 
-    <div class="region-section">
-        <h2>Кавказ и Ближний Восток</h2>
-        <ul class="countries-grid">
-            <li class="country-item">Грузия</li>
-            <li class="country-item">Армения</li>
-            <li class="country-item">Азербайджан</li>
-            <li class="country-item">Абхазия</li>
-            <li class="country-item">Турция</li>
-            <li class="country-item">ОАЭ</li>
-            <li class="country-item">Оман</li>
-            <li class="country-item">Египет</li>
-            <li class="country-item">Ливан</li>
-        </ul>
-    </div>
+        countryBlocks.forEach(block => {
+            const btn = block.querySelector('.country-btn');
+            
+            btn.addEventListener('click', () => {
+                // Если нужно, чтобы одновременно была открыта только ОДНА страна,
+                // раскомментируйте нижние 3 строчки:
+                /* countryBlocks.forEach(b => {
+                    if (b !== block) b.classList.remove('active');
+                }); */
 
-    <div class="region-section">
-        <h2>Балтика</h2>
-        <ul class="countries-grid">
-            <li class="country-item">Эстония</li>
-            <li class="country-item">Латвия</li>
-            <li class="country-item">Литва</li>
-        </ul>
-    </div>
+                // Переключаем класс active у текущего блока
+                block.classList.toggle('active');
+            });
+        });
+    </script>
 
 </body>
 </html>
