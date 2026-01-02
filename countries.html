@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ГДЕ Я БЫЛ — ЕМ ПЬЮ ХОЖУ</title>
+    <title>Страны — ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* ОБЩИЙ СТИЛЬ СТРАНИЦЫ */
         body {
             background-color: #000;
             color: #fff;
@@ -17,19 +16,20 @@
             align-items: center;
         }
 
-        /* НАВИГАЦИЯ (опционально, если нужна) */
         nav {
             margin-bottom: 40px;
             display: flex;
-            gap: 20px;
+            gap: 25px;
         }
         nav a {
             color: #888;
             text-decoration: none;
             text-transform: uppercase;
             font-size: 12px;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            transition: 0.3s;
         }
+        nav a:hover { color: #fff; }
 
         h2 {
             text-transform: uppercase;
@@ -39,52 +39,45 @@
             margin-bottom: 30px;
             font-size: 1.2rem;
             width: 100%;
-            max-width: 700px;
+            max-width: 800px;
             text-align: center;
         }
 
-        /* КОНТЕЙНЕР ДЛЯ ДВУХ КОЛОНОК */
         .countries-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Две колонки */
-            gap: 20px 40px;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 40px;
             width: 100%;
-            max-width: 700px;
-            align-items: start;
+            max-width: 800px;
         }
 
-        /* СЕКЦИЯ СТРАНЫ */
         .country-block {
             margin-bottom: 5px;
         }
 
-        /* НАЗВАНИЕ СТРАНЫ (КНОПКА) */
         .country-btn {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: #ccc;
             border-left: 2px solid transparent;
             padding: 5px 15px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            user-select: none;
+            transition: 0.3s;
         }
 
         .country-btn:hover {
             color: #fff;
             border-left: 2px solid #fff;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255,255,255,0.05);
         }
 
-        /* КОГДА СТРАНА ВЫБРАНА */
         .country-block.active .country-btn {
             color: #fff;
             border-left: 2px solid #fff;
             font-weight: bold;
         }
 
-        /* СПИСОК ГОРОДОВ (СКРЫТ ПО УМОЛЧАНИЮ) */
         .cities-list {
             max-height: 0;
             overflow: hidden;
@@ -95,28 +88,21 @@
         }
 
         .country-block.active .cities-list {
-            max-height: 500px; /* Раскрываем */
-            padding-top: 10px;
-            padding-bottom: 15px;
+            max-height: 500px;
+            padding-top: 5px;
+            padding-bottom: 10px;
         }
 
         .city-item {
-            font-size: 0.95rem;
-            color: #888;
-            padding: 4px 15px;
+            font-size: 0.9rem;
+            color: #666;
+            padding: 3px 15px;
             margin-left: 15px;
             border-left: 1px solid #222;
         }
 
-        .city-item:hover {
-            color: #fff;
-        }
-
-        /* ДЛЯ МОБИЛЬНЫХ ТЕЛЕФОНОВ (В ОДИН РЯД) */
-        @media (max-width: 600px) {
-            .countries-grid {
-                grid-template-columns: 1fr;
-            }
+        @media (max-width: 650px) {
+            .countries-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -124,106 +110,53 @@
 
     <nav>
         <a href="index.html">Главная</a>
+        <a href="countries.html">Страны</a>
         <a href="#">Обо мне</a>
     </nav>
 
     <h2>ГДЕ Я БЫЛ</h2>
 
     <div class="countries-grid">
+        <div class="country-block"><div class="country-btn">Россия</div><div class="cities-list"><div class="city-item">Москва</div><div class="city-item">Сочи</div></div></div>
+        <div class="country-block"><div class="country-btn">Тайланд</div><div class="cities-list"><div class="city-item">Бангкок</div><div class="city-item">Пхукет</div></div></div>
+        <div class="country-block"><div class="country-btn">Турция</div><div class="cities-list"><div class="city-item">Стамбул</div><div class="city-item">Каш</div></div></div>
+        <div class="country-block"><div class="country-btn">Вьетнам</div><div class="cities-list"><div class="city-item">Ханой</div></div></div>
+        <div class="country-block"><div class="country-btn">Индия</div><div class="cities-list"><div class="city-item">Дели</div></div></div>
+        <div class="country-block"><div class="country-btn">Египет</div><div class="cities-list"><div class="city-item">Каир</div></div></div>
+        <div class="country-block"><div class="country-btn">ОАЭ</div><div class="cities-list"><div class="city-item">Дубай</div></div></div>
+        <div class="country-block"><div class="country-btn">Малайзия</div><div class="cities-list"><div class="city-item">Куала-Лумпур</div></div></div>
+        <div class="country-block"><div class="country-btn">Шри-Ланка</div><div class="cities-list"><div class="city-item">Коломбо</div></div></div>
+        <div class="country-block"><div class="country-btn">Оман</div><div class="cities-list"><div class="city-item">Маскат</div></div></div>
+        <div class="country-block"><div class="country-btn">Армения</div><div class="cities-list"><div class="city-item">Ереван</div></div></div>
+        <div class="country-block"><div class="country-btn">Грузия</div><div class="cities-list"><div class="city-item">Тбилиси</div></div></div>
+        <div class="country-block"><div class="country-btn">Узбекистан</div><div class="cities-list"><div class="city-item">Ташкент</div></div></div>
+        <div class="country-block"><div class="country-btn">Кыргызстан</div><div class="cities-list"><div class="city-item">Бишкек</div></div></div>
+        <div class="country-block"><div class="country-btn">Таджикистан</div><div class="cities-list"><div class="city-item">Душанбе</div></div></div>
+        <div class="country-block"><div class="country-btn">Камбоджа</div><div class="cities-list"><div class="city-item">Пномпень</div></div></div>
         
-        <div class="country-block">
-            <div class="country-btn">Россия</div>
-            <div class="cities-list">
-                <div class="city-item">Москва</div>
-                <div class="city-item">Санкт-Петербург</div>
-                <div class="city-item">Сочи</div>
-            </div>
-        </div>
-
-        <div class="country-block">
-            <div class="country-btn">Тайланд</div>
-            <div class="cities-list">
-                <div class="city-item">Бангкок</div>
-                <div class="city-item">Пхукет</div>
-                <div class="city-item">Паттайя</div>
-                <div class="city-item">Краби</div>
-            </div>
-        </div>
-
-        <div class="country-block">
-            <div class="country-btn">Турция</div>
-            <div class="cities-list">
-                <div class="city-item">Стамбул</div>
-                <div class="city-item">Анталья</div>
-                <div class="city-item">Каш</div>
-                <div class="city-item">Фетхие</div>
-            </div>
-        </div>
-
-        <div class="country-block">
-            <div class="country-btn">Вьетнам</div>
-            <div class="cities-list">
-                <div class="city-item">Ханой</div>
-                <div class="city-item">Хошимин</div>
-                <div class="city-item">Дананг</div>
-            </div>
-        </div>
-
-        <div class="country-block">
-            <div class="country-btn">Армения</div>
-            <div class="cities-list">
-                <div class="city-item">Ереван</div>
-                <div class="city-item">Гюмри</div>
-            </div>
-        </div>
-
-        <div class="country-block">
-            <div class="country-btn">Грузия</div>
-            <div class="cities-list">
-                <div class="city-item">Тбилиси</div>
-                <div class="city-item">Батуми</div>
-                <div class="city-item">Кутаиси</div>
-            </div>
-        </div>
-
-        <div class="country-block">
-            <div class="country-btn">Кыргызстан</div>
-            <div class="cities-list">
-                <div class="city-item">Бишкек</div>
-                <div class="city-item">Ош</div>
-            </div>
-        </div>
-
-        <div class="country-block">
-            <div class="country-btn">ОАЭ</div>
-            <div class="cities-list">
-                <div class="city-item">Дубай</div>
-                <div class="city-item">Абу-Даби</div>
-            </div>
-        </div>
-
+        <div class="country-block"><div class="country-btn">Казахстан</div><div class="cities-list"><div class="city-item">Алматы</div></div></div>
+        <div class="country-block"><div class="country-btn">Азербайджан</div><div class="cities-list"><div class="city-item">Баку</div></div></div>
+        <div class="country-block"><div class="country-btn">Сербия</div><div class="cities-list"><div class="city-item">Белград</div></div></div>
+        <div class="country-block"><div class="country-btn">Черногория</div><div class="cities-list"><div class="city-item">Будва</div></div></div>
+        <div class="country-block"><div class="country-btn">Испания</div><div class="cities-list"><div class="city-item">Барселона</div></div></div>
+        <div class="country-block"><div class="country-btn">Португалия</div><div class="cities-list"><div class="city-item">Лиссабон</div></div></div>
+        <div class="country-block"><div class="country-btn">Италия</div><div class="cities-list"><div class="city-item">Рим</div></div></div>
+        <div class="country-block"><div class="country-btn">Франция</div><div class="cities-list"><div class="city-item">Париж</div></div></div>
+        <div class="country-block"><div class="country-btn">Германия</div><div class="cities-list"><div class="city-item">Берлин</div></div></div>
+        <div class="country-block"><div class="country-btn">Австрия</div><div class="cities-list"><div class="city-item">Вена</div></div></div>
+        <div class="country-block"><div class="country-btn">Венгрия</div><div class="cities-list"><div class="city-item">Будапешт</div></div></div>
+        <div class="country-block"><div class="country-btn">Греция</div><div class="cities-list"><div class="city-item">Афины</div></div></div>
+        <div class="country-block"><div class="country-btn">Индонезия</div><div class="cities-list"><div class="city-item">Бали</div></div></div>
+        <div class="country-block"><div class="country-btn">Филиппины</div><div class="cities-list"><div class="city-item">Манила</div></div></div>
+        <div class="country-block"><div class="country-btn">Китай</div><div class="cities-list"><div class="city-item">Пекин</div></div></div>
     </div>
 
     <script>
-        // ЛОГИКА НАЖАТИЯ:
-        // Находим все кнопки стран
-        const countryBlocks = document.querySelectorAll('.country-block');
-
-        countryBlocks.forEach(block => {
-            const btn = block.querySelector('.country-btn');
-            
+        document.querySelectorAll('.country-btn').forEach(btn => {
             btn.addEventListener('click', () => {
-                // Если нужно, чтобы одновременно была открыта только ОДНА страна,
-                // раскомментируйте нижние 3 строчки:
-                /* countryBlocks.forEach(b => {
-                    if (b !== block) b.classList.remove('active');
-                }); */
-
-                // Переключаем класс active у текущего блока
-                block.classList.toggle('active');
+                btn.parentElement.classList.toggle('active');
             });
         });
     </script>
-
 </body>
 </html>
