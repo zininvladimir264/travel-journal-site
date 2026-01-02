@@ -5,16 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* БАЗОВЫЕ СТИЛИ (ДЛЯ ПК) */
+        /* ОСНОВНЫЕ НАСТРОЙКИ */
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
             background-color: #000;
-            font-family: 'Arial Black', sans-serif;
+            font-family: 'Arial Black', 'Arial', sans-serif;
             color: #fff;
+            overflow: hidden; /* Фиксация экрана без прокрутки */
         }
 
+        /* ФОНОВОЕ ИЗОБРАЖЕНИЕ */
         .hero {
             position: relative;
             height: 100vh;
@@ -23,11 +25,13 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            /* Путь к вашему файлу */
             background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), 
                         url('images/hero2.jpg') no-repeat center center/cover;
             text-align: center;
         }
 
+        /* НАВИГАЦИЯ (ГЛАВНАЯ И СТРАНЫ) */
         nav {
             position: absolute;
             top: 40px;
@@ -45,16 +49,33 @@
             font-size: 13px;
             letter-spacing: 2px;
             font-weight: bold;
+            transition: 0.3s;
         }
 
+        nav a:hover {
+            color: #fff;
+        }
+
+        /* КОНТЕНТ */
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        /* ЗАГОЛОВОК */
         h1 {
             font-size: 90px;
             line-height: 0.85;
             margin: 0 0 45px 0;
             text-transform: uppercase;
             letter-spacing: -2px;
+            font-weight: 900;
+            text-shadow: 0 5px 25px rgba(0,0,0,0.5);
         }
 
+        /* КНОПКИ */
         .btn-container {
             display: flex;
             justify-content: center;
@@ -70,87 +91,27 @@
             text-transform: uppercase;
             font-size: 22px;
             font-weight: bold;
+            text-decoration: none;
+            cursor: default; /* Указываем, что это не ссылка */
         }
 
+        /* ОПИСАНИЕ */
         .description {
             font-family: 'Arial', sans-serif;
             font-size: 18px;
             line-height: 1.5;
             max-width: 600px;
             margin: 0 auto;
+            color: rgba(255, 255, 255, 0.95);
+            text-shadow: 1px 1px 10px rgba(0,0,0,0.8);
         }
 
-        /* --- ИСПРАВЛЕНИЯ ТОЛЬКО ДЛЯ МОБИЛЬНОЙ ВЕРСИИ --- */
+        /* Мобильная адаптация */
         @media (max-width: 768px) {
-            
-            /* Убираем задвоение и фиксируем высоту */
-            body, html {
-                overflow-x: hidden;
-                height: auto;
-                min-height: 100vh;
-            }
-
-            .hero {
-                height: 100vh; /* Картинка на весь экран */
-                justify-content: center;
-                padding-bottom: 0;
-            }
-
-            /* Уменьшаем заголовок, чтобы не лез на кнопки */
-            h1 { 
-                font-size: 48px; 
-                margin-bottom: 30px;
-            }
-
-            /* Кнопки в мобильной версии */
-            .btn-container {
-                margin-bottom: 20px;
-                gap: 10px;
-            }
-
-            .btn {
-                padding: 10px 30px;
-                font-size: 16px;
-                border-width: 1px;
-            }
-
-            /* Описание: делаем шрифт меньше и убираем лишние отступы */
-            .description {
-                font-size: 14px;
-                padding: 0 20px;
-                line-height: 1.4;
-                margin-bottom: 20px;
-            }
-
-            /* --- СПИСОК СТРАН В ДВА СТОЛБЦА (ДЛЯ МОБИЛЬНЫХ) --- */
-            .countries-grid {
-                display: grid;
-                grid-template-columns: 1fr 1fr; /* Ровно два столбца */
-                gap: 10px;
-                padding: 20px;
-                background: rgba(0,0,0,0.8); /* Фон, чтобы текст читался на фото */
-                width: 90%;
-                margin: 0 auto;
-            }
-
-            .country-name-mob {
-                font-size: 12px; /* Меньше шрифт */
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                border-left: 1px solid #fff;
-                padding-left: 8px;
-                text-align: left;
-            }
-
-            /* Скрываем всё, что могло дублироваться внизу страницы */
-            footer, .extra-content {
-                display: none !important;
-            }
-        }
-
-        /* Скрываем мобильную сетку на ПК */
-        @media (min-width: 769px) {
-            .countries-grid { display: none; }
+            h1 { font-size: 55px; }
+            .btn { padding: 10px 35px; font-size: 18px; }
+            .description { font-size: 15px; padding: 0 10px; }
+            nav { gap: 20px; top: 25px; }
         }
     </style>
 </head>
@@ -173,17 +134,6 @@
             <p class="description">
                 Рецептов не будет. Советов тоже. Только факт того, что было на моем столе в разных точках мира. Я прошел этот путь сам.
             </p>
-
-            <div class="countries-grid">
-                <div class="country-name-mob">Россия</div>
-                <div class="country-name-mob">Тайланд</div>
-                <div class="country-name-mob">Турция</div>
-                <div class="country-name-mob">Вьетнам</div>
-                <div class="country-name-mob">Армения</div>
-                <div class="country-name-mob">ОАЭ</div>
-                <div class="country-name-mob">Грузия</div>
-                <div class="country-name-mob">Индия</div>
-            </div>
         </div>
     </div>
 
