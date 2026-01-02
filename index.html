@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ЕМ ПЬЮ ХОЖУ — Личный архив</title>
     <style>
-        /* Базовые настройки для исключения ошибок прокрутки */
+        /* Обнуление и базовые стили */
         html, body {
             margin: 0;
             padding: 0;
@@ -13,86 +13,101 @@
             height: 100%;
             background-color: #000;
             color: #fff;
-            font-family: 'Segoe UI', Roboto, Helvetica, sans-serif;
-            overflow: hidden;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            overflow: hidden; /* Исключаем любую прокрутку на главной */
         }
 
-        /* Фоновое изображение */
-        .background {
+        /* Полноэкранный фон с фото hero2.jpg */
+        .bg-wrapper {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            /* Используем ваше актуальное фото hero2.jpg */
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('hero2.jpg');
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('hero2.jpg') no-repeat center center;
             background-size: cover;
-            background-position: center;
             z-index: 1;
+            transition: transform 0.8s ease-out;
         }
 
-        /* Навигация (только нужные пункты) */
+        /* Навигация (без "Обо мне") */
         nav {
             position: fixed;
-            top: 40px;
-            display: flex;
-            gap: 40px;
-            z-index: 1000;
+            top: 50px;
             width: 100%;
+            display: flex;
             justify-content: center;
+            gap: 40px;
+            z-index: 100;
         }
 
         nav a {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.6);
             text-decoration: none;
             text-transform: uppercase;
             font-size: 11px;
             letter-spacing: 3px;
-            transition: 0.4s;
-            padding: 5px 10px;
+            font-weight: 300;
+            transition: 0.4s all;
+            padding: 10px;
         }
 
         nav a:hover {
             color: #fff;
             letter-spacing: 5px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 2px;
         }
 
-        /* Центральный контент */
-        .hero-content {
+        /* Центральный текстовый блок */
+        .main-container {
             position: relative;
             z-index: 10;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100%;
             text-align: center;
-            padding: 20px;
         }
 
         h1 {
             font-size: 5rem;
-            font-weight: 300;
+            font-weight: 200;
             margin: 0;
-            letter-spacing: 20px;
+            letter-spacing: 25px;
             text-transform: uppercase;
-            line-height: 1.2;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.6);
+            line-height: 1;
+            /* Плавное появление текста */
+            animation: fadeInText 2s ease-out;
         }
 
         .subtitle {
-            margin-top: 20px;
+            margin-top: 30px;
             font-size: 0.9rem;
             color: rgba(255, 255, 255, 0.8);
-            letter-spacing: 8px;
+            letter-spacing: 10px;
             text-transform: uppercase;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+            animation: fadeInSub 2.5s ease-out;
         }
 
-        /* ИСПРАВЛЕНИЯ МОБИЛЬНОЙ ВЕРСИИ */
+        /* Анимации */
+        @keyframes fadeInText {
+            from { opacity: 0; transform: translateY(20px); letter-spacing: 40px; }
+            to { opacity: 1; transform: translateY(0); letter-spacing: 25px; }
+        }
+
+        @keyframes fadeInSub {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Исправление мобильной версии */
         @media (max-width: 768px) {
             nav {
-                top: 25px;
+                top: 30px;
                 gap: 20px;
             }
 
@@ -104,35 +119,35 @@
             h1 {
                 font-size: 2.2rem;
                 letter-spacing: 8px;
-                padding-left: 8px; /* Выравнивание из-за трекинга */
+                padding-left: 8px; /* Центрирование при больших отступах букв */
             }
 
             .subtitle {
                 font-size: 0.7rem;
-                letter-spacing: 4px;
-                margin-top: 15px;
+                letter-spacing: 5px;
+                margin-top: 20px;
             }
         }
 
         /* Для самых маленьких экранов */
         @media (max-width: 480px) {
             h1 {
-                font-size: 1.7rem;
-                letter-spacing: 5px;
+                font-size: 1.8rem;
+                letter-spacing: 6px;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="background"></div>
+    <div class="bg-wrapper"></div>
 
     <nav>
         <a href="index.html">Главная</a>
         <a href="countries.html">Страны</a>
     </nav>
 
-    <div class="hero-content">
+    <div class="main-container">
         <h1>ЕМ ПЬЮ ХОЖУ</h1>
         <div class="subtitle">личный архив путешествий</div>
     </div>
