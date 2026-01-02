@@ -3,77 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ЕМ ПЬЮ ХОЖУ</title>
+    <title>ЕМ ПЬЮ ХОЖУ — Личный архив</title>
     <style>
-        /* БАЗОВЫЕ СТИЛИ */
-        body {
-            background-color: #000;
-            color: #fff;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        /* Базовые настройки для исключения ошибок прокрутки */
+        html, body {
             margin: 0;
             padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            color: #fff;
+            font-family: 'Segoe UI', Roboto, Helvetica, sans-serif;
+            overflow-x: hidden;
+        }
+
+        body {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            text-align: center;
-            overflow-x: hidden; /* Убирает горизонтальную прокрутку на мобилках */
         }
 
-        /* НАВИГАЦИЯ */
+        /* Навигация */
         nav {
-            position: absolute;
-            top: 30px;
+            position: fixed;
+            top: 40px;
             display: flex;
-            gap: 20px;
-            z-index: 10;
+            gap: 30px;
+            z-index: 1000;
         }
 
         nav a {
             color: #888;
             text-decoration: none;
             text-transform: uppercase;
-            font-size: 11px;
+            font-size: 12px;
             letter-spacing: 2px;
-            transition: 0.3s;
-            padding: 10px; /* Увеличена зона клика */
+            transition: 0.4s;
+            padding: 5px 10px;
         }
 
         nav a:hover {
             color: #fff;
+            letter-spacing: 4px;
         }
 
-        /* КОНТЕНТ */
-        .container {
+        /* Центральный блок */
+        .hero {
+            text-align: center;
             padding: 20px;
-            width: 100%;
-            box-sizing: border-box;
+            z-index: 10;
         }
 
         h1 {
-            font-size: 4rem;
-            letter-spacing: 15px;
-            margin: 0;
-            text-transform: uppercase;
+            font-size: 5rem;
             font-weight: 300;
-        }
-
-        p {
-            color: #555;
-            letter-spacing: 5px;
+            margin: 0;
+            letter-spacing: 20px;
             text-transform: uppercase;
-            font-size: 0.9rem;
-            margin-top: 10px;
+            line-height: 1.2;
         }
 
-        /* МОБИЛЬНАЯ АДАПТАЦИЯ (ИСПРАВЛЕНИЯ) */
+        .subtitle {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #555;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+        }
+
+        /* Подвал или доп. инфо */
+        .footer-info {
+            position: fixed;
+            bottom: 40px;
+            font-size: 10px;
+            color: #222;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* ИСПРАВЛЕНИЯ МОБИЛЬНОЙ ВЕРСИИ */
         @media (max-width: 768px) {
             nav {
                 top: 20px;
-                gap: 10px;
-                width: 100%;
-                justify-content: center;
+                gap: 15px;
             }
 
             nav a {
@@ -82,20 +96,19 @@
             }
 
             h1 {
-                font-size: 2.2rem; /* Уменьшен размер, чтобы не рвало экран */
+                font-size: 2.2rem; /* Уменьшено для мобильных */
                 letter-spacing: 8px;
-                line-height: 1.2;
+                padding-left: 8px; /* Баланс из-за letter-spacing */
             }
 
-            p {
+            .subtitle {
                 font-size: 0.7rem;
-                letter-spacing: 3px;
-                padding: 0 10px;
+                letter-spacing: 4px;
             }
         }
 
-        /* Для совсем маленьких экранов (iPhone SE и т.д.) */
-        @media (max-width: 380px) {
+        /* Для самых узких экранов */
+        @media (max-width: 480px) {
             h1 {
                 font-size: 1.8rem;
                 letter-spacing: 5px;
@@ -111,10 +124,12 @@
         <a href="#">Обо мне</a>
     </nav>
 
-    <div class="container">
+    <div class="hero">
         <h1>ЕМ ПЬЮ ХОЖУ</h1>
-        <p>личный архив путешествий</p>
+        <div class="subtitle">личный архив путешествий</div>
     </div>
+
+    <div class="footer-info">est. 2024</div>
 
 </body>
 </html>
