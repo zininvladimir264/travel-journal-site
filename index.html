@@ -15,7 +15,7 @@
             overflow: hidden;
         }
 
-        /* Фоновое изображение из вашего файла */
+        /* ГЛАВНЫЙ ЭКРАН С ВАШИМ ФОТО */
         .hero {
             position: relative;
             height: 100vh;
@@ -24,12 +24,20 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            /* ЗДЕСЬ ДОЛЖНО БЫТЬ ИМЯ ВАШЕГО ФАЙЛА */
-            background: url('bg.jpg') no-repeat center center/cover;
+            /* Указан ваш файл hero2.jpg */
+            background: url('hero2.jpg') no-repeat center center/cover; 
             text-align: center;
         }
 
-        /* Навигация как на скриншоте */
+        /* Затемнение, чтобы текст был четким как на скриншоте */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
         nav {
             position: absolute;
             top: 30px;
@@ -40,7 +48,7 @@
 
         nav a {
             text-decoration: none;
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.7);
             text-transform: uppercase;
             font-size: 12px;
             letter-spacing: 2px;
@@ -59,9 +67,9 @@
             margin: 0 0 30px 0;
             text-transform: uppercase;
             letter-spacing: -2px;
+            text-shadow: 0 0 20px rgba(0,0,0,0.5);
         }
 
-        /* Кнопки Я / ОНИ */
         .btn-container {
             display: flex;
             justify-content: center;
@@ -85,12 +93,11 @@
             background: rgba(255, 255, 255, 0.2);
         }
 
-        /* Описание как на фото */
         .description {
             font-family: sans-serif;
             font-size: 16px;
             line-height: 1.4;
-            max-width: 500px;
+            max-width: 550px;
             margin: 0 auto;
             color: rgba(255, 255, 255, 0.9);
         }
@@ -99,9 +106,9 @@
 <body>
 
     <nav>
-        <a href="#">ГЛАВНАЯ</a>
+        <a href="index.html">ГЛАВНАЯ</a>
         <a href="#">ОБО МНЕ</a>
-        <a href="#">СТРАНЫ</a>
+        <a href="countries.html">СТРАНЫ</a>
     </nav>
 
     <div class="hero">
