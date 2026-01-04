@@ -4,19 +4,23 @@
     <meta charset="UTF-8">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Обнуление отступов */
-        body, html {
+        /* Обнуление */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
             width: 100%;
             height: 100vh;
             background-color: #000;
             color: #fff;
             font-family: 'Arial Black', sans-serif;
-            overflow: hidden; /* Убираем прокрутку на компьютере */
+            overflow: hidden;
         }
 
-        /* Фоновая секция */
+        /* Основной экран */
         .hero {
             position: relative;
             width: 100%;
@@ -25,63 +29,60 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            /* Настройки картинки */
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                        url('hero3.jpg') no-repeat center center;
-            background-size: contain; /* Картинка отдалена и видна целиком */
             text-align: center;
+            
+            /* Настройки фото hero3.jpg */
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('hero3.jpg');
+            background-repeat: no-repeat;
+            background-position: center center;
+            /* contain — это "отдаление", фото вписывается целиком */
+            background-size: contain; 
         }
 
-        /* Навигация сверху */
+        /* Навигация */
         nav {
             position: absolute;
             top: 40px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            gap: 40px;
             z-index: 10;
+            display: flex;
+            gap: 40px;
         }
 
         nav a {
             text-decoration: none;
             color: rgba(255, 255, 255, 0.6);
             text-transform: uppercase;
-            font-size: 14px;
+            font-size: 13px;
             letter-spacing: 2px;
-            transition: 0.3s;
+            font-family: Arial, sans-serif;
         }
 
-        nav a:hover {
-            color: #fff;
-        }
-
-        /* Контентная часть */
+        /* Контент */
         .content {
+            position: relative;
             z-index: 5;
-            max-width: 800px;
+            margin-top: 50px;
         }
 
         /* Заголовок строго 44px */
         h1 {
             font-size: 44px;
-            line-height: 0.9;
-            margin: 0 0 25px 0;
+            line-height: 0.95;
+            margin-bottom: 20px;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         /* Манифест строго 14px */
         .description {
             font-family: Arial, sans-serif;
             font-size: 14px;
-            line-height: 1.6;
-            max-width: 450px;
+            line-height: 1.5;
+            max-width: 400px;
             margin: 0 auto;
-            color: rgba(255, 255, 255, 0.9);
+            color: #fff;
         }
 
-        /* Кнопок в коде нет, но на всякий случай блокируем их стилями */
+        /* Удаляем кнопки физически из стилей на случай, если они остались в кэше */
         .btn, .btn-container, button {
             display: none !important;
         }
@@ -97,7 +98,6 @@
     <div class="hero">
         <div class="content">
             <h1>ЕМ<br>ПЬЮ<br>ХОЖУ</h1>
-            
             <p class="description">
                 Рецептов не будет. Советов тоже. Только факт того, что было на моем столе в разных точках мира.
             </p>
