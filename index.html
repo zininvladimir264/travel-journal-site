@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Обнуление базовых отступов */
         * {
             margin: 0;
             padding: 0;
@@ -14,13 +13,12 @@
         body, html {
             width: 100%;
             height: 100vh;
-            background-color: #000;
+            background-color: #000; /* Если фото не грузится, будет просто черный фон */
             color: #fff;
             font-family: 'Arial Black', sans-serif;
-            overflow: hidden; /* Запрет прокрутки */
+            overflow: hidden;
         }
 
-        /* Главный экран */
         .hero {
             position: relative;
             width: 100%;
@@ -31,15 +29,15 @@
             justify-content: center;
             text-align: center;
             
-            /* ПУТЬ К ФОТО: указываем папку image */
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                        url('image/hero3.jpg') no-repeat center center;
-            
-            /* Эффект "подальше": картинка вписывается в экран целиком */
-            background-size: contain; 
+            /* ПУТЬ К ФОТО */
+            /* Попробуйте изменить на ./image/hero3.jpg если не сработает */
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                              url('image/hero3.jpg'); 
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain; /* Эффект "подальше" */
         }
 
-        /* Навигация сверху */
         nav {
             position: absolute;
             top: 40px;
@@ -55,14 +53,8 @@
             font-size: 13px;
             letter-spacing: 2px;
             font-family: Arial, sans-serif;
-            transition: 0.3s;
         }
 
-        nav a:hover {
-            color: #fff;
-        }
-
-        /* Текстовый блок */
         .content {
             position: relative;
             z-index: 10;
@@ -71,10 +63,9 @@
         /* Заголовок строго 44px */
         h1 {
             font-size: 44px;
-            line-height: 0.95;
+            line-height: 1.0;
             margin-bottom: 25px;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         /* Манифест строго 14px */
@@ -87,8 +78,8 @@
             color: #fff;
         }
 
-        /* Полная зачистка кнопок, чтобы они никогда не появились */
-        .btn, .btn-container, button, a[class*="btn"] {
+        /* Удаление кнопок */
+        .btn, .btn-container, button {
             display: none !important;
         }
     </style>
