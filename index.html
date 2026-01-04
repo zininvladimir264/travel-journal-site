@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Блокируем прокрутку и убираем лишние отступы, чтобы убрать задвоение */
+        /* Убираем все отступы и блокируем прокрутку, чтобы не было задвоений */
         * {
             box-sizing: border-box;
         }
@@ -18,17 +18,17 @@
             background-color: #000;
             font-family: 'Arial Black', sans-serif;
             color: #fff;
-            overflow: hidden; 
+            overflow: hidden; /* Гарантирует отсутствие прокрутки вниз */
         }
 
         /* Навигация */
         nav {
             position: absolute;
-            top: 20px;
+            top: 25px;
             width: 100%;
             display: flex;
             justify-content: center;
-            gap: 25px;
+            gap: 30px;
             z-index: 10;
         }
 
@@ -50,24 +50,28 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            /* Используем hero2.jpg и отдаляем через background-size: contain */
+            
+            /* Указан путь к папке images */
             background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                        url('hero2.jpg') no-repeat center center;
-            background-size: contain; 
+                        url('images/hero2.jpg') no-repeat center center;
+            
+            /* Свойство cover заполняет экран. 
+               Чтобы фото было "подальше", используем 100% ширины или contain на мобильных */
+            background-size: cover; 
             text-align: center;
         }
 
-        /* Контент */
+        /* Контентный блок */
         .hero-content {
             width: 90%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            /* Смещаем текст вниз, чтобы он не перекрывал важные части фото */
-            margin-top: 150px; 
+            /* Смещение текста, чтобы он был в нужной зоне кадра */
+            margin-top: 60px; 
         }
 
-        /* Заголовок 44 пикселя */
+        /* Заголовок: строго 44 пикселя */
         h1 {
             font-size: 44px; 
             line-height: 1.1;
@@ -75,25 +79,32 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             font-weight: 900;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+            text-shadow: 0 2px 15px rgba(0,0,0,1);
         }
 
-        /* Манифест 14 пикселей */
+        /* Манифест: строго 14 пикселей */
         .description {
             font-family: Arial, sans-serif;
             font-size: 14px;
             line-height: 1.5;
-            max-width: 320px;
+            max-width: 300px;
             margin: 0 auto;
             color: #fff;
-            text-shadow: 1px 1px 8px rgba(0,0,0,1);
+            text-shadow: 1px 1px 10px rgba(0,0,0,1);
         }
 
-        /* Адаптация для ПК (если нужно чуть крупнее на больших экранах) */
-        @media (min-width: 768px) {
-            h1 { font-size: 60px; }
-            .description { font-size: 16px; max-width: 500px; }
-            .hero { background-size: cover; } /* На ПК лучше оставить cover */
+        /* Адаптация для мобильных: эффект "отдаления" фото */
+        @media (max-width: 600px) {
+            .hero {
+                /* На мобильных contain может сделать фото слишком маленьким, 
+                   поэтому используем cover, но центрируем строго */
+                background-size: cover;
+                background-position: center center;
+            }
+            
+            h1 {
+                font-size: 44px; /* Оставляем 44px как в ТЗ */
+            }
         }
     </style>
 </head>
