@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Полный сброс */
         * {
             margin: 0;
             padding: 0;
@@ -17,10 +16,10 @@
             background-color: #000;
             color: #fff;
             font-family: 'Arial Black', sans-serif;
-            overflow: hidden;
+            /* Убираем скролл, чтобы не вылезли кнопки снизу */
+            overflow: hidden; 
         }
 
-        /* Экран с hero3.jpg */
         .hero {
             position: relative;
             width: 100%;
@@ -30,13 +29,16 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            /* Путь к фото на основе вашего Finder */
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
-                        url('hero3.jpg') no-repeat center center;
+            
+            /* Прямое указание файла без папок */
+            background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+                              url('hero3.jpg'); 
+            background-repeat: no-repeat;
+            background-position: center center;
             background-size: contain; 
         }
 
-        /* Навигация */
+        /* Навигация сверху */
         nav {
             position: absolute;
             top: 40px;
@@ -54,8 +56,8 @@
             font-family: Arial, sans-serif;
         }
 
-        /* Контент */
         .content {
+            position: relative;
             z-index: 10;
         }
 
@@ -67,7 +69,7 @@
             text-transform: uppercase;
         }
 
-        /* Манифест: был 14px, стал 16px */
+        /* Манифест на 2px больше (16px) */
         .description {
             font-family: Arial, sans-serif;
             font-size: 16px; 
@@ -75,11 +77,10 @@
             max-width: 450px;
             margin: 0 auto;
             color: #fff;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
-        /* УДАЛЕНИЕ КНОПОК И ЛИШНЕГО ТЕКСТА */
-        .btn, .btn-container, button, .bottom-text, #buttons, [class*="button"] {
+        /* Блокируем отображение кнопок и лишнего текста */
+        .btn, .btn-container, button, #buttons, .y-button, .oni-button, [class*="button"] {
             display: none !important;
         }
     </style>
