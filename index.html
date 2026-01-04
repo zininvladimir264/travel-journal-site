@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Полная блокировка скролла и очистка отступов */
+        /* Блокируем любой скролл, чтобы искоренить задвоение */
         * {
             box-sizing: border-box;
         }
@@ -14,13 +14,13 @@
             margin: 0;
             padding: 0;
             width: 100%;
-            height: 100%;
-            overflow: hidden; /* Гарантированно убирает задвоение контента */
+            height: 100vh;
+            overflow: hidden; 
             background-color: #000;
             font-family: 'Arial Black', sans-serif;
         }
 
-        /* Контейнер для фото */
+        /* Контейнер для фото во всю ширину */
         .hero {
             position: relative;
             width: 100%;
@@ -29,12 +29,12 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            /* ПУТЬ К ФОТО: исправлено на папку images и файл hero3.jpg */
+            /* Путь к вашему фото */
             background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/hero3.jpg');
             background-repeat: no-repeat;
             background-position: center center;
-            /* Эффект "подальше": картинка занимает 85% высоты экрана */
-            background-size: auto 85%; 
+            /* cover растягивает на всю ширину и высоту */
+            background-size: cover; 
             text-align: center;
         }
 
@@ -51,52 +51,52 @@
 
         nav a {
             text-decoration: none;
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.7);
             text-transform: uppercase;
             font-size: 12px;
             letter-spacing: 2px;
             font-family: Arial, sans-serif;
         }
 
-        /* Блок с текстом */
+        /* Контент поверх фото */
         .content {
             z-index: 10;
             width: 100%;
             padding: 0 20px;
-            /* Текст смещен вниз, чтобы не закрывать центр фото */
-            margin-top: 80px; 
+            /* Поднимаем или опускаем текст, чтобы он был в удобном месте */
+            margin-top: 20px; 
         }
 
         /* Заголовок строго 44px */
         h1 {
             font-size: 44px;
-            line-height: 1;
+            line-height: 1.1;
             margin: 0 0 15px 0;
             text-transform: uppercase;
             color: #fff;
             font-weight: 900;
-            text-shadow: 0 2px 15px rgba(0,0,0,0.9);
+            text-shadow: 0 2px 15px rgba(0,0,0,1);
         }
 
         /* Манифест строго 14px */
         .description {
             font-family: Arial, sans-serif;
             font-size: 14px;
-            line-height: 1.4;
-            max-width: 280px;
+            line-height: 1.5;
+            max-width: 290px;
             margin: 0 auto;
             color: #fff;
             text-shadow: 1px 1px 10px rgba(0,0,0,1);
         }
 
-        /* Адаптация для мобильных */
+        /* Специальная настройка для мобильных телефонов */
         @media (max-width: 600px) {
             .hero {
-                /* На телефоне делаем чуть ближе, чтобы не было пустых полей */
-                background-size: cover; 
+                /* Чтобы фото не было слишком приближенным на узких экранах */
+                background-position: 50% 50%;
             }
             h1 {
-                font-size: 44px; /* Сохраняем 44px и на телефоне */
+                font-size: 44px; /* Сохраняем ваш размер */
             }
         }
     </style>
