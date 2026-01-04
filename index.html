@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Полная блокировка прокрутки, чтобы физически убрать задвоение */
+        /* Блокируем любую возможность прокрутки и убираем отступы */
         html, body {
             margin: 0;
             padding: 0;
             width: 100%;
-            height: 100%;
+            height: 100vh;
             overflow: hidden; 
             background-color: #000;
             font-family: 'Arial Black', sans-serif;
         }
 
-        /* Главный экран */
+        /* Главный контейнер с фоном */
         .hero {
             position: relative;
             width: 100%;
@@ -25,55 +25,63 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            /* Фото отдалено через contain и не дублируется */
+            /* background-size: contain делает фото "дальше", чтобы оно влезло в экран */
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
                         url('hero2.jpg') no-repeat center center;
             background-size: contain; 
             text-align: center;
         }
 
-        /* Навигация */
+        /* Навигация сверху */
         nav {
             position: absolute;
-            top: 20px;
-            z-index: 10;
+            top: 25px;
+            z-index: 20;
             display: flex;
-            gap: 20px;
+            gap: 25px;
         }
 
         nav a {
             text-decoration: none;
             color: rgba(255, 255, 255, 0.6);
             text-transform: uppercase;
-            font-size: 11px;
-            letter-spacing: 1.5px;
+            font-size: 12px;
+            letter-spacing: 2px;
             font-family: Arial, sans-serif;
         }
 
-        /* Контейнер для текста */
+        /* Блок с текстом */
         .content {
-            margin-top: 100px; /* Смещение текста, чтобы не закрывать фото */
+            z-index: 10;
             padding: 0 20px;
+            margin-top: 80px; /* Позиционируем текст относительно фото */
         }
 
         /* Заголовок строго 44px */
         h1 {
             font-size: 44px;
             line-height: 1.0;
-            margin: 0 0 15px 0;
+            margin: 0 0 20px 0;
             text-transform: uppercase;
             color: #fff;
             font-weight: 900;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.8);
         }
 
         /* Манифест строго 14px */
         .description {
             font-family: Arial, sans-serif;
             font-size: 14px;
-            line-height: 1.4;
-            max-width: 290px;
+            line-height: 1.5;
+            max-width: 300px;
             margin: 0 auto;
             color: #fff;
+            text-shadow: 1px 1px 10px rgba(0,0,0,1);
+        }
+
+        /* Гарантированное удаление всего лишнего */
+        .btn-container, .btn, button, [class*="button"] {
+            display: none !important;
         }
     </style>
 </head>
