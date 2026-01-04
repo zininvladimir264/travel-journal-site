@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Обнуление */
         * {
             margin: 0;
             padding: 0;
@@ -20,7 +19,7 @@
             overflow: hidden;
         }
 
-        /* Основной экран */
+        /* Главный экран */
         .hero {
             position: relative;
             width: 100%;
@@ -31,19 +30,17 @@
             justify-content: center;
             text-align: center;
             
-            /* Настройки фото hero3.jpg */
-            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('hero3.jpg');
-            background-repeat: no-repeat;
-            background-position: center center;
-            /* contain — это "отдаление", фото вписывается целиком */
-            background-size: contain; 
+            /* ФОТО: Убедитесь, что hero3.jpg лежит рядом с этим файлом */
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                        url('./hero3.jpg') no-repeat center center;
+            background-size: cover; /* Растягиваем, чтобы не было черных дыр */
         }
 
         /* Навигация */
         nav {
             position: absolute;
             top: 40px;
-            z-index: 10;
+            z-index: 20;
             display: flex;
             gap: 40px;
         }
@@ -60,15 +57,14 @@
         /* Контент */
         .content {
             position: relative;
-            z-index: 5;
-            margin-top: 50px;
+            z-index: 10;
         }
 
         /* Заголовок строго 44px */
         h1 {
             font-size: 44px;
             line-height: 0.95;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             text-transform: uppercase;
         }
 
@@ -76,14 +72,14 @@
         .description {
             font-family: Arial, sans-serif;
             font-size: 14px;
-            line-height: 1.5;
-            max-width: 400px;
+            line-height: 1.6;
+            max-width: 450px;
             margin: 0 auto;
             color: #fff;
         }
 
-        /* Удаляем кнопки физически из стилей на случай, если они остались в кэше */
-        .btn, .btn-container, button {
+        /* Полная зачистка кнопок */
+        .btn, .btn-container, button, a[class*="btn"] {
             display: none !important;
         }
     </style>
