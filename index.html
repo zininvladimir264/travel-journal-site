@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
+        /* Обнуление базовых отступов */
         * {
             margin: 0;
             padding: 0;
@@ -16,7 +17,7 @@
             background-color: #000;
             color: #fff;
             font-family: 'Arial Black', sans-serif;
-            overflow: hidden;
+            overflow: hidden; /* Запрет прокрутки */
         }
 
         /* Главный экран */
@@ -30,13 +31,15 @@
             justify-content: center;
             text-align: center;
             
-            /* ФОТО: Убедитесь, что hero3.jpg лежит рядом с этим файлом */
+            /* ПУТЬ К ФОТО: указываем папку image */
             background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                        url('./hero3.jpg') no-repeat center center;
-            background-size: cover; /* Растягиваем, чтобы не было черных дыр */
+                        url('image/hero3.jpg') no-repeat center center;
+            
+            /* Эффект "подальше": картинка вписывается в экран целиком */
+            background-size: contain; 
         }
 
-        /* Навигация */
+        /* Навигация сверху */
         nav {
             position: absolute;
             top: 40px;
@@ -52,9 +55,14 @@
             font-size: 13px;
             letter-spacing: 2px;
             font-family: Arial, sans-serif;
+            transition: 0.3s;
         }
 
-        /* Контент */
+        nav a:hover {
+            color: #fff;
+        }
+
+        /* Текстовый блок */
         .content {
             position: relative;
             z-index: 10;
@@ -66,6 +74,7 @@
             line-height: 0.95;
             margin-bottom: 25px;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* Манифест строго 14px */
@@ -78,7 +87,7 @@
             color: #fff;
         }
 
-        /* Полная зачистка кнопок */
+        /* Полная зачистка кнопок, чтобы они никогда не появились */
         .btn, .btn-container, button, a[class*="btn"] {
             display: none !important;
         }
