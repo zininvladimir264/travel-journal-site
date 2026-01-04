@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* Сброс всех отступов */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body, html {
             width: 100%;
@@ -12,9 +17,10 @@
             background-color: #000;
             color: #fff;
             font-family: 'Arial Black', sans-serif;
-            overflow: hidden;
+            overflow: hidden; /* Запрещаем скролл, чтобы ничего не всплывало снизу */
         }
 
+        /* Главный экран с hero3.jpg */
         .hero {
             position: relative;
             width: 100%;
@@ -25,16 +31,13 @@
             justify-content: center;
             text-align: center;
             
-            /* Я прописал путь 'images/' так как на скриншоте виден файл images.jpg рядом */
-            /* Если папка называется по-другому, поправьте только это слово */
-            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                              url('images/hero3.jpg'); 
-            
-            background-repeat: no-repeat;
-            background-position: center center;
+            /* Раз фото работает, оставляем путь как есть */
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+                        url('hero3.jpg') no-repeat center center;
             background-size: contain; 
         }
 
+        /* Навигация (только Главная и Страны) */
         nav {
             position: absolute;
             top: 40px;
@@ -52,8 +55,8 @@
             font-family: Arial, sans-serif;
         }
 
+        /* Текстовый блок */
         .content {
-            position: relative;
             z-index: 10;
         }
 
@@ -61,7 +64,7 @@
         h1 {
             font-size: 44px;
             line-height: 1.0;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             text-transform: uppercase;
         }
 
@@ -69,15 +72,17 @@
         .description {
             font-family: Arial, sans-serif;
             font-size: 14px;
-            line-height: 1.6;
-            max-width: 450px;
+            line-height: 1.5;
+            max-width: 400px;
             margin: 0 auto;
             color: #fff;
         }
 
-        /* Убираем кнопки и лишний текст, который виден на ваших фото */
-        .btn, .btn-container, button, #buttons, .y-button, .oni-button {
+        /* ЖЕСТКОЕ УДАЛЕНИЕ: Скрываем любые остатки кнопок и текста, если они в кэше */
+        .btn, .btn-container, button, .bottom-text, #buttons {
             display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
         }
     </style>
 </head>
@@ -91,6 +96,7 @@
     <div class="hero">
         <div class="content">
             <h1>ЕМ<br>ПЬЮ<br>ХОЖУ</h1>
+            
             <p class="description">
                 Рецептов не будет. Советов тоже. Только факт того, что было на моем столе в разных точках мира.
             </p>
