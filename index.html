@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Полная блокировка скролла, чтобы убрать задвоение текста внизу */
+        /* Блокируем скролл, чтобы убрать задвоение текста и кнопок */
         html, body {
             margin: 0;
             padding: 0;
@@ -16,8 +16,8 @@
             font-family: 'Arial Black', sans-serif;
         }
 
-        /* Главный экран с фото hero3.jpg */
-        .hero-container {
+        /* Экран с фото hero3.jpg */
+        .hero-view {
             position: relative;
             width: 100%;
             height: 100vh;
@@ -25,18 +25,18 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            /* contain отдаляет фото, чтобы оно не было слишком приближенным */
+            /* contain отдаляет фото, чтобы оно влезло в экран целиком */
             background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
                         url('hero3.jpg') no-repeat center center;
             background-size: contain; 
             text-align: center;
         }
 
-        /* Навигация (только Главная и Страны) */
+        /* Навигация */
         nav {
             position: absolute;
             top: 25px;
-            z-index: 100;
+            z-index: 50;
             display: flex;
             gap: 25px;
         }
@@ -45,23 +45,23 @@
             text-decoration: none;
             color: rgba(255, 255, 255, 0.6);
             text-transform: uppercase;
-            font-size: 11px;
+            font-size: 12px;
             letter-spacing: 2px;
             font-family: Arial, sans-serif;
         }
 
-        /* Контейнер для текста */
-        .text-wrap {
+        /* Блок контента */
+        .main-text {
             z-index: 10;
             padding: 0 20px;
-            margin-top: 60px; /* Регулировка положения надписей */
+            margin-top: 40px; /* Регулировка положения текста */
         }
 
         /* Заголовок строго 44px */
         h1 {
             font-size: 44px;
             line-height: 1.0;
-            margin: 0 0 15px 0;
+            margin: 0 0 20px 0;
             text-transform: uppercase;
             color: #fff;
             font-weight: 900;
@@ -69,18 +69,18 @@
         }
 
         /* Манифест строго 14px */
-        .manifest-text {
+        .sub-text {
             font-family: Arial, sans-serif;
             font-size: 14px;
-            line-height: 1.4;
-            max-width: 290px;
+            line-height: 1.5;
+            max-width: 300px;
             margin: 0 auto;
             color: #fff;
             text-shadow: 0 1px 5px rgba(0,0,0,1);
         }
 
-        /* Принудительное удаление кнопок, если они остались в кэше */
-        .btn, .btn-container, button, #buttons {
+        /* Принудительное скрытие старых кнопок из кэша */
+        .btn, .btn-container, button, a.btn {
             display: none !important;
             visibility: hidden !important;
         }
@@ -93,11 +93,11 @@
         <a href="countries.html">СТРАНЫ</a>
     </nav>
 
-    <div class="hero-container">
-        <div class="text-wrap">
+    <div class="hero-view">
+        <div class="main-text">
             <h1>ЕМ<br>ПЬЮ<br>ХОЖУ</h1>
             
-            <p class="manifest-text">
+            <p class="sub-text">
                 Рецептов не будет. Советов тоже. Только факт того, что было на моем столе в разных точках мира.
             </p>
         </div>
