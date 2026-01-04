@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Сброс всех отступов */
+        /* Полный сброс */
         * {
             margin: 0;
             padding: 0;
@@ -17,10 +17,10 @@
             background-color: #000;
             color: #fff;
             font-family: 'Arial Black', sans-serif;
-            overflow: hidden; /* Запрещаем скролл, чтобы ничего не всплывало снизу */
+            overflow: hidden;
         }
 
-        /* Главный экран с hero3.jpg */
+        /* Экран с hero3.jpg */
         .hero {
             position: relative;
             width: 100%;
@@ -30,14 +30,13 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            
-            /* Раз фото работает, оставляем путь как есть */
+            /* Путь к фото на основе вашего Finder */
             background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
                         url('hero3.jpg') no-repeat center center;
             background-size: contain; 
         }
 
-        /* Навигация (только Главная и Страны) */
+        /* Навигация */
         nav {
             position: absolute;
             top: 40px;
@@ -55,7 +54,7 @@
             font-family: Arial, sans-serif;
         }
 
-        /* Текстовый блок */
+        /* Контент */
         .content {
             z-index: 10;
         }
@@ -68,21 +67,20 @@
             text-transform: uppercase;
         }
 
-        /* Манифест строго 14px */
+        /* Манифест: был 14px, стал 16px */
         .description {
             font-family: Arial, sans-serif;
-            font-size: 14px;
+            font-size: 16px; 
             line-height: 1.5;
-            max-width: 400px;
+            max-width: 450px;
             margin: 0 auto;
             color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
-        /* ЖЕСТКОЕ УДАЛЕНИЕ: Скрываем любые остатки кнопок и текста, если они в кэше */
-        .btn, .btn-container, button, .bottom-text, #buttons {
+        /* УДАЛЕНИЕ КНОПОК И ЛИШНЕГО ТЕКСТА */
+        .btn, .btn-container, button, .bottom-text, #buttons, [class*="button"] {
             display: none !important;
-            visibility: hidden !important;
-            opacity: 0 !important;
         }
     </style>
 </head>
