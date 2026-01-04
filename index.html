@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Сброс и базовые настройки */
+        /* Полный сброс */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body, html {
@@ -13,7 +13,7 @@
             background-color: #000;
             color: #fff;
             font-family: 'Arial Black', sans-serif;
-            overflow: hidden; /* Скролл отключен */
+            overflow: hidden; 
         }
 
         .hero {
@@ -26,15 +26,16 @@
             justify-content: center;
             text-align: center;
             
-            /* --- ВНИМАНИЕ НА ЭТУ СТРОКУ --- */
-            /* Мы ищем фото в папке image. */
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                        url('image/hero3.jpg') no-repeat center center;
+            /* --- ПРОВЕРЬТЕ ЭТУ СТРОКУ --- */
+            /* Если ваша папка называется Image (с большой), замените i на I */
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                              url('image/hero3.jpg');
             
-            background-size: contain; /* Фото целиком (эффект "подальше") */
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain; /* Отдаляет фото, чтобы оно влезло целиком */
         }
 
-        /* Навигация */
         nav {
             position: absolute;
             top: 40px;
@@ -50,24 +51,17 @@
             font-size: 13px;
             letter-spacing: 2px;
             font-family: Arial, sans-serif;
-            transition: 0.3s;
         }
 
-        nav a:hover {
-            color: #fff;
-        }
-
-        /* Заголовок 44px */
+        /* Заголовок строго 44px */
         h1 {
             font-size: 44px;
             line-height: 1.0;
             margin-bottom: 25px;
             text-transform: uppercase;
-            position: relative;
-            z-index: 10;
         }
 
-        /* Манифест 14px */
+        /* Манифест строго 14px */
         .description {
             font-family: Arial, sans-serif;
             font-size: 14px;
@@ -75,11 +69,9 @@
             max-width: 450px;
             margin: 0 auto;
             color: #fff;
-            position: relative;
-            z-index: 10;
         }
 
-        /* Блокировка кнопок */
+        /* Полное удаление кнопок */
         .btn, .btn-container, button { display: none !important; }
     </style>
 </head>
