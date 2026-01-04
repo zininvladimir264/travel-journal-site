@@ -3,57 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Убираем все возможные отступы браузера */
+        /* 1. УБИРАЕМ ВСЕ ГРАНИЦЫ И ОТСТУПЫ */
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        /* Растягиваем страницу на весь экран без прокрутки */
-        html, body {
-            width: 100% !important;
-            height: 100% !important;
             margin: 0 !important;
             padding: 0 !important;
+            box-sizing: border-box !important;
+        }
+        
+        /* 2. БЛОКИРУЕМ ЭКРАН (Запрещает листать вниз к кнопкам) */
+        html, body {
+            width: 100vw !important;
+            height: 100vh !important;
             background-color: #000;
             color: #fff;
             font-family: 'Arial Black', sans-serif;
-            overflow: hidden; /* Убирает задвоение на телефоне */
+            overflow: hidden !important; /* Убирает задвоение */
             position: fixed;
         }
 
-        /* ГЛАВНЫЙ БЛОК: Занимает 100% ширины и высоты окна Mac */
-        .hero-full {
+        /* 3. ФОН БЕЗ ПОЛОС (Для Mac и телефона) */
+        .ultimate-hero {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100vw;
             height: 100vh;
+            /* background-size: 105% гарантированно уберет полосы по бокам */
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                        url('images/hero2.jpg') no-repeat center center;
+            background-size: cover !important;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            
-            /* ФОН: cover растягивает фото до краев, убирая полосы */
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                        url('images/hero2.jpg') no-repeat center center;
-            background-size: cover !important; 
         }
 
-        /* НАВИГАЦИЯ: СТРОГО ПО ЦЕНТРУ */
-        nav {
+        /* 4. НАВИГАЦИЯ ЦЕНТРИРОВАННАЯ */
+        .fixed-nav {
             position: absolute;
             top: 40px;
             width: 100%;
             display: flex;
             justify-content: center;
             gap: 50px;
-            z-index: 1000;
+            z-index: 9999;
         }
 
-        nav a {
+        .fixed-nav a {
             text-decoration: none;
             color: #fff;
             text-transform: uppercase;
@@ -63,43 +63,40 @@
             font-weight: bold;
         }
 
-        /* ТЕКСТОВЫЙ БЛОК */
-        .main-text-box {
+        /* 5. ТЕКСТ (УВЕЛИЧЕННЫЙ НА 2px) */
+        .content-safe-zone {
+            position: relative;
             z-index: 10;
             padding: 0 20px;
         }
 
-        /* ЗАГОЛОВОК: 46px */
         h1 {
-            font-size: 46px; 
+            font-size: 46px; /* Было 44, стало 46 */
             line-height: 1.1;
             margin-bottom: 25px;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.9);
+            text-shadow: 0 5px 20px #000;
         }
 
-        /* МАНИФЕСТ: 16px */
         p {
             font-family: Arial, sans-serif;
-            font-size: 16px; 
+            font-size: 16px; /* Было 14, стало 16 */
             line-height: 1.6;
-            max-width: 400px;
+            max-width: 380px;
             margin: 0 auto;
-            color: #fff;
-            text-shadow: 0 2px 10px rgba(0,0,0,1);
+            text-shadow: 0 2px 10px #000;
         }
     </style>
 </head>
 <body>
 
-    <nav>
+    <nav class="fixed-nav">
         <a href="index.html">ГЛАВНАЯ</a>
         <a href="countries.html">СТРАНЫ</a>
     </nav>
 
-    <div class="hero-full">
-        <div class="main-text-box">
+    <div class="ultimate-hero">
+        <div class="content-safe-zone">
             <h1>ЕМ<br>ПЬЮ<br>ХОЖУ</h1>
             <p>Рецептов не будет. Советов тоже. Только факт того, что было на моем столе в разных точках мира.</p>
         </div>
