@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Полный сброс */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* Сброс всех отступов */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body, html {
             width: 100%;
@@ -13,9 +17,10 @@
             background-color: #000;
             color: #fff;
             font-family: 'Arial Black', sans-serif;
-            overflow: hidden; 
+            overflow: hidden;
         }
 
+        /* Основной блок с фоном */
         .hero {
             position: relative;
             width: 100%;
@@ -25,21 +30,21 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            
-            /* --- ПРОВЕРЬТЕ ЭТУ СТРОКУ --- */
-            /* Если ваша папка называется Image (с большой), замените i на I */
+
+            /* ПУТЬ К ФОТОГРАФИИ */
             background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
                               url('image/hero3.jpg');
             
             background-repeat: no-repeat;
             background-position: center center;
-            background-size: contain; /* Отдаляет фото, чтобы оно влезло целиком */
+            background-size: contain; /* Фото целиком, без обрезки */
         }
 
+        /* Навигация */
         nav {
             position: absolute;
             top: 40px;
-            z-index: 20;
+            z-index: 100;
             display: flex;
             gap: 40px;
         }
@@ -51,6 +56,12 @@
             font-size: 13px;
             letter-spacing: 2px;
             font-family: Arial, sans-serif;
+        }
+
+        /* Контент */
+        .content {
+            position: relative;
+            z-index: 10;
         }
 
         /* Заголовок строго 44px */
@@ -71,8 +82,10 @@
             color: #fff;
         }
 
-        /* Полное удаление кнопок */
-        .btn, .btn-container, button { display: none !important; }
+        /* Жесткое удаление кнопок */
+        .btn, .btn-container, button, #buttons {
+            display: none !important;
+        }
     </style>
 </head>
 <body>
