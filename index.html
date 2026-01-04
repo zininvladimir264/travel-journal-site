@@ -4,12 +4,7 @@
     <meta charset="UTF-8">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Сброс всех отступов */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body, html {
             width: 100%;
@@ -20,7 +15,6 @@
             overflow: hidden;
         }
 
-        /* Основной блок с фоном */
         .hero {
             position: relative;
             width: 100%;
@@ -30,17 +24,17 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-
-            /* ПУТЬ К ФОТОГРАФИИ */
+            
+            /* Я прописал путь 'images/' так как на скриншоте виден файл images.jpg рядом */
+            /* Если папка называется по-другому, поправьте только это слово */
             background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                              url('image/hero3.jpg');
+                              url('images/hero3.jpg'); 
             
             background-repeat: no-repeat;
             background-position: center center;
-            background-size: contain; /* Фото целиком, без обрезки */
+            background-size: contain; 
         }
 
-        /* Навигация */
         nav {
             position: absolute;
             top: 40px;
@@ -58,7 +52,6 @@
             font-family: Arial, sans-serif;
         }
 
-        /* Контент */
         .content {
             position: relative;
             z-index: 10;
@@ -82,8 +75,8 @@
             color: #fff;
         }
 
-        /* Жесткое удаление кнопок */
-        .btn, .btn-container, button, #buttons {
+        /* Убираем кнопки и лишний текст, который виден на ваших фото */
+        .btn, .btn-container, button, #buttons, .y-button, .oni-button {
             display: none !important;
         }
     </style>
