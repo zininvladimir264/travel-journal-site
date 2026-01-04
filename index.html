@@ -2,32 +2,31 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Обнуление отступов */
-        * {
-            box-sizing: border-box;
-        }
-
-        body, html {
+        /* Полная блокировка прокрутки, чтобы убрать задвоение */
+        html, body {
             margin: 0;
             padding: 0;
-            height: 100%;
-            font-family: 'Arial Black', sans-serif;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden; 
             background-color: #000;
-            color: #fff;
-            overflow-x: hidden;
+            font-family: 'Arial Black', sans-serif;
         }
 
-        /* Главная секция с фоном hero3.jpg */
-        .hero-section {
-            position: relative;
-            height: 100vh;
+        /* Фоновое изображение hero2.jpg */
+        .hero {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                        url('images/hero3.jpg') no-repeat center center;
-            background-size: cover;
+            height: 100%;
+            /* background-size: contain отдаляет фото, чтобы оно влезло целиком */
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('hero2.jpg') no-repeat center center;
+            background-size: contain; 
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -35,89 +34,72 @@
             text-align: center;
         }
 
-        /* Навигация (только Главная и Страны) */
-        .top-nav {
+        /* Навигация */
+        nav {
             position: absolute;
-            top: 40px;
-            width: 100%;
+            top: 25px;
+            z-index: 100;
             display: flex;
-            justify-content: center;
-            gap: 40px;
+            gap: 20px;
         }
 
-        .top-nav a {
-            color: #fff;
+        nav a {
             text-decoration: none;
+            color: rgba(255, 255, 255, 0.6);
             text-transform: uppercase;
-            font-size: 14px;
-            letter-spacing: 2px;
-            font-weight: bold;
-            opacity: 0.8;
+            font-size: 11px;
+            letter-spacing: 1.5px;
         }
 
-        /* Заголовок — строго 46 пикселей */
-        .main-title {
-            font-size: 46px; 
-            line-height: 1.1;
-            text-transform: uppercase;
-            margin: 0;
+        /* Контентная часть */
+        .content {
+            z-index: 10;
             padding: 0 20px;
-            letter-spacing: 2px;
+            margin-top: 60px; /* Смещаем вниз, чтобы не перекрывать центр фото */
         }
 
-        /* Текст внизу слева */
-        .bottom-info {
-            position: absolute;
-            bottom: 40px;
-            left: 40px;
-            max-width: 450px;
-            text-align: left;
-            font-family: 'Arial', sans-serif;
-            font-size: 16px;
+        /* Шрифт ровно 44px */
+        h1 {
+            font-size: 44px;
+            line-height: 0.9;
+            margin: 0 0 20px 0;
+            text-transform: uppercase;
+            color: #fff;
+            font-weight: 900;
+        }
+
+        /* Манифест ровно 14px */
+        .description {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
             line-height: 1.4;
-            opacity: 0.9;
+            max-width: 280px;
+            margin: 0 auto;
+            color: #fff;
         }
 
-        /* Адаптация для мобильных */
-        @media (max-width: 768px) {
-            .top-nav {
-                top: 20px;
-                gap: 20px;
-            }
-
-            .bottom-info {
-                position: relative;
-                bottom: auto;
-                left: auto;
-                margin: 40px 20px 0;
-                text-align: center;
-                max-width: 100%;
-            }
-            
-            /* На мобильных оставляем те же 46px или чуть меньше, если экран совсем узкий */
-            .main-title {
-                font-size: 40px; 
-            }
+        /* Убираем все лишние элементы, которые могли остаться в кэше или коде */
+        .btn-container, .btn, .extra-text {
+            display: none !important;
+            visibility: hidden !important;
         }
     </style>
 </head>
 <body>
 
-    <div class="hero-section">
-        
-        <nav class="top-nav">
-            <a href="index.html">ГЛАВНАЯ</a>
-            <a href="countries.html">СТРАНЫ</a>
-        </nav>
+    <nav>
+        <a href="index.html">ГЛАВНАЯ</a>
+        <a href="countries.html">СТРАНЫ</a>
+    </nav>
 
-        <h1 class="main-title">
-            ЕМ<br>ПЬЮ<br>ХОЖУ
-        </h1>
-
-        <div class="bottom-info">
-            Рецептов не будет. Советов тоже. Только факт того, что было на моем столе в разных точках мира. Я прошел этот путь сам.
+    <div class="hero">
+        <div class="content">
+            <h1>ЕМ<br>ПЬЮ<br>ХОЖУ</h1>
+            
+            <p class="description">
+                Рецептов не будет. Советов тоже. Только факт того, что было на моем столе в разных точках мира.
+            </p>
         </div>
-
     </div>
 
 </body>
