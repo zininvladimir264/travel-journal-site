@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Блокируем скролл, чтобы убрать задвоение текста и кнопок */
+        /* Полная блокировка скролла и задвоений */
         html, body {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100vh;
             overflow: hidden; 
-            background-color: #000;
+            background-color: #000; /* Черный фон вокруг фото */
             font-family: 'Arial Black', sans-serif;
         }
 
-        /* Экран с фото hero3.jpg */
-        .hero-view {
+        /* Контейнер для фото hero3.jpg */
+        .hero {
             position: relative;
             width: 100%;
             height: 100vh;
@@ -25,43 +25,45 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            /* contain отдаляет фото, чтобы оно влезло в экран целиком */
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                        url('hero3.jpg') no-repeat center center;
-            background-size: contain; 
+            /* Настройки фото: отдаляем его через 90% и центрируем */
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('hero3.jpg');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 90%; /* Это "отдаляет" фото, делая его чуть меньше экрана */
             text-align: center;
         }
 
         /* Навигация */
         nav {
             position: absolute;
-            top: 25px;
-            z-index: 50;
+            top: 30px;
+            z-index: 100;
             display: flex;
             gap: 25px;
         }
 
         nav a {
             text-decoration: none;
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.7);
             text-transform: uppercase;
             font-size: 12px;
             letter-spacing: 2px;
             font-family: Arial, sans-serif;
         }
 
-        /* Блок контента */
-        .main-text {
+        /* Текст */
+        .content {
             z-index: 10;
             padding: 0 20px;
-            margin-top: 40px; /* Регулировка положения текста */
+            /* Смещаем текст ниже, чтобы он был поверх тарелок на фото */
+            margin-top: 100px; 
         }
 
         /* Заголовок строго 44px */
         h1 {
             font-size: 44px;
             line-height: 1.0;
-            margin: 0 0 20px 0;
+            margin: 0 0 15px 0;
             text-transform: uppercase;
             color: #fff;
             font-weight: 900;
@@ -69,20 +71,19 @@
         }
 
         /* Манифест строго 14px */
-        .sub-text {
+        .description {
             font-family: Arial, sans-serif;
             font-size: 14px;
-            line-height: 1.5;
-            max-width: 300px;
+            line-height: 1.4;
+            max-width: 280px;
             margin: 0 auto;
             color: #fff;
             text-shadow: 0 1px 5px rgba(0,0,0,1);
         }
 
-        /* Принудительное скрытие старых кнопок из кэша */
-        .btn, .btn-container, button, a.btn {
+        /* УДАЛЯЕМ ВСЁ ЛИШНЕЕ */
+        .btn, .btn-container, button {
             display: none !important;
-            visibility: hidden !important;
         }
     </style>
 </head>
@@ -93,11 +94,11 @@
         <a href="countries.html">СТРАНЫ</a>
     </nav>
 
-    <div class="hero-view">
-        <div class="main-text">
+    <div class="hero">
+        <div class="content">
             <h1>ЕМ<br>ПЬЮ<br>ХОЖУ</h1>
             
-            <p class="sub-text">
+            <p class="description">
                 Рецептов не будет. Советов тоже. Только факт того, что было на моем столе в разных точках мира.
             </p>
         </div>
