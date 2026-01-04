@@ -2,10 +2,10 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* ГЛАВНЫЙ ЗАМОК: запрещаем любой скролл, чтобы ничего не двоилось */
+        /* Убираем все отступы и блокируем прокрутку */
         html, body {
             margin: 0;
             padding: 0;
@@ -16,75 +16,71 @@
             font-family: 'Arial Black', sans-serif;
         }
 
-        /* КОНТЕЙНЕР: фиксируем высоту строго по размеру экрана */
+        /* Контейнер с фоном hero3.jpg */
         .hero {
-            position: absolute;
-            top: 0;
-            left: 0;
+            position: relative;
             width: 100%;
-            height: 100%;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            /* Используем hero3.jpg из папки images */
+            /* Путь к фото */
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
                         url('images/hero3.jpg') no-repeat center center;
-            /* background-size: contain отдаляет фото, чтобы оно влезло целиком */
-            background-size: contain; 
+            background-size: cover; /* На компьютере оставляем cover для красоты */
             text-align: center;
         }
 
-        /* МЕНЮ */
+        /* Меню */
         nav {
             position: absolute;
-            top: 25px;
+            top: 30px;
             z-index: 100;
             display: flex;
-            gap: 25px;
+            gap: 30px;
         }
 
         nav a {
             text-decoration: none;
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.7);
             text-transform: uppercase;
-            font-size: 12px;
+            font-size: 13px;
             letter-spacing: 2px;
             font-family: Arial, sans-serif;
         }
 
-        /* КОНТЕНТ */
+        /* Блок контента */
         .content {
             z-index: 10;
-            padding: 0 20px;
-            margin-top: 50px; /* Смещение вниз, чтобы не закрывать центр фото */
         }
 
-        /* ЗАГОЛОВОК: строго 44px */
+        /* Заголовок строго 44px */
         h1 {
             font-size: 44px;
-            line-height: 1.0;
+            line-height: 1.1;
             margin: 0 0 20px 0;
             text-transform: uppercase;
             color: #fff;
             font-weight: 900;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+            text-shadow: 0 5px 15px rgba(0,0,0,0.8);
         }
 
-        /* МАНИФЕСТ: строго 14px */
+        /* Манифест строго 14px */
         .description {
             font-family: Arial, sans-serif;
             font-size: 14px;
-            line-height: 1.5;
-            max-width: 290px;
+            line-height: 1.6;
+            max-width: 450px;
             margin: 0 auto;
             color: #fff;
         }
 
-        /* УДАЛЯЕМ ВСЕ ОСТАТКИ КНОПОК, ЕСЛИ ОНИ БЫЛИ В CSS */
-        .btn-container, .btn, .buttons {
+        /* ЖЕСТКОЕ УДАЛЕНИЕ: если какие-то кнопки остались в кэше стилей */
+        .btn, .btn-container, button, #buttons {
             display: none !important;
-            visibility: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
         }
     </style>
 </head>
