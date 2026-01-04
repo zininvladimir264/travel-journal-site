@@ -2,10 +2,10 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Убираем все отступы и блокируем прокрутку */
+        /* Полная блокировка скролла, чтобы убрать задвоение текста внизу */
         html, body {
             margin: 0;
             padding: 0;
@@ -16,8 +16,8 @@
             font-family: 'Arial Black', sans-serif;
         }
 
-        /* Контейнер с фоном hero3.jpg */
-        .hero {
+        /* Главный экран с фото hero3.jpg */
+        .hero-container {
             position: relative;
             width: 100%;
             height: 100vh;
@@ -25,62 +25,64 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            /* Путь к фото */
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                        url('images/hero3.jpg') no-repeat center center;
-            background-size: cover; /* На компьютере оставляем cover для красоты */
+            /* contain отдаляет фото, чтобы оно не было слишком приближенным */
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                        url('hero3.jpg') no-repeat center center;
+            background-size: contain; 
             text-align: center;
         }
 
-        /* Меню */
+        /* Навигация (только Главная и Страны) */
         nav {
             position: absolute;
-            top: 30px;
+            top: 25px;
             z-index: 100;
             display: flex;
-            gap: 30px;
+            gap: 25px;
         }
 
         nav a {
             text-decoration: none;
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.6);
             text-transform: uppercase;
-            font-size: 13px;
+            font-size: 11px;
             letter-spacing: 2px;
             font-family: Arial, sans-serif;
         }
 
-        /* Блок контента */
-        .content {
+        /* Контейнер для текста */
+        .text-wrap {
             z-index: 10;
+            padding: 0 20px;
+            margin-top: 60px; /* Регулировка положения надписей */
         }
 
         /* Заголовок строго 44px */
         h1 {
             font-size: 44px;
-            line-height: 1.1;
-            margin: 0 0 20px 0;
+            line-height: 1.0;
+            margin: 0 0 15px 0;
             text-transform: uppercase;
             color: #fff;
             font-weight: 900;
-            text-shadow: 0 5px 15px rgba(0,0,0,0.8);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
         }
 
         /* Манифест строго 14px */
-        .description {
+        .manifest-text {
             font-family: Arial, sans-serif;
             font-size: 14px;
-            line-height: 1.6;
-            max-width: 450px;
+            line-height: 1.4;
+            max-width: 290px;
             margin: 0 auto;
             color: #fff;
+            text-shadow: 0 1px 5px rgba(0,0,0,1);
         }
 
-        /* ЖЕСТКОЕ УДАЛЕНИЕ: если какие-то кнопки остались в кэше стилей */
+        /* Принудительное удаление кнопок, если они остались в кэше */
         .btn, .btn-container, button, #buttons {
             display: none !important;
-            opacity: 0 !important;
-            pointer-events: none !important;
+            visibility: hidden !important;
         }
     </style>
 </head>
@@ -91,11 +93,11 @@
         <a href="countries.html">СТРАНЫ</a>
     </nav>
 
-    <div class="hero">
-        <div class="content">
+    <div class="hero-container">
+        <div class="text-wrap">
             <h1>ЕМ<br>ПЬЮ<br>ХОЖУ</h1>
             
-            <p class="description">
+            <p class="manifest-text">
                 Рецептов не будет. Советов тоже. Только факт того, что было на моем столе в разных точках мира.
             </p>
         </div>
