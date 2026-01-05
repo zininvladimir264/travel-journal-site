@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Сброс всего */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* Сброс отступов и полная блокировка лишнего */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body, html {
             width: 100%;
@@ -13,9 +17,10 @@
             background-color: #000;
             color: #fff;
             font-family: 'Arial Black', sans-serif;
-            overflow: hidden; /* Блокирует скролл к старым дублям */
+            overflow: hidden; /* Отключает скролл, чтобы дубли не вылезали снизу */
         }
 
+        /* Главный экран с фоном из папки Images */
         .hero {
             position: relative;
             width: 100%;
@@ -25,11 +30,14 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+            
+            /* Путь Images/hero3.jpg соответствует вашему скриншоту репозитория */
             background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
-                        url('images/hero3.jpg') no-repeat center center;
+                        url('Images/hero3.jpg') no-repeat center center;
             background-size: contain; 
         }
 
+        /* Верхняя навигация */
         nav {
             position: absolute;
             top: 40px;
@@ -47,6 +55,11 @@
             font-family: Arial, sans-serif;
         }
 
+        .content {
+            z-index: 50;
+        }
+
+        /* Заголовок 44px */
         h1 {
             font-size: 44px;
             line-height: 1.0;
@@ -54,7 +67,7 @@
             text-transform: uppercase;
         }
 
-        /* Манифест 16px */
+        /* Манифест стал 16px (на 2px больше) */
         .description {
             font-family: Arial, sans-serif;
             font-size: 16px; 
@@ -64,9 +77,10 @@
             color: #fff;
         }
 
-        /* ЖЕСТКИЙ ЗАПРЕТ НА КНОПКИ */
-        button, .btn, .btn-container, #buttons, .y-button, .oni-button {
+        /* Жесткое скрытие всех кнопок и дублирующего контента */
+        .btn, .btn-container, button, #buttons, .y-button, .oni-button, [class*="button"] {
             display: none !important;
+            visibility: hidden !important;
         }
     </style>
 </head>
@@ -78,10 +92,12 @@
     </nav>
 
     <div class="hero">
-        <h1>ЕМ<br>ПЬЮ<br>ХОЖУ</h1>
-        <p class="description">
-            Рецептов не будет. Советов тоже. Только факт того, что было на моем столе в разных точках мира.
-        </p>
+        <div class="content">
+            <h1>ЕМ<br>ПЬЮ<br>ХОЖУ</h1>
+            <p class="description">
+                Рецептов не будет. Советов тоже. Только факт того, что было на моем столе в разных точках мира.
+            </p>
+        </div>
     </div>
 
 </body>
