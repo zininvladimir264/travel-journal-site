@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
+        /* Полная зачистка всех отступов */
         * {
             margin: 0;
             padding: 0;
@@ -16,7 +17,7 @@
             background-color: #000;
             color: #fff;
             font-family: 'Arial Black', sans-serif;
-            overflow: hidden; /* Запрещает скролл, чтобы дубли не вылезали */
+            overflow: hidden; /* Запрещает скролл вниз, где были дубли */
         }
 
         .hero {
@@ -28,7 +29,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            /* Путь к фото в папке images */
+            /* Фото hero3.jpg из папки images */
             background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
                         url('images/hero3.jpg') no-repeat center center;
             background-size: contain; 
@@ -55,7 +56,7 @@
             z-index: 50;
         }
 
-        /* Заголовок строго 44px */
+        /* Заголовок 44px */
         h1 {
             font-size: 44px;
             line-height: 1.0;
@@ -63,7 +64,7 @@
             text-transform: uppercase;
         }
 
-        /* Манифест на 2px больше (16px) */
+        /* Манифест 16px */
         .description {
             font-family: Arial, sans-serif;
             font-size: 16px; 
@@ -73,9 +74,11 @@
             color: #fff;
         }
 
-        /* ЖЕСТКОЕ СКРЫТИЕ ЛЮБЫХ ОСТАТКОВ */
-        .btn, .btn-container, button, #buttons, .y-button, .oni-button, [class*="button"] {
+        /* КОМАНДА НА УНИЧТОЖЕНИЕ ЛЮБЫХ КНОПОК */
+        footer, .buttons, button, .btn, [class*="button"], #buttons {
             display: none !important;
+            height: 0 !important;
+            visibility: hidden !important;
         }
     </style>
 </head>
