@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* 1. БЛОКИРОВКА СКРОЛЛА И КНОПОК */
+        /* Сброс настроек и запрет лишнего скролла */
         * {
             margin: 0;
             padding: 0;
@@ -17,10 +17,9 @@
             background-color: #000;
             color: #fff;
             font-family: 'Arial Black', sans-serif;
-            overflow: hidden !important; /* ЗАПРЕЩАЕТ СКРОЛЛ К ДУБЛИКАТАМ */
+            overflow: hidden !important; /* Убирает дубликаты снизу */
         }
 
-        /* 2. ФОН ИЗ ПАПКИ images */
         .hero {
             position: relative;
             width: 100%;
@@ -30,12 +29,12 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+            /* Путь к папке images с маленькой буквы */
             background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
                         url('images/hero3.jpg') no-repeat center center;
             background-size: contain; 
         }
 
-        /* 3. НАВИГАЦИЯ */
         nav {
             position: absolute;
             top: 40px;
@@ -53,7 +52,6 @@
             font-family: Arial, sans-serif;
         }
 
-        /* 4. ТЕКСТ (Заголовок 44px, Манифест 16px) */
         h1 {
             font-size: 44px;
             line-height: 1.0;
@@ -63,20 +61,17 @@
 
         .description {
             font-family: Arial, sans-serif;
-            font-size: 16px; /* Текст стал на 2px больше */
+            font-size: 16px; /* Шрифт 16px */
             line-height: 1.6;
             max-width: 450px;
             margin: 0 auto;
             color: #fff;
         }
 
-        /* 5. ПОЛНОЕ УДАЛЕНИЕ КНОПОК ИЗ ВИДИМОСТИ */
+        /* Принудительное скрытие всех кнопок "Я" и "ОНИ" */
         .btn, .btn-container, button, #buttons, .y-button, .oni-button, 
         [class*="button"], footer, section, .bottom-content {
             display: none !important;
-            visibility: hidden !important;
-            opacity: 0 !important;
-            height: 0 !important;
         }
     </style>
 </head>
