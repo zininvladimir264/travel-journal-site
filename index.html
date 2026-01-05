@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
+        /* Обнуление всех отступов */
         * {
             margin: 0;
             padding: 0;
@@ -16,10 +17,10 @@
             background-color: #000;
             color: #fff;
             font-family: 'Arial Black', sans-serif;
-            overflow: hidden; 
+            overflow: hidden; /* Блокируем скролл, чтобы не вылезли старые кнопки */
         }
 
-        /* Блок с фоновым фото hero3.jpg */
+        /* Главный экран с фото из папки images */
         .hero {
             position: relative;
             width: 100%;
@@ -30,15 +31,15 @@
             justify-content: center;
             text-align: center;
             
-            /* Используем прямой путь к файлу */
+            /* Указан путь к папке images */
             background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
-                              url('hero3.jpg'); 
+                              url('images/hero3.jpg'); 
             background-repeat: no-repeat;
             background-position: center center;
-            background-size: contain; 
+            background-size: contain; /* Фото целиком, эффект "подальше" */
         }
 
-        /* Верхняя навигация */
+        /* Навигация сверху */
         nav {
             position: absolute;
             top: 40px;
@@ -56,12 +57,13 @@
             font-family: Arial, sans-serif;
         }
 
+        /* Блок с текстом */
         .content {
             position: relative;
             z-index: 10;
         }
 
-        /* Заголовок 44px */
+        /* Заголовок строго 44px */
         h1 {
             font-size: 44px;
             line-height: 1.0;
@@ -69,7 +71,7 @@
             text-transform: uppercase;
         }
 
-        /* Манифест 16px (на 2px больше) */
+        /* Манифест на 2px больше (16px) */
         .description {
             font-family: Arial, sans-serif;
             font-size: 16px; 
@@ -79,9 +81,10 @@
             color: #fff;
         }
 
-        /* Полная зачистка всех кнопок и нижнего текста */
+        /* ЖЕСТКОЕ УДАЛЕНИЕ КНОПОК И ТЕКСТА "Я ПРОШЕЛ ЭТОТ ПУТЬ" */
         .btn, .btn-container, button, #buttons, .y-button, .oni-button, [class*="button"] {
             display: none !important;
+            visibility: hidden !important;
         }
     </style>
 </head>
