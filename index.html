@@ -4,19 +4,23 @@
     <meta charset="UTF-8">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        /* Запрещаем странице быть длиннее экрана, чтобы не видеть дубли внизу */
+        /* 1. БЛОКИРОВКА ВСЕГО ЛИШНЕГО */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body, html {
             width: 100%;
             height: 100vh;
-            max-height: 100vh;
             background-color: #000;
             color: #fff;
             font-family: 'Arial Black', sans-serif;
-            overflow: hidden !important; 
+            overflow: hidden !important; /* Убирает скролл к дублям снизу */
         }
 
+        /* 2. НАСТРОЙКА ФОНА (hero3.jpg из папки images) */
         .hero {
             position: relative;
             width: 100%;
@@ -31,6 +35,7 @@
             background-size: contain; 
         }
 
+        /* 3. НАВИГАЦИЯ */
         nav {
             position: absolute;
             top: 40px;
@@ -48,6 +53,12 @@
             font-family: Arial, sans-serif;
         }
 
+        /* 4. ТЕКСТ (Заголовок 44px, Манифест 16px) */
+        .content {
+            position: relative;
+            z-index: 50;
+        }
+
         h1 {
             font-size: 44px;
             line-height: 1.0;
@@ -57,30 +68,39 @@
 
         .description {
             font-family: Arial, sans-serif;
-            font-size: 16px; 
+            font-size: 16px; /* Текст на 2px больше */
             line-height: 1.6;
             max-width: 450px;
             margin: 0 auto;
+            color: #fff;
         }
 
-        /* ПОЛНОЕ УДАЛЕНИЕ ВСЕГО, ЧТО НЕ ВХОДИТ В HERO */
-        .hero ~ *, .btn, button, footer, [id*="button"], [class*="button"] {
+        /* 5. ЖЕСТКОЕ УДАЛЕНИЕ КНОПОК "Я" / "ОНИ" И ДУБЛИКАТОВ */
+        .btn, .btn-container, button, #buttons, .y-button, .oni-button, 
+        [class*="button"], footer, section, .bottom-content, .bottom-text {
             display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            height: 0 !important;
         }
     </style>
 </head>
 <body>
+
     <nav>
         <a href="index.html">ГЛАВНАЯ</a>
         <a href="countries.html">СТРАНЫ</a>
     </nav>
+
     <div class="hero">
         <div class="content">
             <h1>ЕМ<br>ПЬЮ<br>ХОЖУ</h1>
+            
             <p class="description">
                 Рецептов не будет. Советов тоже. Только факт того, что было на моем столе в разных точках мира.
             </p>
         </div>
     </div>
+
 </body>
 </html>
