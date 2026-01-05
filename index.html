@@ -4,12 +4,8 @@
     <meta charset="UTF-8">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* 1. БЛОКИРОВКА СКРОЛЛА И ЛИШНИХ ЭЛЕМЕНТОВ */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* БЛОКИРОВКА ЛЮБЫХ ДУБЛЕЙ ВНИЗУ */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body, html {
             width: 100%;
@@ -17,10 +13,10 @@
             background-color: #000;
             color: #fff;
             font-family: 'Arial Black', sans-serif;
-            overflow: hidden; /* Запрещает скролл вниз, где могут быть дубли */
+            /* ЗАПРЕТ СКРОЛЛА: браузер не даст прокрутить вниз к дублям */
+            overflow: hidden !important; 
         }
 
-        /* 2. ГЛАВНЫЙ ЭКРАН С ФОТО */
         .hero {
             position: relative;
             width: 100%;
@@ -30,14 +26,12 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            
-            /* Путь к папке images с маленькой буквы */
+            /* Фото из папки images, как на скриншоте */
             background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
                         url('images/hero3.jpg') no-repeat center center;
             background-size: contain; 
         }
 
-        /* 3. НАВИГАЦИЯ */
         nav {
             position: absolute;
             top: 40px;
@@ -55,11 +49,7 @@
             font-family: Arial, sans-serif;
         }
 
-        /* 4. ТЕКСТ (ЗАГОЛОВОК 44px, МАНИФЕСТ 16px) */
-        .content {
-            z-index: 50;
-        }
-
+        /* Заголовок 44px */
         h1 {
             font-size: 44px;
             line-height: 1.0;
@@ -67,23 +57,23 @@
             text-transform: uppercase;
         }
 
+        /* Манифест 16px (на 2px больше) */
         .description {
             font-family: Arial, sans-serif;
-            font-size: 16px; /* Увеличено на 2px по вашему запросу */
+            font-size: 16px; 
             line-height: 1.6;
             max-width: 450px;
             margin: 0 auto;
             color: #fff;
         }
 
-        /* 5. ПРИНУДИТЕЛЬНОЕ СКРЫТИЕ ВСЕГО ЛИШНЕГО */
-        /* Если в файле остались старые кнопки "Я" / "ОНИ", эти стили их выключат */
+        /* ПОЛНОЕ УДАЛЕНИЕ КНОПОК ИЗ ВИДИМОСТИ */
+        /* Скрываем всё, что может быть внизу файла */
         .btn, .btn-container, button, #buttons, .y-button, .oni-button, 
-        [class*="button"], footer, .bottom-text, section {
+        [class*="button"], footer, section, .bottom-content {
             display: none !important;
-            visibility: hidden !important;
             opacity: 0 !important;
-            height: 0 !important;
+            visibility: hidden !important;
         }
     </style>
 </head>
