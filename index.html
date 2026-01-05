@@ -4,12 +4,8 @@
     <meta charset="UTF-8">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* 1. БЛОКИРОВКА ВСЕГО ЛИШНЕГО */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* 1. БЛОКИРУЕМ ЛЮБОЙ КОНТЕНТ ВНИЗУ */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body, html {
             width: 100%;
@@ -17,12 +13,15 @@
             background-color: #000;
             color: #fff;
             font-family: 'Arial Black', sans-serif;
-            overflow: hidden !important; /* Убирает скролл к дублям снизу */
+            overflow: hidden !important; /* Это ГЛАВНОЕ: запрещает видеть то, что внизу */
+            position: fixed; /* Замораживает экран */
         }
 
-        /* 2. НАСТРОЙКА ФОНА (hero3.jpg из папки images) */
+        /* 2. НАСТРОЙКА ГЛАВНОГО БЛОКА */
         .hero {
-            position: relative;
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100vh;
             display: flex;
@@ -33,6 +32,7 @@
             background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
                         url('images/hero3.jpg') no-repeat center center;
             background-size: contain; 
+            z-index: 10;
         }
 
         /* 3. НАВИГАЦИЯ */
@@ -54,11 +54,6 @@
         }
 
         /* 4. ТЕКСТ (Заголовок 44px, Манифест 16px) */
-        .content {
-            position: relative;
-            z-index: 50;
-        }
-
         h1 {
             font-size: 44px;
             line-height: 1.0;
@@ -68,19 +63,18 @@
 
         .description {
             font-family: Arial, sans-serif;
-            font-size: 16px; /* Текст на 2px больше */
+            font-size: 16px; 
             line-height: 1.6;
             max-width: 450px;
             margin: 0 auto;
             color: #fff;
         }
 
-        /* 5. ЖЕСТКОЕ УДАЛЕНИЕ КНОПОК "Я" / "ОНИ" И ДУБЛИКАТОВ */
+        /* 5. ПОЛНОЕ УНИЧТОЖЕНИЕ КНОПОК И СТАРЫХ БЛОКОВ */
         .btn, .btn-container, button, #buttons, .y-button, .oni-button, 
-        [class*="button"], footer, section, .bottom-content, .bottom-text {
+        [class*="button"], footer, section, div:not(.hero):not(.content) {
             display: none !important;
             visibility: hidden !important;
-            opacity: 0 !important;
             height: 0 !important;
         }
     </style>
@@ -95,7 +89,6 @@
     <div class="hero">
         <div class="content">
             <h1>ЕМ<br>ПЬЮ<br>ХОЖУ</h1>
-            
             <p class="description">
                 Рецептов не будет. Советов тоже. Только факт того, что было на моем столе в разных точках мира.
             </p>
