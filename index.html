@@ -4,50 +4,85 @@
     <meta charset="UTF-8">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
+        /* 1. Глобальные настройки */
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body, html {
-            width: 100%; height: 100vh;
-            background-color: #000; color: #fff;
+            width: 100%;
+            height: 100vh;
+            background-color: #000;
+            color: #fff;
             font-family: 'Arial Black', sans-serif;
-            overflow: hidden; /* Это скроет дубли, если они ниже экрана */
+            overflow: hidden; /* Жестко обрезает всё, что ниже экрана */
         }
+
+        /* 2. Фон и картинка */
         .hero {
-            position: relative; width: 100%; height: 100vh;
-            display: flex; flex-direction: column;
-            align-items: center; justify-content: center;
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
             background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
                         url('images/hero3.jpg') no-repeat center center;
             background-size: contain; 
         }
+
+        /* 3. Меню сверху */
         nav {
-            position: absolute; top: 40px; z-index: 100;
-            display: flex; gap: 40px;
+            position: absolute;
+            top: 40px;
+            z-index: 100;
+            display: flex;
+            gap: 40px;
         }
+
         nav a {
-            text-decoration: none; color: rgba(255, 255, 255, 0.6);
-            text-transform: uppercase; font-size: 13px;
-            letter-spacing: 2px; font-family: Arial, sans-serif;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 2px;
+            font-family: Arial, sans-serif;
         }
-        h1 { font-size: 44px; line-height: 1.0; margin-bottom: 25px; text-transform: uppercase; }
+
+        /* 4. Текстовый контент */
+        h1 {
+            font-size: 44px;
+            line-height: 1.0;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
         .description {
             font-family: Arial, sans-serif;
-            font-size: 16px; /* Увеличенный шрифт */
-            line-height: 1.6; max-width: 450px; margin: 0 auto;
+            font-size: 16px; 
+            line-height: 1.6;
+            max-width: 450px;
+            margin: 0 auto;
         }
-        /* Блокировка любых кнопок, которые могут «выжить» */
+
+        /* 5. УДАЛИТЕЛЬ КНОПОК И ДУБЛЕЙ */
+        /* Если что-то лишнее появится, этот блок его скроет */
         .btn, .btn-container, button, #buttons, .y-button, .oni-button, 
-        [class*="button"], footer, section, .bottom-content {
+        [class*="button"], footer, section, .bottom-content, .bottom-text {
             display: none !important;
             visibility: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
         }
     </style>
 </head>
 <body>
+
     <nav>
         <a href="index.html">ГЛАВНАЯ</a>
         <a href="countries.html">СТРАНЫ</a>
     </nav>
+
     <div class="hero">
         <div class="content">
             <h1>ЕМ<br>ПЬЮ<br>ХОЖУ</h1>
@@ -56,5 +91,6 @@
             </p>
         </div>
     </div>
+
 </body>
 </html>
