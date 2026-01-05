@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Сброс всех отступов */
+        /* 1. БАЗОВЫЕ НАСТРОЙКИ */
         * {
             margin: 0;
             padding: 0;
@@ -17,9 +17,10 @@
             background-color: #000;
             color: #fff;
             font-family: 'Arial Black', sans-serif;
-            overflow: hidden !important; /* Это уберет возможность прокрутки к старым кнопкам */
+            overflow: hidden !important; /* Убирает скролл и скрывает дубликаты внизу */
         }
 
+        /* 2. ГЛАВНЫЙ ЭКРАН */
         .hero {
             position: relative;
             width: 100%;
@@ -29,12 +30,13 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            /* Путь к папке images с маленькой буквы */
+            /* Путь к фото с маленькой буквы images */
             background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
                         url('images/hero3.jpg') no-repeat center center;
             background-size: contain; 
         }
 
+        /* 3. НАВИГАЦИЯ */
         nav {
             position: absolute;
             top: 40px;
@@ -52,6 +54,7 @@
             font-family: Arial, sans-serif;
         }
 
+        /* 4. ТЕКСТОВЫЙ БЛОК */
         .content {
             z-index: 50;
         }
@@ -63,22 +66,21 @@
             text-transform: uppercase;
         }
 
-        /* Текст манифеста 16px */
         .description {
             font-family: Arial, sans-serif;
-            font-size: 16px; 
+            font-size: 16px; /* Текст манифеста 16px */
             line-height: 1.6;
             max-width: 450px;
             margin: 0 auto;
             color: #fff;
         }
 
-        /* БЛОКИРОВКА КНОПОК: если даже они останутся в коде, браузер их не покажет */
+        /* 5. ПОЛНАЯ БЛОКИРОВКА ЛИШНИХ КНОПОК */
         .btn, .btn-container, button, #buttons, .y-button, .oni-button, 
-        [class*="button"], footer, section, .bottom-content {
+        [class*="button"], footer, .bottom-text, section {
             display: none !important;
             visibility: hidden !important;
-            opacity: 0 !important;
+            height: 0 !important;
         }
     </style>
 </head>
