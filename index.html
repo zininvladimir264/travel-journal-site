@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* 1. ПОЛНАЯ БЛОКИРОВКА ЛИШНЕГО */
         * {
             margin: 0;
             padding: 0;
@@ -17,10 +16,9 @@
             background-color: #000;
             color: #fff;
             font-family: 'Arial Black', sans-serif;
-            overflow: hidden; /* Это запретит скролл к дубликатам внизу */
+            overflow: hidden; /* Запрещает скролл, чтобы дубли не вылезали */
         }
 
-        /* 2. НАСТРОЙКА ФОНА */
         .hero {
             position: relative;
             width: 100%;
@@ -30,13 +28,12 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            /* Путь к папке images, который вы подтвердили */
+            /* Путь к фото в папке images */
             background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
                         url('images/hero3.jpg') no-repeat center center;
             background-size: contain; 
         }
 
-        /* 3. НАВИГАЦИЯ */
         nav {
             position: absolute;
             top: 40px;
@@ -54,12 +51,11 @@
             font-family: Arial, sans-serif;
         }
 
-        /* 4. ТЕКСТ (ЗАГОЛОВОК 44px, МАНИФЕСТ 16px) */
         .content {
-            position: relative;
             z-index: 50;
         }
 
+        /* Заголовок строго 44px */
         h1 {
             font-size: 44px;
             line-height: 1.0;
@@ -67,6 +63,7 @@
             text-transform: uppercase;
         }
 
+        /* Манифест на 2px больше (16px) */
         .description {
             font-family: Arial, sans-serif;
             font-size: 16px; 
@@ -76,14 +73,9 @@
             color: #fff;
         }
 
-        /* 5. ЖЕСТКОЕ УДАЛЕНИЕ КНОПОК И ДУБЛЕЙ */
-        /* Скрываем всё, что может называться кнопкой или нижним текстом */
-        footer, .buttons, .btn, .btn-container, button, #buttons, 
-        .y-button, .oni-button, [class*="button"], .bottom-content {
+        /* ЖЕСТКОЕ СКРЫТИЕ ЛЮБЫХ ОСТАТКОВ */
+        .btn, .btn-container, button, #buttons, .y-button, .oni-button, [class*="button"] {
             display: none !important;
-            visibility: hidden !important;
-            height: 0 !important;
-            overflow: hidden !important;
         }
     </style>
 </head>
@@ -97,7 +89,6 @@
     <div class="hero">
         <div class="content">
             <h1>ЕМ<br>ПЬЮ<br>ХОЖУ</h1>
-            
             <p class="description">
                 Рецептов не будет. Советов тоже. Только факт того, что было на моем столе в разных точках мира.
             </p>
