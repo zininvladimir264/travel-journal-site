@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* 1. ПОЛНАЯ БЛОКИРОВКА ЛИШНЕГО */
+        /* 1. БЛОКИРОВКА СКРОЛЛА И ЛИШНИХ ЭЛЕМЕНТОВ */
         * {
             margin: 0;
             padding: 0;
@@ -17,10 +17,10 @@
             background-color: #000;
             color: #fff;
             font-family: 'Arial Black', sans-serif;
-            overflow: hidden; /* Запрещает скролл к дубликатам внизу */
+            overflow: hidden; /* Запрещает скролл вниз, где могут быть дубли */
         }
 
-        /* 2. НАСТРОЙКА ФОНА (hero3.jpg из папки images) */
+        /* 2. ГЛАВНЫЙ ЭКРАН С ФОТО */
         .hero {
             position: relative;
             width: 100%;
@@ -31,7 +31,7 @@
             justify-content: center;
             text-align: center;
             
-            /* Путь с маленькой буквы, как на вашем скриншоте */
+            /* Путь к папке images с маленькой буквы */
             background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
                         url('images/hero3.jpg') no-repeat center center;
             background-size: contain; 
@@ -55,9 +55,8 @@
             font-family: Arial, sans-serif;
         }
 
-        /* 4. ТЕКСТ (Заголовок 44px, Манифест 16px) */
+        /* 4. ТЕКСТ (ЗАГОЛОВОК 44px, МАНИФЕСТ 16px) */
         .content {
-            position: relative;
             z-index: 50;
         }
 
@@ -70,23 +69,21 @@
 
         .description {
             font-family: Arial, sans-serif;
-            font-size: 16px; /* На 2px больше */
+            font-size: 16px; /* Увеличено на 2px по вашему запросу */
             line-height: 1.6;
             max-width: 450px;
             margin: 0 auto;
             color: #fff;
         }
 
-        /* 5. УДАЛЕНИЕ КНОПОК И ДУБЛЕЙ ТЕКСТА */
-        /* Эти строки принудительно скрывают всё, что вы просили убрать */
-        .btn, .btn-container, button, #buttons, 
-        .y-button, .oni-button, [class*="button"], 
-        .bottom-text, footer, .extra-content {
+        /* 5. ПРИНУДИТЕЛЬНОЕ СКРЫТИЕ ВСЕГО ЛИШНЕГО */
+        /* Если в файле остались старые кнопки "Я" / "ОНИ", эти стили их выключат */
+        .btn, .btn-container, button, #buttons, .y-button, .oni-button, 
+        [class*="button"], footer, .bottom-text, section {
             display: none !important;
             visibility: hidden !important;
             opacity: 0 !important;
             height: 0 !important;
-            pointer-events: none !important;
         }
     </style>
 </head>
