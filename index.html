@@ -4,12 +4,8 @@
     <meta charset="UTF-8">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Сброс настроек и запрет лишнего скролла */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* Обнуление и блокировка скролла */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body, html {
             width: 100%;
@@ -17,7 +13,7 @@
             background-color: #000;
             color: #fff;
             font-family: 'Arial Black', sans-serif;
-            overflow: hidden !important; /* Убирает дубликаты снизу */
+            overflow: hidden !important; /* Убирает лишний скролл вниз */
         }
 
         .hero {
@@ -29,7 +25,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            /* Путь к папке images с маленькой буквы */
+            /* Путь images с маленькой буквы */
             background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
                         url('images/hero3.jpg') no-repeat center center;
             background-size: contain; 
@@ -61,14 +57,14 @@
 
         .description {
             font-family: Arial, sans-serif;
-            font-size: 16px; /* Шрифт 16px */
+            font-size: 16px; /* Размер 16px */
             line-height: 1.6;
             max-width: 450px;
             margin: 0 auto;
             color: #fff;
         }
 
-        /* Принудительное скрытие всех кнопок "Я" и "ОНИ" */
+        /* Полная блокировка любых кнопок и лишнего текста */
         .btn, .btn-container, button, #buttons, .y-button, .oni-button, 
         [class*="button"], footer, section, .bottom-content {
             display: none !important;
