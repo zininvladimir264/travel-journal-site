@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Сброс всего лишнего */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body, html {
             width: 100%;
@@ -13,7 +16,7 @@
             background-color: #000;
             color: #fff;
             font-family: 'Arial Black', sans-serif;
-            overflow: hidden; /* Запрет скролла к дублям */
+            overflow: hidden; /* Запрещает скролл, чтобы дубли не вылезали */
         }
 
         .hero {
@@ -25,7 +28,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            /* Путь к вашему фото */
+            /* Путь к фото в папке images */
             background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
                         url('images/hero3.jpg') no-repeat center center;
             background-size: contain; 
@@ -35,7 +38,8 @@
             position: absolute;
             top: 40px;
             z-index: 100;
-            display: flex; gap: 40px;
+            display: flex;
+            gap: 40px;
         }
 
         nav a {
@@ -47,6 +51,11 @@
             font-family: Arial, sans-serif;
         }
 
+        .content {
+            z-index: 50;
+        }
+
+        /* Заголовок строго 44px */
         h1 {
             font-size: 44px;
             line-height: 1.0;
@@ -61,15 +70,12 @@
             line-height: 1.6;
             max-width: 450px;
             margin: 0 auto;
+            color: #fff;
         }
 
-        /* Жесткая блокировка кнопок и дублей через CSS */
-        .btn, .btn-container, button, #buttons, .y-button, .oni-button, 
-        [class*="button"], footer, section:nth-of-type(n+2) {
+        /* ЖЕСТКОЕ СКРЫТИЕ ЛЮБЫХ ОСТАТКОВ */
+        .btn, .btn-container, button, #buttons, .y-button, .oni-button, [class*="button"] {
             display: none !important;
-            visibility: hidden !important;
-            opacity: 0 !important;
-            height: 0 !important;
         }
     </style>
 </head>
@@ -88,14 +94,6 @@
             </p>
         </div>
     </div>
-
-    <script>
-        /* Скрипт-чистильщик: если Chrome найдет старые кнопки, он их удалит при загрузке */
-        window.onload = function() {
-            const elementsToRemove = document.querySelectorAll('button, .btn, .btn-container, #buttons');
-            elementsToRemove.forEach(el => el.remove());
-        };
-    </script>
 
 </body>
 </html>
