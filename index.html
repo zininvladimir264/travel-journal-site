@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ЕМ ПЬЮ ХОЖУ</title>
+    <style>
+        /* Полный сброс и блокировка скролла */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body, html {
+            width: 100%;
+            height: 100vh;
+            background-color: #000;
+            color: #fff;
+            font-family: 'Arial Black', sans-serif;
+            overflow: hidden !important; 
+            position: fixed;
+        }
+
+        /* Главный экран */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            /* Путь к фото */
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+                        url('images/hero3.jpg') no-repeat center center;
+            background-size: contain; 
+        }
+
+        /* Навигация */
+        nav {
+            position: absolute;
+            top: 40px;
+            z-index: 100;
+            display: flex;
+            gap: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 2px;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Текст */
+        h1 {
+            font-size: 44px;
+            line-height: 1.0;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .description {
+            font-family: Arial, sans-serif;
+            font-size: 16px; 
+            line-height: 1.6;
+            max-width: 450px;
+            margin: 0 auto;
+            color: #fff;
+        }
+
+        /* ПРИНУДИТЕЛЬНОЕ СКРЫТИЕ ВСЕГО ЛИШНЕГО */
+        footer, .btn, .btn-container, button, #buttons, 
+        .y-button, .oni-button, [class*="button"], .bottom-text {
+            display: none !important;
+            visibility: hidden !important;
+            height: 0 !important;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">ГЛАВНАЯ</a>
+        <a href="countries.html">СТРАНЫ</a>
+    </nav>
+
+    <div class="hero">
+        <div class="content">
+            <h1>ЕМ<br>ПЬЮ<br>ХОЖУ</h1>
+            <p class="description">
+                Рецептов не будет. Советов тоже. Только факт того, что было на моем столе в разных точках мира.
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>
