@@ -12,7 +12,7 @@
             background-color: #000;
             color: #fff;
             font-family: 'Arial Black', sans-serif;
-            overflow: hidden !important; 
+            overflow: hidden !important; /* ЗАМОК: не дает скроллить к мусору внизу */
         }
 
         .hero {
@@ -22,9 +22,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            /* Используем cover, чтобы фото было на весь экран */
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
-                        url('images/hero3.jpg?v=10') no-repeat center center;
+            text-align: center;
+            /* background-size: cover растягивает фото на весь экран */
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                        url('images/hero3.jpg?v=99') no-repeat center center;
             background-size: cover; 
         }
 
@@ -60,8 +61,8 @@
             margin: 0 auto;
         }
 
-        /* Полная блокировка любых "призрачных" кнопок */
-        .btn, .btn-container, button, #buttons, [class*="button"] {
+        /* Полное удаление кнопок из системы */
+        .btn, .btn-container, button, #buttons, [class*="button"], footer {
             display: none !important;
         }
     </style>
