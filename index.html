@@ -5,87 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Полная блокировка мусора и скролла */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+        /* Блокируем всё лишнее на корню */
         html, body {
-            width: 100%;
-            height: 100%;
-            background-color: #000;
-            color: #fff;
-            font-family: 'Arial Black', sans-serif;
-            overflow: hidden !important; 
-            position: fixed; 
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            background: #000; overflow: hidden !important;
+            position: fixed; touch-action: none;
         }
 
-        .hero {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            z-index: 999; 
+        /* Главный экран-щит: он закроет собой любой старый мусор */
+        #main-screen {
+            position: fixed; top: 0; left: 0;
+            width: 100vw; height: 100vh;
             background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                        url('images/hero3.jpg?v=600') no-repeat center center;
+                        url('images/hero3.jpg?v=999') no-repeat center center;
             background-size: cover;
+            z-index: 99999; /* Самый высокий приоритет */
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            text-align: center; color: #fff;
         }
 
         nav {
-            position: absolute;
-            top: 80px; /* Опустил чуть ниже (было 40px) */
-            z-index: 1000;
-            display: flex;
-            gap: 40px;
-            width: 100%;
-            justify-content: center;
+            position: absolute; 
+            top: 60px; /* Повыше (было 80) */
+            display: flex; gap: 40px;
         }
 
         nav a {
-            text-decoration: none;
-            color: #fff;
-            text-transform: uppercase;
-            font-size: 16px; /* Увеличил на 2px (было 14px) */
-            letter-spacing: 2px;
-            font-family: Arial, sans-serif;
+            text-decoration: none; color: #fff;
+            text-transform: uppercase; font-size: 16px;
+            letter-spacing: 2px; font-family: Arial, sans-serif;
             font-weight: bold;
         }
 
         h1 {
-            font-size: 58px;
-            line-height: 1.0;
-            margin-bottom: 25px;
-            text-transform: uppercase;
+            font-family: 'Arial Black', sans-serif;
+            font-size: 58px; line-height: 1.0;
+            margin-bottom: 25px; text-transform: uppercase;
         }
 
         .description {
             font-family: Arial, sans-serif;
-            font-size: 22px;
-            line-height: 1.4;
-            max-width: 85%;
-            margin: 0 auto;
+            font-size: 22px; line-height: 1.4;
+            max-width: 85%; margin: 0 auto;
         }
 
-        /* Жесткая обрезка кнопок */
-        footer, section, button, .btn, #buttons, [class*="button"], .y-button, .oni-button {
+        /* Прячем абсолютно всё, что не входит в наш щит */
+        body > *:not(#main-screen) {
             display: none !important;
             visibility: hidden !important;
-            height: 0 !important;
-            overflow: hidden !important;
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="index.html">ГЛАВНАЯ</a>
-        <a href="countries.html">СТРАНЫ</a>
-    </nav>
+    <div id="main-screen">
+        <nav>
+            <a href="index.html">ГЛАВНАЯ</a>
+            <a href="countries.html">СТРАНЫ</a>
+        </nav>
 
-    <div class="hero">
         <div class="content">
             <h1>ЕМ<br>ПЬЮ<br>ХОЖУ</h1>
             <p class="description">
