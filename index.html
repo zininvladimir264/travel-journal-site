@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Обнуление и блокировка скролла */
+        /* Полная блокировка мусора и скролла */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         html, body {
@@ -14,8 +14,8 @@
             background-color: #000;
             color: #fff;
             font-family: 'Arial Black', sans-serif;
-            overflow: hidden !important; /* Обрезает всё, что ниже экрана */
-            position: fixed; /* Запрещает тянуть страницу вверх-вниз */
+            overflow: hidden !important; 
+            position: fixed; 
         }
 
         .hero {
@@ -28,17 +28,16 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            /* z-index 999 делает этот слой самым верхним, закрывая мусор */
             z-index: 999; 
             background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                        url('images/hero3.jpg?v=500') no-repeat center center;
+                        url('images/hero3.jpg?v=600') no-repeat center center;
             background-size: cover;
         }
 
         nav {
             position: absolute;
-            top: 40px;
-            z-index: 1000; /* Навигация поверх всего */
+            top: 80px; /* Опустил чуть ниже (было 40px) */
+            z-index: 1000;
             display: flex;
             gap: 40px;
             width: 100%;
@@ -49,13 +48,14 @@
             text-decoration: none;
             color: #fff;
             text-transform: uppercase;
-            font-size: 14px;
+            font-size: 16px; /* Увеличил на 2px (было 14px) */
             letter-spacing: 2px;
             font-family: Arial, sans-serif;
+            font-weight: bold;
         }
 
         h1 {
-            font-size: 58px; /* Твой размер +10px */
+            font-size: 58px;
             line-height: 1.0;
             margin-bottom: 25px;
             text-transform: uppercase;
@@ -63,16 +63,18 @@
 
         .description {
             font-family: Arial, sans-serif;
-            font-size: 22px; /* Твой размер +4px */
+            font-size: 22px;
             line-height: 1.4;
             max-width: 85%;
             margin: 0 auto;
         }
 
-        /* Принудительно прячем всё, что не входит в наш Hero */
-        footer, section, button, .btn, #buttons, [class*="button"] {
+        /* Жесткая обрезка кнопок */
+        footer, section, button, .btn, #buttons, [class*="button"], .y-button, .oni-button {
             display: none !important;
             visibility: hidden !important;
+            height: 0 !important;
+            overflow: hidden !important;
         }
     </style>
 </head>
