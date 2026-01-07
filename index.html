@@ -4,14 +4,29 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ЕМ ПЬЮ ХОЖУ</title>
 <style>
+/* ИСПРАВЛЕНО по скриншоту 1000028656: убрали position: fixed у body */
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{width:100%;height:100dvh;background:#000;color:#fff;font-family:'Arial Black',sans-serif;overflow:hidden!important}
-#main-screen{position:relative;width:100%;height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('images/hero3.jpg?v=123') no-repeat center center;background-size:cover}
+html,body{width:100%;background:#000;color:#fff;font-family:'Arial Black',sans-serif;overflow-x:hidden}
+
+/* ИСПРАВЛЕНО по скриншоту 1000028657: используем relative и 100dvh */
+#main-screen{
+    position: relative;
+    min-height: 100dvh; 
+    width: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('images/hero3.jpg?v=999') no-repeat center center;
+    background-size: cover;
+}
+
 nav{position:absolute;top:60px;display:flex;gap:40px;z-index:100}
 nav a{text-decoration:none;color:#fff;text-transform:uppercase;font-size:16px;letter-spacing:2px;font-family:Arial,sans-serif;font-weight:bold}
 h1{font-size:58px;line-height:1.0;margin-bottom:25px;text-transform:uppercase}
 .description{font-family:Arial,sans-serif;font-size:22px;line-height:1.4;max-width:85%;margin:0 auto}
-footer,section,button,.btn,[class*="button"],#buttons{display:none!important;visibility:hidden!important}
+
+/* ИСПРАВЛЕНО по скриншоту 1000028658: удалили опасный блок body > *:not */
+footer,section,button,.btn,[class*="button"],.y-button,.oni-button{display:none!important}
 </style>
 </head>
 <body>
@@ -22,8 +37,5 @@ footer,section,button,.btn,[class*="button"],#buttons{display:none!important;vis
 <p class="description">Рецептов не будет. Советов тоже. Только факт того, что было на моем столе в разных точках мира.</p>
 </div>
 </div>
-<script>
-if('caches' in window){caches.keys().then(names=>{for(let name of names)caches.delete(name);});}
-</script>
 </body>
 </html>
