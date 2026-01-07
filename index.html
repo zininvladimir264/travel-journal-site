@@ -2,33 +2,34 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ЕМ ПЬЮ ХОЖУ</title>
     <style>
-        /* Блокируем всё лишнее на корню */
+        /* УБРАЛИ position: fixed и лишние блокировки */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         html, body {
-            margin: 0; padding: 0; width: 100%; height: 100%;
-            background: #000; overflow: hidden !important;
-            position: fixed; touch-action: none;
+            margin: 0; padding: 0; width: 100%;
+            background: #000; color: #fff;
+            font-family: 'Arial Black', sans-serif;
         }
 
-        /* Главный экран-щит: он закроет собой любой старый мусор */
+        /* ЗАМЕНИЛИ на relative и 100dvh для мобильных */
         #main-screen {
-            position: fixed; top: 0; left: 0;
-            width: 100vw; height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                        url('images/hero3.jpg?v=999') no-repeat center center;
-            background-size: cover;
-            z-index: 99999; /* Самый высокий приоритет */
+            position: relative;
+            min-height: 100dvh; /* Обязательно для мобильных */
+            width: 100%;
             display: flex; flex-direction: column;
             align-items: center; justify-content: center;
-            text-align: center; color: #fff;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                        url('images/hero3.jpg?v=777') no-repeat center center;
+            background-size: cover;
         }
 
         nav {
-            position: absolute; 
-            top: 60px; /* Повыше (было 80) */
-            display: flex; gap: 40px;
+            position: absolute; top: 60px;
+            display: flex; gap: 40px; z-index: 10;
         }
 
         nav a {
@@ -39,7 +40,6 @@
         }
 
         h1 {
-            font-family: 'Arial Black', sans-serif;
             font-size: 58px; line-height: 1.0;
             margin-bottom: 25px; text-transform: uppercase;
         }
@@ -50,11 +50,7 @@
             max-width: 85%; margin: 0 auto;
         }
 
-        /* Прячем абсолютно всё, что не входит в наш щит */
-        body > *:not(#main-screen) {
-            display: none !important;
-            visibility: hidden !important;
-        }
+        /* УДАЛИЛИ насильственное скрытие body > *:not, которое вызывало дубли */
     </style>
 </head>
 <body>
